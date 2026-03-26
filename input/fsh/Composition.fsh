@@ -1,46 +1,46 @@
-Profile: CompositionOfBirth
+Profile: CompositionBirth
 Parent: Composition
-Id: composition-of-birth
-Title: "Composition of Birth"
-Description: "Composition for Birth profile"
+Id: composition-birth
+Title: "Bith Composition"
+Description: "Composition foor Birth profile"
 * ^experimental = true
 * ^status = #draft
 * ^publisher = "Uzinfocom"
 
 * identifier MS
-* identifier ^short = "The unique identifier of the document"
+* identifier ^short = "Уникальный идентификатор документа"
 
 * status MS
-* status ^short = "Document status"
+* status ^short = "Статус документа"
 * status from  http://hl7.org/fhir/ValueSet/composition-status (required)
 
 * type MS
-* type ^short = "Document type"
+* type ^short = "Тип документа"
 * type from  http://hl7.org/fhir/ValueSet/doc-typecodes (required)
 
 * date MS
-* date ^short = "Date of document creation"
+* date ^short = "Дата составления документа"
 
 * title MS
-* title ^short = "Document name"
+* title ^short = "Название документа"
 
 * subject MS
-* subject ^short = "Main patient (child)"
+* subject ^short = "Основной пациент (ребёнок)"
 * subject only Reference(Patient)
 
 * author MS
-* author ^short = "Who issued it (paramedic, doctor)"
+* author ^short = "Кто оформил (фельдшер, врач)"
 * author only Reference(PractitionerRole)
 
 * custodian MS
-* custodian ^short = "The organization responsible for the document"
+* custodian ^short = "Организация, ответственная за документ"
 * custodian only Reference(Organization)
 
 * section MS
-* section ^short = "Sections with embedded data"
+* section ^short = "Секции с вложенными данными"
 
 * section.title MS
-* section.title ^short = "Label for the section"
+* section.title ^short = "Метка для раздела"
 
-* section.entry MS
-* section.entry ^short = "Link to the data confirming this section"
+* section.entry
+* section.entry ^short = "Ссылка на данные, подтверждающие этот раздел"
