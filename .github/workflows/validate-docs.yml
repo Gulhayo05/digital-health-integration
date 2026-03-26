@@ -47,16 +47,16 @@ jobs:
           # Configuration
           MAX_ALLOWED_ERRORS=1
           MAX_ALLOWED_WARNINGS=0
-          
+
           if [ ! -f "output/qa.json" ]; then
             echo "❌ QA file not found: output/qa.json"
             exit 1
           fi
-          
+
           # Extract errors and warnings from qa.json
           ERRORS=$(jq -r '.errs // 0' output/qa.json)
           WARNINGS=$(jq -r '.warnings // 0' output/qa.json)
-          
+
           echo "  QA Results:"
           echo "   Errors: $ERRORS"
           echo "   Warnings: $WARNINGS"
