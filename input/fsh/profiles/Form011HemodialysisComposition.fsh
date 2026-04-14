@@ -30,13 +30,16 @@ Description: "Composition profile for Form 011 (Hemodialysis Session Record) doc
 * section[vitalSigns].code 1..1
 * section[vitalSigns].code = $loinc#8716-3 "Vital signs note"
 * section[vitalSigns].entry 1..*
+* section[vitalSigns].entry only Reference(UZCoreObservation)
 
 * section[dialysisParameters].title 1..1
 * section[dialysisParameters].code 1..1
 * section[dialysisParameters].code = $loinc#29554-3 "Procedure Narrative"
 * section[dialysisParameters].entry 1..*
+* section[dialysisParameters].entry only Reference(Procedure or UZCoreObservation)
 
 * section[medications].title 1..1
 * section[medications].code 1..1
 * section[medications].code = $loinc#10160-0 "History of Medication use Narrative"
 * section[medications].entry 1..*
+* section[medications].entry only Reference(MedicationAdministration)
