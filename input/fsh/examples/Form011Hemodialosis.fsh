@@ -42,7 +42,7 @@ Description: "Example of a hemodialysis session record"
 * entry[=].resource = provenance-signature
 
 Instance: composition-001
-InstanceOf: Composition
+InstanceOf: Form011HemodialysisComposition
 Usage: #inline
 * language = #en
 * identifier[0].system = "urn:ietf:rfc:3986"
@@ -50,23 +50,23 @@ Usage: #inline
 * identifier[+].system = "https://dhp.uz/fhir/core/sid/doc/uz/form-number"
 * identifier[=].value = "011"
 * status = #final
-* type = $loinc#11516-2 "Physician Episode of care medical records"
+* type = $loinc#29749-9 "Dialysis records"
 * category = $document-category-cs#form-011 "Hemodialysis session record"
 * subject = Reference(urn:uuid:b2c3d4e5-f6a7-8901-bcde-f12345678901)
 * encounter = Reference(urn:uuid:c3d4e5f6-a7b8-9012-cdef-123456789012)
 * date = "2026-01-06T13:30:00+05:00"
 * author = Reference(urn:uuid:d4e5f6a7-b8c9-0123-defa-234567890123)
 * title = "Form 011 - Hemodialysis Session Record"
-* section[0].title = "Vital Signs"
+* section[vitalSigns].title = "Vital Signs"
 * section[=].code = $loinc#8716-3 "Vital signs note"
 * section[=].entry = Reference(urn:uuid:a7b8c9d0-e1f2-3456-abcd-567890123456)
-* section[+].title = "Dialysis Parameters"
+* section[dialysisParameters].title = "Dialysis Parameters"
 * section[=].code = $loinc#29554-3 "Procedure Narrative"
 * section[=].entry[0] = Reference(urn:uuid:f6a7b8c9-d0e1-2345-fabc-456789012345)
 * section[=].entry[+] = Reference(urn:uuid:e1f2a3b4-c5d6-7890-efab-901234567890)
 * section[=].entry[+] = Reference(urn:uuid:f2a3b4c5-d6e7-8901-fabc-012345678901)
 * section[=].entry[+] = Reference(urn:uuid:a3b4c5d6-e7f8-9012-abcd-123456789012)
-* section[+].title = "Medications"
+* section[medications].title = "Medications"
 * section[=].code = $loinc#10160-0 "History of Medication use Narrative"
 * section[=].entry = Reference(urn:uuid:b4c5d6e7-f8a9-0123-bcde-234567890123)
 
