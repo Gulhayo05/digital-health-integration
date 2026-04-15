@@ -38,11 +38,11 @@ Form 011 captures clinical data from hemodialysis sessions. The form data maps t
 
 ### Bundle structure
 
-The Form 011 document is structured as a FHIR Bundle containing:
+The Form 011 document is structured as a FHIR Bundle containing a [Form011HemodialysisComposition](StructureDefinition-form-011-hemodialysis-composition.html) Composition:
 
 ```
 Bundle (document)
-├── Composition ([Form011HemodialysisComposition](StructureDefinition-form-011-hemodialysis-composition.html))
+├── Composition (Form011HemodialysisComposition)
 ├── Patient (patient demographics)
 ├── Encounter (session encounter)
 ├── Procedure (hemodialysis procedure)
