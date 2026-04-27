@@ -225,13 +225,13 @@ Usage: #inline
 * admission.origin.display = "From home"
 
 //Comments will be removed in this section after UpdatedCodeSystems_And_ValueSets is merged into the main branch.
-// * admission.reAdmission = https://terminology.dhp.uz/fhir/core/CodeSystem/re-admission-local-cs#first-time "First time"
-// * reason.use = https://terminology.dhp.uz/CodeSystem/encounter-purpose-cs#enc-001 "Diagnostics"
-// * priority = https://terminology.dhp.uz/fhir/core/CodeSystem/encounter-local-priority-cs#transferred "Transferred from another facility"
-// * admission.admitSource = https://terminology.dhp.uz/fhir/core/CodeSystem/admit-source-local-cs#mserv-0003-00002 "Dispensary"
-// * admission.dischargeDisposition = https://terminology.dhp.uz/fhir/core/CodeSystem/encounter-discharge-disposition-home-cs#mserv-0004-00001 "Kasalxonaga yotqizildi"
-// * subjectStatus = https://terminology.dhp.uz/fhir/core/CodeSystem/encounter-local-subject-status-cs#loc-cs-001 "Recovered"
-// * location[0].form = https://terminology.dhp.uz/fhir/core/CodeSystem/organizational-specialization-cs#101.0 "Therapy"
+* admission.reAdmission = $re-admission-local-cs#first-time "First time"
+* reason.use = https://terminology.dhp.uz/CodeSystem/encounter-purpose-cs#enc-001 "Diagnostics"
+* priority = $encounter-local-priority-cs#transferred "Transferred from another facility"
+* admission.admitSource = $admit-source-local-cs#mserv-0003-00002 "Dispensary"
+* admission.dischargeDisposition = https://terminology.dhp.uz/fhir/core/CodeSystem/encounter-discharge-disposition-home-cs#mserv-0004-00001 "Kasalxonaga yotqizildi"
+* subjectStatus =  $encounter-local-subject-status-cs#loc-cs-001 "Recovered"
+* location[0].form = organizational-specialization-cs#101.0 "Therapy"
 
 
 * length = 10 'd' "days"

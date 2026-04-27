@@ -1,6 +1,6 @@
 CodeSystem: EncounterPurposeCS
 Id: encounter-purpose-cs
-Title: "Encounter Purpose Classification"
+Title: "Encounter Purpose Code System"
 Description: "A code system representing the purpose of patient encounters in healthcare (uz/ru/en)"
 * insert OriginalCodeSystemDraft(encounter-purpose-cs)
 

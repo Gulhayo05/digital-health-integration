@@ -1,7 +1,7 @@
 CodeSystem: TBDrugSensitivityCS
 Id: tb-drug-sensitivity
-Title: "TB Drug Sensitivity Classification"
-Description: "O‘pka silida doriga sezgirlik darajalari (uz/ru/en)"
+Title: "Tuberculosis Drug Susceptibility Code System"
+Description: "A code system representing drug susceptibility and resistance categories in tuberculosis (uz/ru/en)"
 * insert OriginalCodeSystemDraft(tb-drug-sensitivity)
 
 * #Tub-004-001 "Sezgir"
