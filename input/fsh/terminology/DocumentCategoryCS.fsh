@@ -190,3 +190,9 @@ Description: "Categories for clinical documents and other knowledge resources in
   * ^designation[=].value = "Psychiatric/narcological discharge statistical card"
   * ^designation[+].language = #ru
   * ^designation[=].value = "Психиатрическая/наркологическая статистическая карта выписки"
+
+* #form-066 "Shifoxonadan chiqarilganlarning statistik kartasi"
+  * ^designation[0].language = #en
+  * ^designation[=].value = "Hospital discharge statistical card"
+  * ^designation[+].language = #ru
+  * ^designation[=].value = "Статистическая карта выписанного из стационара"

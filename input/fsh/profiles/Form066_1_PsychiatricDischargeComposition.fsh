@@ -1,6 +1,6 @@
-Profile: Form066PsychiatricDischargeComposition
+Profile: Form066_1_PsychiatricDischargeComposition
 Parent: Composition
-Id: form-066-psychiatric-discharge-composition
+Id: form-066-1-psychiatric-discharge-composition
 Title: "Form 066-1 - Psychiatric/Narcological Discharge Statistical Card Composition"
 Description: "Composition profile for Form 066-1."
 
@@ -40,9 +40,11 @@ Description: "Composition profile for Form 066-1."
 
 * section contains
     personalInformation 1..1 and
+    residenceInformation 1..1 and
     admissionInformation 1..1 and
     hospitalizationInformation 1..1 and
     finalDiagnosis 1..1 and
+    pathologoanatomicDiagnosis 0..1 and
     laboratoryResults 1..1 and
     paymentInformation 1..1 and
     tuberculosisDrugSensitivity 1..1 and
@@ -59,6 +61,13 @@ Description: "Composition profile for Form 066-1."
 * section[personalInformation].entry only Reference(UZCorePatient or RelatedPerson or Organization or UZCoreSocioeconomicObservation)
 * section[personalInformation].entry ^short = "1.1–1.22: Personal Identification Number (PIN), surname, first name, patronymic, date of birth, gender, citizenship, ID or passport, social status, benefit category, residential address, phone number, email, assigned institution, education, source of livelihood, workplace, position."
 
+
+* section[residenceInformation].title 1..1
+* section[residenceInformation].code 1..1
+* section[residenceInformation].code = $loinc#56799-0 "Address"
+* section[residenceInformation].entry 1..*
+* section[residenceInformation].entry only Reference(UZCorePatient or Organization)
+
 // 2. Shifoxonaga yotqizish ma'lumotlari
 * section[admissionInformation].title 1..1
 * section[admissionInformation].title ^short = "2. Hospital admission information"
@@ -72,11 +81,9 @@ Description: "Composition profile for Form 066-1."
 // 3. Shifoxonada yotqizish ma'lumotlari
 * section[hospitalizationInformation].title 1..1
 * section[hospitalizationInformation].title ^short = "3. Hospitalization information"
-
 * section[hospitalizationInformation].code 1..1
 * section[hospitalizationInformation].code = $loinc#8648-8 "Hospital course note"
 * section[hospitalizationInformation].code ^short = "3.1–3.9 Admission department diagnosis, date and time of hospitalization, bed type, discharge date and time, ICU stay, number of bed-days, discharge department, discharge disposition, patient condition, disability status, number of sick leave days"
-
 * section[hospitalizationInformation].entry 1..*
 * section[hospitalizationInformation].entry only Reference(Encounter or Condition or UZCoreObservation or Organization)
 * section[hospitalizationInformation].entry ^short = "3.1–3.9 Treatment and discharge information"
@@ -84,23 +91,25 @@ Description: "Composition profile for Form 066-1."
 // 4. Yakuniy tashxis
 * section[finalDiagnosis].title 1..1
 * section[finalDiagnosis].title ^short = "4. Final diagnosis"
-
 * section[finalDiagnosis].code 1..1
 * section[finalDiagnosis].code = $loinc#11535-2 "Hospital discharge diagnosis note"
 * section[finalDiagnosis].code ^short = "4.1–4.9 Primary diagnosis, competing diagnosis, comorbid diagnosis, background diagnosis, complications, pathological diagnosis, immediate cause of death, underlying cause of death, primary disease, other significant conditions"
-
 * section[finalDiagnosis].entry 1..*
 * section[finalDiagnosis].entry only Reference(Condition)
 * section[finalDiagnosis].entry ^short = "4.1–4.9 All diagnoses and causes of death"
 
+* section[pathologoanatomicDiagnosis].title 1..1
+* section[pathologoanatomicDiagnosis].code 1..1
+* section[pathologoanatomicDiagnosis].code = $loinc#60567-5 "Comprehensive pathology report panel"
+* section[pathologoanatomicDiagnosis].entry 1..*
+* section[pathologoanatomicDiagnosis].entry only Reference(UZCoreCondition)
+
 // 5. Tahlil natijasi
 * section[laboratoryResults].title 1..1
 * section[laboratoryResults].title ^short = "5. Laboratory results"
-
 * section[laboratoryResults].code 1..1
 * section[laboratoryResults].code = $loinc#30954-2 "Relevant diagnostic tests/laboratory data note"
 * section[laboratoryResults].code ^short = "5.1–5.4 HIV/AIDS, RW (syphilis), Hepatitis B, Hepatitis C – dates and results; 7. Tuberculosis drug susceptibility"
-
 * section[laboratoryResults].entry 1..*
 * section[laboratoryResults].entry only Reference(UZCoreObservation)
 * section[laboratoryResults].entry ^short = "5.1–5.4 Laboratory results and section 7 data"
@@ -108,11 +117,9 @@ Description: "Composition profile for Form 066-1."
 // 6. To'lov turi
 * section[paymentInformation].title 1..1
 * section[paymentInformation].title ^short = "6. Payment information"
-
 * section[paymentInformation].code 1..1
 * section[paymentInformation].code = $loinc#48768-6 "Payment sources Document"
 * section[paymentInformation].code ^short = "6. Payment type"
-
 * section[paymentInformation].entry 1..*
 * section[paymentInformation].entry only Reference(Coverage or Basic)
 * section[paymentInformation].entry ^short = "6. Payment type (e.g., Ministry of Health budget)"
@@ -120,11 +127,9 @@ Description: "Composition profile for Form 066-1."
 // 7. O'pka silida doriga sezgirlik
 * section[tuberculosisDrugSensitivity].title 1..1
 * section[tuberculosisDrugSensitivity].title ^short = "7. Tuberculosis drug susceptibility"
-
 * section[tuberculosisDrugSensitivity].code 1..1
 * section[tuberculosisDrugSensitivity].code = $loinc#18769-0 "Microbial susceptibility tests Set"
 * section[tuberculosisDrugSensitivity].code ^short = "7. Tuberculosis drug susceptibility"
-
 * section[tuberculosisDrugSensitivity].entry 1..*
 * section[tuberculosisDrugSensitivity].entry only Reference(UZCoreObservation)
 * section[tuberculosisDrugSensitivity].entry ^short = "7. Tuberculosis drug susceptibility"
@@ -132,11 +137,9 @@ Description: "Composition profile for Form 066-1."
 // 8. Vaqtincha mehnatga layoqatsizlik varaqasi
 * section[temporaryDisability].title 1..1
 * section[temporaryDisability].title ^short = "8. Temporary disability certificate"
-
 * section[temporaryDisability].code 1..1
 * section[temporaryDisability].code = $loinc#34109-9 "Note"
 * section[temporaryDisability].code ^short = "8.1 Opening date; 8.2 Closing date"
-
 * section[temporaryDisability].entry 1..*
 * section[temporaryDisability].entry only Reference(Basic or UZCoreObservation)
 * section[temporaryDisability].entry ^short = "8.1–8.2 Disability certificate dates"
@@ -144,11 +147,9 @@ Description: "Composition profile for Form 066-1."
 // 9. Mas'ul shaxslar
 * section[responsiblePersons].title 1..1
 * section[responsiblePersons].title ^short = "9. Responsible persons"
-
 * section[responsiblePersons].code 1..1
 * section[responsiblePersons].code = $loinc#51899-3 "Details Document"
 * section[responsiblePersons].code ^short = "9.1 Attending physician; 9.2 Head of department; 9.3 Senior nurse"
-
 * section[responsiblePersons].entry 1..*
 * section[responsiblePersons].entry only Reference(UZCorePractitioner or PractitionerRole)
 * section[responsiblePersons].entry ^short = "9.1–9.3 Responsible healthcare professionals"

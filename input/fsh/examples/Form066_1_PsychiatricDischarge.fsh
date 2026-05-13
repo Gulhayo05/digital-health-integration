@@ -10,146 +10,146 @@ Description: "Example of a psychiatric/narcological hospital discharge statistic
 * timestamp = "2026-01-15T14:30:00+05:00"
 
 * entry[0].fullUrl = "urn:uuid:06600001-1111-2222-3333-444444444444"
-* entry[=].resource = composition-066-001
+* entry[=].resource = composition-066-1-001
 
 * entry[+].fullUrl = "urn:uuid:06600002-1111-2222-3333-444444444444"
-* entry[=].resource = patient-066-001
+* entry[=].resource = patient-066-1-001
 
 * entry[+].fullUrl = "urn:uuid:06600003-1111-2222-3333-444444444444"
-* entry[=].resource = encounter-066-001
+* entry[=].resource = encounter-066-1-001
 
 * entry[+].fullUrl = "urn:uuid:06600004-1111-2222-3333-444444444444"
-* entry[=].resource = organization-066-001
+* entry[=].resource = organization-066-1-001
 
 * entry[+].fullUrl = "urn:uuid:06600005-1111-2222-3333-444444444444"
-* entry[=].resource = practitioner-066-001
+* entry[=].resource = practitioner-066-1-001
 
 * entry[+].fullUrl = "urn:uuid:06600006-1111-2222-3333-444444444444"
-* entry[=].resource = practitioner-066-002
+* entry[=].resource = practitioner-066-1-002
 
 * entry[+].fullUrl = "urn:uuid:06600007-1111-2222-3333-444444444444"
-* entry[=].resource = practitioner-066-003
+* entry[=].resource = practitioner-066-1-003
 
 * entry[+].fullUrl = "urn:uuid:06600008-1111-2222-3333-444444444444"
-* entry[=].resource = observation-social-status-066
+* entry[=].resource = observation-social-status-066-1
 
 * entry[+].fullUrl = "urn:uuid:06600009-1111-2222-3333-444444444444"
-* entry[=].resource = observation-benefits-066
+* entry[=].resource = observation-benefits-066-1
 
 * entry[+].fullUrl = "urn:uuid:06600010-1111-2222-3333-444444444444"
-* entry[=].resource = observation-education-066
+* entry[=].resource = observation-education-066-1
 
 * entry[+].fullUrl = "urn:uuid:06600011-1111-2222-3333-444444444444"
-* entry[=].resource = observation-employment-066
+* entry[=].resource = observation-employment-066-1
 
 * entry[+].fullUrl = "urn:uuid:06600012-1111-2222-3333-444444444444"
-* entry[=].resource = condition-referral-diagnosis-066
+* entry[=].resource = condition-referral-diagnosis-066-1
 
 * entry[+].fullUrl = "urn:uuid:06600013-1111-2222-3333-444444444444"
-* entry[=].resource = service-request-066
+* entry[=].resource = service-request-066-1
 
 * entry[+].fullUrl = "urn:uuid:06600014-1111-2222-3333-444444444444"
-* entry[=].resource = condition-admission-diagnosis-066
+* entry[=].resource = condition-admission-diagnosis-066-1
 
 * entry[+].fullUrl = "urn:uuid:06600015-1111-2222-3333-444444444444"
-* entry[=].resource = condition-main-diagnosis-066
+* entry[=].resource = condition-main-diagnosis-066-1
 
 * entry[+].fullUrl = "urn:uuid:06600016-1111-2222-3333-444444444444"
-* entry[=].resource = condition-competing-diagnosis-066
+* entry[=].resource = condition-competing-diagnosis-066-1
 
 * entry[+].fullUrl = "urn:uuid:06600017-1111-2222-3333-444444444444"
-* entry[=].resource = condition-comorbid-diagnosis-066
+* entry[=].resource = condition-comorbid-diagnosis-066-1
 
 * entry[+].fullUrl = "urn:uuid:06600018-1111-2222-3333-444444444444"
-* entry[=].resource = condition-background-diagnosis-066
+* entry[=].resource = condition-background-diagnosis-066-1
 
 * entry[+].fullUrl = "urn:uuid:06600019-1111-2222-3333-444444444444"
-* entry[=].resource = condition-complication-066
+* entry[=].resource = condition-complication-066-1
 
 * entry[+].fullUrl = "urn:uuid:06600020-1111-2222-3333-444444444444"
-* entry[=].resource = observation-hiv-066
+* entry[=].resource = observation-hiv-066-1
 
 * entry[+].fullUrl = "urn:uuid:06600021-1111-2222-3333-444444444444"
-* entry[=].resource = observation-rw-066
+* entry[=].resource = observation-rw-066-1
 
 * entry[+].fullUrl = "urn:uuid:06600022-1111-2222-3333-444444444444"
-* entry[=].resource = observation-hepb-066
+* entry[=].resource = observation-hepb-066-1
 
 * entry[+].fullUrl = "urn:uuid:06600023-1111-2222-3333-444444444444"
-* entry[=].resource = observation-hepc-066
+* entry[=].resource = observation-hepc-066-1
 
 * entry[+].fullUrl = "urn:uuid:06600024-1111-2222-3333-444444444444"
-* entry[=].resource = coverage-066
+* entry[=].resource = coverage-066-1
 
 * entry[+].fullUrl = "urn:uuid:06600027-1111-2222-3333-444444444444"
-* entry[=].resource = provenance-signature-066
+* entry[=].resource = provenance-signature-066-1
 
 * entry[+].fullUrl = "urn:uuid:06600028-1111-2222-3333-444444444444"
-* entry[=].resource = observation-tb-drug-sensitivity-066
+* entry[=].resource = observation-tb-drug-sensitivity-066-1
 
 * entry[+].fullUrl = "urn:uuid:06600029-1111-2222-3333-444444444444"
-* entry[=].resource = practitionerrole-066-001
+* entry[=].resource = practitionerrole-066-1-001
 
 * entry[+].fullUrl = "urn:uuid:06600030-1111-2222-3333-444444444444"
-* entry[=].resource = practitionerrole-066-002
+* entry[=].resource = practitionerrole-066-1-002
 
 * entry[+].fullUrl = "urn:uuid:06600031-1111-2222-3333-444444444444"
-* entry[=].resource = practitionerrole-066-003
+* entry[=].resource = practitionerrole-066-1-003
 
 * entry[+].fullUrl = "urn:uuid:06600032-1111-2222-3333-444444444444"
-* entry[=].resource = location-066-001
+* entry[=].resource = location-066-1-001
 
 * entry[+].fullUrl = "urn:uuid:06600033-1111-2222-3333-444444444444"
-* entry[=].resource = observation-disability-group-066
+* entry[=].resource = observation-disability-group-066-1
 
 * entry[+].fullUrl = "urn:uuid:06600034-1111-2222-3333-444444444444"
-* entry[=].resource = condition-immediate-cause-of-death-066
+* entry[=].resource = condition-immediate-cause-of-death-066-1
 
 * entry[+].fullUrl = "urn:uuid:06600035-1111-2222-3333-444444444444"
-* entry[=].resource = condition-underlying-cause-of-death-066
+* entry[=].resource = condition-underlying-cause-of-death-066-1
 
 * entry[+].fullUrl = "urn:uuid:06600036-1111-2222-3333-444444444444"
-* entry[=].resource = condition-primary-disease-death-066
+* entry[=].resource = condition-primary-disease-death-066-1
 
 * entry[+].fullUrl = "urn:uuid:06600037-1111-2222-3333-444444444444"
-* entry[=].resource = condition-other-significant-death-066
+* entry[=].resource = condition-other-significant-death-066-1
 
 * entry[+].fullUrl = "urn:uuid:06600038-1111-2222-3333-444444444444"
-* entry[=].resource = observation-disease-duration-066
+* entry[=].resource = observation-disease-duration-066-1
 
 * entry[+].fullUrl = "urn:uuid:06600040-1111-2222-3333-444444444444"
-* entry[=].resource = observation-registration-date-066
+* entry[=].resource = observation-registration-date-066-1
 
 * entry[+].fullUrl = "urn:uuid:06600041-1111-2222-3333-444444444444"
-* entry[=].resource = observation-emergency-care-provided-066
+* entry[=].resource = observation-emergency-care-provided-066-1
 
 * entry[+].fullUrl = "urn:uuid:06600042-1111-2222-3333-444444444444"
-* entry[=].resource = observation-arrived-by-ambulance-066
+* entry[=].resource = observation-arrived-by-ambulance-066-1
 
 * entry[+].fullUrl = "urn:uuid:06600043-1111-2222-3333-444444444444"
-* entry[=].resource = observation-referral-available-066
+* entry[=].resource = observation-referral-available-066-1
 
 * entry[+].fullUrl = "urn:uuid:06600044-1111-2222-3333-444444444444"
-* entry[=].resource = organization-referring-066
+* entry[=].resource = organization-referring-066-1
 
 * entry[+].fullUrl = "urn:uuid:06600045-1111-2222-3333-444444444444"
-* entry[=].resource = observation-admitted-to-hospital-066
+* entry[=].resource = observation-admitted-to-hospital-066-1
 
 * entry[+].fullUrl = "urn:uuid:06600046-1111-2222-3333-444444444444"
-* entry[=].resource = observation-icu-days-066
+* entry[=].resource = observation-icu-days-066-1
 
 * entry[+].fullUrl = "urn:uuid:06600047-1111-2222-3333-444444444444"
-* entry[=].resource = organization-discharge-department-066
+* entry[=].resource = organization-discharge-department-066-1
 
 * entry[+].fullUrl = "urn:uuid:06600048-1111-2222-3333-444444444444"
-* entry[=].resource = observation-inhospital-leave-days-066
+* entry[=].resource = observation-inhospital-leave-days-066-1
 
 * entry[+].fullUrl = "urn:uuid:06600051-1111-2222-3333-444444444444"
-* entry[=].resource = observation-temporary-disability-period-066
+* entry[=].resource = observation-temporary-disability-period-066-1
 
 
-Instance: composition-066-001
-InstanceOf: Form066PsychiatricDischargeComposition
+Instance: composition-066-1-001
+InstanceOf: Form066_1_PsychiatricDischargeComposition
 Usage: #inline
 * language = #en
 * identifier[0].system = "urn:ietf:rfc:3986"
@@ -178,6 +178,11 @@ Usage: #inline
 * section[=].entry[+] = Reference(urn:uuid:06600010-1111-2222-3333-444444444444)
 * section[=].entry[+] = Reference(urn:uuid:06600011-1111-2222-3333-444444444444)
 
+* section[residenceInformation].title = "Residence Information"
+* section[=].code = $loinc#56799-0 "Address"
+* section[=].entry[0] = Reference(urn:uuid:06600002-1111-2222-3333-444444444444)
+* section[=].entry[+] = Reference(urn:uuid:06600004-1111-2222-3333-444444444444)
+
 * section[admissionInformation].title = "Admission Information"
 * section[=].code = $loinc#LP74442-2 "Admission Information"
 * section[=].entry[0] = Reference(urn:uuid:06600012-1111-2222-3333-444444444444)
@@ -202,11 +207,15 @@ Usage: #inline
 
 * section[finalDiagnosis].title = "Final Diagnosis"
 * section[=].code = $loinc#LA32800-7 "Final diagnosis (discharge)"
-* section[=].entry[0] = Reference(urn:uuid:06600016-1111-2222-3333-444444444444)
+* section[=].entry[0] = Reference(urn:uuid:06600015-1111-2222-3333-444444444444)
+* section[=].entry[+] = Reference(urn:uuid:06600016-1111-2222-3333-444444444444)
 * section[=].entry[+] = Reference(urn:uuid:06600017-1111-2222-3333-444444444444)
 * section[=].entry[+] = Reference(urn:uuid:06600018-1111-2222-3333-444444444444)
 * section[=].entry[+] = Reference(urn:uuid:06600019-1111-2222-3333-444444444444)
-* section[=].entry[+] = Reference(urn:uuid:06600034-1111-2222-3333-444444444444)
+
+* section[pathologoanatomicDiagnosis].title = "Pathologoanatomical Diagnosis"
+* section[=].code = $loinc#60567-5 "Comprehensive pathology report panel"
+* section[=].entry[0] = Reference(urn:uuid:06600034-1111-2222-3333-444444444444)
 * section[=].entry[+] = Reference(urn:uuid:06600035-1111-2222-3333-444444444444)
 * section[=].entry[+] = Reference(urn:uuid:06600036-1111-2222-3333-444444444444)
 * section[=].entry[+] = Reference(urn:uuid:06600037-1111-2222-3333-444444444444)
@@ -218,15 +227,15 @@ Usage: #inline
 * section[=].entry[+] = Reference(urn:uuid:06600022-1111-2222-3333-444444444444)
 * section[=].entry[+] = Reference(urn:uuid:06600023-1111-2222-3333-444444444444)
 
-* section[paymentInformation].title = "Payment Information"
+* section[paymentInformation].title = "Payment Type"
 * section[=].code = $loinc#48768-6 "Payment sources Document"
 * section[=].entry = Reference(urn:uuid:06600024-1111-2222-3333-444444444444)
 
-* section[tuberculosisDrugSensitivity].title = "Mycobacterium tuberculosis drug susceptibility"
+* section[tuberculosisDrugSensitivity].title = "Tuberculosis Drug Sensitivity"
 * section[=].code = $loinc#18769-0 "Microbial susceptibility tests Set"
 * section[=].entry = Reference(urn:uuid:06600028-1111-2222-3333-444444444444)
 
-* section[temporaryDisability].title = "Temporary Disability"
+* section[temporaryDisability].title = "Temporary Disability Insurance"
 * section[=].code = $loinc#34109-9 "Note"
 * section[=].entry[0] = Reference(urn:uuid:06600051-1111-2222-3333-444444444444)
 
@@ -237,7 +246,7 @@ Usage: #inline
 * section[=].entry[+] = Reference(urn:uuid:06600031-1111-2222-3333-444444444444)
 
 
-Instance: patient-066-001
+Instance: patient-066-1-001
 InstanceOf: UZCorePatient
 Usage: #inline
 * language = #en
@@ -266,7 +275,7 @@ Usage: #inline
 * managingOrganization = Reference(urn:uuid:06600004-1111-2222-3333-444444444444)
 
 
-Instance: organization-066-001
+Instance: organization-066-1-001
 InstanceOf: Organization
 Usage: #inline
 * language = #en
@@ -275,7 +284,7 @@ Usage: #inline
 * name = "Toshkent shahar ruhiy kasalliklar shifoxonasi"
 
 
-Instance: encounter-066-001
+Instance: encounter-066-1-001
 InstanceOf: UZCoreEncounter066
 Usage: #inline
 * language = #en
@@ -306,21 +315,21 @@ Usage: #inline
 * participant[2].actor = Reference(urn:uuid:06600031-1111-2222-3333-444444444444)
 
 
-Instance: practitionerrole-066-001
+Instance: practitionerrole-066-1-001
 InstanceOf: UZCorePractitionerRole
 Usage: #inline
 * practitioner = Reference(urn:uuid:06600005-1111-2222-3333-444444444444)
 * code.coding[role] = https://terminology.dhp.uz/fhir/core/CodeSystem/position-and-profession-cs#2211.6 "Medical specialist"
 * organization = Reference(urn:uuid:06600004-1111-2222-3333-444444444444)
 
-Instance: practitionerrole-066-002
+Instance: practitionerrole-066-1-002
 InstanceOf: UZCorePractitionerRole
 Usage: #inline
 * practitioner = Reference(urn:uuid:06600006-1111-2222-3333-444444444444)
 * code.coding[role] = https://terminology.dhp.uz/fhir/core/CodeSystem/position-and-profession-cs#1342.1 "Chief medical nurse"
 * organization = Reference(urn:uuid:06600004-1111-2222-3333-444444444444)
 
-Instance: practitionerrole-066-003
+Instance: practitionerrole-066-1-003
 InstanceOf: UZCorePractitionerRole
 Usage: #inline
 * practitioner = Reference(urn:uuid:06600007-1111-2222-3333-444444444444)
@@ -328,7 +337,7 @@ Usage: #inline
 * organization = Reference(urn:uuid:06600004-1111-2222-3333-444444444444)
 
 
-Instance: practitioner-066-001
+Instance: practitioner-066-1-001
 InstanceOf: UZCorePractitioner
 Usage: #inline
 * language = #en
@@ -339,7 +348,7 @@ Usage: #inline
 * name.given[0] = "B."
 * name.given[+] = "B."
 
-Instance: practitioner-066-002
+Instance: practitioner-066-1-002
 InstanceOf: UZCorePractitioner
 Usage: #inline
 * language = #en
@@ -350,7 +359,7 @@ Usage: #inline
 * name.given[0] = "M."
 * name.given[+] = "M."
 
-Instance: practitioner-066-003
+Instance: practitioner-066-1-003
 InstanceOf: UZCorePractitioner
 Usage: #inline
 * language = #en
@@ -362,7 +371,7 @@ Usage: #inline
 * name.given[+] = "D."
 
 
-Instance: observation-social-status-066
+Instance: observation-social-status-066-1
 InstanceOf: UZCoreSocioeconomicObservation
 Usage: #inline
 * language = #en
@@ -377,7 +386,7 @@ Usage: #inline
 * valueCodeableConcept = $social-status#regis0010.00004 "Unemployed"
 
 
-Instance: observation-benefits-066
+Instance: observation-benefits-066-1
 InstanceOf: UZCoreSocioeconomicObservation
 Usage: #inline
 * language = #en
@@ -390,7 +399,7 @@ Usage: #inline
 * valueCodeableConcept = $benefit-cs#regis0004.00019 "Medical staff"
 
 
-Instance: observation-education-066
+Instance: observation-education-066-1
 InstanceOf: UZCoreSocioeconomicObservation
 Usage: #inline
 * language = #en
@@ -403,7 +412,7 @@ Usage: #inline
 * valueCodeableConcept = $education-cs#regis0005.00008 "Higher education"
 
 
-Instance: observation-employment-066
+Instance: observation-employment-066-1
 InstanceOf: UZCoreSocioeconomicObservation
 Usage: #inline
 * language = #en
@@ -416,7 +425,7 @@ Usage: #inline
 * valueCodeableConcept = $occupation-cs#2351.32 "Teacher"
 
 
-Instance: service-request-066
+Instance: service-request-066-1
 InstanceOf: ServiceRequest
 Usage: #inline
 * language = #en
@@ -429,7 +438,7 @@ Usage: #inline
 
 
 // Observation was used because Form 066 contains registration date as a separate field.
-Instance: observation-registration-date-066
+Instance: observation-registration-date-066-1
 InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
@@ -443,7 +452,7 @@ Usage: #inline
 * valueDateTime = "2026-01-05T09:30:00+05:00"
 
 // Observation was used because Form 066 contains emergency care information as a separate yes/no field.
-Instance: observation-emergency-care-provided-066
+Instance: observation-emergency-care-provided-066-1
 InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
@@ -456,7 +465,7 @@ Usage: #inline
 * valueBoolean = true
 
 // Observation was used because Form 066 contains ambulance arrival information as a separate yes/no field.
-Instance: observation-arrived-by-ambulance-066
+Instance: observation-arrived-by-ambulance-066-1
 InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
@@ -469,7 +478,7 @@ Usage: #inline
 * valueBoolean = true
 
 // Observation was used because Form 066 contains referral availability as a separate yes/no field.
-Instance: observation-referral-available-066
+Instance: observation-referral-available-066-1
 InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
@@ -482,7 +491,7 @@ Usage: #inline
 * valueBoolean = true
 
 
-Instance: organization-referring-066
+Instance: organization-referring-066-1
 InstanceOf: Organization
 Usage: #inline
 * language = #en
@@ -495,7 +504,7 @@ Usage: #inline
 // the form contains this as an explicit yes/no field.
 // Using Observation preserves the original medical form semantics
 // and supports document-based data extraction.
-Instance: observation-admitted-to-hospital-066
+Instance: observation-admitted-to-hospital-066-1
 InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
@@ -508,7 +517,7 @@ Usage: #inline
 * valueBoolean = true
 
 
-Instance: condition-referral-diagnosis-066
+Instance: condition-referral-diagnosis-066-1
 InstanceOf: UZCoreCondition
 Usage: #inline
 * language = #en
@@ -521,7 +530,7 @@ Usage: #inline
 
 
 // Observation was used because there is no dedicated base FHIR element for illness duration.
-Instance: observation-disease-duration-066
+Instance: observation-disease-duration-066-1
 InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
@@ -537,7 +546,7 @@ Usage: #inline
 * valueQuantity.code = #d
 
 
-Instance: condition-admission-diagnosis-066
+Instance: condition-admission-diagnosis-066-1
 InstanceOf: UZCoreCondition
 Usage: #inline
 * language = #en
@@ -549,7 +558,7 @@ Usage: #inline
 * onsetDateTime = "2026-01-05"
 
 // Observation was used because there is no dedicated base FHIR element for ICU day count.
-Instance: observation-icu-days-066
+Instance: observation-icu-days-066-1
 InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
@@ -562,7 +571,7 @@ Usage: #inline
 * valueQuantity = 0 'd' "days"
 
 // Organization was used because discharge department information is represented as a healthcare organization entity in FHIR.
-Instance: organization-discharge-department-066
+Instance: organization-discharge-department-066-1
 InstanceOf: Organization
 Usage: #inline
 * language = #en
@@ -571,7 +580,7 @@ Usage: #inline
 * name = "Narcology department"
 
 // Observation was used because there is no dedicated base FHIR element for disability group information.
-Instance: observation-disability-group-066
+Instance: observation-disability-group-066-1
 InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
@@ -584,7 +593,7 @@ Usage: #inline
 * valueCodeableConcept = https://terminology.dhp.uz/fhir/core/CodeSystem/disability-cs#regis0011.00002 "Group II"
 
 // Observation was used because there is no dedicated base FHIR element for in-hospital leave day count.
-Instance: observation-inhospital-leave-days-066
+Instance: observation-inhospital-leave-days-066-1
 InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
@@ -597,7 +606,7 @@ Usage: #inline
 * valueQuantity = 0 'd' "days"
 
 
-Instance: condition-main-diagnosis-066
+Instance: condition-main-diagnosis-066-1
 InstanceOf: UZCoreCondition
 Usage: #inline
 * language = #en
@@ -608,7 +617,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:06600002-1111-2222-3333-444444444444)
 
 
-Instance: condition-competing-diagnosis-066
+Instance: condition-competing-diagnosis-066-1
 InstanceOf: UZCoreCondition
 Usage: #inline
 * language = #en
@@ -619,7 +628,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:06600002-1111-2222-3333-444444444444)
 
 
-Instance: condition-comorbid-diagnosis-066
+Instance: condition-comorbid-diagnosis-066-1
 InstanceOf: UZCoreCondition
 Usage: #inline
 * language = #en
@@ -630,7 +639,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:06600002-1111-2222-3333-444444444444)
 
 
-Instance: condition-background-diagnosis-066
+Instance: condition-background-diagnosis-066-1
 InstanceOf: UZCoreCondition
 Usage: #inline
 * language = #en
@@ -641,7 +650,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:06600002-1111-2222-3333-444444444444)
 
 
-Instance: condition-complication-066
+Instance: condition-complication-066-1
 InstanceOf: UZCoreCondition
 Usage: #inline
 * language = #en
@@ -652,7 +661,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:06600002-1111-2222-3333-444444444444)
 
 
-Instance: condition-immediate-cause-of-death-066
+Instance: condition-immediate-cause-of-death-066-1
 InstanceOf: UZCoreCondition
 Usage: #inline
 * language = #en
@@ -663,7 +672,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:06600002-1111-2222-3333-444444444444)
 
 
-Instance: condition-underlying-cause-of-death-066
+Instance: condition-underlying-cause-of-death-066-1
 InstanceOf: UZCoreCondition
 Usage: #inline
 * language = #en
@@ -674,7 +683,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:06600002-1111-2222-3333-444444444444)
 
 
-Instance: condition-primary-disease-death-066
+Instance: condition-primary-disease-death-066-1
 InstanceOf: UZCoreCondition
 Usage: #inline
 * language = #en
@@ -685,7 +694,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:06600002-1111-2222-3333-444444444444)
 
 
-Instance: condition-other-significant-death-066
+Instance: condition-other-significant-death-066-1
 InstanceOf: UZCoreCondition
 Usage: #inline
 * language = #en
@@ -696,7 +705,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:06600002-1111-2222-3333-444444444444)
 
 
-Instance: observation-hiv-066
+Instance: observation-hiv-066-1
 InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
@@ -709,7 +718,7 @@ Usage: #inline
 * valueCodeableConcept = $v3-ObservationInterpretation#NEG "Negative"
 
 
-Instance: observation-rw-066
+Instance: observation-rw-066-1
 InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
@@ -722,7 +731,7 @@ Usage: #inline
 * valueCodeableConcept = $v3-ObservationInterpretation#NEG "Negative"
 
 
-Instance: observation-hepb-066
+Instance: observation-hepb-066-1
 InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
@@ -735,7 +744,7 @@ Usage: #inline
 * valueCodeableConcept = $v3-ObservationInterpretation#NEG "Negative"
 
 
-Instance: observation-hepc-066
+Instance: observation-hepc-066-1
 InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
@@ -748,7 +757,7 @@ Usage: #inline
 * valueCodeableConcept = $v3-ObservationInterpretation#NEG "Negative"
 
 
-Instance: coverage-066
+Instance: coverage-066-1
 InstanceOf: Coverage
 Usage: #inline
 * language = #en
@@ -758,7 +767,7 @@ Usage: #inline
 * type = $coverage-type#dtsj-treated-case "State Health Insurance treated case (Resolution No. PQ-311)"
 
 
-Instance: observation-tb-drug-sensitivity-066
+Instance: observation-tb-drug-sensitivity-066-1
 InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
@@ -772,7 +781,7 @@ Usage: #inline
 
 
 // Observation was used because there is no dedicated base FHIR element for temporary disability period dates.
-Instance: observation-temporary-disability-period-066
+Instance: observation-temporary-disability-period-066-1
 InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
@@ -789,7 +798,7 @@ Usage: #inline
 * component[1].valueDateTime = "2026-01-15T14:00:00+05:00"
 
 
-Instance: provenance-signature-066
+Instance: provenance-signature-066-1
 InstanceOf: Provenance
 Usage: #inline
 * language = #en
@@ -804,7 +813,7 @@ Usage: #inline
 * signature.data = "JVBERi0xLjQKMSAwIG9iago8PAovVHlwZSAvQ2F0YWxvZwovUGFnZXMgMiAwIFIKPj4KZW5kb2JqCjIgMCBvYmoKPDwKL1R5cGUgL1BhZ2VzCi9LaWRzIFszIDAgUl0KL0NvdW50IDEKL01lZGlhQm94IFswIDAgNjEyIDc5Ml0KPj4KZW5kb2JqCjMgMCBvYmoKPDwKL1R5cGUgL1BhZ2UKL1BhcmVudCAyIDAgUgovQ29udGVudHMgNCAwIFIKPj4KZW5kb2JqCjQgMCBvYmoKPDwKL0xlbmd0aCA0NAo+PgpzdHJlYW0KQlQKL0YxIDEyIFRmCjEwMCA3MDAgVGQKKFNhbXBsZSBTaWduZWQgRG9jdW1lbnQpIFRqCkVUCmVuZHN0cmVhbQplbmRvYmoKeHJlZgowIDUKMDAwMDAwMDAwMCA2NTUzNSBmIAowMDAwMDAwMDA5IDAwMDAwIG4gCjAwMDAwMDAwNTggMDAwMDAgbiAKMDAwMDAwMDE0OCAwMDAwMCBuIAowMDAwMDAwMjE3IDAwMDAwIG4gCnRyYWlsZXIKPDwKL1NpemUgNQovUm9vdCAxIDAgUgo+PgpzdGFydHhyZWYKMzEyCiUlRU9G"
 
 
-Instance: location-066-001
+Instance: location-066-1-001
 InstanceOf: Location
 Usage: #inline
 * status = #active
