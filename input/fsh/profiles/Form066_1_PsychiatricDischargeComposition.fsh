@@ -51,7 +51,7 @@ Description: "Composition profile for Form 066-1."
     temporaryDisability 0..1 and
     responsiblePersons 1..1
 
-// 1. Shaxsiy ma'lumot
+// 1. Shaxsiy ma'lumot / Personal Information
 * section[personalInformation].title 1..1
 * section[personalInformation].title ^short = "1. Personal Information"
 * section[personalInformation].code 1..1
@@ -78,7 +78,7 @@ Description: "Composition profile for Form 066-1."
 * section[admissionInformation].entry only Reference(Condition or UZCoreObservation or ServiceRequest or Organization)
 * section[admissionInformation].entry ^short =  "2.01–2.10 Admission, referral, and initial diagnosis information"
 
-// 3. Shifoxonada yotqizish ma'lumotlari
+// 3. Shifoxonada yotqizish ma'lumotlari / Hospitalization information
 * section[hospitalizationInformation].title 1..1
 * section[hospitalizationInformation].title ^short = "3. Hospitalization information"
 * section[hospitalizationInformation].code 1..1
@@ -88,7 +88,7 @@ Description: "Composition profile for Form 066-1."
 * section[hospitalizationInformation].entry only Reference(Encounter or Condition or UZCoreObservation or Organization)
 * section[hospitalizationInformation].entry ^short = "3.1–3.9 Treatment and discharge information"
 
-// 4. Yakuniy tashxis
+// 4. Yakuniy tashxis / Final diagnosis
 * section[finalDiagnosis].title 1..1
 * section[finalDiagnosis].title ^short = "4. Final diagnosis"
 * section[finalDiagnosis].code 1..1
@@ -114,7 +114,7 @@ Description: "Composition profile for Form 066-1."
 * section[laboratoryResults].entry only Reference(UZCoreObservation)
 * section[laboratoryResults].entry ^short = "5.1–5.4 Laboratory results and section 7 data"
 
-// 6. To'lov turi
+// 6. To'lov turi / Payment type
 * section[paymentInformation].title 1..1
 * section[paymentInformation].title ^short = "6. Payment information"
 * section[paymentInformation].code 1..1
@@ -124,7 +124,7 @@ Description: "Composition profile for Form 066-1."
 * section[paymentInformation].entry only Reference(Coverage or Basic)
 * section[paymentInformation].entry ^short = "6. Payment type (e.g., Ministry of Health budget)"
 
-// 7. O'pka silida doriga sezgirlik
+// 7. O'pka silida doriga sezgirlik / Tuberculosis drug susceptibility
 * section[tuberculosisDrugSensitivity].title 1..1
 * section[tuberculosisDrugSensitivity].title ^short = "7. Tuberculosis drug susceptibility"
 * section[tuberculosisDrugSensitivity].code 1..1
@@ -134,7 +134,7 @@ Description: "Composition profile for Form 066-1."
 * section[tuberculosisDrugSensitivity].entry only Reference(UZCoreObservation)
 * section[tuberculosisDrugSensitivity].entry ^short = "7. Tuberculosis drug susceptibility"
 
-// 8. Vaqtincha mehnatga layoqatsizlik varaqasi
+// 8. Vaqtincha mehnatga layoqatsizlik varaqasi / Temporary disability certificate
 * section[temporaryDisability].title 1..1
 * section[temporaryDisability].title ^short = "8. Temporary disability certificate"
 * section[temporaryDisability].code 1..1
@@ -144,7 +144,7 @@ Description: "Composition profile for Form 066-1."
 * section[temporaryDisability].entry only Reference(Basic or UZCoreObservation)
 * section[temporaryDisability].entry ^short = "8.1–8.2 Disability certificate dates"
 
-// 9. Mas'ul shaxslar
+// 9. Mas'ul shaxslar / Responsible persons
 * section[responsiblePersons].title 1..1
 * section[responsiblePersons].title ^short = "9. Responsible persons"
 * section[responsiblePersons].code 1..1
