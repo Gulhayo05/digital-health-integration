@@ -31,3 +31,20 @@ Usage: #definition
 * uniqueId[0].type = #uri
 * uniqueId[=].value = "https://dhp.uz/fhir/core/sid/doc/uz/template-number"
 * uniqueId[=].preferred = true
+
+Instance: screening-identifier-system
+InstanceOf: NamingSystem
+Description: "Identifier system for the Cervical Cancer Screening Quality Assessment and Monitoring and Early Breast Cancer Detection Information System"
+Usage: #definition
+* url = "https://dhp.uz/fhir/integrations/NamingSystem/screening-identifier-system"
+* name = "ScreeningIdentifierSystem"
+* status = #active
+* kind = #identifier
+* date = "2026-06-03"
+* publisher = "Uzinfocom"
+* responsible = "Uzinfocom"
+* usage = "Identifier system used for records within the Cervical Cancer Screening Quality Assessment and Monitoring and Early Breast Cancer Detection Information System."
+* jurisdiction = urn:iso:std:iso:3166#UZ "Uzbekistan"
+* uniqueId[0].type = #uri
+* uniqueId[0].value = "https://dhp.uz/fhir/core/sid/uz/screening"
+* uniqueId[0].preferred = true

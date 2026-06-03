@@ -6,7 +6,7 @@ Description: "Объединенный справочник кодов для п
 * ^experimental = true
 
 // Объединяем ваши четыре valueset
-* include codes from valueset ScrLabVS
-* include codes from valueset ScrDiagVS
-* include codes from valueset ScrObserVS
-* include codes from valueset SrcFindVS
+* include codes from valueset scr-lab
+* include codes from valueset scr-diag
+* include codes from valueset scr-obser
+* include codes from valueset src-find

@@ -6,9 +6,9 @@ Description: "Объединенный справочник результато
 * ^experimental = true
 
 // Объединяем все справочники результатов
-* include codes from valueset ScrCytVS
-* include codes from valueset ScrHpvVS
-* include codes from valueset ScrColpoVS
-* include codes from valueset ScrTzVS
-* include codes from valueset SrcBiradsVS
-* include codes from valueset SrcImgQualityVS
+* include codes from valueset scr-cyt
+* include codes from valueset scr-hpv
+* include codes from valueset scr-colpo
+* include codes from valueset scr-tz
+* include codes from valueset src-birads
+* include codes from valueset src-img-quality
