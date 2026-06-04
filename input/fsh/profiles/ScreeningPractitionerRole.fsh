@@ -15,6 +15,7 @@ Description: "Профиль роли специалиста для систем
 Instance: practitioner-role-laborant
 InstanceOf: ScreeningPractitionerRole 
 Usage: #example
+Description: "Роль лаборанта Мики Адамовой в Хонободском ГМО"
 * identifier[0].system = "https://dhp.uz/fhir/core/sid/uz/screening"
 * identifier[=].value = "456"
 * identifier[=].use = #usual
@@ -26,6 +27,7 @@ Usage: #example
 Instance: practitioner-role-gynecologist
 InstanceOf: ScreeningPractitionerRole 
 Usage: #example
+Description: "Роль акушера-гинеколога Любы Дадаевой в Хонободском ГМО"
 * identifier[0].system = "https://dhp.uz/fhir/core/sid/uz/screening"
 * identifier[=].value = "457"
 * identifier[=].use = #usual
@@ -37,6 +39,7 @@ Usage: #example
 Instance: practitioner-role-radiologist
 InstanceOf: ScreeningPractitionerRole 
 Usage: #example
+Description: "Роль заведующего радиолога Нины Типсиной в Хонободском ГМО"
 * identifier[0].system = "https://dhp.uz/fhir/core/sid/uz/screening"
 * identifier[=].value = "458"
 * identifier[=].use = #usual
@@ -48,6 +51,7 @@ Usage: #example
 Instance: practitioner-role-nurse
 InstanceOf: ScreeningPractitionerRole 
 Usage: #example
+Description: "Роль патронажной сестры Любы Дадаевой в системе онконадзора"
 * identifier[0].system = "https://dhp.uz/fhir/core/sid/uz/screening"
 * identifier[=].value = "459"
 * identifier[=].use = #usual
