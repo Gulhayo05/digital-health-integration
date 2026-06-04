@@ -15,16 +15,11 @@ Description: "Профиль для фиксации визитов пациен
 * actualPeriod MS
 * length MS
 
-// Добавляем расширение для проверки на беременность
-* extension contains PregnancyExtension named pregnancy 0..1 MS
-* extension[pregnancy].valueBoolean MS
-
 
 Instance: Encounter-radiology
 InstanceOf: ScreeningEncounter
 Usage: #example
 Description: "Визит пациентки в отделение лучевой диагностики (рентген-кабинет)"
-* extension[pregnancy].valueBoolean = false
 * identifier[0].system = "https://dhp.uz/fhir/core/sid/uz/screening"
 * identifier[=].value = "33"
 * identifier[=].use = #usual
@@ -46,7 +41,6 @@ Instance: Encounter-laboratory
 InstanceOf: ScreeningEncounter
 Usage: #example
 Description: "Регистрация биоматериала (визит) в лаборатории"
-* extension[pregnancy].valueBoolean = false
 * identifier[0].system = "https://dhp.uz/fhir/core/sid/uz/screening"
 * identifier[=].value = "34"
 * identifier[=].use = #usual
@@ -62,7 +56,6 @@ Instance: Encounter-diagnostics
 InstanceOf: ScreeningEncounter
 Usage: #example
 Description: "Визит пациентки в кабинет инструментальной диагностики"
-* extension[pregnancy].valueBoolean = false
 * identifier[0].system = "https://dhp.uz/fhir/core/sid/uz/screening"
 * identifier[=].value = "35"
 * identifier[=].use = #usual
@@ -77,7 +70,6 @@ Instance: Encounter-general
 InstanceOf: ScreeningEncounter
 Usage: #example
 Description: "Амбулаторный визит к акушеру-гинекологу или в кабинет онконадзора"
-* extension[pregnancy].valueBoolean = false
 * identifier[0].system = "https://dhp.uz/fhir/core/sid/uz/screening"
 * identifier[=].value = "36"
 * identifier[=].use = #usual

@@ -34,6 +34,7 @@ Description: "Профиль для хранения результатов ск
 Instance: cytology-result
 InstanceOf: ScreeningObservation
 Usage: #example
+Description: "Результат цитологического исследования мазка: LSIL."
 * identifier[0].system = "https://dhp.uz/fhir/core/sid/uz/screening"
 * identifier[=].value = "333"
 * identifier[=].use = #usual
@@ -50,6 +51,7 @@ Usage: #example
 Instance: cytology-ai-analysis
 InstanceOf: ScreeningObservation
 Usage: #example
+Description: "Анализ цитологического мазка, выполненный системой ИИ."
 * identifier[0].system = "https://dhp.uz/fhir/core/sid/uz/screening"
 * identifier[=].value = "333"
 * identifier[=].use = #usual
@@ -66,6 +68,7 @@ Usage: #example
 Instance: hpv-result
 InstanceOf: ScreeningObservation
 Usage: #example
+Description: "Результат тестирования ДНК ВПЧ высокого онкогенного риска."
 * identifier[0].system = "https://dhp.uz/fhir/core/sid/uz/screening"
 * identifier[=].value = "333"
 * identifier[=].use = #usual
@@ -81,6 +84,7 @@ Usage: #example
 Instance: colposcopy-result
 InstanceOf: ScreeningObservation
 Usage: #example
+Description: "Заключение по кольпоскопии с определением зоны трансформации."
 * identifier[0].system = "https://dhp.uz/fhir/core/sid/uz/screening"
 * identifier[=].value = "334"
 * identifier[=].use = #usual
@@ -99,6 +103,7 @@ Usage: #example
 Instance: mammography-summary
 InstanceOf: ScreeningObservation
 Usage: #example
+Description: "Сводные данные маммографии: BI-RADS, плотность и качество снимка."
 * identifier[0].system = "https://dhp.uz/fhir/core/sid/uz/screening"
 * identifier[=].value = "335"
 * identifier[=].use = #usual
@@ -120,6 +125,7 @@ Usage: #example
 Instance: mammography-right-breast-finding
 InstanceOf: ScreeningObservation
 Usage: #example
+Description: "Находка (родинка) при маммографии в правой молочной железе."
 * identifier[0].system = "https://dhp.uz/fhir/core/sid/uz/screening"
 * identifier[=].value = "335"
 * identifier[=].use = #usual
@@ -139,6 +145,7 @@ Usage: #example
 Instance: mammography-left-breast-finding
 InstanceOf: ScreeningObservation
 Usage: #example
+Description: "Находка (утолщение кожи) при маммографии в левой молочной железе."
 * identifier[0].system = "https://dhp.uz/fhir/core/sid/uz/screening"
 * identifier[=].value = "335"
 * identifier[=].use = #usual
@@ -158,6 +165,7 @@ Usage: #example
 Instance: gynecological-physical-exam
 InstanceOf: ScreeningObservation
 Usage: #example
+Description: "Данные антропометрии (рост, вес, ИМТ) и анамнез при гинекологическом осмотре."
 * identifier[0].system = "https://dhp.uz/fhir/core/sid/uz/screening"
 * identifier[=].value = "336"
 * identifier[=].use = #usual
@@ -179,6 +187,7 @@ Usage: #example
 Instance: gynecological-complaints
 InstanceOf: ScreeningObservation
 Usage: #example
+Description: "Субъективные жалобы пациентки у гинеколога."
 * identifier[0].system = "https://dhp.uz/fhir/core/sid/uz/screening"
 * identifier[=].value = "337"
 * identifier[=].use = #usual
@@ -196,6 +205,7 @@ Usage: #example
 Instance: oncogynecological-followup
 InstanceOf: ScreeningObservation
 Usage: #example
+Description: "Данные осмотра в кабинете онконадзора (жалобы, противопоказания)."
 * identifier[0].system = "https://dhp.uz/fhir/core/sid/uz/screening"
 * identifier[=].value = "338"
 * identifier[=].use = #usual
@@ -216,6 +226,7 @@ Usage: #example
 Instance: mammography-physical-exam
 InstanceOf: ScreeningObservation
 Usage: #example
+Description: "Антропометрия пациентки, проведенная перед маммографией."
 * identifier[0].system = "https://dhp.uz/fhir/core/sid/uz/screening"
 * identifier[=].value = "339"
 * identifier[=].use = #usual

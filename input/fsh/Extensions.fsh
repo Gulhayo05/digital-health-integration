@@ -1,13 +1,3 @@
-Extension: PregnancyExtension
-Id: pregnancy
-Title: "Pregnancy Extension"
-Description: "Статус беременности пациента."
-* ^url = "https://dhp.uz/fhir/integrations/StructureDefinition/pregnancy"
-* ^context.type = #element
-* ^context.expression = "Encounter"
-* value[x] only boolean
-
-
 Extension: BreastQuadrantExtension
 Id: breast-quadrant
 Title: "Breast Quadrant Extension"
