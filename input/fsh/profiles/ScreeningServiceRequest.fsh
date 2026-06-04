@@ -17,7 +17,8 @@ Description: "Профиль для создания направлений на
 * performer MS
 
 * status from http://hl7.org/fhir/ValueSet/request-status (required)
-* code from ScreeningServiceRequestCodesVS (required)
+* intent from http://hl7.org/fhir/ValueSet/request-intent (required)
+* code from ScreeningServiceRequestCodesVS (preferred)
 
 Instance: ServiceRequest-cytology
 InstanceOf: ScreeningServiceRequest
@@ -26,7 +27,7 @@ Description: "Направление на жидкостную цитологи�
 * identifier[0].system = "https://dhp.uz/fhir/core/sid/uz/screening"
 * identifier[=].value = "233"
 * identifier[=].use = #usual
-* identifier[0].system = "https://dhp.uz/fhir/core/sid/uz/screening"
+* identifier[+].system = "https://dhp.uz/fhir/core/sid/uz/screening"
 * identifier[=].value = "26-95-01-1-00065"
 * identifier[=].use = #usual
 * status = #completed

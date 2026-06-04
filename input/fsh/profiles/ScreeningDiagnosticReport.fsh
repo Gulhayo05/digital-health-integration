@@ -31,7 +31,7 @@ Description: "Профиль для хранения итоговых медиц
 * study only Reference(GenomicStudy or ImagingStudy)
 
 * status from http://hl7.org/fhir/ValueSet/diagnostic-report-status (required)
-* code from ScreeningServiceRequestCodesVS (required)
+* code from ScreeningServiceRequestCodesVS (preferred)
 * conclusionCode from ScreeningObservationValuesVS (preferred)
 
 

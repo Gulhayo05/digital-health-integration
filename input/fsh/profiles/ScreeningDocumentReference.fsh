@@ -15,7 +15,7 @@ Description: "Профиль для ссылок на документы (сог
 * content.attachment MS
 
 * subject only Reference(Patient)
-* context only Reference(Encounter)
+* context only Reference(Appointment or Encounter or EpisodeOfCare)
 
 * status from http://hl7.org/fhir/ValueSet/document-reference-status (required)
 * type from http://loinc.org (required) // Можно сузить до конкретных кодов Consent, если нужно

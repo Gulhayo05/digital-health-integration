@@ -76,7 +76,7 @@ Usage: #example
 * subject.display = "Лола Орипова Шахзодовна"
 * encounter = Reference(Encounter/Encounter-laboratory)
 * performer = Reference(PractitionerRole/practitioner-role-laborant)
-* valueCodeableConcept = scr-hpv-cs#scr-hpv-2 
+* valueCodeableConcept = scr-hpv-cs#scr-hpv-2 "Negative"
 
 Instance: colposcopy-result
 InstanceOf: ScreeningObservation
@@ -104,7 +104,7 @@ Usage: #example
 * identifier[=].use = #usual
 * basedOn = Reference(ServiceRequest/ServiceRequest-mammography)
 * status = #final
-* code = scr-diag-cs#scr-diag-4
+* code = scr-diag-cs#scr-diag-4 "Mammography"
 * subject = Reference(Patient/lola-oripova)
 * subject.display = "Лола Орипова Шахзодовна"
 * encounter = Reference(Encounter/Encounter-radiology)
@@ -115,7 +115,7 @@ Usage: #example
 * component[+].code = scr-obser-cs#scr-obser-2
 * component[=].valueCodeableConcept = src-breast-form-cs#src-breast-density-4 "D"
 * component[+].code = scr-obser-cs#scr-obser-3
-* component[=].valueCodeableConcept = src-img-quality-cs#src-img-quality-3
+* component[=].valueCodeableConcept = src-img-quality-cs#src-img-quality-3 "Moderate"
 
 Instance: mammography-right-breast-finding
 InstanceOf: ScreeningObservation
@@ -125,7 +125,7 @@ Usage: #example
 * identifier[=].use = #usual
 * basedOn = Reference(ServiceRequest/ServiceRequest-mammography)
 * status = #final
-* code = src-find-cs#src-find-9
+* code = scr-diag-cs#scr-diag-4 "Mammography"
 * subject = Reference(Patient/lola-oripova)
 * subject.display = "Лола Орипова Шахзодовна"
 * encounter = Reference(Encounter/Encounter-radiology)
@@ -133,7 +133,8 @@ Usage: #example
 * performer = Reference(PractitionerRole/practitioner-role-radiologist)
 * bodySite = $sct#80248007
 * bodySite.extension[quadrant].valueCodeableConcept = src-breast-quadrant-cs#src-breast-quadrant-2
-* valueBoolean = true
+* component[0].code = src-find-cs#src-find-9
+* component[0].valueBoolean = true
 
 Instance: mammography-left-breast-finding
 InstanceOf: ScreeningObservation
@@ -143,7 +144,7 @@ Usage: #example
 * identifier[=].use = #usual
 * basedOn = Reference(ServiceRequest/ServiceRequest-mammography)
 * status = #final
-* code = src-find-cs#src-find-1 
+* code = scr-diag-cs#scr-diag-4 "Mammography"
 * subject = Reference(Patient/lola-oripova)
 * subject.display = "Лола Орипова Шахзодовна"
 * encounter = Reference(Encounter/Encounter-radiology)
@@ -151,7 +152,8 @@ Usage: #example
 * performer = Reference(PractitionerRole/practitioner-role-radiologist)
 * bodySite = $sct#73056007
 * bodySite.extension[quadrant].valueCodeableConcept = src-breast-quadrant-cs#src-breast-quadrant-1
-* valueBoolean = true
+* component[0].code = src-find-cs#src-find-1
+* component[0].valueBoolean = true
 
 Instance: gynecological-physical-exam
 InstanceOf: ScreeningObservation
@@ -166,6 +168,7 @@ Usage: #example
 * encounter = Reference(Encounter/Encounter-general)
 * issued = "2015-02-07T13:28:17.239+02:00"
 * performer = Reference(PractitionerRole/practitioner-role-gynecologist)
+* note[0].text = "Менархе с 13 лет, беременностей 2, родов 2."
 * component[0].code = scr-obser-cs#scr-obser-4 
 * component[=].valueQuantity = 160 'cm'
 * component[+].code = scr-obser-cs#scr-obser-5 
@@ -189,8 +192,6 @@ Usage: #example
 * note[0].text = "Кровянистые выделения после полового контакта"
 * note[+].text = "Боли внизу живота"
 * note[+].text = "Отеки нижних конечностей"
-* text.status = #additional
-* text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\">Анамнез — это совокупность сведений о пациенте, полученных врачом путем расспроса...</div>"
 
 Instance: oncogynecological-followup
 InstanceOf: ScreeningObservation
@@ -211,3 +212,23 @@ Usage: #example
 * component[=].valueString = "нельзя пить обезбаливающее"
 * component[+].code.text = "Комментарий"
 * component[=].valueString = "лучше отправить в лабораторию"
+
+Instance: mammography-physical-exam
+InstanceOf: ScreeningObservation
+Usage: #example
+* identifier[0].system = "https://dhp.uz/fhir/core/sid/uz/screening"
+* identifier[=].value = "339"
+* identifier[=].use = #usual
+* status = #final
+* code = scr-diag-cs#scr-diag-4 "Mammography"
+* subject = Reference(Patient/lola-oripova)
+* subject.display = "Лола Орипова Шахзодовна"
+* encounter = Reference(Encounter/Encounter-radiology)
+* issued = "2015-02-07T13:28:17.239+02:00"
+* performer = Reference(PractitionerRole/practitioner-role-radiologist)
+* component[0].code = scr-obser-cs#scr-obser-4
+* component[0].valueQuantity = 160 'cm'
+* component[1].code = scr-obser-cs#scr-obser-5
+* component[1].valueQuantity = 52 'kg'
+* component[2].code = scr-obser-cs#scr-obser-6
+* component[2].valueQuantity = 20.3 'kg/m2'

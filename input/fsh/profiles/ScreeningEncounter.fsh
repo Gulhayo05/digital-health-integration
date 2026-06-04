@@ -57,13 +57,6 @@ Description: "Регистрация биоматериала (визит) в л
 * basedOn[0] = Reference(ServiceRequest/ServiceRequest-cytology)
 * serviceProvider = Reference(Organization/xonobod-medical-association)
 * serviceProvider.display = "Хонободское городское медицинское объединение"
-* actualPeriod.start = "2025-11-17T11:50:00Z"
-* actualPeriod.end = "2025-11-17T12:30:00Z"
-* length.value = 40
-* length.unit = "min"
-* length.system = "http://unitsofmeasure.org"
-* length.code = #min
-
 
 Instance: Encounter-diagnostics
 InstanceOf: ScreeningEncounter
@@ -79,13 +72,6 @@ Description: "Визит пациентки в кабинет инструмен
 * basedOn[0] = Reference(ServiceRequest/ServiceRequest-colposcopy)
 * serviceProvider = Reference(Organization/xonobod-medical-association)
 * serviceProvider.display = "Хонободское городское медицинское объединение"
-* actualPeriod.start = "2025-11-17T11:50:00Z"
-* actualPeriod.end = "2025-11-17T12:30:00Z"
-* length.value = 40
-* length.unit = "min"
-* length.system = "http://unitsofmeasure.org"
-* length.code = #min
-
 
 Instance: Encounter-general
 InstanceOf: ScreeningEncounter
@@ -101,9 +87,3 @@ Description: "Амбулаторный визит к акушеру-гинеко
 // basedOn здесь нет, так как это первичный визит!
 * serviceProvider = Reference(Organization/xonobod-medical-association)
 * serviceProvider.display = "Хонободское городское медицинское объединение"
-* actualPeriod.start = "2025-11-17T11:50:00Z"
-* actualPeriod.end = "2025-11-17T12:30:00Z"
-* length.value = 40
-* length.unit = "min"
-* length.system = "http://unitsofmeasure.org"
-* length.code = #min
