@@ -14,7 +14,7 @@ Usage: #example
 Title: "Screening Questionnaire Template"
 Description: "Шаблон анкеты жалоб для гинеколога"
 
-* identifier[0].system = "https://dhp.uz/fhir/core/sid/uz/screening"
+* identifier[0].system = $screening-local-id
 * identifier[0].value = "33333"
 * identifier[0].use = #usual
 

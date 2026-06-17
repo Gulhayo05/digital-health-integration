@@ -33,9 +33,7 @@ Description: "Информированное согласие пациентки
 * status = #current
 
 // Тип документа (Consent)
-* type.coding[0].system = "http://loinc.org"
-* type.coding[=].code = #59284-0
-* type.coding[=].display = "Consent document"
+* type.coding[0] = $loinc#59284-0 "Consent document"
 // Ссылка на пациента
 * subject = Reference(Patient/lola-oripova)
 // Контекст (визит)

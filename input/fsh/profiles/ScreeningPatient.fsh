@@ -26,7 +26,7 @@ Description: "Пример пациентки Лолы Ориповой для �
 * identifier[nationalId].use = #official
 * identifier[passportLocal].value = "AC1234567"
 * identifier[passportLocal].use = #official
-* identifier[screeningId].system = "https://dhp.uz/fhir/core/sid/uz/screening"
+* identifier[screeningId].system = $screening-local-id
 * identifier[screeningId].value = "45"
 * identifier[screeningId].use = #usual
 
@@ -50,5 +50,5 @@ Description: "Пример пациентки Лолы Ориповой для �
 * address[0].state = "Город Ташкент"
 
 // ==================== Расширения ====================
-* extension[nationality].extension[code].valueCodeableConcept = https://terminology.dhp.uz/fhir/core/CodeSystem/nationality-cs#161
+* extension[nationality].extension[code].valueCodeableConcept = $nationality-cs#161
 * extension[workPlace].valueString = "Профессор в Национальном университете"

@@ -14,7 +14,7 @@ InstanceOf: ScreeningQuestionnaireResponse // Ссылка на ваш насл�
 Usage: #example
 Description: "Заполненная анкета скрининга (Жалобы и анамнез)"
 
-* identifier.system = "https://dhp.uz/fhir/core/sid/uz/screening"
+* identifier.system = $screening-local-id
 * identifier.value = "1233"
 * identifier.use = #usual
 

@@ -24,10 +24,10 @@ Instance: ServiceRequest-cytology
 InstanceOf: ScreeningServiceRequest
 Usage: #example
 Description: "Направление на жидкостную цитологию"
-* identifier[0].system = "https://dhp.uz/fhir/core/sid/uz/screening"
+* identifier[0].system = $screening-local-id
 * identifier[=].value = "233"
 * identifier[=].use = #usual
-* identifier[+].system = "https://dhp.uz/fhir/core/sid/uz/screening"
+* identifier[+].system = $screening-local-id
 * identifier[=].value = "26-95-01-1-00065"
 * identifier[=].use = #usual
 * status = #completed
@@ -47,7 +47,7 @@ Instance: ServiceRequest-hpv
 InstanceOf: ScreeningServiceRequest
 Usage: #example
 Description: "Направление на тестирование ВПЧ"
-* identifier[0].system = "https://dhp.uz/fhir/core/sid/uz/screening"
+* identifier[0].system = $screening-local-id
 * identifier[=].value = "236"
 * identifier[=].use = #usual
 * status = #completed
@@ -67,7 +67,7 @@ Instance: ServiceRequest-colposcopy
 InstanceOf: ScreeningServiceRequest
 Usage: #example
 Description: "Направление на кольпоскопию"
-* identifier[0].system = "https://dhp.uz/fhir/core/sid/uz/screening"
+* identifier[0].system = $screening-local-id
 * identifier[=].value = "234"
 * identifier[=].use = #usual
 * status = #completed
@@ -87,7 +87,7 @@ Instance: ServiceRequest-mammography
 InstanceOf: ScreeningServiceRequest
 Usage: #example
 Description: "Направление на маммографию"
-* identifier[0].system = "https://dhp.uz/fhir/core/sid/uz/screening"
+* identifier[0].system = $screening-local-id
 * identifier[=].value = "235"
 * identifier[=].use = #usual
 * status = #completed

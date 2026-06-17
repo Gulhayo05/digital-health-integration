@@ -1,3 +1,12 @@
+Alias: $organizational-subordination-group-cs = https://terminology.dhp.uz/fhir/core/CodeSystem/organizational-subordination-group-cs
+Alias: $organizational-structure-cs = https://terminology.dhp.uz/fhir/core/CodeSystem/organizational-structure-cs
+Alias: $organizational-service-group-cs = https://terminology.dhp.uz/fhir/core/CodeSystem/organizational-service-group-cs
+Alias: $states-cs = https://terminology.dhp.uz/fhir/core/CodeSystem/states-cs
+Alias: $organization-tax-id-system-dhp = https://dhp.uz/fhir/core/sid/org/uz/soliq
+Alias: $screening-local-id = https://dhp.uz/fhir/core/sid/uz/screening
+Alias: $condition-clinical = http://terminology.hl7.org/CodeSystem/condition-clinical
+Alias: $nationality-cs = https://terminology.dhp.uz/fhir/core/CodeSystem/nationality-cs
+
 Alias: $data-absent-reason = http://terminology.hl7.org/CodeSystem/data-absent-reason
 Alias: $document-category-cs = https://dhp.uz/fhir/integrations/CodeSystem/document-category-cs
 Alias: $gender = http://hl7.org/fhir/administrative-gender
@@ -46,7 +55,6 @@ Alias: $issue-severity = http://hl7.org/fhir/issue-severity
 Alias: $loinc = http://loinc.org
 Alias: $location-status = http://hl7.org/fhir/location-status
 Alias: $location-unit = https://dhp.uz/fhir/core/NamingSystem/location-unit
-Alias: $loinc = http://loinc.org
 Alias: $mfa = https://gov.uz/ru/mfa
 Alias: $militaryID = https://gov.uz/mudofaa/identifier/militaryID
 Alias: $mudofaa = https://gov.uz/ru/mudofaa

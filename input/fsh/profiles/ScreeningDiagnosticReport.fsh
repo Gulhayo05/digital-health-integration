@@ -39,7 +39,7 @@ Instance: DiagnosticReport-mammography
 InstanceOf: ScreeningDiagnosticReport
 Usage: #example
 Description: "Маммографическое заключение (сводка и находки)"
-* identifier[0].system = "https://dhp.uz/fhir/core/sid/uz/screening"
+* identifier[0].system = $screening-local-id
 * identifier[=].value = "123"
 * identifier[=].use = #usual
 * basedOn[0] = Reference(ServiceRequest/ServiceRequest-mammography)
@@ -61,7 +61,7 @@ Instance: DiagnosticReport-cytology
 InstanceOf: ScreeningDiagnosticReport
 Usage: #example
 Description: "Лабораторное заключение: Жидкостная цитология"
-* identifier[0].system = "https://dhp.uz/fhir/core/sid/uz/screening"
+* identifier[0].system = $screening-local-id
 * identifier[=].value = "124"
 * identifier[=].use = #usual
 * basedOn[0] = Reference(ServiceRequest/ServiceRequest-cytology)
@@ -82,7 +82,7 @@ Instance: DiagnosticReport-colposcopy
 InstanceOf: ScreeningDiagnosticReport
 Usage: #example
 Description: "Диагностическое заключение: Кольпоскопия"
-* identifier[0].system = "https://dhp.uz/fhir/core/sid/uz/screening"
+* identifier[0].system = $screening-local-id
 * identifier[=].value = "125"
 * identifier[=].use = #usual
 * basedOn[0] = Reference(ServiceRequest/ServiceRequest-colposcopy)

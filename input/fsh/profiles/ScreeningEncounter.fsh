@@ -20,7 +20,7 @@ Instance: Encounter-radiology
 InstanceOf: ScreeningEncounter
 Usage: #example
 Description: "Визит пациентки в отделение лучевой диагностики (рентген-кабинет)"
-* identifier[0].system = "https://dhp.uz/fhir/core/sid/uz/screening"
+* identifier[0].system = $screening-local-id
 * identifier[=].value = "33"
 * identifier[=].use = #usual
 * status = #completed
@@ -33,7 +33,7 @@ Description: "Визит пациентки в отделение лучевой
 * actualPeriod.end = "2025-11-17T12:30:00Z"
 * length.value = 40
 * length.unit = "min"
-* length.system = "http://unitsofmeasure.org"
+* length.system = $ucum
 * length.code = #min
 
 
@@ -41,7 +41,7 @@ Instance: Encounter-laboratory
 InstanceOf: ScreeningEncounter
 Usage: #example
 Description: "Регистрация биоматериала (визит) в лаборатории"
-* identifier[0].system = "https://dhp.uz/fhir/core/sid/uz/screening"
+* identifier[0].system = $screening-local-id
 * identifier[=].value = "34"
 * identifier[=].use = #usual
 * status = #completed
@@ -56,7 +56,7 @@ Instance: Encounter-diagnostics
 InstanceOf: ScreeningEncounter
 Usage: #example
 Description: "Визит пациентки в кабинет инструментальной диагностики"
-* identifier[0].system = "https://dhp.uz/fhir/core/sid/uz/screening"
+* identifier[0].system = $screening-local-id
 * identifier[=].value = "35"
 * identifier[=].use = #usual
 * status = #completed
@@ -70,7 +70,7 @@ Instance: Encounter-general
 InstanceOf: ScreeningEncounter
 Usage: #example
 Description: "Амбулаторный визит к акушеру-гинекологу или в кабинет онконадзора"
-* identifier[0].system = "https://dhp.uz/fhir/core/sid/uz/screening"
+* identifier[0].system = $screening-local-id
 * identifier[=].value = "36"
 * identifier[=].use = #usual
 * status = #completed

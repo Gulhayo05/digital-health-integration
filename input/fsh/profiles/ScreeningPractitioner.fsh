@@ -21,7 +21,7 @@ Description: "Мика Адамова Чоршанбиевна"
 
 * identifier[nationalId].value = "515050500501"
 * identifier[nationalId].use = #official
-* identifier[screeningId].system = "https://dhp.uz/fhir/core/sid/uz/screening"
+* identifier[screeningId].system = $screening-local-id
 * identifier[screeningId].value = "44"
 * identifier[screeningId].use = #usual
 
@@ -46,7 +46,7 @@ Description: "Люба Дадаева Юлдашевна"
 
 * identifier[nationalId].value = "515050500502"
 * identifier[nationalId].use = #official
-* identifier[screeningId].system = "https://dhp.uz/fhir/core/sid/uz/screening"
+* identifier[screeningId].system = $screening-local-id
 * identifier[screeningId].value = "45"
 * identifier[screeningId].use = #usual
 
@@ -71,7 +71,7 @@ Description: "Нина Типсина Тумановна"
 
 * identifier[nationalId].value = "515050500503"
 * identifier[nationalId].use = #official
-* identifier[screeningId].system = "https://dhp.uz/fhir/core/sid/uz/screening"
+* identifier[screeningId].system = $screening-local-id
 * identifier[screeningId].value = "46"
 * identifier[screeningId].use = #usual
 
