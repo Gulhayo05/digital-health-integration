@@ -16,9 +16,6 @@ Description: "Profile for creating referrals for laboratory and diagnostic inves
 * authoredOn MS
 * requester MS
 * performer MS
-
-* status from http://hl7.org/fhir/ValueSet/request-status (required)
-* intent from http://hl7.org/fhir/ValueSet/request-intent (required)
 * code from ScreeningServiceRequestCodesVS (preferred)
 
 Instance: ServiceRequest-cytology
