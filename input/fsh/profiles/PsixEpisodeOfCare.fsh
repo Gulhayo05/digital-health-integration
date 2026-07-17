@@ -11,18 +11,21 @@ Description: "Episode of care profile for the Psix system."
 * patient only Reference(UZCorePatient)
 
 * type 0..* MS
-* type ^slicing.discriminator.type = #pattern
-* type ^slicing.discriminator.path = "$this"
+* type ^slicing.discriminator.type = #value
+* type ^slicing.discriminator.path = "extension.url"
 * type ^slicing.rules = #open
 * type contains group 0..1 MS
-* type[group].extension contains EpisodeOfCareTypeGroup named group 0..1 MS
+* type[group].extension contains EpisodeOfCareTypeGroup named group 1..1 MS
+
 
 Instance: example-psix-episode-of-care
 InstanceOf: PsixEpisodeOfCare
 Description: "Example episode of care representing a patient's compulsory inpatient treatment episode in the Psix system."
 Usage: #example
+
 * identifier.system = "https://dhp.uz/fhir/core/sid/reg/uz/psix"
-* status = EpisodeOfCareStatusCS#active "Активный"
+* identifier.value = "EOC-0001"
+* status = EpisodeOfCareStatusCS#active "Active"
 * type[group].extension[EpisodeOfCareTypeGroup].valueCodeableConcept = PsixEpisodeOfCareExtensionCS#psycr0001-00001 "Compulsory inpatient treatment"
 * diagnosis[0].condition.concept = $icd-10#F10.2 "Mental and behavioural disorders due to use of alcohol : Dependence syndrome"
 * diagnosis[0].use = http://hl7.org/fhir/encounter-diagnosis-use#working "Working"
