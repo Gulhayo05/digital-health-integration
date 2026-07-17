@@ -19,8 +19,7 @@ Usage: #example
 * status = #completed
 * actualPeriod.start = "2026-02-12"
 * participant[0].type = $v3-ParticipationType#ATND "attender"
-* participant[0].actor = Reference(PractitionerRole/example-practitioner)
-* diagnosis[0].condition.reference = Reference(Condition/example-condition-1)
-* diagnosis[1].condition.reference = Reference(Condition/example-condition-2)
-* diagnosis[2].condition.reference = Reference(Condition/example-condition-3)
+* participant[0].actor = Reference(PractitionerRole/practitioner-role-gynecologist)
+* diagnosis[0].condition.reference = Reference(Condition/example-headache)
+* diagnosis[1].condition.reference = Reference(Condition/example-psix-condition)
 * diagnosis[0].use = $encounter-diagnosis-use-cs#final "Final"
