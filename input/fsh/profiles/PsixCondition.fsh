@@ -7,6 +7,13 @@ Description: "Condition profile for the Psix system."
 * ^experimental = true
 * ^publisher = "DHP Integration"
 
+* identifier 0..* MS
+
+* onsetDateTime 0..1 MS
+
+* participant 0..* D
+* participant.actor only Reference(UZCoreOrganization)
+
 Instance: example-psix-condition
 InstanceOf: PsixCondition
 Description: "Example condition representing a diagnosis of harmful use of substance (F15.1) in the Psix system."
