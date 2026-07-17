@@ -30,7 +30,7 @@ InstanceOf: PsixFlag
 Description: "Example flag indicating compulsory treatment status for a patient in the Psix system."
 Usage: #example
 * status = #active
-* code = RegistriFlagsCS#registri0001-00004 "Majburiy statsionar davolanish"
+* code = RegistriFlagsCS#registri0001-00004 "Compulsory inpatient treatment"
 * subject = Reference(Patient/example-patient-john)
 * period.start = "2026-03-12"
 * encounter = Reference(Encounter/example-psix-encounter)
