@@ -24,7 +24,7 @@ Usage: #example
 * identifier.system = "https://dhp.uz/fhir/core/sid/reg/uz/psix"
 * status = EpisodeOfCareStatusCS#active "Активный"
 * type[group].extension[EpisodeOfCareTypeGroup].valueCodeableConcept = PsixEpisodeOfCareExtensionCS#psycr0001-00001 "Compulsory inpatient treatment"
-* diagnosis[0].condition.concept = $icd-10#F10.2 "Mental and behavioural disorders due to use of alcohol, dependence syndrome"
+* diagnosis[0].condition.concept = $icd-10#F10.2 "Mental and behavioural disorders due to use of alcohol : Dependence syndrome"
 * diagnosis[0].use = http://hl7.org/fhir/encounter-diagnosis-use#working "Working"
 * patient = Reference(Patient/example-patient-john)
 * managingOrganization = Reference(Organization/example-organization)

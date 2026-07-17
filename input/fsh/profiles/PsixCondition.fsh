@@ -14,7 +14,7 @@ Usage: #example
 * identifier.system = "https://dhp.uz/fhir/core/sid/reg/uz/psix"
 * clinicalStatus = $condition-clinical#active "Active"
 * verificationStatus = $condition-ver-status#confirmed "Confirmed"
-* code = $icd-10#F15.1 "Пагубное употребление психостимуляторов"
+* code = $icd-10#F15.1 "Mental and behavioural disorders due to use of other stimulants, including caffeine : Harmful use"
 * subject = Reference(Patient/example-patient-john)
 * encounter = Reference(Encounter/example-psix-encounter)
 * onsetDateTime = "2026-03-10"

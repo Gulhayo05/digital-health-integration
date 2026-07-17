@@ -5,11 +5,11 @@ Description: "Code system for extensions used in the Psix Episode of Care profil
 
 * insert OriginalCodeSystemDraft(psix-episode-of-care-extension-cs)
 
-* #psycr0001-00001 "Compulsory inpatient treatment"
+* #psycr0001-00001 "Majburiy statsionar davolanish"
   * ^designation[0].language = #ru
   * ^designation[0].value = "Стационарное принудительное лечение"
-  * ^designation[+].language = #uz
-  * ^designation[=].value = "Majburiy statsionar davolanish"
+  * ^designation[+].language = #en
+  * ^designation[=].value = "Compulsory inpatient treatment"
 
 
 
