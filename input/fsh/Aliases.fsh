@@ -155,3 +155,8 @@ Alias: $diagnostic-report-status-vs = https://terminology.dhp.uz/fhir/core/Value
 
 Alias: $comparator = http://hl7.org/fhir/quantity-comparator
 Alias: $specimen-role = http://hl7.org/fhir/specimen-role
+Alias: $patient-nationality-vs = https://dhp.uz/fhir/core/ValueSet/nationality-vsAlias: 
+Alias: $nationality = http://hl7.org/fhir/StructureDefinition/patient-nationality
+Alias: $citizenship-ext = http://hl7.org/fhir/StructureDefinition/patient-citizenship
+Alias: $social-status-cs = https://terminology.dhp.uz/fhir/core/CodeSystem/social-status-cs
+
