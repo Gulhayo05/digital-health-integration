@@ -12,7 +12,7 @@ InstanceOf: PsixSocioEconomicObservation
 Description: "Example observation representing the social status of a patient."
 Usage: #example
 * status = #final
-* code = $sct#82996008 "соц. Статус"
+* code = $sct#82996008 "Social status"
 * subject = Reference(example-patient-john)
 * effectiveDateTime = "2026-03-10"
-* valueCodeableConcept = $social-status-cs#regis0010.00003 "Работающий"
+* valueCodeableConcept = $social-status-cs#regis0010.00003 "Employed"

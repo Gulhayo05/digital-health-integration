@@ -255,5 +255,5 @@ Usage: #example
   * name.text = "Ваисов Раис"
   * gender = #male
 * maritalStatus = $v3-MaritalStatus#W "Вдовец, вдова"
-* extension[nationality].extension[code].valueCodeableConcept = $nationality-cs#44 "Венгры"
+* extension[nationality].extension[code].valueCodeableConcept = $nationality-cs#44 "УЗБЕК/УЗБЕЧКА"
 * extension[managingOrganizationAttachment].valueDate = "2024-03-15"

@@ -34,4 +34,4 @@ Usage: #example
 * subject = Reference(Patient/example-patient-john)
 * period.start = "2026-03-12"
 * encounter = Reference(Encounter/example-psix-encounter)
-* author = Reference(PractitionerRole/example-practitioner)
+* author = Reference(PractitionerRole/practitioner-role-nurse)

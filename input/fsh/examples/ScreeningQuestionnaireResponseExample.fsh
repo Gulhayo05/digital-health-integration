@@ -14,7 +14,7 @@ Description: "Completed screening questionnaire (Complaints and Medical History)
 * subject = Reference(Patient/lola-oripova)
 * encounter = Reference(Encounter/Encounter-general)
 * authored = "2025-11-10T09:00:00Z"
-* author = Reference(PractitionerRole/practitioner-role-gynecologist)
+* author = Reference(PractitionerRole/practitioner-role-nurse)
 
 // --- Group 1: Cervical Screening ---
 * item[0].linkId = "cervical-group"

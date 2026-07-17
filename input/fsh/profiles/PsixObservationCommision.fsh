@@ -48,12 +48,12 @@ Description: "Example observation representing a medical-consultation commission
 Usage: #example
 * identifier.value = "OBS-COM-0001"
 * status = #final
-* code = PsixObservationCommisionCS#psycr0002-0001 "Komissiya qarori"
+* code = PsixObservationCommisionCS#psycr0002-0001 "Commission decision"
 * subject = Reference(Patient/example-patient-john)
 * encounter = Reference(Encounter/example-psix-encounter)
 * effectiveDateTime = "2026-03-10"
 * valueString = "Тошматов Тошмат Тошматович"
-* performer[0] = Reference(PractitionerRole/example-practitioner)
+* performer[0] = Reference(PractitionerRole/practitioner-role-nurse)
 * note[0].text = "Пациент нарко больной"
-* component[protocolNumber].code = PsixObservationCommisionCS#psycr0002-0002 "Bayonnoma raqami/sud nomi"
+* component[protocolNumber].code = PsixObservationCommisionCS#psycr0002-0002 "Protocol number/court name"
 * component[protocolNumber].valueString = "№123/ протокол / с"
