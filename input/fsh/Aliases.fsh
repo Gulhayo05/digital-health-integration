@@ -159,3 +159,4 @@ Alias: $patient-nationality-vs = https://dhp.uz/fhir/core/ValueSet/nationality-v
 Alias: $nationality = http://hl7.org/fhir/StructureDefinition/patient-nationality
 Alias: $citizenship-ext = http://hl7.org/fhir/StructureDefinition/patient-citizenship
 
+

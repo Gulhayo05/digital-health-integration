@@ -17,7 +17,7 @@ Description: "Episode of care profile for the Psix system."
 * type[group].extension contains EpisodeOfCareTypeGroup named group 1..1 MS
 
 * diagnosis 0..* MS
-* diagnosis.use 0..* MS
+* diagnosis.use 0..1 MS
 * diagnosis.use from $encounter-diagnosis-use (required)
 
 * patient 1..1 MS
@@ -34,7 +34,7 @@ Usage: #example
 * status = $episode-of-care-status#active "Active"
 * type[group].extension[EpisodeOfCareTypeGroup].valueCodeableConcept = PsixEpisodeOfCareExtensionCS#psycr0001-00001 "Compulsory inpatient treatment"
 * diagnosis[0].condition.concept = $icd-10#F10.2 "Mental and behavioural disorders due to use of alcohol : Dependence syndrome"
-* diagnosis[0].use = $encounter-diagnosis-use#working "Working"
+* diagnosis[0].use = $encounter-diagnosis-use-cs#working "Working"
 * patient = Reference(Patient/example-patient-john)
 * managingOrganization = Reference(Organization/example-organization)
 * period.start = "2026-02-12"

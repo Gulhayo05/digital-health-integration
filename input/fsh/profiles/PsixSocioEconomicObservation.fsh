@@ -7,7 +7,7 @@ Description: "Socio-economic observation profile for the Psix system, based on t
 * ^experimental = true
 * ^publisher = "DHP Integration"
 
-* value[x] 0..* MS
+* value[x] 0..1 MS
 * value[x] only CodeableConcept
 * valueCodeableConcept from SocialStatusVS (required)
 
