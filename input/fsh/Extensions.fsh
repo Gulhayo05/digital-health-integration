@@ -116,3 +116,15 @@ Description: "Date of birth of the related person"
 * value[x] 1..1 MS
 
 * value[x] only date
+
+
+Extension: MainProcedure
+Id: main-procedure
+Title: "Main Procedure"
+Description: "Indicates whether the procedure is the primary procedure."
+* ^status = #draft
+* ^experimental = true
+* ^context.type = #element
+* ^context.expression = "Procedure"
+* value[x] 1..1
+* value[x] only boolean

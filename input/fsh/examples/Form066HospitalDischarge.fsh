@@ -666,18 +666,19 @@ Usage: #inline
 
 
 Instance: procedure-surgery-066
-InstanceOf: Procedure
+InstanceOf: Procedure066
 Usage: #inline
 * language = #en
 * status = #completed
-* category = $sct#387713003 "Surgical procedure (procedure)"
-* code = $sct#387713003 "Surgical procedure (procedure)"
+// * category = $sct#387713003 "Surgical procedure (procedure)"
+// * code = $sct#387713003 "Surgical procedure (procedure)"
+* code = $sct#11466000 "Caesarean section"
+* extension[mainProcedure].valueBoolean = true
+* code.text = "Cesarean birth surgery" 
 * subject = Reference(urn:uuid:06600002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:06600003-1111-2222-3333-444444444444)
 * occurrenceDateTime = "2026-01-08T11:30:00+05:00"
 * performer.actor = Reference(urn:uuid:06600008-1111-2222-3333-444444444444)
-* reason = Reference(urn:uuid:06600029-1111-2222-3333-444444444444)
-
 
 
 Instance: observation-hiv-066
