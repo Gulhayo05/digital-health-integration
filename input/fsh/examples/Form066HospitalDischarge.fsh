@@ -670,8 +670,6 @@ InstanceOf: Procedure066
 Usage: #inline
 * language = #en
 * status = #completed
-// * category = $sct#387713003 "Surgical procedure (procedure)"
-// * code = $sct#387713003 "Surgical procedure (procedure)"
 * code = $sct#11466000 "Caesarean section"
 * extension[mainProcedure].valueBoolean = true
 * code.text = "Cesarean birth surgery" 
