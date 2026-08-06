@@ -101,7 +101,7 @@ To'liq namunaviy nusxa uchun [066-shakl statsionardan chiqarish misoli](Bundle-e
 
 ### Yakuniy tashxis
 
-Har bir tashxis [Diagnosis Role](CodeSystem-diagnosis-role.html) kod tizimidan olingan `Condition.category` bilan belgilanadi va Composition'ning rolga mos quyi bo'limiga joylashtiriladi, shu sababli rol kiritish tartibiga bog'liq bo'lmagan holda saqlanadi - Asosiy → `main`, Raqobat → `competing`, Yondosh → `concomitant`, Fon → `background`, Asorat → `complication`.
+Har bir tashxis [Diagnosis Role](CodeSystem-diagnosis-role-integration.html) kod tizimidan olingan `Condition.category` bilan belgilanadi va Composition'ning rolga mos quyi bo'limiga joylashtiriladi, shu sababli rol kiritish tartibiga bog'liq bo'lmagan holda saqlanadi - Asosiy → `main`, Raqobat → `competing`, Yondosh → `concomitant`, Fon → `background`, Asorat → `complication`.
 
 | UZ | RU | FHIR yo'li | Kod | Misol |
 |----|----|------------|------|---------|
@@ -115,7 +115,7 @@ Har bir tashxis [Diagnosis Role](CodeSystem-diagnosis-role.html) kod tizimidan o
 
 ### Patologoanatomik tashxis
 
-O'lim sabablari xuddi shu tarzda (`Condition.category`, [Diagnosis Role](CodeSystem-diagnosis-role.html)) rollar bo'yicha quyi bo'limlarda belgilanadi - O'limning bevosita sababi → `immediate-cause-of-death`, uni keltirib chiqargan kasallik → `underlying-cause-of-death`, Asosiy kasallik → `main-disease-death`, Boshqa muhim kasalliklar → `other-significant-death`.
+O'lim sabablari xuddi shu tarzda (`Condition.category`, [Diagnosis Role](CodeSystem-diagnosis-role-integration.html)) rollar bo'yicha quyi bo'limlarda belgilanadi - O'limning bevosita sababi → `immediate-cause-of-death`, uni keltirib chiqargan kasallik → `underlying-cause-of-death`, Asosiy kasallik → `main-disease-death`, Boshqa muhim kasalliklar → `other-significant-death`.
 
 | UZ | RU | FHIR yo'li | Kod | Misol |
 |----|----|------------|------|---------|

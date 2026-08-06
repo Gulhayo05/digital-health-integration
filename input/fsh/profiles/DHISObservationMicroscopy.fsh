@@ -31,9 +31,13 @@ Description: "Profile for recording sputum smear microscopy results, including a
 * component 0..* MS
   * code 1..1 MS
   * code from DHISObservationComponentCodeVS (required)
-  * value[x] only CodeableConcept
-  * valueCodeableConcept 1..1 MS
+
+  * value[x] only CodeableConcept or string
+
+  * valueCodeableConcept 0..1 MS
   * valueCodeableConcept from DHISObservationCodeableConceptVS
+
+  * valueString 0..1 MS
 
 //Instance Example
 Instance: example-microscopy

@@ -226,3 +226,39 @@ Description: "Local code system of tuberculosis observation component codes, inc
   * ^designation[=].value = "КТР начато"
   * ^designation[+].language = #en
   * ^designation[=].value = "KTR begin"
+
+* #tub004-0038 "Boshlanish sanasi"
+  * ^designation[0].language = #ru
+  * ^designation[=].value = "Дата начала"
+  * ^designation[+].language = #en
+  * ^designation[=].value = "Start date"
+
+* #tub004-0039 "LPA namuna raqami"
+  * ^designation[0].language = #ru
+  * ^designation[=].value = "Номер образца LPA"
+  * ^designation[+].language = #en
+  * ^designation[=].value = "LPA Sample Number"
+
+* #tub004-0040 "Natija sanasi"
+  * ^designation[0].language = #ru
+  * ^designation[=].value = "Дата результата"
+  * ^designation[+].language = #en
+  * ^designation[=].value = "Identification Result"
+
+* #tub004-0041 "Namuna raqami"
+  * ^designation[0].language = #ru
+  * ^designation[=].value = "Номер образца"
+  * ^designation[+].language = #en
+  * ^designation[=].value = "Sample Number"
+
+* #tub004-0042 "Yakuniy natija sanasi"
+  * ^designation[0].language = #ru
+  * ^designation[=].value = "Дата окончательного результата"
+  * ^designation[+].language = #en
+  * ^designation[=].value = "Final Result Date"
+
+* #tub004-0043 "Koloniyalar rangi"
+  * ^designation[0].language = #ru
+  * ^designation[=].value = "Цвет колоний"
+  * ^designation[+].language = #en
+  * ^designation[=].value = "Colony Color"

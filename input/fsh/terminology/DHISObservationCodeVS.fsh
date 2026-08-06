@@ -5,14 +5,16 @@ Description: "Value set of tuberculosis diagnostic test codes used by the DHIS i
 * insert IntegrationsValueSet(dhis-observation-code-vs)
 * ^experimental = true
 
-* include dhis-observation-code-cs#Tub002-0004
-* include dhis-observation-code-cs#Tub002-0005
-* include dhis-observation-code-cs#Tub002-0006
-* include dhis-observation-code-cs#Tub002-0007
-* include dhis-observation-code-cs#Tub002-0009
-* include $loinc#53904-9
-* include $loinc#647-8
-* include $loinc#89371-9
-* include $loinc#89876-7
-* include $loinc#30745-4
-* include $loinc#56888-1
+* include codes from system dhis-observation-code-cs
+
+// * include dhis-observation-code-cs#Tub002-0004
+// * include dhis-observation-code-cs#Tub002-0005
+// * include dhis-observation-code-cs#Tub002-0006
+// * include dhis-observation-code-cs#Tub002-0007
+// * include dhis-observation-code-cs#Tub002-0009
+// * include $loinc#53904-9
+// * include $loinc#647-8
+// * include $loinc#89371-9
+// * include $loinc#89876-7
+// * include $loinc#30745-4
+// * include $loinc#56888-1

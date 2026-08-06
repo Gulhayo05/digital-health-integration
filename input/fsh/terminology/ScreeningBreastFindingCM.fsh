@@ -10,7 +10,7 @@ Description: "Maps the local UZ macrocalcification finding code to SNOMED CT. Al
 * publisher = "DHP Integration"
 
 * group.source = Canonical(ScreeningBreastFindingCS)
-* sourceScopeCanonical = Canonical(ScreeningBreastFindingVS)
+// * sourceScopeCanonical = Canonical(ScreeningBreastFindingVS)
 * group.target = $sct
 * targetScopeCanonical = $sct-vs
 

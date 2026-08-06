@@ -101,7 +101,7 @@
 
 ### Заключительный диагноз
 
-Каждый диагноз помечается значением `Condition.category` из системы кодов [Diagnosis Role](CodeSystem-diagnosis-role.html) и помещается в соответствующий подраздел Composition по роли, поэтому роль сохраняется независимо от порядка ввода - Основной → `main`, Конкурирующий → `competing`, Сопутствующий → `concomitant`, Фоновый → `background`, Осложнение → `complication`.
+Каждый диагноз помечается значением `Condition.category` из системы кодов [Diagnosis Role](CodeSystem-diagnosis-role-integration.html) и помещается в соответствующий подраздел Composition по роли, поэтому роль сохраняется независимо от порядка ввода - Основной → `main`, Конкурирующий → `competing`, Сопутствующий → `concomitant`, Фоновый → `background`, Осложнение → `complication`.
 
 | UZ | RU | Путь FHIR | Код | Пример |
 |----|----|------------|------|---------|
@@ -115,7 +115,7 @@
 
 ### Патологоанатомический диагноз
 
-Причины смерти помечаются таким же образом (`Condition.category`, [Diagnosis Role](CodeSystem-diagnosis-role.html)) в подразделах по ролям - Непосредственная причина смерти → `immediate-cause-of-death`, вызвавшее её заболевание → `underlying-cause-of-death`, Основное заболевание → `main-disease-death`, Другие значимые заболевания → `other-significant-death`.
+Причины смерти помечаются таким же образом (`Condition.category`, [Diagnosis Role](CodeSystem-diagnosis-role-integration.html)) в подразделах по ролям - Непосредственная причина смерти → `immediate-cause-of-death`, вызвавшее её заболевание → `underlying-cause-of-death`, Основное заболевание → `main-disease-death`, Другие значимые заболевания → `other-significant-death`.
 
 | UZ | RU | Путь FHIR | Код | Пример |
 |----|----|------------|------|---------|

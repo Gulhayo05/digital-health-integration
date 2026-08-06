@@ -256,3 +256,45 @@ Description: "Local code system of coded tuberculosis test results (smear/cultur
   * ^designation[=].value = "R- Вероятная резистентность"
   * ^designation[+].language = #en
   * ^designation[=].value = "R- Probable resistance"
+  
+* #tub003-0043 "Bej"
+  * ^designation[0].language = #ru
+  * ^designation[=].value = "Бежевый"
+  * ^designation[+].language = #en
+  * ^designation[=].value = "Beige"
+
+* #tub003-0044 "Oq"
+  * ^designation[0].language = #ru
+  * ^designation[=].value = "Белый"
+  * ^designation[+].language = #en
+  * ^designation[=].value = "White"
+
+* #tub003-0045 "To‘q sariq"
+  * ^designation[0].language = #ru
+  * ^designation[=].value = "Оранжевый"
+  * ^designation[+].language = #en
+  * ^designation[=].value = "Orange"
+
+* #tub003-0046 "Sariq"
+  * ^designation[0].language = #ru
+  * ^designation[=].value = "Желтый"
+  * ^designation[+].language = #en
+  * ^designation[=].value = "Yellow"
+
+* #tub003-0047 "Pushti"
+  * ^designation[0].language = #ru
+  * ^designation[=].value = "Розовый"
+  * ^designation[+].language = #en
+  * ^designation[=].value = "Pink"
+
+* #tub003-0048 "Qizil"
+  * ^designation[0].language = #ru
+  * ^designation[=].value = "Красный"
+  * ^designation[+].language = #en
+  * ^designation[=].value = "Red"
+
+* #tub003-0049 "Kulrang"
+  * ^designation[0].language = #ru
+  * ^designation[=].value = "Серый"
+  * ^designation[+].language = #en
+  * ^designation[=].value = "Gray"

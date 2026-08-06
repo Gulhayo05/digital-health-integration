@@ -28,8 +28,10 @@ Description: "Profile for recording the result of an HIV test performed as part 
 * component 0..* MS
   * code 1..1 MS
   * code from DHISObservationComponentCodeVS (required)
-  * value[x] only boolean
-  * valueBoolean 0..1 MS     
+
+  * value[x] only boolean or dateTime
+  * valueBoolean 0..1 MS
+  * valueDateTime 0..1 MS
 
 //Instance Example
 Instance: example-obs-hiv

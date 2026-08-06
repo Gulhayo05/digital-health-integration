@@ -32,6 +32,6 @@ InstanceOf: DHISSpecimen
 Description: "Example specimen representing a sputum sample collected for tuberculosis testing."
 Usage: #example
 * status = #available
-* type =  $sct#119334006 "Sputum specimen"
+* type = specimen-type-cs#Spec001-0002 "Macrota"
 * subject = Reference(example-patient-john)
 * receivedTime = "2026-02-13T12:00:00Z"

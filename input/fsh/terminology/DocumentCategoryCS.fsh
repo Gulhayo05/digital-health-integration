@@ -192,3 +192,9 @@ Description: "Categories for clinical documents and other knowledge resources in
   * ^designation[=].value = "Hospital discharge statistical card"
   * ^designation[+].language = #ru
   * ^designation[=].value = "Статистическая карта выписанного из стационара"
+
+* #form-130 "Laboratoriya tahlil natijalari"
+  * ^designation[0].language = #en
+  * ^designation[=].value = "Laboratory Test Results"
+  * ^designation[+].language = #ru
+  * ^designation[=].value = "Результаты лабораторных исследований"
