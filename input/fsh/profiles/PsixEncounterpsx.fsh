@@ -1,5 +1,5 @@
 Profile: PsixEncounterpsx
-Parent: Encounter
+Parent: UZCoreEncounter
 Id: psix-encounter-psx
 Title: "Psix Encounter Profile"
 Description: "Encounter profile for the Psix system, based on the Encounter profile."

@@ -2,9 +2,7 @@ CodeSystem: DocumentCategoryCS
 Id: document-category-cs
 Title: "Document Category"
 Description: "Categories for clinical documents and other knowledge resources in Uzbekistan integrations. Based on Ministry of Health Order 399."
-* ^experimental = true
-* ^caseSensitive = true
-* ^language = #uz
+* insert OriginalCodeSystemDraft(document-category-cs)
 
 // 1.0 Hospital forms (first 20 from Order 399)
 * #form-001 "Tibbiy muassasaga qabul qilingan yoki rad etilganlarni hisobga olish"

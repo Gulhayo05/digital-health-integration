@@ -1,5 +1,5 @@
 Profile: PsixEpisodeOfCare
-Parent: EpisodeOfCare
+Parent: UZCoreEpisodeOfCare
 Id: psix-episode-of-care
 Title: "Psix Episode of Care Profile"
 Description: "Episode of care profile for the Psix system."

@@ -1,5 +1,5 @@
 Profile: PsixSocioEconomicObservation
-Parent: Observation
+Parent: UZCoreSocioeconomicObservation
 Id: psix-socio-economic-observation
 Title: "Psix Socio-Economic Observation Profile"
 Description: "Socio-economic observation profile for the Psix system, based on the SocioEconomicObservation profile."
@@ -9,7 +9,7 @@ Description: "Socio-economic observation profile for the Psix system, based on t
 
 * value[x] 0..1 MS
 * value[x] only CodeableConcept
-* valueCodeableConcept from SocialStatusVS (required)
+* valueCodeableConcept from $social-status-vs (required)
 
 Instance: example-psix-socio-economic-observation
 InstanceOf: PsixSocioEconomicObservation

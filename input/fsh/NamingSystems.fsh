@@ -73,7 +73,7 @@ Instance: medical-record-number-system
 InstanceOf: NamingSystem
 Usage: #definition
 
-* url = "https://dhp.uz/fhir/integrations/NamingSystem/medical-record-number-system"
+* url = "https://terminology.dhp.uz/fhir/integrations/NamingSystem/medical-record-number-system"
 * name = "UzbekistanMedicalRecordNumberSystem"
 * status = #active
 * kind = #identifier
@@ -89,7 +89,7 @@ Instance: screening-identifier-system
 InstanceOf: NamingSystem
 Description: "Identifier system for the Cervical Cancer Screening Quality Assessment and Monitoring and Early Breast Cancer Detection Information System"
 Usage: #definition
-* url = "https://dhp.uz/fhir/integrations/NamingSystem/screening-identifier-system"
+* url = "https://terminology.dhp.uz/fhir/integrations/NamingSystem/screening-identifier-system"
 * name = "ScreeningIdentifierSystem"
 * status = #active
 * kind = #identifier
@@ -106,7 +106,7 @@ Instance: screening-patient-identifier-system
 InstanceOf: NamingSystem
 Description: "Patient identifier system for the Cervical Cancer Screening Quality Assessment and Monitoring and Early Breast Cancer Detection Information System"
 Usage: #definition
-* url = "https://dhp.uz/fhir/integrations/NamingSystem/screening-patient-identifier-system"
+* url = "https://terminology.dhp.uz/fhir/integrations/NamingSystem/screening-patient-identifier-system"
 * name = "ScreeningPatientIdentifierSystem"
 * status = #active
 * kind = #identifier
@@ -123,7 +123,7 @@ Instance: screening-practitioner-identifier-system
 InstanceOf: NamingSystem
 Description: "Practitioner identifier system for the Cervical Cancer Screening Quality Assessment and Monitoring and Early Breast Cancer Detection Information System"
 Usage: #definition
-* url = "https://dhp.uz/fhir/integrations/NamingSystem/screening-practitioner-identifier-system"
+* url = "https://terminology.dhp.uz/fhir/integrations/NamingSystem/screening-practitioner-identifier-system"
 * name = "ScreeningPractitionerIdentifierSystem"
 * status = #active
 * kind = #identifier

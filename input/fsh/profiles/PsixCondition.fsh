@@ -1,5 +1,5 @@
 Profile: PsixCondition
-Parent: Condition
+Parent: UZCoreCondition
 Id: psix-condition
 Title: "Psix Condition Profile"
 Description: "Condition profile for the Psix system."

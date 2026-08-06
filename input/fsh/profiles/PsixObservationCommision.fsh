@@ -1,5 +1,5 @@
 Profile: PsixObservationCommision
-Parent: Observation
+Parent: UZCoreObservation
 Id: psix-observation-commision
 Title: "Psix Observation Commision Profile"
 Description: "Observation profile representing the medical-consultation commission's decision notes for the Psix system."
