@@ -10,4 +10,5 @@ Description: "Local value set for hepatitis treatment outcomes, with Uzbek and R
 * ^extension[0].url = $valueset-supplement
 * ^extension[=].valueCanonical = Canonical(HepatitisConditionOutcomeCodesCS)
 
-* include codes from system $sct
+* $sct#1137679005
+* $sct#405786003

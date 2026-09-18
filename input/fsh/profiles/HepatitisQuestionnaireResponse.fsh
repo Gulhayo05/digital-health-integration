@@ -13,7 +13,7 @@ Description: "Profile for representing responses to a hepatitis-related question
 
 * partOf only Reference(UZCoreSocioeconomicObservation) 
 
-* subject only Reference(UZCorePatient) 
+* subject only Reference(HepatitisPatient) 
 
 * author only Reference(UZCorePractitionerRole)
 
@@ -27,20 +27,36 @@ InstanceOf: HepatitisQuestionnaireResponse
 Description: "Example of anamnesis responses completed by the patient for hepatitis B and C treatment questionnaire"
 Usage: #example
 
+* identifier
+  * system = "https://dhp.uz/fhir/core/sid/org/uz/hepatitis"
+  * value = "6f9b9d8e-3b7d-4d87-8f6e-123456789abc"
+
 * status = #completed
 * questionnaire = "https://dhp.uz/fhir/integrations/Questionnaire/hepatitis-questionnaire"
-* subject = Reference(hepatitis-patient-example)
+* subject = Reference(example-hepatitis-patient)
 * authored = "2026-03-19T12:00:00Z"
-* author = Reference(example-hepatologist-role)
+* author = Reference(muratova-gulshoda-role)
 
-* item[0].linkId = "grp-1"
-* item[0].text = "MAIN INFORMATION"
+* item[0]
+  * linkId = "grp-1"
+  * text = "MAIN INFORMATION"
 
-* item[0].item[0].linkId = "hx-tx-hcv-hbv"
-* item[0].item[0].text = "Has treatment for HCV/HBV been conducted in the past (in the patient's history)?"
-* item[0].item[0].answer[0].valueBoolean = true
+  * item[0]
+    * linkId = "hx-tx-hcv-hbv"
+    * text = "Has treatment for HCV/HBV been conducted in the past (in the patient's history)?"
+    * answer[0].valueBoolean = true
 
-* item[0].item[1].linkId = "hx-tx-hcv-hbv-meds"
-* item[0].item[1].text = "What medications were taken against HCV/HBV?"
-* item[0].item[1].answer[0].valueString = "Sofosbuvir + Daclatasvir"
+  * item[1]
+    * linkId = "hx-tx-hcv-hbv-meds"
+    * text = "What medications were taken against HCV/HBV?"
+    * answer[0].valueString = "Sofosbuvir + Declatasvir"
 
+* item[1]
+  * linkId = "grp-pregnancy"
+  * text = "Gynecological treatment / Pregnancy"
+
+  * item[0]
+    * linkId = "pregnancy-trimester"
+    * text = "Pregnancy duration (Homiladorlik muddati)"
+    * answer[0]
+      * valueCoding = $sct#255246003 "First trimester"

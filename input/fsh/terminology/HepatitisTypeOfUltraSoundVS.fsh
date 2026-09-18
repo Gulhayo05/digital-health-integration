@@ -10,4 +10,5 @@ Description: "Local value set for liver ultrasound findings used in hepatitis fo
 * ^extension[0].url = $valueset-supplement
 * ^extension[=].valueCanonical = Canonical(HepatitisTypeOfUltraSoundCS)
 
-* include codes from system $sct
+* $sct#19943007
+* $sct#300332007

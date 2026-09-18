@@ -7,19 +7,16 @@ Description: "Profile for representing ultrasound observations related to hepati
 * ^experimental = true
 * ^publisher = "DHP Integration"
 
-* identifier 1..* MS
+* identifier ^slicing.discriminator.type = #value
+* identifier ^slicing.discriminator.path = "system"
+* identifier ^slicing.rules = #open
+* identifier contains hepatitisRegistry 1..1 MS
+* identifier[hepatitisRegistry].system = "https://dhp.uz/fhir/core/sid/org/uz/hepatitis"
+* identifier[hepatitisRegistry].value 1..1
 
 * code MS
 * code from HepatitisTypeOfUltraSoundVS (required)
-* code ^short = "Ultrasound examination type"
-* code ^definition = "Ultrasound examination type represented using SNOMED CT."
 
-* code.coding 1..* MS
-* code.coding.system 1..1 MS
-* code.coding.system = "http://snomed.info/sct"
-
-* code.coding.code 1..1 MS
-* code.coding.display 0..1 MS
 
 * code.text 0..1 MS
 
@@ -38,21 +35,16 @@ Instance: example-ultrasound-cirrhosis
 InstanceOf: HepatitisObservationUltraSound
 Description: "Instance of cirrhosis detected"
 Usage: #example
+
 * status = #final
-* identifier 
-  * system = $hep-id-sys 
-  * value = "OBS-2026-5541"
-  * type.coding
-    * system = $v2-0203
-    * code = #PHC
-    * display = "Public Health Case Identifier"
-  * use = #official
-* code 
-  * coding = $sct#19943007 "Cirrhosis of liver"
-  * text = "Signs of cirrhosis"
+
+* identifier[hepatitisRegistry].system = "https://dhp.uz/fhir/core/sid/org/uz/hepatitis"
+* identifier[hepatitisRegistry].value = "85dcdd0a-5a68-4cc6-8503-5ab15a42c73b"
+
+* code = $sct#19943007
 
 * subject = Reference(Patient/hepatitis-patient-example)
-* effectiveDateTime = "2026-01-26"
+* effectiveDateTime = "2026-09-18T10:30:00+05:00"
 * performer[0] = Reference(PractitionerRole/example-hepatologist-role)
 * performer[1] = Reference(Organization/samarkand-infectious-hospital)
 * valueBoolean = true
@@ -64,20 +56,14 @@ InstanceOf: HepatitisObservationUltraSound
 Description: "Instance of liver lesion detected"
 Usage: #example
 * status = #final
-* identifier
-  * system = $hep-id-sys 
-  * value = "OBS-2026-5542"
-  * type.coding
-    * system = $v2-0203
-    * code = #PHC
-    * display = "Public Health Case Identifier"
-  * use = #official
-* code 
-  * coding = $sct#19943007 "Cirrhosis of liver"
-  * text = "Signs of masses in the liver"
+
+* identifier[hepatitisRegistry].system = "https://dhp.uz/fhir/core/sid/org/uz/hepatitis"
+* identifier[hepatitisRegistry].value = "85dcdd0a-5a68-4cc6-8503-5ab15a42c74b"
+
+* code = $sct#300332007
 
 * subject = Reference(Patient/hepatitis-patient-example)
-* effectiveDateTime = "2027-01-26"
+* effectiveDateTime = "2026-09-18T10:30:00+05:00"
 * performer[0] = Reference(PractitionerRole/example-hepatologist-role)
 * performer[1] = Reference(Organization/samarkand-infectious-hospital)
 * valueBoolean = false

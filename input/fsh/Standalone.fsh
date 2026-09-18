@@ -51,6 +51,42 @@ Usage: #example
 * practitioner = Reference(Practitioner/muratova-gulshoda)
 * organization = Reference(Organization/samarkand-regional-hospital)
 
+Instance: example-hepatitis-patient
+InstanceOf: UZCorePatient
+Description: "Gepatit profili uchun Tolibjon To'lanboev misolida namuna"
+Usage: #example
+
+// citizenship temporarily omitted: IG Publisher 2.3.4 wrongly fails the required supplement on
+// iso-3166-2-vs because urn:iso:std:iso:3166 is only available on the terminology server.
+// Restore once hapifhir/org.hl7.fhir.core#2636 is fixed in a publisher release:
+// * extension[citizenship].extension[code].valueCodeableConcept = urn:iso:std:iso:3166#UZ "Uzbekistan"
+* identifier[nationalId]
+  * system = "https://dhp.uz/fhir/core/sid/pid/uz/ni"
+  * value = "515050500505"
+  * use = #official
+
+* identifier[passportLocal]
+  * system = "https://dhp.uz/fhir/core/sid/pid/uz/ppn/local"
+  * value = "AB1234567"
+  * use = #official
+
+* name
+  * use = #official
+  * text = "To'lanboev Tolibjon"
+  * family = "To'lanboyev"
+  * given = "Tolibjon"
+
+* gender = #male
+* birthDate = "1990-02-01"
+
+* address[uzAddress]
+  * use = #home
+  * type = #physical
+  * text = "Iltifot MFY, 58-Harbiy shaharcha mavzesi, 53 Uy, 104 Kvartira"
+  * city = #17150085
+  * district = #1726262
+  * state = #1726
+  * country = "UZ"
 
 Instance: specimen-example-blood
 InstanceOf: Specimen

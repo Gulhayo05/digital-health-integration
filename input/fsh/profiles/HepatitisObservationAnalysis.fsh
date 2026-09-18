@@ -8,11 +8,17 @@ Description: "Profile for representing hepatitis observation analysis in the con
 * ^experimental = true
 * ^publisher = "DHP Integration"
 
-* identifier 1..* MS
+
+* identifier ^slicing.discriminator.type = #value
+* identifier ^slicing.discriminator.path = "system"
+* identifier ^slicing.rules = #open
+* identifier contains hepatitisRegistry 1..1 MS
+* identifier[hepatitisRegistry].system = "https://dhp.uz/fhir/core/sid/org/uz/hepatitis"
+* identifier[hepatitisRegistry].value 1..1
 
 
 * subject MS
-* subject only Reference(UZCorePatient)
+* subject only Reference(HepatitisPatient)
 
 * effective[x]  MS
 * effective[x] only dateTime or Period
@@ -38,19 +44,14 @@ Description: "Sample Hepatitis B DNA Test"
 Usage: #example
 * language = #en
 * status = #final
-* identifier 
-  * system = $hep-id-sys 
-  * value = "PZR-2026-001"
-  * type.coding
-    * system = $v2-0203
-    * code = #PHC
-    * display = "Public Health Case Identifier"
-  * use = #official
+
+* identifier[hepatitisRegistry].system = "https://dhp.uz/fhir/core/sid/org/uz/hepatitis"
+* identifier[hepatitisRegistry].value = "85dcdd0a-5a68-4cc6-8503-5ab15a42c63b"
 
 * method = $lab-methods-cs#lab-method-1 "PCR (Polymerase Chain Reaction)"
 * code = $loinc#22314-9 "Hepatitis A virus IgM Ab [Presence] in Serum"
 * subject = Reference(Patient/hepatitis-patient-example)
-* effectiveDateTime = "2026-01-27T09:57:00Z"
+* effectiveDateTime = "2026-09-18T10:00:00+05:00"
 
 * valueCodeableConcept = $observation-interpretation#NEG "Negative"
 

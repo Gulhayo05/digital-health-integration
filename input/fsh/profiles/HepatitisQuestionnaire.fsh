@@ -28,6 +28,7 @@ Description: "Structured questionnaire used for collecting clinical and epidemio
 
 
 
+// Instance Example
 Instance: example-hepatitis-questionnaire
 InstanceOf: HepatitisQuestionnaire
 Description: "Hepatitis B and C treatment questionnaire"
@@ -39,9 +40,12 @@ Usage: #example
 
 * status = #active
 * title = "HEPATITIS QUESTIONNAIRE"
+
+* identifier
+  * system = "https://dhp.uz/fhir/core/sid/org/uz/hepatitis"
+  * value = "HCV-HBV-QS-2026"
+
 * subjectType = #Patient
-* identifier.value = "HCV-HBV-QS-2026"
-* description = "Clinical Structured Form"
 
 * item[0]
   * linkId = "grp-1"

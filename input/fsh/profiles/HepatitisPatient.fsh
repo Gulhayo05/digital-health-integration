@@ -30,11 +30,11 @@ Usage: #example
 
 * name
   * use = #official
-  * text = "To'lanboev Tolibjon"
-  * family = "To'lanboev"
-  * given = "Tolibjon"
+  * text = "Xalida Yusupova Maxmudovna"
+  * family = "Yusupova"
+  * given = "Xalida"
 
-* gender = #male
+* gender = #female
 
 * birthDate = "1990-02-01"
 
