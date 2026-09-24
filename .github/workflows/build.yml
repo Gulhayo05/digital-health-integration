@@ -4,6 +4,15 @@ on:
   push:
   pull_request:
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -30,15 +39,24 @@ jobs:
       - name: Run IG Publisher
         run: java -Xmx6g -jar input-cache/publisher.jar -ig ig.ini
 
-      # Chrome bloklaydigan va hajmni oshirib yuboradigan keraksiz arxivlarni tozalash
+      # Keraksiz katta arxivlarni tozalash
       - name: Clean Heavy Archives
         run: |
           rm -rf output/*.zip output/*.tgz output/*.tar.gz 2>/dev/null || true
 
-      # To'liq IG saytni (index.html, qa.html va barcha sahifalar bilan) yuklash
-      - name: Upload Clean Output
-        uses: actions/upload-artifact@v4
+      # GitHub Pages uchun sahifani tayyorlash
+      - name: Setup Pages
+        if: github.event_name == 'push'
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages Artifact
+        if: github.event_name == 'push'
+        uses: actions/upload-pages-artifact@v3
         with:
-          name: ig-qa-report-${{ github.ref_name }}
           path: output/
-          retention-days: 3
+
+      # To'g'ridan-to'g'ri Pages'ga chiqarish
+      - name: Deploy to GitHub Pages
+        if: github.event_name == 'push'
+        id: deployment
+        uses: actions/deploy-pages@v4
