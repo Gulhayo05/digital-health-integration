@@ -1,0 +1,44 @@
+name: Build and Check IG QA
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Install Jekyll
+        run: sudo gem install jekyll
+
+      - name: Install SUSHI
+        run: npm install -g fsh-sushi
+
+      - name: Download IG Publisher
+        run: |
+          mkdir -p input-cache
+          curl -L https://github.com/HL7/fhir-ig-publisher/releases/latest/download/publisher.jar \
+            -o input-cache/publisher.jar
+
+      - name: Run IG Publisher
+        run: java -Xmx6g -jar input-cache/publisher.jar -ig ig.ini
+
+      # Chrome bloklaydigan va hajmni oshirib yuboradigan keraksiz arxivlarni tozalash
+      - name: Clean Heavy Archives
+        run: |
+          rm -rf output/*.zip output/*.tgz output/*.tar.gz 2>/dev/null || true
+
+      # To'liq IG saytni (index.html, qa.html va barcha sahifalar bilan) yuklash
+      - name: Upload Clean Output
+        uses: actions/upload-artifact@v4
+        with:
+          name: ig-qa-report-${{ github.ref_name }}
+          path: output/
+          retention-days: 3
