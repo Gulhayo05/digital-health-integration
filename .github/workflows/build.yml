@@ -30,20 +30,15 @@ jobs:
       - name: Run IG Publisher
         run: java -Xmx6g -jar input-cache/publisher.jar -ig ig.ini
 
-      # Faqat QA va asosiy sahifalarni ajratib olish
-      - name: Prepare QA files
+      # Chrome bloklaydigan va hajmni oshirib yuboradigan keraksiz arxivlarni tozalash
+      - name: Clean Heavy Archives
         run: |
-          mkdir -p qa-artifacts
-          cp output/qa.html qa-artifacts/ || true
-          cp output/qa.txt qa-artifacts/ || true
-          cp output/qa.min.html qa-artifacts/ || true
-          cp output/index.html qa-artifacts/ || true
-          cp -r output/assets qa-artifacts/ 2>/dev/null || true
+          rm -rf output/*.zip output/*.tgz output/*.tar.gz 2>/dev/null || true
 
-      # Yengil artifact sifatida yuklash
-      - name: Upload QA Artifact
+      # To'liq IG saytni (index.html, qa.html va barcha sahifalar bilan) yuklash
+      - name: Upload Clean Output
         uses: actions/upload-artifact@v4
         with:
           name: ig-qa-report-${{ github.ref_name }}
-          path: qa-artifacts/
+          path: output/
           retention-days: 3
