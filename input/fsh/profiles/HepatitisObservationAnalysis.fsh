@@ -13,7 +13,7 @@ Description: "Profile for representing hepatitis observation analysis in the con
 * identifier ^slicing.discriminator.path = "system"
 * identifier ^slicing.rules = #open
 * identifier contains hepatitisRegistry 1..1 MS
-* identifier[hepatitisRegistry].system = "https://dhp.uz/fhir/core/sid/org/uz/hepatitis"
+* identifier[hepatitisRegistry].system = "https://dhp.uz/fhir/core/sid/reg/uz/hepatitis"
 * identifier[hepatitisRegistry].value 1..1
 
 
@@ -40,15 +40,14 @@ Description: "Profile for representing hepatitis observation analysis in the con
 // Instance Example
 Instance: example-hepatitis-observation-analysis
 InstanceOf: HepatitisObservationAnalysis
-Description: "Sample Hepatitis B DNA Test"
+Description: "Sample Hepatitis A IgM Antibody Test"
 Usage: #example
 * language = #en
 * status = #final
 
-* identifier[hepatitisRegistry].system = "https://dhp.uz/fhir/core/sid/org/uz/hepatitis"
+* identifier[hepatitisRegistry].system = "https://dhp.uz/fhir/core/sid/reg/uz/hepatitis"
 * identifier[hepatitisRegistry].value = "85dcdd0a-5a68-4cc6-8503-5ab15a42c63b"
 
-* method = $lab-methods-cs#lab-method-1 "PCR (Polymerase Chain Reaction)"
 * code = $loinc#22314-9 "Hepatitis A virus IgM Ab [Presence] in Serum"
 * subject = Reference(Patient/hepatitis-patient-example)
 * effectiveDateTime = "2026-09-18T10:00:00+05:00"

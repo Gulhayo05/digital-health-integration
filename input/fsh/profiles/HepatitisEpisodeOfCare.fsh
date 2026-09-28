@@ -12,7 +12,7 @@ Description: "EpisodeOfCare profile representing the process of care for a patie
 * identifier ^slicing.discriminator.path = "system"
 * identifier ^slicing.rules = #open
 * identifier contains hepatitisRegistry 1..1 MS
-* identifier[hepatitisRegistry].system = "https://dhp.uz/fhir/core/sid/org/uz/hepatitis"
+* identifier[hepatitisRegistry].system = "https://dhp.uz/fhir/core/sid/reg/uz/hepatitis"
 * identifier[hepatitisRegistry].value 1..1
 
 * diagnosis.condition MS
@@ -26,9 +26,9 @@ Instance: hepatitis-episode-of-care-example
 InstanceOf: HepatitisEpisodeOfCare
 Usage: #example
 Title: "Hepatitis Episode Of Care Example"
-Description: "Example EpisodeOfCare for a patient registered for acute hepatitis B."
+Description: "Example EpisodeOfCare for a patient registered for acute hepatitis C."
 
-* identifier[hepatitisRegistry].system = "https://dhp.uz/fhir/core/sid/org/uz/hepatitis"
+* identifier[hepatitisRegistry].system = "https://dhp.uz/fhir/core/sid/reg/uz/hepatitis"
 * identifier[hepatitisRegistry].value = "75dcdd0a-5a68-4cc6-8503-5ab15a42c63b"
 
 * status = #active

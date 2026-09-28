@@ -11,7 +11,7 @@ Description: "Profile for representing ultrasound observations related to hepati
 * identifier ^slicing.discriminator.path = "system"
 * identifier ^slicing.rules = #open
 * identifier contains hepatitisRegistry 1..1 MS
-* identifier[hepatitisRegistry].system = "https://dhp.uz/fhir/core/sid/org/uz/hepatitis"
+* identifier[hepatitisRegistry].system = "https://dhp.uz/fhir/core/sid/reg/uz/hepatitis"
 * identifier[hepatitisRegistry].value 1..1
 
 * code MS
@@ -38,7 +38,7 @@ Usage: #example
 
 * status = #final
 
-* identifier[hepatitisRegistry].system = "https://dhp.uz/fhir/core/sid/org/uz/hepatitis"
+* identifier[hepatitisRegistry].system = "https://dhp.uz/fhir/core/sid/reg/uz/hepatitis"
 * identifier[hepatitisRegistry].value = "85dcdd0a-5a68-4cc6-8503-5ab15a42c73b"
 
 * code = $sct#19943007
@@ -57,7 +57,7 @@ Description: "Instance of liver lesion detected"
 Usage: #example
 * status = #final
 
-* identifier[hepatitisRegistry].system = "https://dhp.uz/fhir/core/sid/org/uz/hepatitis"
+* identifier[hepatitisRegistry].system = "https://dhp.uz/fhir/core/sid/reg/uz/hepatitis"
 * identifier[hepatitisRegistry].value = "85dcdd0a-5a68-4cc6-8503-5ab15a42c74b"
 
 * code = $sct#300332007

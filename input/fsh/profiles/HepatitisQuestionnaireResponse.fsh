@@ -19,7 +19,8 @@ Description: "Profile for representing responses to a hepatitis-related question
 
 * source only Reference(UZCoreRelatedPerson)
 
-* item.answer.value[x] only boolean or string 
+* item.answer.value[x] only boolean or string or Coding
+* item.item.answer.value[x] only boolean or string or Coding
 
 // Instance Example 
 Instance: example-hcv-response
@@ -28,14 +29,14 @@ Description: "Example of anamnesis responses completed by the patient for hepati
 Usage: #example
 
 * identifier
-  * system = "https://dhp.uz/fhir/core/sid/org/uz/hepatitis"
+  * system = "https://dhp.uz/fhir/core/sid/reg/uz/hepatitis"
   * value = "6f9b9d8e-3b7d-4d87-8f6e-123456789abc"
 
 * status = #completed
 * questionnaire = "https://dhp.uz/fhir/integrations/Questionnaire/hepatitis-questionnaire"
-* subject = Reference(example-hepatitis-patient)
-* authored = "2026-03-19T12:00:00Z"
-* author = Reference(muratova-gulshoda-role)
+* subject = Reference(hepatitis-patient-example)
+* authored = "2026-09-18T10:15:00+05:00"
+* author = Reference(example-hepatologist-role)
 
 * item[0]
   * linkId = "grp-1"
@@ -49,7 +50,7 @@ Usage: #example
   * item[1]
     * linkId = "hx-tx-hcv-hbv-meds"
     * text = "What medications were taken against HCV/HBV?"
-    * answer[0].valueString = "Sofosbuvir + Declatasvir"
+    * answer[0].valueString = "Sofosbuvir + Daclatasvir"
 
 * item[1]
   * linkId = "grp-pregnancy"

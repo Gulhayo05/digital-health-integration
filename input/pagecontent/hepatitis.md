@@ -9,11 +9,11 @@ This page describes how hepatitis registry information is represented as FHIR re
 
 ### Overview
 
-The model separates the patient, longitudinal care episode, individual visit, diagnosis, laboratory and ultrasound findings, and questionnaire answers. Each section links the governing profile and example resources and maps the recorded information to FHIR fields. The hepatitis profiles inherit [UZ Core](https://dhp.uz/fhir/core/en/artifacts.html); their published constraints remain authoritative.
+The hepatitis registry captures patient details, care episodes, visits, diagnoses, laboratory and ultrasound findings, and questionnaire answers. The data originates from the Viral Hepatitis Registration and Monitoring System and is added to the DHP as individual, atomic FHIR resources. Each section links the governing profile and example resources and maps the recorded information to FHIR fields. The hepatitis profiles inherit [UZ Core](https://dhp.uz/fhir/core/en/artifacts.html); their published constraints remain authoritative.
 
-Condition, EpisodeOfCare, and both Observation profiles require one `identifier[hepatitisRegistry]` with system `https://dhp.uz/fhir/core/sid/org/uz/hepatitis` and a value. Questionnaire requires at least one identifier. QuestionnaireResponse fixes the identifier system when that element is present. These are record identifiers, separate from the patient’s personal identifiers.
+Condition, EpisodeOfCare, and both Observation profiles require one `identifier[hepatitisRegistry]` with system `https://dhp.uz/fhir/core/sid/reg/uz/hepatitis` and a value. Questionnaire requires at least one identifier. QuestionnaireResponse fixes the identifier system when that element is present. The registry identifier is the identifier assigned by the source hepatitis registry to the corresponding record, such as a diagnosis, care episode, or test result. `system` identifies the issuing registry’s namespace, and `value` holds that record’s identifier in the registry, allowing the FHIR resource to be matched back to its source record. These are record identifiers, separate from the patient’s personal identifiers.
 
-The [care episode](#following-the-care-episode) references the [patient](#registering-the-patient) and [diagnosis](#recording-diagnosis-and-outcome). A [visit](#recording-the-visit) can reference the episode, and the diagnosis references the visit. Observations and [questionnaire answers](#recording-answers) identify their patient independently. The examples illustrate individual resources and do not constitute one fully linked patient record.
+The [care episode](#following-the-care-episode) references the [patient](#registering-the-patient) and [diagnosis](#recording-diagnosis-and-outcome). A [visit](#recording-the-visit) can reference the episode, and the diagnosis references the visit. Observations and [questionnaire answers](#recording-answers) identify their patient independently. The examples share one patient record, and the visit links to the care episode.
 
 ### Registering the patient (Patient) {#registering-the-patient}
 
@@ -29,7 +29,7 @@ Example: [hepatitis-patient-example](Patient-hepatitis-patient-example.html)
 | Local passport | - | `AB1234567` | `identifier[passportLocal].value` |
 | Health card identifier | - | `01234567890456` | `identifier[healthCardId].value` |
 | Name | - | `Xalida Yusupova Maxmudovna` | `name` |
-| Administrative gender | [administrative-gender-vs](https://dhp.uz/fhir/core/ValueSet-administrative-gender-vs.html) | `female` | `gender` |
+| Administrative gender | [AdministrativeGenderVS](https://dhp.uz/fhir/core/ValueSet-administrative-gender-vs.html) | `female` | `gender` |
 | Date of birth | - | `1990-02-01` | `birthDate` |
 | Telephone | - | `998-90-123-45-45` | `telecom.value` |
 
@@ -44,16 +44,16 @@ Example: [hepatitis-episode-of-care-example](EpisodeOfCare-hepatitis-episode-of-
 | What is recorded | Terminology | Example code or value | Where it is stored |
 | :--- | :--- | :--- | :--- |
 | Registry identifier | - | `75dcdd0a-5a68-4cc6-8503-5ab15a42c63b` | `identifier[hepatitisRegistry].value` |
-| Status | [episode-of-care-status](https://hl7.org/fhir/R5/valueset-episode-of-care-status.html) | `active` | `status` |
-| Service type | [episode-of-care-type-vs](https://dhp.uz/fhir/core/ValueSet-episode-of-care-type-vs.html) | `episode-of-care-type-cs#mserv-0001-00004` | `type[serviceType]` |
+| Status | [EpisodeOfCareStatus](https://hl7.org/fhir/R5/valueset-episode-of-care-status.html) | `active` | `status` |
+| Service type | [EpisodeOfCareTypeVS](https://dhp.uz/fhir/core/ValueSet-episode-of-care-type-vs.html) | `episode-of-care-type-cs#mserv-0001-00004` | `type[serviceType]` |
 | Diagnosis | - | [example-hepatitis-condition](Condition-example-hepatitis-condition.html) | `diagnosis.condition.reference` |
-| Diagnosis use | [encounter-diagnosis-use](https://hl7.org/fhir/R5/valueset-encounter-diagnosis-use.html) | `encounter-diagnosis-use-cs#final` | `diagnosis.use` |
+| Diagnosis use | [EncounterDiagnosisUse](https://hl7.org/fhir/R5/valueset-encounter-diagnosis-use.html) | `encounter-diagnosis-use-cs#final` | `diagnosis.use` |
 | Patient | - | [hepatitis-patient-example](Patient-hepatitis-patient-example.html) | `patient` |
 | Responsible organization | - | [samarkand-infectious-hospital](Organization-samarkand-infectious-hospital.html) | `managingOrganization` |
 | Care manager | - | [example-hepatologist-role](PractitionerRole-example-hepatologist-role.html) | `careManager` |
 | Care period | - | `2026-09-18T09:00:00+05:00` / `2026-11-10T17:00:00+05:00` | `period` |
 
-The example remains `active`; its end date is an expected end. Its diagnosis reference resolves to the acute hepatitis C example (`B17.1`), although the episode description mentions hepatitis B.
+The example remains `active`; its end date is an expected end. The episode references the acute hepatitis C diagnosis (`B17.1`).
 
 ### Recording the visit (Encounter) {#recording-the-visit}
 
@@ -65,17 +65,18 @@ Example: [hepatitis-encounter-example](Encounter-hepatitis-encounter-example.htm
 
 | What is recorded | Terminology | Example code or value | Where it is stored |
 | :--- | :--- | :--- | :--- |
-| Visit status | [encounter-status-vs](https://dhp.uz/fhir/core/ValueSet-encounter-status-vs.html) | `completed` | `status` |
-| Visit class | [encounter-class-vs](https://dhp.uz/fhir/core/ValueSet-encounter-class-vs.html) | `v3-ActCode#AMB` | `class` |
-| Visit type | [encounter-type-vs](https://dhp.uz/fhir/core/ValueSet-encounter-type-vs.html) | `encounter-type-cs#mserv-0001-00004` | `type` |
+| Visit status | [EncounterStatusVS](https://dhp.uz/fhir/core/ValueSet-encounter-status-vs.html) | `completed` | `status` |
+| Visit class | [EncounterClassVS](https://dhp.uz/fhir/core/ValueSet-encounter-class-vs.html) | `v3-ActCode#AMB` | `class` |
+| Visit type | [EncounterTypeVS](https://dhp.uz/fhir/core/ValueSet-encounter-type-vs.html) | `encounter-type-cs#mserv-0001-00004` | `type` |
 | Patient | - | [hepatitis-patient-example](Patient-hepatitis-patient-example.html) | `subject` |
-| Participant role | [encounter-participant-type-vs](https://dhp.uz/fhir/core/ValueSet-encounter-participant-type-vs.html) | `v3-ParticipationType#ATND` | `participant.type` |
+| Participant role | [EncounterParticipantTypeVS](https://dhp.uz/fhir/core/ValueSet-encounter-participant-type-vs.html) | `v3-ParticipationType#ATND` | `participant.type` |
 | Clinician | - | [example-hepatologist-role](PractitionerRole-example-hepatologist-role.html) | `participant.actor` |
 | Provider | - | [samarkand-infectious-hospital](Organization-samarkand-infectious-hospital.html) | `serviceProvider` |
 | Actual period | - | `2026-09-18T09:45:00+05:00` / `2026-09-18T11:00:00+05:00` | `actualPeriod` |
 | Planned start | - | `2026-09-18T09:30:00+05:00` | `plannedStartDate` |
+| Care episode | - | [hepatitis-episode-of-care-example](EpisodeOfCare-hepatitis-episode-of-care-example.html) | `episodeOfCare` |
 
-The encounter example does not populate `episodeOfCare`. The profile supports this link, but it must be supplied explicitly to connect a visit to its care episode.
+The encounter example links to the care episode through `episodeOfCare`.
 
 ### Recording diagnosis and outcome (Condition) {#recording-diagnosis-and-outcome}
 
@@ -88,20 +89,20 @@ Example: [example-hepatitis-condition](Condition-example-hepatitis-condition.htm
 | What is recorded | Terminology | Example code or value | Where it is stored |
 | :--- | :--- | :--- | :--- |
 | Registry identifier | - | `69dcdd0a-5a68-4cc6-8503-5ab15a41c63b` | `identifier[hepatitisRegistry].value` |
-| Diagnosis | [condition-code-vs](https://dhp.uz/fhir/core/ValueSet-condition-code-vs.html) | `ICD-10#B17.1` | `code` |
-| Clinical status | [clinical-status-vs](https://dhp.uz/fhir/core/ValueSet-clinical-status-vs.html) | `condition-clinical#active` | `clinicalStatus` |
-| Diagnosis type | [diagnosis-type-vs](https://dhp.uz/fhir/core/ValueSet-diagnosis-type-vs.html) | `diagnosis-type-cs#gencl-0001-00003` | `extension[diagnosisType]` |
-| Treatment outcome | [HepatitisConditionOutcomeCodesVS](ValueSet-hepatitis-condition-outcome-codes-vs.html) | `SNOMED CT#1137679005` | `extension[outcome].valueCodeableConcept` |
+| Diagnosis | [ConditionCodeVS](https://dhp.uz/fhir/core/ValueSet-condition-code-vs.html) | `ICD-10#B17.1` | `code` |
+| Clinical status | [ClinicalStatusVS](https://dhp.uz/fhir/core/ValueSet-clinical-status-vs.html) | `condition-clinical#active` | `clinicalStatus` |
+| Diagnosis type | [DiagnosisTypeVS](https://dhp.uz/fhir/core/ValueSet-diagnosis-type-vs.html) | `diagnosis-type-cs#gencl-0001-00003` | `extension[diagnosisType]` |
+| Treatment outcome | [HepatitisConditionOutcomeCodesVS](ValueSet-hepatitis-condition-outcome-codes-vs.html) | `SNOMED CT#1137679005` | `extension[http://hl7.org/fhir/StructureDefinition/condition-outcome].valueCodeableConcept` |
 | Patient | - | [hepatitis-patient-example](Patient-hepatitis-patient-example.html) | `subject` |
 | Visit | - | [hepatitis-encounter-example](Encounter-hepatitis-encounter-example.html) | `encounter` |
 | Recorded date | - | `2026-09-18T10:45:00+05:00` | `recordedDate` |
 | Clinician | - | [example-hepatologist-role](PractitionerRole-example-hepatologist-role.html) | `participant.actor` |
 
-The [outcome extension](StructureDefinition-hepatitis-condition-outcome.html) has cardinality `0..1` and a required binding to HepatitisConditionOutcomeCodesVS. Its codes come from SNOMED CT; the local CodeSystem is a supplement providing translated designations.
+The [ConditionOutcome extension](https://hl7.org/fhir/extensions/StructureDefinition-condition-outcome.html) records a result or consequence of the condition without implying causality. Its URL is `http://hl7.org/fhir/StructureDefinition/condition-outcome`. Each occurrence contains one `valueCodeableConcept`, with an example binding to ConditionOutcomeCodes. Some outcomes may only be assessed after the condition is no longer active.
 
 ### Recording laboratory results (Observation) {#recording-laboratory-results}
 
-Laboratory observations identify the test, method, result, time, patient, and performers. The example code identifies a hepatitis A IgM antibody test, even though its description says hepatitis B DNA.
+Laboratory observations identify the test, result, time, patient, and performers. The example records a negative hepatitis A IgM antibody result.
 
 Profile: [HepatitisObservationAnalysis](StructureDefinition-hepatitis-observation-analysis.html)
 
@@ -110,9 +111,8 @@ Example: [example-hepatitis-observation-analysis](Observation-example-hepatitis-
 | What is recorded | Terminology | Example code or value | Where it is stored |
 | :--- | :--- | :--- | :--- |
 | Registry identifier | - | `85dcdd0a-5a68-4cc6-8503-5ab15a42c63b` | `identifier[hepatitisRegistry].value` |
-| Result status | [observation-status-vs](https://dhp.uz/fhir/core/ValueSet-observation-status-vs.html) | `final` | `status` |
-| Test | [observation-codes-vs](https://dhp.uz/fhir/core/ValueSet-observation-codes-vs.html) | `LOINC#22314-9` | `code` |
-| Method | [lab-method-vs](https://dhp.uz/fhir/core/ValueSet-lab-method-vs.html) | `lab-methods-cs#lab-method-1` (PCR) | `method` |
+| Result status | [ObservationStatusVS](https://dhp.uz/fhir/core/ValueSet-observation-status-vs.html) | `final` | `status` |
+| Test | [ObservationCodesVS](https://dhp.uz/fhir/core/ValueSet-observation-codes-vs.html) | `LOINC#22314-9` | `code` |
 | Result | [v3-ObservationInterpretation](https://terminology.hl7.org/CodeSystem-v3-ObservationInterpretation.html) | `v3-ObservationInterpretation#NEG` | `valueCodeableConcept` |
 | Patient | - | [hepatitis-patient-example](Patient-hepatitis-patient-example.html) | `subject` |
 | Observation time | - | `2026-09-18T10:00:00+05:00` | `effectiveDateTime` |
@@ -131,7 +131,7 @@ Example: [example-ultrasound-cirrhosis](Observation-example-ultrasound-cirrhosis
 | What is recorded | Terminology | Example code or value | Where it is stored |
 | :--- | :--- | :--- | :--- |
 | Registry identifier | - | `85dcdd0a-5a68-4cc6-8503-5ab15a42c73b` | `identifier[hepatitisRegistry].value` |
-| Result status | [observation-status-vs](https://dhp.uz/fhir/core/ValueSet-observation-status-vs.html) | `final` | `status` |
+| Result status | [ObservationStatusVS](https://dhp.uz/fhir/core/ValueSet-observation-status-vs.html) | `final` | `status` |
 | Finding | [HepatitisTypeOfUltraSoundVS](ValueSet-hepatitis-type-of-ultra-sound-vs.html) | `SNOMED CT#19943007` / `SNOMED CT#300332007` | `code` |
 | Presence of finding | - | `true` / `false` | `valueBoolean` |
 | Patient | - | [hepatitis-patient-example](Patient-hepatitis-patient-example.html) | `subject` |
@@ -151,11 +151,11 @@ Example: [hepatitis-questionnaire](Questionnaire-hepatitis-questionnaire.html)
 | What is recorded | Terminology | Example code or value | Where it is stored |
 | :--- | :--- | :--- | :--- |
 | Identifier | - | `HCV-HBV-QS-2026` | `identifier.value` |
-| Publication status | [publication-status](https://hl7.org/fhir/R5/valueset-publication-status.html) | `active` | `status` |
-| Subject type | [resource-types](https://hl7.org/fhir/R5/valueset-resource-types.html) | `Patient` | `subjectType` |
+| Publication status | [PublicationStatus](https://hl7.org/fhir/R5/valueset-publication-status.html) | `active` | `status` |
+| Subject type | [ResourceType](https://hl7.org/fhir/R5/valueset-resource-types.html) | `Patient` | `subjectType` |
 | Question identifier | - | `hx-tx-hcv-hbv` | `item.item.linkId` |
-| Question type | [item-type](https://hl7.org/fhir/R5/valueset-item-type.html) | `boolean`, `string`, `coding` | `item.item.type` |
-| Display condition | [questionnaire-enable-operator](https://hl7.org/fhir/R5/valueset-questionnaire-enable-operator.html) | `=` / `true` | `item.item.enableWhen.operator / answerBoolean` |
+| Question type | [QuestionnaireItemType](https://hl7.org/fhir/R5/valueset-item-type.html) | `boolean`, `string`, `coding` | `item.item.type` |
+| Display condition | [QuestionnaireItemOperator](https://hl7.org/fhir/R5/valueset-questionnaire-enable-operator.html) | `=` / `true` | `item.item.enableWhen.operator / answerBoolean` |
 | Trimester options | SNOMED CT | `255246003`, `255247007`, `255248002` | `item.item.answerOption.valueCoding` |
 
 The canonical URL is `https://dhp.uz/fhir/integrations/Questionnaire/hepatitis-questionnaire`. The medications question is enabled when `hx-tx-hcv-hbv` is `true`. Trimester choices are inline answer options, not a separate value set.
@@ -171,16 +171,16 @@ Example: [example-hcv-response](QuestionnaireResponse-example-hcv-response.html)
 | What is recorded | Terminology | Example code or value | Where it is stored |
 | :--- | :--- | :--- | :--- |
 | Identifier | - | `6f9b9d8e-3b7d-4d87-8f6e-123456789abc` | `identifier.value` |
-| Response status | [questionnaire-answers-status](https://hl7.org/fhir/R5/valueset-questionnaire-answers-status.html) | `completed` | `status` |
+| Response status | [QuestionnaireResponseStatus](https://hl7.org/fhir/R5/valueset-questionnaire-answers-status.html) | `completed` | `status` |
 | Questionnaire | - | [hepatitis-questionnaire](Questionnaire-hepatitis-questionnaire.html) | `questionnaire` |
-| Patient | - | [example-hepatitis-patient](Patient-example-hepatitis-patient.html) | `subject` |
-| Author | - | [muratova-gulshoda-role](PractitionerRole-muratova-gulshoda-role.html) | `author` |
-| Authored time | - | `2026-03-19T12:00:00Z` | `authored` |
+| Patient | - | [hepatitis-patient-example](Patient-hepatitis-patient-example.html) | `subject` |
+| Author | - | [example-hepatologist-role](PractitionerRole-example-hepatologist-role.html) | `author` |
+| Authored time | - | `2026-09-18T10:15:00+05:00` | `authored` |
 | Previous treatment | - | `true` | `item.item.answer.valueBoolean` |
-| Medication history | - | `Sofosbuvir + Declatasvir` | `item.item.answer.valueString` |
+| Medication history | - | `Sofosbuvir + Daclatasvir` | `item.item.answer.valueString` |
 | Pregnancy trimester | SNOMED CT | `255246003` | `item.item.answer.valueCoding` |
 
-The profile constrains `subject` to HepatitisPatient, `author` to UZCorePractitionerRole, `source` to UZCoreRelatedPerson, and `partOf` to UZCoreSocioeconomicObservation. The example uses a different patient record from the care episode. Its answers are nested under groups (`item.item.answer`); the explicit boolean/string restriction in the profile is on top-level `item.answer.value[x]`. The medication text is an example response, not a treatment recommendation.
+The profile constrains `subject` to HepatitisPatient, `author` to UZCorePractitionerRole, `source` to UZCoreRelatedPerson, and `partOf` to UZCoreSocioeconomicObservation. The example uses the same patient and clinician as the care episode. Answers are nested under groups (`item.item.answer`); the profile permits boolean, string, and Coding answers at both levels. The medication text is an example response, not a treatment recommendation.
 
 ### Supporting resources {#supporting-resources}
 

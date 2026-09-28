@@ -42,7 +42,7 @@ Usage: #example
 * title = "HEPATITIS QUESTIONNAIRE"
 
 * identifier
-  * system = "https://dhp.uz/fhir/core/sid/org/uz/hepatitis"
+  * system = "https://dhp.uz/fhir/core/sid/reg/uz/hepatitis"
   * value = "HCV-HBV-QS-2026"
 
 * subjectType = #Patient

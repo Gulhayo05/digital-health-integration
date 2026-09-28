@@ -243,5 +243,5 @@ Usage: #definition
 * jurisdiction = urn:iso:std:iso:3166#UZ "Uzbekistan"
 * usage = "Used to identify hepatitis-related records and questionnaires in Uzbekistan"
 * uniqueId[0].type = #uri
-* uniqueId[=].value = "https://dhp.uz/fhir/core/sid/org/uz/hepatitis"
+* uniqueId[=].value = "https://dhp.uz/fhir/core/sid/reg/uz/hepatitis"
 * uniqueId[=].preferred = true

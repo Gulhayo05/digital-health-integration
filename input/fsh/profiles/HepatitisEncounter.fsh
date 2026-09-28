@@ -23,6 +23,7 @@ Usage: #example
 * type[0] = $encounter-type-cs#mserv-0001-00004  "Treatment services"
 * class = $v3-ActCode#AMB "Ambulatory"
 * subject = Reference(hepatitis-patient-example)
+* episodeOfCare = Reference(hepatitis-episode-of-care-example)
 * serviceProvider = Reference(samarkand-infectious-hospital)
 * participant.type = $v3-ParticipationType#ATND "attender"
 * participant.actor = Reference(PractitionerRole/example-hepatologist-role)

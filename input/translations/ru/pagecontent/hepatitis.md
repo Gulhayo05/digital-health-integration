@@ -11,11 +11,11 @@
 
 ### Обзор
 
-Модель разделяет пациента, длительный эпизод помощи, отдельное посещение, диагноз, лабораторные результаты, результаты УЗИ и ответы на анкету. Каждый раздел содержит ссылки на профиль и примеры, а также сопоставление данных с полями FHIR. Профили гепатита наследуют [UZ Core](https://dhp.uz/fhir/core/en/artifacts.html); их опубликованные ограничения являются определяющими.
+Реестр гепатита содержит сведения о пациентах, эпизодах помощи, посещениях, диагнозах, лабораторных результатах, результатах УЗИ и ответах на анкету. Данные поступают из Системы учёта и мониторинга вирусных гепатитов и добавляются в DHP в виде отдельных атомарных ресурсов FHIR. Каждый раздел содержит ссылки на профиль и примеры, а также сопоставление данных с полями FHIR. Профили гепатита наследуют [UZ Core](https://dhp.uz/fhir/core/en/artifacts.html); их опубликованные ограничения являются определяющими.
 
-Condition, EpisodeOfCare и оба профиля Observation требуют один `identifier[hepatitisRegistry]` с системой `https://dhp.uz/fhir/core/sid/org/uz/hepatitis` и значением. Questionnaire требует хотя бы один идентификатор. QuestionnaireResponse фиксирует систему идентификатора, если элемент присутствует. Это идентификаторы записей, отдельные от персональных идентификаторов пациента.
+Condition, EpisodeOfCare и оба профиля Observation требуют один `identifier[hepatitisRegistry]` с системой `https://dhp.uz/fhir/core/sid/reg/uz/hepatitis` и значением. Questionnaire требует хотя бы один идентификатор. QuestionnaireResponse фиксирует систему идентификатора, если элемент присутствует. Идентификатор реестра присваивается исходным реестром гепатита соответствующей записи, например диагнозу, эпизоду помощи или результату исследования. `system` обозначает пространство имён реестра, выдавшего идентификатор, а `value` содержит идентификатор записи в этом реестре, позволяя сопоставить ресурс FHIR с исходной записью. Это идентификаторы записей, отдельные от персональных идентификаторов пациента.
 
-[Эпизод помощи](#following-the-care-episode) ссылается на [пациента](#registering-the-patient) и [диагноз](#recording-diagnosis-and-outcome). [Посещение](#recording-the-visit) может ссылаться на эпизод, а диагноз — на посещение. Наблюдения и [ответы на анкету](#recording-answers) самостоятельно указывают пациента. Примеры иллюстрируют отдельные ресурсы и не образуют единую полностью связанную запись пациента.
+[Эпизод помощи](#following-the-care-episode) ссылается на [пациента](#registering-the-patient) и [диагноз](#recording-diagnosis-and-outcome). [Посещение](#recording-the-visit) может ссылаться на эпизод, а диагноз — на посещение. Наблюдения и [ответы на анкету](#recording-answers) самостоятельно указывают пациента. Примеры используют одну запись пациента, а посещение связано с эпизодом помощи.
 
 ### Регистрация пациента (Patient) {#registering-the-patient}
 
@@ -31,7 +31,7 @@ Condition, EpisodeOfCare и оба профиля Observation требуют о�
 | Внутренний паспорт | - | `AB1234567` | `identifier[passportLocal].value` |
 | Номер медицинской карты | - | `01234567890456` | `identifier[healthCardId].value` |
 | ФИО | - | `Xalida Yusupova Maxmudovna` | `name` |
-| Административный пол | [administrative-gender-vs](https://dhp.uz/fhir/core/ValueSet-administrative-gender-vs.html) | `female` | `gender` |
+| Административный пол | [AdministrativeGenderVS](https://dhp.uz/fhir/core/ValueSet-administrative-gender-vs.html) | `female` | `gender` |
 | Дата рождения | - | `1990-02-01` | `birthDate` |
 | Телефон | - | `998-90-123-45-45` | `telecom.value` |
 
@@ -46,16 +46,16 @@ EpisodeOfCare объединяет процесс оказания помощи 
 | Что фиксируется | Справочник | Пример кода или значения | Где хранится |
 | :--- | :--- | :--- | :--- |
 | Идентификатор реестра | - | `75dcdd0a-5a68-4cc6-8503-5ab15a42c63b` | `identifier[hepatitisRegistry].value` |
-| Статус | [episode-of-care-status](https://hl7.org/fhir/R5/valueset-episode-of-care-status.html) | `active` | `status` |
-| Вид услуги | [episode-of-care-type-vs](https://dhp.uz/fhir/core/ValueSet-episode-of-care-type-vs.html) | `episode-of-care-type-cs#mserv-0001-00004` | `type[serviceType]` |
+| Статус | [EpisodeOfCareStatus](https://hl7.org/fhir/R5/valueset-episode-of-care-status.html) | `active` | `status` |
+| Вид услуги | [EpisodeOfCareTypeVS](https://dhp.uz/fhir/core/ValueSet-episode-of-care-type-vs.html) | `episode-of-care-type-cs#mserv-0001-00004` | `type[serviceType]` |
 | Диагноз | - | [example-hepatitis-condition](Condition-example-hepatitis-condition.html) | `diagnosis.condition.reference` |
-| Назначение диагноза | [encounter-diagnosis-use](https://hl7.org/fhir/R5/valueset-encounter-diagnosis-use.html) | `encounter-diagnosis-use-cs#final` | `diagnosis.use` |
+| Назначение диагноза | [EncounterDiagnosisUse](https://hl7.org/fhir/R5/valueset-encounter-diagnosis-use.html) | `encounter-diagnosis-use-cs#final` | `diagnosis.use` |
 | Пациент | - | [hepatitis-patient-example](Patient-hepatitis-patient-example.html) | `patient` |
 | Ответственная организация | - | [samarkand-infectious-hospital](Organization-samarkand-infectious-hospital.html) | `managingOrganization` |
 | Координатор помощи | - | [example-hepatologist-role](PractitionerRole-example-hepatologist-role.html) | `careManager` |
 | Период помощи | - | `2026-09-18T09:00:00+05:00` / `2026-11-10T17:00:00+05:00` | `period` |
 
-Пример имеет статус `active`; дата окончания является ожидаемой. Ссылка на диагноз ведёт к примеру острого гепатита C (`B17.1`), хотя описание эпизода упоминает гепатит B.
+Пример имеет статус `active`; дата окончания является ожидаемой. Эпизод ссылается на диагноз острого гепатита C (`B17.1`).
 
 ### Регистрация посещения (Encounter) {#recording-the-visit}
 
@@ -67,17 +67,18 @@ Encounter описывает отдельное посещение. Обязат
 
 | Что фиксируется | Справочник | Пример кода или значения | Где хранится |
 | :--- | :--- | :--- | :--- |
-| Статус посещения | [encounter-status-vs](https://dhp.uz/fhir/core/ValueSet-encounter-status-vs.html) | `completed` | `status` |
-| Класс посещения | [encounter-class-vs](https://dhp.uz/fhir/core/ValueSet-encounter-class-vs.html) | `v3-ActCode#AMB` | `class` |
-| Вид посещения | [encounter-type-vs](https://dhp.uz/fhir/core/ValueSet-encounter-type-vs.html) | `encounter-type-cs#mserv-0001-00004` | `type` |
+| Статус посещения | [EncounterStatusVS](https://dhp.uz/fhir/core/ValueSet-encounter-status-vs.html) | `completed` | `status` |
+| Класс посещения | [EncounterClassVS](https://dhp.uz/fhir/core/ValueSet-encounter-class-vs.html) | `v3-ActCode#AMB` | `class` |
+| Вид посещения | [EncounterTypeVS](https://dhp.uz/fhir/core/ValueSet-encounter-type-vs.html) | `encounter-type-cs#mserv-0001-00004` | `type` |
 | Пациент | - | [hepatitis-patient-example](Patient-hepatitis-patient-example.html) | `subject` |
-| Роль участника | [encounter-participant-type-vs](https://dhp.uz/fhir/core/ValueSet-encounter-participant-type-vs.html) | `v3-ParticipationType#ATND` | `participant.type` |
+| Роль участника | [EncounterParticipantTypeVS](https://dhp.uz/fhir/core/ValueSet-encounter-participant-type-vs.html) | `v3-ParticipationType#ATND` | `participant.type` |
 | Медицинский работник | - | [example-hepatologist-role](PractitionerRole-example-hepatologist-role.html) | `participant.actor` |
 | Организация оказания помощи | - | [samarkand-infectious-hospital](Organization-samarkand-infectious-hospital.html) | `serviceProvider` |
 | Фактический период | - | `2026-09-18T09:45:00+05:00` / `2026-09-18T11:00:00+05:00` | `actualPeriod` |
 | Плановое начало | - | `2026-09-18T09:30:00+05:00` | `plannedStartDate` |
+| Эпизод помощи | - | [hepatitis-episode-of-care-example](EpisodeOfCare-hepatitis-episode-of-care-example.html) | `episodeOfCare` |
 
-В примере посещения `episodeOfCare` не заполнено. Профиль поддерживает эту связь, но для привязки посещения к эпизоду помощи её необходимо указать явно.
+В примере посещение связано с эпизодом помощи через `episodeOfCare`.
 
 ### Регистрация диагноза и исхода (Condition) {#recording-diagnosis-and-outcome}
 
@@ -90,20 +91,20 @@ Condition содержит диагноз и клинический статус
 | Что фиксируется | Справочник | Пример кода или значения | Где хранится |
 | :--- | :--- | :--- | :--- |
 | Идентификатор реестра | - | `69dcdd0a-5a68-4cc6-8503-5ab15a41c63b` | `identifier[hepatitisRegistry].value` |
-| Диагноз | [condition-code-vs](https://dhp.uz/fhir/core/ValueSet-condition-code-vs.html) | `ICD-10#B17.1` | `code` |
-| Клинический статус | [clinical-status-vs](https://dhp.uz/fhir/core/ValueSet-clinical-status-vs.html) | `condition-clinical#active` | `clinicalStatus` |
-| Тип диагноза | [diagnosis-type-vs](https://dhp.uz/fhir/core/ValueSet-diagnosis-type-vs.html) | `diagnosis-type-cs#gencl-0001-00003` | `extension[diagnosisType]` |
-| Исход лечения | [HepatitisConditionOutcomeCodesVS](ValueSet-hepatitis-condition-outcome-codes-vs.html) | `SNOMED CT#1137679005` | `extension[outcome].valueCodeableConcept` |
+| Диагноз | [ConditionCodeVS](https://dhp.uz/fhir/core/ValueSet-condition-code-vs.html) | `ICD-10#B17.1` | `code` |
+| Клинический статус | [ClinicalStatusVS](https://dhp.uz/fhir/core/ValueSet-clinical-status-vs.html) | `condition-clinical#active` | `clinicalStatus` |
+| Тип диагноза | [DiagnosisTypeVS](https://dhp.uz/fhir/core/ValueSet-diagnosis-type-vs.html) | `diagnosis-type-cs#gencl-0001-00003` | `extension[diagnosisType]` |
+| Исход лечения | [HepatitisConditionOutcomeCodesVS](ValueSet-hepatitis-condition-outcome-codes-vs.html) | `SNOMED CT#1137679005` | `extension[http://hl7.org/fhir/StructureDefinition/condition-outcome].valueCodeableConcept` |
 | Пациент | - | [hepatitis-patient-example](Patient-hepatitis-patient-example.html) | `subject` |
 | Посещение | - | [hepatitis-encounter-example](Encounter-hepatitis-encounter-example.html) | `encounter` |
 | Дата регистрации | - | `2026-09-18T10:45:00+05:00` | `recordedDate` |
 | Медицинский работник | - | [example-hepatologist-role](PractitionerRole-example-hepatologist-role.html) | `participant.actor` |
 
-[Расширение исхода](StructureDefinition-hepatitis-condition-outcome.html) имеет кратность `0..1` и обязательную привязку к HepatitisConditionOutcomeCodesVS. Коды взяты из SNOMED CT; локальная CodeSystem является дополнением с переводами наименований.
+[Расширение ConditionOutcome](https://hl7.org/fhir/extensions/StructureDefinition-condition-outcome.html) отражает результат или последствие состояния, не подразумевая причинно-следственную связь. Его URL — `http://hl7.org/fhir/StructureDefinition/condition-outcome`. Каждое вхождение содержит одно значение `valueCodeableConcept` с привязкой уровня example к ConditionOutcomeCodes. Некоторые исходы можно оценить только после того, как состояние перестало быть активным.
 
 ### Регистрация лабораторных результатов (Observation) {#recording-laboratory-results}
 
-Лабораторные наблюдения указывают исследование, метод, результат, время, пациента и исполнителей. Код примера обозначает исследование антител IgM к вирусу гепатита A, хотя описание упоминает ДНК гепатита B.
+Лабораторные наблюдения указывают исследование, результат, время, пациента и исполнителей. Пример содержит отрицательный результат исследования антител IgM к вирусу гепатита A.
 
 Профиль: [HepatitisObservationAnalysis](StructureDefinition-hepatitis-observation-analysis.html)
 
@@ -112,9 +113,8 @@ Condition содержит диагноз и клинический статус
 | Что фиксируется | Справочник | Пример кода или значения | Где хранится |
 | :--- | :--- | :--- | :--- |
 | Идентификатор реестра | - | `85dcdd0a-5a68-4cc6-8503-5ab15a42c63b` | `identifier[hepatitisRegistry].value` |
-| Статус результата | [observation-status-vs](https://dhp.uz/fhir/core/ValueSet-observation-status-vs.html) | `final` | `status` |
-| Исследование | [observation-codes-vs](https://dhp.uz/fhir/core/ValueSet-observation-codes-vs.html) | `LOINC#22314-9` | `code` |
-| Метод | [lab-method-vs](https://dhp.uz/fhir/core/ValueSet-lab-method-vs.html) | `lab-methods-cs#lab-method-1` (PCR) | `method` |
+| Статус результата | [ObservationStatusVS](https://dhp.uz/fhir/core/ValueSet-observation-status-vs.html) | `final` | `status` |
+| Исследование | [ObservationCodesVS](https://dhp.uz/fhir/core/ValueSet-observation-codes-vs.html) | `LOINC#22314-9` | `code` |
 | Результат | [v3-ObservationInterpretation](https://terminology.hl7.org/CodeSystem-v3-ObservationInterpretation.html) | `v3-ObservationInterpretation#NEG` | `valueCodeableConcept` |
 | Пациент | - | [hepatitis-patient-example](Patient-hepatitis-patient-example.html) | `subject` |
 | Время наблюдения | - | `2026-09-18T10:00:00+05:00` | `effectiveDateTime` |
@@ -133,7 +133,7 @@ Condition содержит диагноз и клинический статус
 | Что фиксируется | Справочник | Пример кода или значения | Где хранится |
 | :--- | :--- | :--- | :--- |
 | Идентификатор реестра | - | `85dcdd0a-5a68-4cc6-8503-5ab15a42c73b` | `identifier[hepatitisRegistry].value` |
-| Статус результата | [observation-status-vs](https://dhp.uz/fhir/core/ValueSet-observation-status-vs.html) | `final` | `status` |
+| Статус результата | [ObservationStatusVS](https://dhp.uz/fhir/core/ValueSet-observation-status-vs.html) | `final` | `status` |
 | Находка | [HepatitisTypeOfUltraSoundVS](ValueSet-hepatitis-type-of-ultra-sound-vs.html) | `SNOMED CT#19943007` / `SNOMED CT#300332007` | `code` |
 | Наличие находки | - | `true` / `false` | `valueBoolean` |
 | Пациент | - | [hepatitis-patient-example](Patient-hepatitis-patient-example.html) | `subject` |
@@ -153,11 +153,11 @@ Questionnaire определяет вопросы и правила их усл�
 | Что фиксируется | Справочник | Пример кода или значения | Где хранится |
 | :--- | :--- | :--- | :--- |
 | Идентификатор | - | `HCV-HBV-QS-2026` | `identifier.value` |
-| Статус публикации | [publication-status](https://hl7.org/fhir/R5/valueset-publication-status.html) | `active` | `status` |
-| Тип субъекта | [resource-types](https://hl7.org/fhir/R5/valueset-resource-types.html) | `Patient` | `subjectType` |
+| Статус публикации | [PublicationStatus](https://hl7.org/fhir/R5/valueset-publication-status.html) | `active` | `status` |
+| Тип субъекта | [ResourceType](https://hl7.org/fhir/R5/valueset-resource-types.html) | `Patient` | `subjectType` |
 | Идентификатор вопроса | - | `hx-tx-hcv-hbv` | `item.item.linkId` |
-| Тип вопроса | [item-type](https://hl7.org/fhir/R5/valueset-item-type.html) | `boolean`, `string`, `coding` | `item.item.type` |
-| Условие отображения | [questionnaire-enable-operator](https://hl7.org/fhir/R5/valueset-questionnaire-enable-operator.html) | `=` / `true` | `item.item.enableWhen.operator / answerBoolean` |
+| Тип вопроса | [QuestionnaireItemType](https://hl7.org/fhir/R5/valueset-item-type.html) | `boolean`, `string`, `coding` | `item.item.type` |
+| Условие отображения | [QuestionnaireItemOperator](https://hl7.org/fhir/R5/valueset-questionnaire-enable-operator.html) | `=` / `true` | `item.item.enableWhen.operator / answerBoolean` |
 | Варианты триместра | SNOMED CT | `255246003`, `255247007`, `255248002` | `item.item.answerOption.valueCoding` |
 
 Канонический URL: `https://dhp.uz/fhir/integrations/Questionnaire/hepatitis-questionnaire`. Вопрос о препаратах отображается, когда `hx-tx-hcv-hbv` равен `true`. Варианты триместра заданы непосредственно в анкете, а не отдельным набором значений.
@@ -173,16 +173,16 @@ QuestionnaireResponse связывает заполненную анкету с 
 | Что фиксируется | Справочник | Пример кода или значения | Где хранится |
 | :--- | :--- | :--- | :--- |
 | Идентификатор | - | `6f9b9d8e-3b7d-4d87-8f6e-123456789abc` | `identifier.value` |
-| Статус ответов | [questionnaire-answers-status](https://hl7.org/fhir/R5/valueset-questionnaire-answers-status.html) | `completed` | `status` |
+| Статус ответов | [QuestionnaireResponseStatus](https://hl7.org/fhir/R5/valueset-questionnaire-answers-status.html) | `completed` | `status` |
 | Анкета | - | [hepatitis-questionnaire](Questionnaire-hepatitis-questionnaire.html) | `questionnaire` |
-| Пациент | - | [example-hepatitis-patient](Patient-example-hepatitis-patient.html) | `subject` |
-| Автор | - | [muratova-gulshoda-role](PractitionerRole-muratova-gulshoda-role.html) | `author` |
-| Время заполнения | - | `2026-03-19T12:00:00Z` | `authored` |
+| Пациент | - | [hepatitis-patient-example](Patient-hepatitis-patient-example.html) | `subject` |
+| Автор | - | [example-hepatologist-role](PractitionerRole-example-hepatologist-role.html) | `author` |
+| Время заполнения | - | `2026-09-18T10:15:00+05:00` | `authored` |
 | Предшествующее лечение | - | `true` | `item.item.answer.valueBoolean` |
-| Лекарственный анамнез | - | `Sofosbuvir + Declatasvir` | `item.item.answer.valueString` |
+| Лекарственный анамнез | - | `Sofosbuvir + Daclatasvir` | `item.item.answer.valueString` |
 | Триместр беременности | SNOMED CT | `255246003` | `item.item.answer.valueCoding` |
 
-Профиль ограничивает `subject` типом HepatitisPatient, `author` — UZCorePractitionerRole, `source` — UZCoreRelatedPerson, а `partOf` — UZCoreSocioeconomicObservation. Пример использует другую запись пациента, чем эпизод помощи. Ответы вложены в группы (`item.item.answer`); явное ограничение boolean/string в профиле относится к верхнему уровню `item.answer.value[x]`. Названия препаратов являются примером ответа, а не рекомендацией по лечению.
+Профиль ограничивает `subject` типом HepatitisPatient, `author` — UZCorePractitionerRole, `source` — UZCoreRelatedPerson, а `partOf` — UZCoreSocioeconomicObservation. Пример использует того же пациента и врача, что и эпизод помощи. Ответы вложены в группы (`item.item.answer`); профиль допускает ответы boolean, string и Coding на обоих уровнях. Названия препаратов являются примером ответа, а не рекомендацией по лечению.
 
 ### Вспомогательные ресурсы {#supporting-resources}
 

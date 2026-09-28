@@ -11,11 +11,11 @@ Ushbu sahifada gepatit reyestri ma’lumotlari FHIR resurslari sifatida qanday i
 
 ### Umumiy ma’lumot
 
-Model bemor, davomli yordam ko‘rsatish epizodi, alohida tashrif, tashxis, laboratoriya va UTT natijalari hamda so‘rovnoma javoblarini ajratadi. Har bir bo‘limda profil va misol resurslariga havolalar hamda ma’lumotlarning FHIR maydonlariga mosligi keltirilgan. Gepatit profillari [UZ Core](https://dhp.uz/fhir/core/en/artifacts.html) dan meros oladi; e’lon qilingan profil cheklovlari asosiy manba hisoblanadi.
+Gepatit reyestri bemorlar, yordam ko‘rsatish epizodlari, tashriflar, tashxislar, laboratoriya va UTT natijalari hamda so‘rovnoma javoblari haqidagi ma’lumotlarni qamrab oladi. Ma’lumotlar Virusli gepatitlarni hisobga olish va monitoring qilish tizimidan olinadi va DHP ga alohida atomar FHIR resurslari sifatida qo‘shiladi. Har bir bo‘limda profil va misol resurslariga havolalar hamda ma’lumotlarning FHIR maydonlariga mosligi keltirilgan. Gepatit profillari [UZ Core](https://dhp.uz/fhir/core/en/artifacts.html) dan meros oladi; e’lon qilingan profil cheklovlari asosiy manba hisoblanadi.
 
-Condition, EpisodeOfCare va ikkala Observation profili `https://dhp.uz/fhir/core/sid/org/uz/hepatitis` tizimi va qiymatiga ega bitta `identifier[hepatitisRegistry]` ni talab qiladi. Questionnaire kamida bitta identifikatorni talab qiladi. QuestionnaireResponse identifikator elementi mavjud bo‘lsa, uning tizimini belgilaydi. Bular bemorning shaxsiy identifikatorlaridan alohida yozuv identifikatorlaridir.
+Condition, EpisodeOfCare va ikkala Observation profili `https://dhp.uz/fhir/core/sid/reg/uz/hepatitis` tizimi va qiymatiga ega bitta `identifier[hepatitisRegistry]` ni talab qiladi. Questionnaire kamida bitta identifikatorni talab qiladi. QuestionnaireResponse identifikator elementi mavjud bo‘lsa, uning tizimini belgilaydi. Reyestr identifikatori — manba gepatit reyestri tegishli yozuvga, masalan, tashxis, yordam ko‘rsatish epizodi yoki tekshiruv natijasiga bergan identifikatordir. `system` identifikatorni bergan reyestrning nomlar makonini belgilaydi, `value` esa ushbu yozuvning reyestrdagi identifikatorini saqlaydi. Bu FHIR resursini manba yozuvi bilan moslashtirish imkonini beradi. Bular bemorning shaxsiy identifikatorlaridan alohida yozuv identifikatorlaridir.
 
-[Yordam ko‘rsatish epizodi](#following-the-care-episode) [bemor](#registering-the-patient) va [tashxis](#recording-diagnosis-and-outcome) ga havola qiladi. [Tashrif](#recording-the-visit) epizodga, tashxis esa tashrifga havola qilishi mumkin. Kuzatuvlar va [so‘rovnoma javoblari](#recording-answers) bemorni mustaqil ko‘rsatadi. Misollar alohida resurslarni namoyish etadi va bitta to‘liq bog‘langan bemor yozuvini tashkil qilmaydi.
+[Yordam ko‘rsatish epizodi](#following-the-care-episode) [bemor](#registering-the-patient) va [tashxis](#recording-diagnosis-and-outcome) ga havola qiladi. [Tashrif](#recording-the-visit) epizodga, tashxis esa tashrifga havola qilishi mumkin. Kuzatuvlar va [so‘rovnoma javoblari](#recording-answers) bemorni mustaqil ko‘rsatadi. Misollar bitta bemor yozuvidan foydalanadi va tashrif yordam ko‘rsatish epizodiga bog‘langan.
 
 ### Bemorni ro‘yxatga olish (Patient) {#registering-the-patient}
 
@@ -31,7 +31,7 @@ Misol: [hepatitis-patient-example](Patient-hepatitis-patient-example.html)
 | Mahalliy pasport | - | `AB1234567` | `identifier[passportLocal].value` |
 | Tibbiy karta raqami | - | `01234567890456` | `identifier[healthCardId].value` |
 | Ism-sharifi | - | `Xalida Yusupova Maxmudovna` | `name` |
-| Ma’muriy jins | [administrative-gender-vs](https://dhp.uz/fhir/core/ValueSet-administrative-gender-vs.html) | `female` | `gender` |
+| Ma’muriy jins | [AdministrativeGenderVS](https://dhp.uz/fhir/core/ValueSet-administrative-gender-vs.html) | `female` | `gender` |
 | Tug‘ilgan sana | - | `1990-02-01` | `birthDate` |
 | Telefon | - | `998-90-123-45-45` | `telecom.value` |
 
@@ -46,16 +46,16 @@ Misol: [hepatitis-episode-of-care-example](EpisodeOfCare-hepatitis-episode-of-ca
 | Qayd etiladigan ma’lumot | Ma’lumotnoma | Misol kodi yoki qiymati | Qayerda saqlanadi |
 | :--- | :--- | :--- | :--- |
 | Reyestr identifikatori | - | `75dcdd0a-5a68-4cc6-8503-5ab15a42c63b` | `identifier[hepatitisRegistry].value` |
-| Holat | [episode-of-care-status](https://hl7.org/fhir/R5/valueset-episode-of-care-status.html) | `active` | `status` |
-| Xizmat turi | [episode-of-care-type-vs](https://dhp.uz/fhir/core/ValueSet-episode-of-care-type-vs.html) | `episode-of-care-type-cs#mserv-0001-00004` | `type[serviceType]` |
+| Holat | [EpisodeOfCareStatus](https://hl7.org/fhir/R5/valueset-episode-of-care-status.html) | `active` | `status` |
+| Xizmat turi | [EpisodeOfCareTypeVS](https://dhp.uz/fhir/core/ValueSet-episode-of-care-type-vs.html) | `episode-of-care-type-cs#mserv-0001-00004` | `type[serviceType]` |
 | Tashxis | - | [example-hepatitis-condition](Condition-example-hepatitis-condition.html) | `diagnosis.condition.reference` |
-| Tashxisning vazifasi | [encounter-diagnosis-use](https://hl7.org/fhir/R5/valueset-encounter-diagnosis-use.html) | `encounter-diagnosis-use-cs#final` | `diagnosis.use` |
+| Tashxisning vazifasi | [EncounterDiagnosisUse](https://hl7.org/fhir/R5/valueset-encounter-diagnosis-use.html) | `encounter-diagnosis-use-cs#final` | `diagnosis.use` |
 | Bemor | - | [hepatitis-patient-example](Patient-hepatitis-patient-example.html) | `patient` |
 | Mas’ul tashkilot | - | [samarkand-infectious-hospital](Organization-samarkand-infectious-hospital.html) | `managingOrganization` |
 | Yordam ko‘rsatish koordinatori | - | [example-hepatologist-role](PractitionerRole-example-hepatologist-role.html) | `careManager` |
 | Yordam ko‘rsatish davri | - | `2026-09-18T09:00:00+05:00` / `2026-11-10T17:00:00+05:00` | `period` |
 
-Misol `active` holatida; tugash sanasi kutilayotgan sanadir. Epizod tavsifida B gepatiti tilga olingan bo‘lsa-da, tashxis havolasi o‘tkir C gepatiti (`B17.1`) misoliga olib boradi.
+Misol `active` holatida; tugash sanasi kutilayotgan sanadir. Epizod o‘tkir C gepatiti (`B17.1`) tashxisiga havola qiladi.
 
 ### Tashrifni qayd etish (Encounter) {#recording-the-visit}
 
@@ -67,17 +67,18 @@ Misol: [hepatitis-encounter-example](Encounter-hepatitis-encounter-example.html)
 
 | Qayd etiladigan ma’lumot | Ma’lumotnoma | Misol kodi yoki qiymati | Qayerda saqlanadi |
 | :--- | :--- | :--- | :--- |
-| Tashrif holati | [encounter-status-vs](https://dhp.uz/fhir/core/ValueSet-encounter-status-vs.html) | `completed` | `status` |
-| Tashrif sinfi | [encounter-class-vs](https://dhp.uz/fhir/core/ValueSet-encounter-class-vs.html) | `v3-ActCode#AMB` | `class` |
-| Tashrif turi | [encounter-type-vs](https://dhp.uz/fhir/core/ValueSet-encounter-type-vs.html) | `encounter-type-cs#mserv-0001-00004` | `type` |
+| Tashrif holati | [EncounterStatusVS](https://dhp.uz/fhir/core/ValueSet-encounter-status-vs.html) | `completed` | `status` |
+| Tashrif sinfi | [EncounterClassVS](https://dhp.uz/fhir/core/ValueSet-encounter-class-vs.html) | `v3-ActCode#AMB` | `class` |
+| Tashrif turi | [EncounterTypeVS](https://dhp.uz/fhir/core/ValueSet-encounter-type-vs.html) | `encounter-type-cs#mserv-0001-00004` | `type` |
 | Bemor | - | [hepatitis-patient-example](Patient-hepatitis-patient-example.html) | `subject` |
-| Ishtirokchi roli | [encounter-participant-type-vs](https://dhp.uz/fhir/core/ValueSet-encounter-participant-type-vs.html) | `v3-ParticipationType#ATND` | `participant.type` |
+| Ishtirokchi roli | [EncounterParticipantTypeVS](https://dhp.uz/fhir/core/ValueSet-encounter-participant-type-vs.html) | `v3-ParticipationType#ATND` | `participant.type` |
 | Tibbiyot xodimi | - | [example-hepatologist-role](PractitionerRole-example-hepatologist-role.html) | `participant.actor` |
 | Yordam ko‘rsatuvchi tashkilot | - | [samarkand-infectious-hospital](Organization-samarkand-infectious-hospital.html) | `serviceProvider` |
 | Haqiqiy davr | - | `2026-09-18T09:45:00+05:00` / `2026-09-18T11:00:00+05:00` | `actualPeriod` |
 | Rejalashtirilgan boshlanish | - | `2026-09-18T09:30:00+05:00` | `plannedStartDate` |
+| Yordam ko‘rsatish epizodi | - | [hepatitis-episode-of-care-example](EpisodeOfCare-hepatitis-episode-of-care-example.html) | `episodeOfCare` |
 
-Tashrif misolida `episodeOfCare` to‘ldirilmagan. Profil bu bog‘lanishni qo‘llab-quvvatlaydi, lekin tashrifni yordam ko‘rsatish epizodiga bog‘lash uchun uni aniq ko‘rsatish kerak.
+Misolda tashrif `episodeOfCare` orqali yordam ko‘rsatish epizodiga bog‘langan.
 
 ### Tashxis va natijani qayd etish (Condition) {#recording-diagnosis-and-outcome}
 
@@ -90,20 +91,20 @@ Misol: [example-hepatitis-condition](Condition-example-hepatitis-condition.html)
 | Qayd etiladigan ma’lumot | Ma’lumotnoma | Misol kodi yoki qiymati | Qayerda saqlanadi |
 | :--- | :--- | :--- | :--- |
 | Reyestr identifikatori | - | `69dcdd0a-5a68-4cc6-8503-5ab15a41c63b` | `identifier[hepatitisRegistry].value` |
-| Tashxis | [condition-code-vs](https://dhp.uz/fhir/core/ValueSet-condition-code-vs.html) | `ICD-10#B17.1` | `code` |
-| Klinik holat | [clinical-status-vs](https://dhp.uz/fhir/core/ValueSet-clinical-status-vs.html) | `condition-clinical#active` | `clinicalStatus` |
-| Tashxis turi | [diagnosis-type-vs](https://dhp.uz/fhir/core/ValueSet-diagnosis-type-vs.html) | `diagnosis-type-cs#gencl-0001-00003` | `extension[diagnosisType]` |
-| Davolash natijasi | [HepatitisConditionOutcomeCodesVS](ValueSet-hepatitis-condition-outcome-codes-vs.html) | `SNOMED CT#1137679005` | `extension[outcome].valueCodeableConcept` |
+| Tashxis | [ConditionCodeVS](https://dhp.uz/fhir/core/ValueSet-condition-code-vs.html) | `ICD-10#B17.1` | `code` |
+| Klinik holat | [ClinicalStatusVS](https://dhp.uz/fhir/core/ValueSet-clinical-status-vs.html) | `condition-clinical#active` | `clinicalStatus` |
+| Tashxis turi | [DiagnosisTypeVS](https://dhp.uz/fhir/core/ValueSet-diagnosis-type-vs.html) | `diagnosis-type-cs#gencl-0001-00003` | `extension[diagnosisType]` |
+| Davolash natijasi | [HepatitisConditionOutcomeCodesVS](ValueSet-hepatitis-condition-outcome-codes-vs.html) | `SNOMED CT#1137679005` | `extension[http://hl7.org/fhir/StructureDefinition/condition-outcome].valueCodeableConcept` |
 | Bemor | - | [hepatitis-patient-example](Patient-hepatitis-patient-example.html) | `subject` |
 | Tashrif | - | [hepatitis-encounter-example](Encounter-hepatitis-encounter-example.html) | `encounter` |
 | Qayd etilgan sana | - | `2026-09-18T10:45:00+05:00` | `recordedDate` |
 | Tibbiyot xodimi | - | [example-hepatologist-role](PractitionerRole-example-hepatologist-role.html) | `participant.actor` |
 
-[Natija kengaytmasi](StructureDefinition-hepatitis-condition-outcome.html) `0..1` kardinallikka ega va HepatitisConditionOutcomeCodesVS ga majburiy bog‘langan. Kodlar SNOMED CT dan olinadi; lokal CodeSystem tarjima qilingan nomlarni taqdim etuvchi qo‘shimchadir.
+[ConditionOutcome kengaytmasi](https://hl7.org/fhir/extensions/StructureDefinition-condition-outcome.html) holatning natijasi yoki oqibatini sababiy bog‘liqlikni anglatmasdan qayd etadi. Uning URL manzili — `http://hl7.org/fhir/StructureDefinition/condition-outcome`. Har bir takrorlanishda ConditionOutcomeCodes ga example darajasida bog‘langan bitta `valueCodeableConcept` qiymati bo‘ladi. Ayrim natijalarni holat faol bo‘lmay qolgandan keyingina baholash mumkin.
 
 ### Laboratoriya natijalarini qayd etish (Observation) {#recording-laboratory-results}
 
-Laboratoriya kuzatuvlari tekshiruv, usul, natija, vaqt, bemor va ijrochilarni ko‘rsatadi. Misol kodi A gepatiti virusiga IgM antitanalar tekshiruvini anglatadi, garchi tavsifda B gepatiti DNK si tilga olingan bo‘lsa ham.
+Laboratoriya kuzatuvlari tekshiruv, natija, vaqt, bemor va ijrochilarni ko‘rsatadi. Misolda A gepatiti virusiga IgM antitanalar tekshiruvining manfiy natijasi qayd etilgan.
 
 Profil: [HepatitisObservationAnalysis](StructureDefinition-hepatitis-observation-analysis.html)
 
@@ -112,9 +113,8 @@ Misol: [example-hepatitis-observation-analysis](Observation-example-hepatitis-ob
 | Qayd etiladigan ma’lumot | Ma’lumotnoma | Misol kodi yoki qiymati | Qayerda saqlanadi |
 | :--- | :--- | :--- | :--- |
 | Reyestr identifikatori | - | `85dcdd0a-5a68-4cc6-8503-5ab15a42c63b` | `identifier[hepatitisRegistry].value` |
-| Natija holati | [observation-status-vs](https://dhp.uz/fhir/core/ValueSet-observation-status-vs.html) | `final` | `status` |
-| Tekshiruv | [observation-codes-vs](https://dhp.uz/fhir/core/ValueSet-observation-codes-vs.html) | `LOINC#22314-9` | `code` |
-| Usul | [lab-method-vs](https://dhp.uz/fhir/core/ValueSet-lab-method-vs.html) | `lab-methods-cs#lab-method-1` (PCR) | `method` |
+| Natija holati | [ObservationStatusVS](https://dhp.uz/fhir/core/ValueSet-observation-status-vs.html) | `final` | `status` |
+| Tekshiruv | [ObservationCodesVS](https://dhp.uz/fhir/core/ValueSet-observation-codes-vs.html) | `LOINC#22314-9` | `code` |
 | Natija | [v3-ObservationInterpretation](https://terminology.hl7.org/CodeSystem-v3-ObservationInterpretation.html) | `v3-ObservationInterpretation#NEG` | `valueCodeableConcept` |
 | Bemor | - | [hepatitis-patient-example](Patient-hepatitis-patient-example.html) | `subject` |
 | Kuzatuv vaqti | - | `2026-09-18T10:00:00+05:00` | `effectiveDateTime` |
@@ -133,7 +133,7 @@ Misol: [example-ultrasound-cirrhosis](Observation-example-ultrasound-cirrhosis.h
 | Qayd etiladigan ma’lumot | Ma’lumotnoma | Misol kodi yoki qiymati | Qayerda saqlanadi |
 | :--- | :--- | :--- | :--- |
 | Reyestr identifikatori | - | `85dcdd0a-5a68-4cc6-8503-5ab15a42c73b` | `identifier[hepatitisRegistry].value` |
-| Natija holati | [observation-status-vs](https://dhp.uz/fhir/core/ValueSet-observation-status-vs.html) | `final` | `status` |
+| Natija holati | [ObservationStatusVS](https://dhp.uz/fhir/core/ValueSet-observation-status-vs.html) | `final` | `status` |
 | Topilma | [HepatitisTypeOfUltraSoundVS](ValueSet-hepatitis-type-of-ultra-sound-vs.html) | `SNOMED CT#19943007` / `SNOMED CT#300332007` | `code` |
 | Topilma mavjudligi | - | `true` / `false` | `valueBoolean` |
 | Bemor | - | [hepatitis-patient-example](Patient-hepatitis-patient-example.html) | `subject` |
@@ -153,11 +153,11 @@ Misol: [hepatitis-questionnaire](Questionnaire-hepatitis-questionnaire.html)
 | Qayd etiladigan ma’lumot | Ma’lumotnoma | Misol kodi yoki qiymati | Qayerda saqlanadi |
 | :--- | :--- | :--- | :--- |
 | Identifikator | - | `HCV-HBV-QS-2026` | `identifier.value` |
-| Nashr holati | [publication-status](https://hl7.org/fhir/R5/valueset-publication-status.html) | `active` | `status` |
-| Subyekt turi | [resource-types](https://hl7.org/fhir/R5/valueset-resource-types.html) | `Patient` | `subjectType` |
+| Nashr holati | [PublicationStatus](https://hl7.org/fhir/R5/valueset-publication-status.html) | `active` | `status` |
+| Subyekt turi | [ResourceType](https://hl7.org/fhir/R5/valueset-resource-types.html) | `Patient` | `subjectType` |
 | Savol identifikatori | - | `hx-tx-hcv-hbv` | `item.item.linkId` |
-| Savol turi | [item-type](https://hl7.org/fhir/R5/valueset-item-type.html) | `boolean`, `string`, `coding` | `item.item.type` |
-| Ko‘rsatish sharti | [questionnaire-enable-operator](https://hl7.org/fhir/R5/valueset-questionnaire-enable-operator.html) | `=` / `true` | `item.item.enableWhen.operator / answerBoolean` |
+| Savol turi | [QuestionnaireItemType](https://hl7.org/fhir/R5/valueset-item-type.html) | `boolean`, `string`, `coding` | `item.item.type` |
+| Ko‘rsatish sharti | [QuestionnaireItemOperator](https://hl7.org/fhir/R5/valueset-questionnaire-enable-operator.html) | `=` / `true` | `item.item.enableWhen.operator / answerBoolean` |
 | Trimestr variantlari | SNOMED CT | `255246003`, `255247007`, `255248002` | `item.item.answerOption.valueCoding` |
 
 Kanonik URL: `https://dhp.uz/fhir/integrations/Questionnaire/hepatitis-questionnaire`. Dorilar haqidagi savol `hx-tx-hcv-hbv` qiymati `true` bo‘lganda ko‘rsatiladi. Trimestr variantlari alohida qiymatlar to‘plamida emas, so‘rovnomaning o‘zida berilgan.
@@ -173,16 +173,16 @@ Misol: [example-hcv-response](QuestionnaireResponse-example-hcv-response.html)
 | Qayd etiladigan ma’lumot | Ma’lumotnoma | Misol kodi yoki qiymati | Qayerda saqlanadi |
 | :--- | :--- | :--- | :--- |
 | Identifikator | - | `6f9b9d8e-3b7d-4d87-8f6e-123456789abc` | `identifier.value` |
-| Javoblar holati | [questionnaire-answers-status](https://hl7.org/fhir/R5/valueset-questionnaire-answers-status.html) | `completed` | `status` |
+| Javoblar holati | [QuestionnaireResponseStatus](https://hl7.org/fhir/R5/valueset-questionnaire-answers-status.html) | `completed` | `status` |
 | So‘rovnoma | - | [hepatitis-questionnaire](Questionnaire-hepatitis-questionnaire.html) | `questionnaire` |
-| Bemor | - | [example-hepatitis-patient](Patient-example-hepatitis-patient.html) | `subject` |
-| Muallif | - | [muratova-gulshoda-role](PractitionerRole-muratova-gulshoda-role.html) | `author` |
-| To‘ldirilgan vaqt | - | `2026-03-19T12:00:00Z` | `authored` |
+| Bemor | - | [hepatitis-patient-example](Patient-hepatitis-patient-example.html) | `subject` |
+| Muallif | - | [example-hepatologist-role](PractitionerRole-example-hepatologist-role.html) | `author` |
+| To‘ldirilgan vaqt | - | `2026-09-18T10:15:00+05:00` | `authored` |
 | Avvalgi davolanish | - | `true` | `item.item.answer.valueBoolean` |
-| Dorilar tarixi | - | `Sofosbuvir + Declatasvir` | `item.item.answer.valueString` |
+| Dorilar tarixi | - | `Sofosbuvir + Daclatasvir` | `item.item.answer.valueString` |
 | Homiladorlik trimestri | SNOMED CT | `255246003` | `item.item.answer.valueCoding` |
 
-Profil `subject` ni HepatitisPatient, `author` ni UZCorePractitionerRole, `source` ni UZCoreRelatedPerson va `partOf` ni UZCoreSocioeconomicObservation bilan cheklaydi. Misolda yordam ko‘rsatish epizodidagidan boshqa bemor yozuvi ishlatilgan. Javoblar guruhlarga joylangan (`item.item.answer`); profildagi boolean/string cheklovi yuqori darajadagi `item.answer.value[x]` ga tegishli. Dorilar matni davolash tavsiyasi emas, javob misolidir.
+Profil `subject` ni HepatitisPatient, `author` ni UZCorePractitionerRole, `source` ni UZCoreRelatedPerson va `partOf` ni UZCoreSocioeconomicObservation bilan cheklaydi. Misolda yordam ko‘rsatish epizodidagi bemor va shifokor ko‘rsatilgan. Javoblar guruhlarga joylangan (`item.item.answer`); profil ikkala darajada boolean, string va Coding javoblariga ruxsat beradi. Dorilar matni davolash tavsiyasi emas, javob misolidir.
 
 ### Yordamchi resurslar {#supporting-resources}
 

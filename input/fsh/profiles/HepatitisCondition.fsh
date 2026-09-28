@@ -17,11 +17,10 @@ Description: "Profile for representing hepatitis conditions in the context of a 
 * identifier ^slicing.discriminator.path = "system"
 * identifier ^slicing.rules = #open
 * identifier contains hepatitisRegistry 1..1 MS
-* identifier[hepatitisRegistry].system = "https://dhp.uz/fhir/core/sid/org/uz/hepatitis"
+* identifier[hepatitisRegistry].system = "https://dhp.uz/fhir/core/sid/reg/uz/hepatitis"
 * identifier[hepatitisRegistry].value 1..1
 
-* extension contains HepatitisConditionOutcome named outcome 0..1 MS
-
+* extension contains http://hl7.org/fhir/StructureDefinition/condition-outcome named outcome 0..1 MS
 
 
 // Instance Example
@@ -30,7 +29,7 @@ InstanceOf: HepatitisCondition
 Description: "Example of a hepatitis condition"
 Usage: #example
 
-* identifier[hepatitisRegistry].system = "https://dhp.uz/fhir/core/sid/org/uz/hepatitis"
+* identifier[hepatitisRegistry].system = "https://dhp.uz/fhir/core/sid/reg/uz/hepatitis"
 * identifier[hepatitisRegistry].value = "69dcdd0a-5a68-4cc6-8503-5ab15a41c63b"
 
 * clinicalStatus = $condition-clinical#active "Active"
