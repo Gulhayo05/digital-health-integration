@@ -28,31 +28,45 @@ Publishing a release is automated by [`.github/workflows/release.yml`](.github/w
    - opens a PR adding `X.Y.Z` to [`docs/package-feed.xml`](docs/package-feed.xml)
      so the FHIR package registry discovers it.
 
-4. **Merge the package-feed PR.**
+4. **dhp.uz publishes the release on its own.** A GitLab instance pull-mirrors
+   this repository and runs the publication build there, so GitHub stays the
+   source of truth and there is nothing to trigger by hand. The mirror polls
+   every 30 minutes and an integrations build takes 48-78 minutes, so allow up
+   to an hour and a half from pushing the tag before
+   `https://dhp.uz/fhir/integrations/X.Y.Z/` appears and
+   `https://dhp.uz/fhir/integrations/` starts serving it. Until then the tag is
+   only on GitHub.
+
+   The published build reports a few more QA findings than CI did, because
+   `-go-publish` revalidates against a cold terminology cache. On the publishing
+   host, `ci/verify-site.sh https://dhp.uz integrations <previous> X.Y.Z` checks
+   the result and `ci/release-rollback.sh X.Y.Z` undoes it; the pipeline and
+   those scripts live in
+   [dhp-gitlab-publishing](https://github.com/vadi2/dhp-gitlab-publishing).
+
+5. **Merge the package-feed PR.** The Release workflow opens it with
+   `GITHUB_TOKEN`, and events from that token start no workflows, so the
+   required `sushi` and `ig-publisher` checks never report and the ruleset
+   blocks the merge. Push any commit to its branch to make them run:
+
+   ```bash
+   BRANCH=chore/package-feed-X.Y.Z
+   git fetch origin $BRANCH && git checkout $BRANCH
+   git commit --allow-empty -m "run checks" && git push
+   ```
+
+   Then merge it; the squash drops the extra commit.
 
 `main` is ruleset-protected (PR + `sushi`/`ig-publisher` checks required), so the
 feed change must go through a PR rather than a direct push.
 
-## One-time: register the package feed
+## Registration
 
-`uz.dhp.integrations` only reaches the FHIR package registry once its feed is
-listed in [FHIR/ig-registry](https://github.com/FHIR/ig-registry). After the
-first release and its feed PR have landed on `main` - so that the raw URL
-resolves and the feed has an item to crawl - open a PR against
-`package-feeds.json` there adding:
-
-```json
-{
-  "name": "DHP Integrations Uzbekistan Packages",
-  "url": "https://raw.githubusercontent.com/uzinfocom-org/digital-health-integration/refs/heads/main/docs/package-feed.xml",
-  "errors": "fhir|vadimperetok.in"
-}
-```
-
-`uz.dhp.core` is registered the same way from the
-[core IG repository](https://github.com/uzinfocom-org/digital-health-ig).
-
-Optionally, the same PR can add the guide to `fhir-ig-list.json`, which is what
-lists an IG at [fhir.org/guides/registry](https://fhir.org/guides/registry).
-`uz.dhp.core` has an entry there with `npm-name`, `canonical`, `country`,
-`language` and `category` - no publication history is required.
+Both guides are already discoverable, and nothing per release is needed. The
+GitLab pipeline publishes one site-level feed, <https://dhp.uz/package-feed.xml>,
+listing every `uz.dhp.core` and `uz.dhp.integrations` release, and that feed is
+the one registered in
+[FHIR/ig-registry](https://github.com/FHIR/ig-registry/blob/master/package-feeds.json);
+the registry crawls it and publishes each new version itself. The guide is listed
+at [fhir.org/guides/registry](https://fhir.org/guides/registry) through its
+`fhir-ig-list.json` entry there.
