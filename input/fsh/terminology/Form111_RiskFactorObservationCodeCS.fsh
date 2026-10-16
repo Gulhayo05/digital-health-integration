@@ -16,25 +16,19 @@ Description: "Form 111 Risk Factor Observation Code CodeSystem"
   * ^designation[+].language = #ru
   * ^designation[=].value = "Факторы акушерско-гинекологического анамнеза"
 
-* #chr-0027-00003 "Homiladorlik asoratlari xavf omillari"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Pregnancy complication risk factors"
-  * ^designation[+].language = #ru
-  * ^designation[=].value = "Факторы осложнений беременности"
-
-* #chr-0027-00004 "Ijtimoiy-biologik xavf omillari"
+* #chr-0027-00003 "Ijtimoiy-biologik xavf omillari"
   * ^designation[0].language = #en
   * ^designation[=].value = "Socio-biological risk factors"
   * ^designation[+].language = #ru
   * ^designation[=].value = "Социально-биологические факторы риска"
 
-* #chr-0027-00005 "Perinatal xavf darajasi"
+* #chr-0027-00004 "Perinatal xavf darajasi"
   * ^designation[0].language = #en
   * ^designation[=].value = "Perinatal risk level"
   * ^designation[+].language = #ru
   * ^designation[=].value = "Уровень перинатального риска"
 
-* #chr-0027-00006 "Perinatal xavf ballari yig'indisi"
+* #chr-0027-00005 "Perinatal xavf ballari yig'indisi"
   * ^designation[0].language = #en
   * ^designation[=].value = "Perinatal risk score sum"
   * ^designation[+].language = #ru

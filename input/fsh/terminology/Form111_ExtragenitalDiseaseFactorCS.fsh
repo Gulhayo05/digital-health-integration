@@ -1,61 +1,70 @@
 CodeSystem: Form111_ExtragenitalDiseaseFactorCS
 Id: form111-extragenital-disease-factor-cs
-Title: "Form 111 Extragenital Disease Factor Code"
-Description: "Form 111 Extragenital Disease Factor Code for clinical documents and other knowledge resources in Uzbekistan integrations. Based on Ministry of Health Order 399."
-* insert OriginalCodeSystemDraft(form111-extragenital-disease-factor-cs)    
+Title: "Form 111 Extragenital Disease Factor CodeSystem"
+Description: "SNOMED CT supplement containing Uzbek and Russian designations for extragenital disease factors used in Form 111."
 
-* #chr-0012-00001 "O'tkir va surunkali infeksiyalar"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Acute and chronic infections"
+* insert SupplementCodeSystemDraft(
+    form111-extragenital-disease-factor-cs,
+    $sct,
+    2026.1.0
+)
+
+* #40733004 "Infectious disease"
+  * ^designation[0].language = #uz
+  * ^designation[=].value = "O'tkir va surunkali infeksiyalar"
   * ^designation[+].language = #ru
   * ^designation[=].value = "Острые и хронические инфекции"
 
-* #chr-0012-00002 "Alkogolizm yoki giyohvandlik"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Alcoholism or drug addiction"
+* #66590003 "Alcohol dependence"
+  * ^designation[0].language = #uz
+  * ^designation[=].value = "Alkogolizm"
   * ^designation[+].language = #ru
-  * ^designation[=].value = "Алкоголизм или наркомания"
+  * ^designation[=].value = "Алкоголизм"
 
-* #chr-0012-00003 "Qon kasalliklari"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Blood diseases"
+* #414022008 "Disorder of cellular component of blood"
+  * ^designation[0].language = #uz
+  * ^designation[=].value = "Qon kasalliklari"
   * ^designation[+].language = #ru
   * ^designation[=].value = "Заболевания крови"
 
-* #chr-0012-00004 "Biriktiruvchi to'qima kasalliklari"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Connective tissue diseases"
+* #105969002 "Disorder of connective tissue"
+  * ^designation[0].language = #uz
+  * ^designation[=].value = "Biriktiruvchi to'qima kasalliklari"
   * ^designation[+].language = #ru
   * ^designation[=].value = "Заболевания соединительной ткани"
 
-* #chr-0012-00005 "Endokrinopatiya"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Endocrinopathy"
+* #362969004 "Disorder of endocrine system"
+  * ^designation[0].language = #uz
+  * ^designation[=].value = "Endokrinopatiya"
   * ^designation[+].language = #ru
   * ^designation[=].value = "Эндокринопатия"
 
-* #chr-0012-00006 "Gemostaz buzilishlari"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Hemostasis disorders"
+* #362970003 "Disorder of hemostatic system"
+  * ^designation[0].language = #uz
+  * ^designation[=].value = "Gemostaz buzilishlari"
   * ^designation[+].language = #ru
   * ^designation[=].value = "Нарушения гемостаза"
 
-* #chr-0012-00007 "Jigar kasalliklari"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Liver diseases"
+* #235856003 "Disease of liver"
+  * ^designation[0].language = #uz
+  * ^designation[=].value = "Jigar kasalliklari"
   * ^designation[+].language = #ru
   * ^designation[=].value = "Заболевания печени"
 
-* #chr-0012-00008 "O'pka kasalliklari"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Lung diseases"
+* #19829001 "Disorder of lung"
+  * ^designation[0].language = #uz
+  * ^designation[=].value = "O'pka kasalliklari"
   * ^designation[+].language = #ru
   * ^designation[=].value = "Заболевания легких"
 
-* #chr-0012-00009 "Siydik chiqarish tizimi kasalliklari"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Urinary system diseases"
+* #128606002 "Disorder of urinary system"
+  * ^designation[0].language = #uz
+  * ^designation[=].value = "Siydik chiqarish tizimi kasalliklari"
   * ^designation[+].language = #ru
   * ^designation[=].value = "Заболевания мочевыводящей системы"
 
-  
+* #1254812006 "Substance dependence"
+  * ^designation[0].language = #uz
+  * ^designation[=].value = "Giyohvandlik"
+  * ^designation[+].language = #ru
+  * ^designation[=].value = "Наркомания"

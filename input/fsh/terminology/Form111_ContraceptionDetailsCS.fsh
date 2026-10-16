@@ -1,53 +1,58 @@
 CodeSystem: Form111_ContraceptionDetailsCS
 Id: form111-contraception-details-cs
-Title: "Form 111 Contraception Details"
-Description: "Form 111 Contraception Details for clinical documents and other knowledge resources in Uzbekistan integrations. Based on Ministry of Health Order 399."
-* insert OriginalCodeSystemDraft(form111-contraception-details-cs)
+Title: "Form 111 Contraception Details CodeSystem"
+Description: "SNOMED CT supplement containing Uzbek and Russian designations for contraception methods used in Form 111."
 
-* #chr-0006-00001 "To'siq usuli"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Barrier"
+* insert SupplementCodeSystemDraft(
+    form111-contraception-details-cs,
+    $sct,
+    2026.1.0
+)
+
+* #225370004 "Uses barrier contraception method"
+  * ^designation[0].language = #uz
+  * ^designation[=].value = "To'siq usuli"
   * ^designation[+].language = #ru
   * ^designation[=].value = "Барьерная"
 
-* #chr-0006-00002 "Kimyoviy usul"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Chemical"
+* #268466006 "Uses spermicidal contraception"
+  * ^designation[0].language = #uz
+  * ^designation[=].value = "Kimyoviy usul"
   * ^designation[+].language = #ru
   * ^designation[=].value = "Химическая"
 
-* #chr-0006-00003 "Shoshilinch kontratseptsiya"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Emergency"
+* #268463003 "Uses postcoital contraception"
+  * ^designation[0].language = #uz
+  * ^designation[=].value = "Shoshilinch kontratseptsiya"
   * ^designation[+].language = #ru
   * ^designation[=].value = "Экстренная"
 
-* #chr-0006-00004 "Ayollar sterilizatsiyasi"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Female sterilization"
+* #60890002 "Female sterilization"
+  * ^designation[0].language = #uz
+  * ^designation[=].value = "Ayollar sterilizatsiyasi"
   * ^designation[+].language = #ru
   * ^designation[=].value = "Женская стерилизация"
 
-* #chr-0006-00005 "Gormonal usul"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Hormonal"
+* #1237404009 "Uses hormonal contraception"
+  * ^designation[0].language = #uz
+  * ^designation[=].value = "Gormonal usul"
   * ^designation[+].language = #ru
   * ^designation[=].value = "Гормональная"
 
-* #chr-0006-00006 "Bachadon ichi vositasi"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Intrauterine"
+* #312081001 "Uses IUD (intrauterine device) contraception"
+  * ^designation[0].language = #uz
+  * ^designation[=].value = "Bachadon ichi vositasi"
   * ^designation[+].language = #ru
   * ^designation[=].value = "Внутриматочная"
 
-* #chr-0006-00007 "Tabiiy usul"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Natural"
+* #718701005 "Natural family planning method"
+  * ^designation[0].language = #uz
+  * ^designation[=].value = "Tabiiy usul"
   * ^designation[+].language = #ru
   * ^designation[=].value = "Естественная"
 
-* #chr-0006-00008 "Vazektomiya"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Vasectomy"
+* #22523008 "Vasectomy"
+  * ^designation[0].language = #uz
+  * ^designation[=].value = "Vazektomiya"
   * ^designation[+].language = #ru
   * ^designation[=].value = "Вазэктомия"

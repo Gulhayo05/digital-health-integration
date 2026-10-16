@@ -1,10 +1,14 @@
 ValueSet: Form111_BirthTypeVS
 Id: form111-birth-type-vs
-Title: "Form 111 Birth Type ValueSet"
-Description: "Form 111 Birth Type ValueSet for clinical documents and other knowledge resources in Uzbekistan integrations. Based on Ministry of Health Order 399."
+Title: "Form111 Birth Type ValueSet"
+Description: "Local value set for birth types used by the Form 111 information system, with Uzbek and Russian designations."
+
 * insert IntegrationsValueSet(form111-birth-type-vs)
-
-* include codes from system form111-birth-type-cs
-
 * ^experimental = true
-* ^status = #draft
+* ^language = #uz
+
+* ^extension[0].url = $valueset-supplement
+* ^extension[=].valueCanonical = Canonical(Form111_BirthTypeSnomedCS)
+
+* $sct#289259007 "Vaginal delivery"
+* include codes from system form111-birth-type-cs

@@ -1,23 +1,28 @@
 CodeSystem: Form111_FetalPresentationCS
 Id: form111-fetal-presentation-cs
 Title: "Form 111 Fetal Presentation CodeSystem"
-Description: "Form 111 Fetal Presentation CodeSystem for clinical documents and other knowledge resources in Uzbekistan integrations. Based on Ministry of Health Order 399."
-* insert OriginalCodeSystemDraft(form111-fetal-presentation-cs)
+Description: "SNOMED CT supplement containing Uzbek and Russian designations for fetal presentation codes used in Form 111."
 
-* #chr-0015-00001 "Chanoq bilan kelish"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Breech presentation"
+* insert SupplementCodeSystemDraft(
+    form111-fetal-presentation-cs,
+    $sct,
+    2026.1.0
+)
+
+* #6096002 "Breech presentation"
+  * ^designation[0].language = #uz
+  * ^designation[=].value = "Chanoq bilan kelish"
   * ^designation[+].language = #ru
   * ^designation[=].value = "Тазовое предлежание"
 
-* #chr-0015-00002 "Bosh bilan kelish"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Cephalic presentation"
+* #1209182005 "Cephalic fetal presentation"
+  * ^designation[0].language = #uz
+  * ^designation[=].value = "Bosh bilan kelish"
   * ^designation[+].language = #ru
   * ^designation[=].value = "Головное предлежание"
 
-* #chr-0015-00003 "Aniqlanmagan"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Undetermined"
+* #373068000 "Undetermined"
+  * ^designation[0].language = #uz
+  * ^designation[=].value = "Aniqlanmagan"
   * ^designation[+].language = #ru
   * ^designation[=].value = "Не определено"
