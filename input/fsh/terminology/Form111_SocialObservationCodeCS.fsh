@@ -10,13 +10,19 @@ Description: "Form 111 Social Observation Code CodeSystem"
   * ^designation[+].language = #ru
   * ^designation[=].value = "Состояние здоровья и вредные привычки супруга"
 
-* #chr-0029-00002 "Mehnat sharoitlari"
+* #chr-0029-00002 "Turmush o'rtog'ining ish joyi"
+  * ^designation[0].language = #en
+  * ^designation[=].value = "Spouse workplace"
+  * ^designation[+].language = #ru
+  * ^designation[=].value = "Место работы супруга"
+
+* #chr-0029-00003 "Mehnat sharoitlari"
   * ^designation[0].language = #en
   * ^designation[=].value = "Working conditions"
   * ^designation[+].language = #ru
   * ^designation[=].value = "Условия труда"
 
-* #chr-0029-00003 "Ish joyi telefon raqami"
+* #chr-0029-00004 "Ish joyi telefon raqami"
   * ^designation[0].language = #en
   * ^designation[=].value = "Workplace phone number"
   * ^designation[+].language = #ru

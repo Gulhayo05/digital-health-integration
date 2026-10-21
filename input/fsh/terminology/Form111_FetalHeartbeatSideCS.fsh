@@ -1,22 +1,17 @@
 CodeSystem: Form111_FetalHeartbeatSideCS
 Id: form111-fetal-heartbeat-side-cs
 Title: "Form 111 Fetal Heartbeat Side CodeSystem"
-Description: "SNOMED CT supplement containing Uzbek and Russian designations for fetal heartbeat side codes used in Form 111."
+Description: "Form 111 Fetal Heartbeat Side CodeSystem for clinical documents and other knowledge resources in Uzbekistan integrations. Based on Ministry of Health Order 399."
+* insert OriginalCodeSystemDraft(form111-fetal-heartbeat-side-cs)
 
-* insert SupplementCodeSystemDraft(
-    form111-fetal-heartbeat-side-cs,
-    $sct,
-    2026.1.0
-)
-
-* #7771000 "Left"
-  * ^designation[0].language = #uz
-  * ^designation[=].value = "Chapda"
+* #chr-0014-00001 "Chapda"
+  * ^designation[0].language = #en
+  * ^designation[=].value = "Left"
   * ^designation[+].language = #ru
   * ^designation[=].value = "Слева"
 
-* #24028007 "Right"
-  * ^designation[0].language = #uz
-  * ^designation[=].value = "O'ngda"
+* #chr-0014-00002 "O'ngda"
+  * ^designation[0].language = #en
+  * ^designation[=].value = "Right"
   * ^designation[+].language = #ru
   * ^designation[=].value = "Справа"

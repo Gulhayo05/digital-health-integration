@@ -1,5 +1,7 @@
 ### Versiya 0.11.1
 
+111-shaklda lokal kodlar ma’nosi saqlandi, uchta aniq token uchun tekshirilgan standart mosliklar va oldingi homiladorlik yakuni ValueSet qo‘shildi; boolean va tadbir sanalari DMED shartnomasiga moslashtirildi.
+
 #### Qo'shildi
 
 Skrining sahifasidagi [Skrining rejalari va takliflari](cervical-breast-cancer-screening.html#screening-plans) bo'limi skrining dasturi bemorni qanday taklif qilishi va uning rejasini yangi profillarsiz, mavjud UZ Core profillarida qanday yuritishini tavsiflaydi. UZ Core ActivityDefinition taklif shabloni bo'ladi (`kind` = `ServiceRequest`, `intent` = `plan`), UZ Core PlanDefinition uni versiyasi bilan biriktiradi, bemorning rejasi esa `intent` = `plan`, skriningga taklif toifasi va bitta dastur identifikatoriga ega UZ Core ServiceRequest dir. Reja holatini MIS boshqaradi: DMED so'rovnoma saqlangach o'z rejasini yakunlaydi, OPV esa rejani skrining bosqichlari davomida faol saqlaydi. DHP natijalarga qarab rejani yakunlangan deb hisoblamaydi.

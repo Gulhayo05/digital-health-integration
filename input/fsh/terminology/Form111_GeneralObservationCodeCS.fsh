@@ -3,6 +3,9 @@ Id: form111-general-observation-code-cs
 Title: "Form 111 General Observation Code"
 Description: "Form 111 General Observation Code for clinical documents and other knowledge resources in Uzbekistan integrations. Based on Ministry of Health Order 399."
 * insert OriginalCodeSystemDraft(form111-general-observation-code-cs)
+* ^property[0].code = #status
+* ^property[=].uri = "http://hl7.org/fhir/concept-properties#status"
+* ^property[=].type = #code
 
 * #chr-0035-00001 "Ro'yxatga olingan kun"
   * ^designation[0].language = #en
@@ -58,95 +61,123 @@ Description: "Form 111 General Observation Code for clinical documents and other
   * ^designation[+].language = #ru
   * ^designation[=].value = "Дата последней менструации (окончание)"
 
-* #chr-0035-00010 "Tug'ruqning alohida xususiyatlari"
+* #chr-0035-00010 "Jinsiy hayoti necha yoshdan boshlangani"
+  * ^designation[0].language = #en
+  * ^designation[=].value = "Age at onset of sexual activity"
+  * ^designation[+].language = #ru
+  * ^designation[=].value = "Возраст начала половой жизни"
+
+* #chr-0035-00011 "Xayz ko'rish xususiyatlari"
+  * ^designation[0].language = #en
+  * ^designation[=].value = "Menstrual characteristics"
+  * ^designation[+].language = #ru
+  * ^designation[=].value = "Особенности менструации"
+
+* #chr-0035-00012 "Tug'ruqning alohida xususiyatlari"
   * ^designation[0].language = #en
   * ^designation[=].value = "Special features of delivery"
   * ^designation[+].language = #ru
   * ^designation[=].value = "Особенности родов"
 
-* #chr-0035-00011 "Bola tirik / o'lik tug'ilgani"
+* #chr-0035-00013 "Bola tirik / o'lik tug'ilgani"
   * ^designation[0].language = #en
   * ^designation[=].value = "Live/stillbirth status"
   * ^designation[+].language = #ru
   * ^designation[=].value = "Ребёнок родился живым/мёртвым"
 
-* #chr-0035-00012 "Bola tirikligi (hozirgi holati)"
+* #chr-0035-00014 "Bola tirikligi (hozirgi holati)"
   * ^designation[0].language = #en
   * ^designation[=].value = "Child's current vital status"
   * ^designation[+].language = #ru
   * ^designation[=].value = "Текущее состояние ребёнка (жив)"
 
-* #chr-0035-00013 "Tug'ruq turi (muddati bo'yicha)"
+* #chr-0035-00015 "Tug'ruq turi (muddati bo'yicha)"
   * ^designation[0].language = #en
   * ^designation[=].value = "Type of delivery (by term)"
   * ^designation[+].language = #ru
   * ^designation[=].value = "Вид родов (по сроку)"
 
-* #chr-0035-00014 "Avvalgi homiladorliklarning o'ziga xosligi"
+* #chr-0035-00016 "Avvalgi homiladorliklarning o'ziga xosligi"
   * ^designation[0].language = #en
   * ^designation[=].value = "Characteristics of previous pregnancies"
   * ^designation[+].language = #ru
   * ^designation[=].value = "Особенности предыдущих беременностей"
 
-* #chr-0035-00015 "Homiladorlik bo'yicha ta'til"
+* #chr-0035-00017 "Homiladorlik bo'yicha ta'til"
   * ^designation[0].language = #en
   * ^designation[=].value = "Pregnancy leave"
   * ^designation[+].language = #ru
   * ^designation[=].value = "Отпуск по беременности"
 
-* #chr-0035-00016 "Tug'ruqdan keyingi ta'til"
+* #chr-0035-00018 "Tug'ruqdan keyingi ta'til"
   * ^designation[0].language = #en
   * ^designation[=].value = "Postpartum leave"
   * ^designation[+].language = #ru
   * ^designation[=].value = "Послеродовой отпуск"
 
-* #chr-0035-00017 "Shifoxonaga yotqizildi"
+* #chr-0035-00019 "Shifoxonaga yotqizildi"
   * ^designation[0].language = #en
   * ^designation[=].value = "Hospitalized"
   * ^designation[+].language = #ru
   * ^designation[=].value = "Госпитализирована"
 
-* #chr-0035-00018 "Boshqa a'zolari"
+* #chr-0035-00020 "Boshqa a'zolari"
   * ^designation[0].language = #en
   * ^designation[=].value = "Other organs"
   * ^designation[+].language = #ru
   * ^designation[=].value = "Другие органы"
 
-* #chr-0035-00019 "Muddatdan farq (kun)"
+* #chr-0035-00021 "Muddatdan farq (kun)"
   * ^designation[0].language = #en
   * ^designation[=].value = "Difference from due date (days)"
   * ^designation[+].language = #ru
   * ^designation[=].value = "Разница со сроком (дни)"
 
-// chr-0035-00020/00021: superseded by chr-0027-00006/00005 (Risk Factor Observation Code),
+// chr-0035-00022/00023: superseded by chr-0027-00006/00005 (Risk Factor Observation Code),
 // which are section 14-specific and keep perinatal risk codes together with the other risk-factor
 // codes. Kept defined (not removed) since this CodeSystem is #draft, but not used in the example.
-* #chr-0035-00020 "Ballar yig'indisi"
+* #chr-0035-00022 "Ballar yig'indisi"
+  * ^property[0].code = #status
+  * ^property[=].valueCode = #deprecated
   * ^designation[0].language = #en
   * ^designation[=].value = "Sum of points"
   * ^designation[+].language = #ru
   * ^designation[=].value = "Сумма баллов"
 
-* #chr-0035-00021 "Xavf darajasi"
+* #chr-0035-00023 "Xavf darajasi"
+  * ^property[0].code = #status
+  * ^property[=].valueCode = #deprecated
   * ^designation[0].language = #en
   * ^designation[=].value = "Risk level"
   * ^designation[+].language = #ru
   * ^designation[=].value = "Уровень риска"
 
-* #chr-0035-00022 "O'tgan operatsiyalar"
+* #chr-0035-00024 "Arterial qon bosimi"
+  * ^designation[0].language = #en
+  * ^designation[=].value = "Blood pressure"
+  * ^designation[+].language = #ru
+  * ^designation[=].value = "Артериальное давление"
+
+* #chr-0035-00025 "O'tgan operatsiyalar"
   * ^designation[0].language = #en
   * ^designation[=].value = "Past surgeries"
   * ^designation[+].language = #ru
   * ^designation[=].value = "Перенесённые операции"
 
-* #chr-0035-00023 "O'tgan operatsiya sanasi"
+* #chr-0035-00026 "O'tgan operatsiya sanasi"
   * ^designation[0].language = #en
   * ^designation[=].value = "Past surgery date"
   * ^designation[+].language = #ru
   * ^designation[=].value = "Дата перенесённой операции"
 
-* #chr-0035-00024 "Avvalgi homiladorlik yili"
+* #chr-0035-00027 "Avvalgi homiladorlik yili"
   * ^designation[0].language = #en
   * ^designation[=].value = "Previous pregnancy year"
   * ^designation[+].language = #ru
   * ^designation[=].value = "Год предыдущей беременности"
+
+* #chr-0035-00028 "Ish joyi"
+  * ^designation[0].language = #en
+  * ^designation[=].value = "Workplace"
+  * ^designation[+].language = #ru
+  * ^designation[=].value = "Место работы"
