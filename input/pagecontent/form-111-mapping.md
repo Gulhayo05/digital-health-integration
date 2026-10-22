@@ -35,9 +35,11 @@ For a complete reference instance, see the [Form 111 pregnant woman individual c
 
 | UZ | RU | FHIR Path | Code | Example Value |
 |----|----|------------|------|---------------|
-| Hujjat instansiyasi UUID va shakl raqami | Идентификатор документа и номер формы | Composition.identifier | - | 111 |
+| Hujjat instansiyasi UUID | Идентификатор документа | Composition.identifier | `urn:ietf:rfc:3986` | urn:uuid:7e51c0b8-9d34-42a6-b7f1-05c8e2a91111 |
+| Shakl raqami | Номер формы | Composition.identifier | `https://dhp.uz/fhir/core/sid/doc/uz/form-number` | 111 |
+| Hujjat versiyasi UUID | Идентификатор версии документа | Bundle.identifier | `urn:ietf:rfc:3986` | urn:uuid:c1f4a9d7-2b60-4e13-9a5c-8d7e6f0b1112 |
 | Individual karta raqami | Номер индивидуальной карты | Encounter.identifier | Local | 111-2025-000123 |
-| Hujjat holati | Статус документа | Composition.status | - | final |
+| Hujjat holati | Статус документа | Composition.status | [Document statuses](document-statuses.html): `preliminary` while the card is kept, `final` after postpartum follow-up | final |
 | Hujjat turi | Тип документа | Composition.type | LOINC `34133-9` "Summary of episode note" | - |
 | Hujjat kategoriyasi | Категория документа | Composition.category | [Document Category](CodeSystem-document-category-cs.html) `form-111` | - |
 | Bemor | Пациентка | Composition.subject | [Patient](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-patient.html) | Ergasheva N.B. |
