@@ -57,7 +57,7 @@ To'liq namunaviy nusxa uchun [111-shakl homilador ayolning individual kartasi mi
 
 ### 1. Ro'yxatga olish va shaxsiy ma'lumotlar
 
-Bo'lim kodi: LOINC `LP36348-8` "Patient Information".
+Bo'lim kodi: LOINC `45970-1` "Demographic information section".
 
 | UZ | RU | FHIR yo'li | Kod | Misol qiymati |
 |----|----|------------|------|---------------|
@@ -109,7 +109,7 @@ Bo'lim kodi: LOINC `29308-4` "Diagnosis".
 
 ### 3. Homiladorlikning yakuni
 
-Bo'lim kodi: [Form111 CodeSystem](CodeSystem-form111-cs.html) `chr-0034-00001`.
+Bo'lim kodi: LOINC `57074-7` "Labor and delivery process Narrative".
 
 | UZ | RU | FHIR yo'li | Kod | Misol qiymati |
 |----|----|------------|------|---------------|
@@ -187,7 +187,7 @@ Bo'lim kodi: LOINC `29545-1` "Physical findings note".
 
 ### 7. Tashqi akusherlik tekshiruvi
 
-Bo'lim kodi: [Form111 CodeSystem](CodeSystem-form111-cs.html) `chr-0034-00002`.
+Bo'lim kodi: LOINC `10191-5` "Physical findings of Abdomen Narrative".
 
 | UZ | RU | FHIR yo'li | Kod | Misol qiymati |
 |----|----|------------|------|---------------|
@@ -200,7 +200,7 @@ Bo'lim kodi: [Form111 CodeSystem](CodeSystem-form111-cs.html) `chr-0034-00002`.
 
 ### 8. Qin orqali tekshiruv
 
-Bo'lim kodi: [Form111 CodeSystem](CodeSystem-form111-cs.html) `chr-0034-00003`.
+Bo'lim kodi: LOINC `11400-9` "Physical findings of Genitalia Narrative".
 
 | UZ | RU | FHIR yo'li | Kod | Misol qiymati |
 |----|----|------------|------|---------------|
@@ -230,7 +230,7 @@ Bo'lim kodi: LOINC `18776-5` "Plan of care note".
 
 ### 10. Homiladorlikning kechishi (takroriy kuzatuv tashriflari)
 
-Bo'lim kodi: [Form111 CodeSystem](CodeSystem-form111-cs.html) `chr-0034-00004`.
+Bo'lim kodi: LOINC `57059-8` "Pregnancy visit summary note Narrative".
 
 | UZ | RU | FHIR yo'li | Kod | Misol qiymati |
 |----|----|------------|------|---------------|
@@ -259,7 +259,7 @@ Bo'lim kodi: [Form111 CodeSystem](CodeSystem-form111-cs.html) `chr-0034-00004`.
 
 ### 11. Tug'ishga tayyorlash
 
-Bo'lim kodi: [Form111 CodeSystem](CodeSystem-form111-cs.html) `chr-0034-00005`.
+Bo'lim kodi: SNOMED `386235000` "Childbirth preparation".
 
 | UZ | RU | FHIR yo'li | Kod | Misol qiymati |
 |----|----|------------|------|---------------|
@@ -276,7 +276,7 @@ Bo'lim kodi: [Form111 CodeSystem](CodeSystem-form111-cs.html) `chr-0034-00005`.
 
 ### 12. Patronaj - tashriflar
 
-Bo'lim kodi: [Form111 CodeSystem](CodeSystem-form111-cs.html) `chr-0034-00006`.
+Bo'lim kodi: SNOMED `439708006` "Home visit".
 
 | UZ | RU | FHIR yo'li | Kod | Misol qiymati |
 |----|----|------------|------|---------------|
@@ -312,7 +312,7 @@ Bo'lim kodi: [Form111 CodeSystem](CodeSystem-form111-cs.html) `chr-0034-00007`.
 
 ### 14. Perinatal xavf omillari
 
-Bo'lim kodi: [Form111 CodeSystem](CodeSystem-form111-cs.html) `chr-0034-00008`.
+Bo'lim kodi: LOINC `92016-5` "Maternal pregnancy risk factors Document".
 
 "Guruh" va "Omillar" — alohida FHIR resursi yaratilmaydi, bu shaklning strukturaviy sarlavhalari; har bir belgilangan omil mustaqil Observation sifatida quyida ifodalanadi (bitta omil = bitta Observation).
 
@@ -345,7 +345,7 @@ Bo'lim kodi: LOINC `11488-4` "Consult note".
 
 ### 16. Tug'ruqdan keyingi davrdagi kuzatuv
 
-Bo'lim kodi: [Form111 CodeSystem](CodeSystem-form111-cs.html) `chr-0034-00009`.
+Bo'lim kodi: SNOMED `133906008` "Postpartum care".
 
 | UZ | RU | FHIR yo'li | Kod | Misol qiymati |
 |----|----|------------|------|---------------|

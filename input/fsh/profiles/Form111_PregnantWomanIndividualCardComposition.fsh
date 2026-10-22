@@ -69,7 +69,7 @@ Description: "Composition profile for Form 111 (Homilador va tuqqan ayolning ind
 * section[registrationAndPersonalInformation].title 1..1
 * section[registrationAndPersonalInformation].title ^short = "1. Registration and personal information"
 * section[registrationAndPersonalInformation].code 1..1
-* section[registrationAndPersonalInformation].code = $loinc#LP36348-8 "Patient Information"
+* section[registrationAndPersonalInformation].code = $loinc#45970-1 "Demographic information section"
 * section[registrationAndPersonalInformation].code ^short = "Qon guruhi, homiladorning va turmush o'rtog'ining Rh mansubligi, ro'yxatga olingan kun, WR I, WR II, OIV, HBs Ag I, HBs Ag II, gonokokk, toksoplazmoz, boshqa tekshiruv, Med ID raqami, F.I.Sh, tug'ilgan sanasi, oilaviy sharoiti, yashash manzili, telefon raqami, ma'lumoti, ish joyi va uning telefon raqami, mutaxassisligi, lavozimi, ish sharoiti, turmush o'rtog'ining F.I.Sh, ish joyi va telefon raqami"
 * section[registrationAndPersonalInformation].entry 1..*
 * section[registrationAndPersonalInformation].entry only Reference(UZCorePatient or UZCoreRelatedPerson or Organization or UZCoreObservation or UZCoreEpisodeOfCare)
@@ -88,7 +88,7 @@ Description: "Composition profile for Form 111 (Homilador va tuqqan ayolning ind
 * section[pregnancyOutcome].title 1..1
 * section[pregnancyOutcome].title ^short = "3. Pregnancy outcome"
 * section[pregnancyOutcome].code 1..1
-* section[pregnancyOutcome].code = $form111-cs#chr-0034-00001
+* section[pregnancyOutcome].code = $loinc#57074-7 "Labor and delivery process Narrative"
 * section[pregnancyOutcome].code ^short = "Homiladorlikni yakuni, necha haftada yakunlangani, sanasi, tug'ruqning alohida xususiyatlari, bola, og'irligi, bo'yi, tug'ruqxonadan chiqarilganda ona/bola holati va bola holati (alohida), diagnoz"
 * section[pregnancyOutcome].entry 1..*
 * section[pregnancyOutcome].entry only Reference(UZCoreObservation or UZCoreEncounter or UZCoreCondition or UZCoreProcedure)
@@ -124,7 +124,7 @@ Description: "Composition profile for Form 111 (Homilador va tuqqan ayolning ind
 * section[externalObstetricExamination].title 1..1
 * section[externalObstetricExamination].title ^short = "7. External obstetric examination"
 * section[externalObstetricExamination].code 1..1
-* section[externalObstetricExamination].code = $form111-cs#chr-0034-00002
+* section[externalObstetricExamination].code = $loinc#10191-5 "Physical findings of Abdomen Narrative"
 * section[externalObstetricExamination].code ^short = "Bachadon tubi balandligi, qorin aylanasi, homilaning joylanish holati, oldin keluvchi qismi, homilaning yurak urishi"
 * section[externalObstetricExamination].entry 1..*
 * section[externalObstetricExamination].entry only Reference(UZCoreObservation)
@@ -133,7 +133,7 @@ Description: "Composition profile for Form 111 (Homilador va tuqqan ayolning ind
 * section[vaginalExamination].title 1..1
 * section[vaginalExamination].title ^short = "8. Vaginal examination"
 * section[vaginalExamination].code 1..1
-* section[vaginalExamination].code = $form111-cs#chr-0034-00003
+* section[vaginalExamination].code = $loinc#11400-9 "Physical findings of Genitalia Narrative"
 * section[vaginalExamination].code ^short = "Tashqi jinsiy a'zolari, qin, bachadon bo'yinchasi, bachadon tanasi, tuxumdon va naychalar, alohida xususiyatlari, homiladorlik muddati (hafta), taxminiy tug'ish vaqti"
 * section[vaginalExamination].entry 1..*
 * section[vaginalExamination].entry only Reference(UZCoreObservation)
@@ -151,7 +151,7 @@ Description: "Composition profile for Form 111 (Homilador va tuqqan ayolning ind
 * section[courseOfPregnancy].title 1..1
 * section[courseOfPregnancy].title ^short = "10. Course of pregnancy (follow-up visits)"
 * section[courseOfPregnancy].code 1..1
-* section[courseOfPregnancy].code = $form111-cs#chr-0034-00004
+* section[courseOfPregnancy].code = $loinc#57059-8 "Pregnancy visit summary note Narrative"
 * section[courseOfPregnancy].code ^short = "Sana, shikoyati, umumiy ahvoli, vazni, arterial qon bosimi, puls, qorin aylanasi, bachadon tubi balandligi, homilaning oldin kelayotgan qismi, joylashishi va holati, yurak urishi, qimirlashi, siydikdagi oqsil miqdori, qondagi Hb miqdori, tashxis (homiladorlik haftasi), patologik o'zgarishlar, ko'rsatmalar va maslahatlar, shifoxonaga yotqizildi, stafilokokk anatoksini yuborildi, navbatdagi tashrif sanasi, imzo"
 * section[courseOfPregnancy].entry 1..*
 * section[courseOfPregnancy].entry only Reference(UZCoreEncounter or UZCoreObservation or UZCoreCondition or CarePlan or UZCoreImmunization or Appointment or Provenance)
@@ -160,7 +160,7 @@ Description: "Composition profile for Form 111 (Homilador va tuqqan ayolning ind
 * section[birthPreparation].title 1..1
 * section[birthPreparation].title ^short = "11. Preparation for childbirth"
 * section[birthPreparation].code 1..1
-* section[birthPreparation].code = $form111-cs#chr-0034-00005
+* section[birthPreparation].code = $sct#386235000 "Childbirth preparation"
 * section[birthPreparation].code ^short = "Jismoniy tarbiya, ultrabinafsha nurlari bilan nurlanish, onalar maktabi, psixoprofilaktik tayyorlov — sanalari va o'sha vaqtdagi homiladorlik muddati"
 * section[birthPreparation].entry 1..*
 * section[birthPreparation].entry only Reference(UZCoreProcedure or UZCoreEncounter or UZCoreObservation)
@@ -169,7 +169,7 @@ Description: "Composition profile for Form 111 (Homilador va tuqqan ayolning ind
 * section[patronageVisits].title 1..1
 * section[patronageVisits].title ^short = "12. Patronage visits"
 * section[patronageVisits].code 1..1
-* section[patronageVisits].code = $form111-cs#chr-0034-00006
+* section[patronageVisits].code = $sct#439708006 "Home visit"
 * section[patronageVisits].code ^short = "Sana, homiladorlik muddati, shikoyatlari, umumiy holati (shishlar), arterial qon bosimi, homilaning holati, homilaning yurak urishi, tavsiyalar, F.I.Sh va imzo"
 * section[patronageVisits].entry 1..*
 * section[patronageVisits].entry only Reference(UZCoreEncounter or UZCoreObservation or CarePlan or Provenance)
@@ -187,7 +187,7 @@ Description: "Composition profile for Form 111 (Homilador va tuqqan ayolning ind
 * section[perinatalRiskFactors].title 1..1
 * section[perinatalRiskFactors].title ^short = "14. Perinatal risk factors"
 * section[perinatalRiskFactors].code 1..1
-* section[perinatalRiskFactors].code = $form111-cs#chr-0034-00008
+* section[perinatalRiskFactors].code = $loinc#92016-5 "Maternal pregnancy risk factors Document"
 * section[perinatalRiskFactors].code ^short = "Guruh, omillar, ijtimoiy-biologik, akusher-ginekologik anamnez, ekstragenital kasalliklari, homiladorlik asorati, homila holatiga baho berish, ballar yig'indisi, xavf darajasi"
 * section[perinatalRiskFactors].entry 1..*
 * section[perinatalRiskFactors].entry only Reference(UZCoreObservation or RiskAssessment)
@@ -205,7 +205,7 @@ Description: "Composition profile for Form 111 (Homilador va tuqqan ayolning ind
 * section[postpartumFollowUp].title 1..1
 * section[postpartumFollowUp].title ^short = "16. Postpartum period follow-up"
 * section[postpartumFollowUp].code 1..1
-* section[postpartumFollowUp].code = $form111-cs#chr-0034-00009
+* section[postpartumFollowUp].code = $sct#133906008 "Postpartum care"
 * section[postpartumFollowUp].code ^short = "7-8 va 35-40 kunlik ko'riklar — sana, shikoyati, tekshiruv-muolajalari, maslahat/ko'rsatmalar, shifokor va bo'lim boshlig'i imzosi, kontratsepsiya turi"
 * section[postpartumFollowUp].entry 1..*
 * section[postpartumFollowUp].entry only Reference(UZCoreEncounter or UZCoreObservation or UZCoreProcedure or CarePlan or Provenance)

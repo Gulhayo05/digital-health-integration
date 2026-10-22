@@ -55,7 +55,7 @@ For a complete reference instance, see the [Form 111 pregnant woman individual c
 
 ### 1. Registration and personal information
 
-Section code: LOINC `LP36348-8` "Patient Information".
+Section code: LOINC `45970-1` "Demographic information section".
 
 | UZ | RU | FHIR Path | Code | Example Value |
 |----|----|------------|------|---------------|
@@ -107,7 +107,7 @@ Section code: LOINC `29308-4` "Diagnosis".
 
 ### 3. Pregnancy outcome
 
-Section code: [Form111 CodeSystem](CodeSystem-form111-cs.html) `chr-0034-00001`.
+Section code: LOINC `57074-7` "Labor and delivery process Narrative".
 
 | UZ | RU | FHIR Path | Code | Example Value |
 |----|----|------------|------|---------------|
@@ -147,7 +147,7 @@ Section code: LOINC `11348-0` "History of Past illness note".
 
 Section code: LOINC `10162-6` "History of pregnancies Narrative".
 
-Uchta avvalgi homiladorlik namunada keltirilgan: 1-homiladorlik (2019, muddatidan oldin tug'ruq), 2-homiladorlik (2022, vaqtida tug'ruq), 3-homiladorlik (2024, o'z-o'zidan tushish). Har biri uchun quyidagi maydonlar takrorlanadi (Encounter — faqat tashrifni guruhlash uchun, yil o'zi alohida Observation orqali beriladi):
+The example has three previous pregnancies: 1st (2019, preterm birth), 2nd (2022, term birth), 3rd (2024, spontaneous miscarriage). The fields below repeat for each one (the Encounter only groups the visit; the year is its own Observation):
 
 | UZ | RU | FHIR Path | Code | Example Value |
 |----|----|------------|------|---------------|
@@ -161,7 +161,7 @@ Uchta avvalgi homiladorlik namunada keltirilgan: 1-homiladorlik (2019, muddatida
 | Qaysi yoshda o'lgani | В каком возрасте умер | Observation.valueAge | - | *(bu misolda qo'llanilmaydi — barcha tirik tug'ilgan bolalar tirik)* |
 | Avvalgi homiladorliklarning o'ziga xosligi | Особенности предыдущих беременностей | Observation.valueString | Form111 General Observation Code `chr-0035-00016` "Characteristics of previous pregnancies" | 1-homiladorlik (2019) — muddatidan oldin tug'ruq. 2-homiladorlik (2022) — asoratsiz, vaqtida tug'ruq. 3-homiladorlik (2024) — 9-haftada o'z-o'zidan tushish. |
 
-*"Abort turi" alohida maydon sifatida kodlanmaydi: DMED oldingi homiladorlik uchun faqat abort/tug'ruq natijasini beradi, abort turi haqida qo'shimcha tafsilot mavjud emas — sun'iy tafsilot qo'shilmaydi.*
+*"Type of abortion" is not coded as a separate field: for a previous pregnancy DMED only gives the abortion/birth outcome, with no detail on the type of abortion, and none is invented.*
 
 ---
 
@@ -185,7 +185,7 @@ Section code: LOINC `29545-1` "Physical findings note".
 
 ### 7. External obstetric examination
 
-Section code: [Form111 CodeSystem](CodeSystem-form111-cs.html) `chr-0034-00002`.
+Section code: LOINC `10191-5` "Physical findings of Abdomen Narrative".
 
 | UZ | RU | FHIR Path | Code | Example Value |
 |----|----|------------|------|---------------|
@@ -198,7 +198,7 @@ Section code: [Form111 CodeSystem](CodeSystem-form111-cs.html) `chr-0034-00002`.
 
 ### 8. Vaginal examination
 
-Section code: [Form111 CodeSystem](CodeSystem-form111-cs.html) `chr-0034-00003`.
+Section code: LOINC `11400-9` "Physical findings of Genitalia Narrative".
 
 | UZ | RU | FHIR Path | Code | Example Value |
 |----|----|------------|------|---------------|
@@ -228,7 +228,7 @@ Section code: LOINC `18776-5` "Plan of care note".
 
 ### 10. Course of pregnancy (follow-up visits)
 
-Section code: [Form111 CodeSystem](CodeSystem-form111-cs.html) `chr-0034-00004`.
+Section code: LOINC `57059-8` "Pregnancy visit summary note Narrative".
 
 | UZ | RU | FHIR Path | Code | Example Value |
 |----|----|------------|------|---------------|
@@ -257,7 +257,7 @@ Section code: [Form111 CodeSystem](CodeSystem-form111-cs.html) `chr-0034-00004`.
 
 ### 11. Birth preparation
 
-Section code: [Form111 CodeSystem](CodeSystem-form111-cs.html) `chr-0034-00005`.
+Section code: SNOMED `386235000` "Childbirth preparation".
 
 | UZ | RU | FHIR Path | Code | Example Value |
 |----|----|------------|------|---------------|
@@ -274,7 +274,7 @@ Section code: [Form111 CodeSystem](CodeSystem-form111-cs.html) `chr-0034-00005`.
 
 ### 12. Patronage visits
 
-Section code: [Form111 CodeSystem](CodeSystem-form111-cs.html) `chr-0034-00006`.
+Section code: SNOMED `439708006` "Home visit".
 
 | UZ | RU | FHIR Path | Code | Example Value |
 |----|----|------------|------|---------------|
@@ -304,15 +304,15 @@ Section code: [Form111 CodeSystem](CodeSystem-form111-cs.html) `chr-0034-00007`.
 | Tug'ruqdan keyingi ta'til muddati, boshlanish va tugash sanasi | Срок и даты послеродового отпуска | Observation.valueQuantity / Observation.effectivePeriod | Form111 General Observation Code `chr-0035-00018` "Postpartum leave" | 56 kun (2026-05-27 - 2026-07-21) |
 | Mehnatga layoqatsizlik varog'i raqami | Номер листка нетрудоспособности | DocumentReference.identifier | Local (sick-leave number system) | MLV-2026-007788 |
 
-> `Tug'ruq bo'lib o'tgan tug'ruqxona nomi` bo'yicha alohida modellashtirish taklifi bor: `Procedure.location` → `Location` (`Organization.name` o'rniga). Bu IG'da hozircha `Organization.name` sifatida qoldirilgan — `UZCoreLocation` profilida majburiy `identifier`/`type` slice'lari mavjudligi sababli, to'liq mos `Location` resursini xato kiritmasdan yaratish qo'shimcha tekshiruvni talab qiladi.
+> `Tug'ruq bo'lib o'tgan tug'ruqxona nomi` (maternity hospital name) could also be modelled as `Procedure.location` → `Location` instead of `Organization.name`. This IG keeps `Organization.name` for now: `UZCoreLocation` requires `identifier` and `type` slices, so a conformant `Location` needs data the form does not have.
 
 ---
 
 ### 14. Perinatal risk factors
 
-Section code: [Form111 CodeSystem](CodeSystem-form111-cs.html) `chr-0034-00008`.
+Section code: LOINC `92016-5` "Maternal pregnancy risk factors Document".
 
-"Guruh" va "Omillar" — alohida FHIR resursi yaratilmaydi, bu shaklning strukturaviy sarlavhalari; har bir belgilangan omil mustaqil Observation sifatida quyida ifodalanadi (bitta omil = bitta Observation).
+"Guruh" (group) and "Omillar" (factors) are structural headings of the form and get no FHIR resource of their own; each marked factor is its own Observation below (one factor = one Observation).
 
 | UZ | RU | FHIR Path | Code | Example Value |
 |----|----|------------|------|---------------|
@@ -343,7 +343,7 @@ Section code: LOINC `11488-4` "Consult note".
 
 ### 16. Postpartum follow-up
 
-Section code: [Form111 CodeSystem](CodeSystem-form111-cs.html) `chr-0034-00009`.
+Section code: SNOMED `133906008` "Postpartum care".
 
 | UZ | RU | FHIR Path | Code | Example Value |
 |----|----|------------|------|---------------|

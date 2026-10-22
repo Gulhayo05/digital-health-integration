@@ -360,7 +360,7 @@ Usage: #inline
 
 // --- 1. Ro'yxatga olish va shaxsiy ma'lumotlar ---
 * section[registrationAndPersonalInformation].title = "Ro'yxatga olish va shaxsiy ma'lumotlar"
-* section[=].code = $loinc#LP36348-8 "Patient Information"
+* section[=].code = $loinc#45970-1 "Demographic information section"
 * section[=].entry[0] = Reference(urn:uuid:11100002-1111-2222-3333-444444444444) // patient-111-001
 * section[=].entry[+] = Reference(urn:uuid:11100004-1111-2222-3333-444444444444) //organization-111-clinic
 * section[=].entry[+] = Reference(urn:uuid:11100005-1111-2222-3333-444444444444) //organization-111-workplace
@@ -397,7 +397,7 @@ Usage: #inline
 
 // --- 3. Homiladorlikning yakuni ---
 * section[pregnancyOutcome].title = "Homiladorlikning yakuni"
-* section[=].code = $form111-cs#chr-0034-00001
+* section[=].code = $loinc#57074-7 "Labor and delivery process Narrative"
 * section[=].entry[0] = Reference(urn:uuid:11100031-1111-2222-3333-444444444444) //observation-111-pregnancy-outcome
 * section[=].entry[+] = Reference(urn:uuid:11100032-1111-2222-3333-444444444444) //observation-111-outcome-gestational-age
 * section[=].entry[+] = Reference(urn:uuid:11100033-1111-2222-3333-444444444444) //observation-111-delivery-features
@@ -456,14 +456,14 @@ Usage: #inline
 
 // --- 7. Tashqi akusherlik tekshiruvi ---
 * section[externalObstetricExamination].title = "Tashqi akusherlik tekshiruvi"
-* section[=].code = $form111-cs#chr-0034-00002
+* section[=].code = $loinc#10191-5 "Physical findings of Abdomen Narrative"
 * section[=].entry[0] = Reference(urn:uuid:11100066-1111-2222-3333-444444444444) //observation-111-abdominal-circumference-first
 * section[=].entry[+] = Reference(urn:uuid:11100067-1111-2222-3333-444444444444) //observation-111-fetal-position-first
 * section[=].entry[+] = Reference(urn:uuid:11100069-1111-2222-3333-444444444444) //observation-111-obstetric-ultrasound
 
 // --- 8. Qin orqali tekshiruv ---
 * section[vaginalExamination].title = "Qin orqali tekshiruv"
-* section[=].code = $form111-cs#chr-0034-00003
+* section[=].code = $loinc#11400-9 "Physical findings of Genitalia Narrative"
 * section[=].entry[0] = Reference(urn:uuid:11100070-1111-2222-3333-444444444444) //observation-111-external-genitalia
 * section[=].entry[+] = Reference(urn:uuid:11100071-1111-2222-3333-444444444444) //observation-111-vagina
 * section[=].entry[+] = Reference(urn:uuid:11100072-1111-2222-3333-444444444444) //observation-111-cervix
@@ -482,7 +482,7 @@ Usage: #inline
 
 // --- 10. Homiladorlikning kechishi ---
 * section[courseOfPregnancy].title = "Homiladorlikning kechishi"
-* section[=].code = $form111-cs#chr-0034-00004
+* section[=].code = $loinc#57059-8 "Pregnancy visit summary note Narrative"
 * section[=].entry[0] = Reference(urn:uuid:11100079-1111-2222-3333-444444444444) //encounter-111-antenatal-visit
 * section[=].entry[+] = Reference(urn:uuid:11100080-1111-2222-3333-444444444444) //observation-111-visit-complaints
 * section[=].entry[+] = Reference(urn:uuid:11100081-1111-2222-3333-444444444444) //observation-111-visit-general-condition
@@ -508,7 +508,7 @@ Usage: #inline
 
 // --- 11. Tug'ishga tayyorlash ---
 * section[birthPreparation].title = "Tug'ishga tayyorlash"
-* section[=].code = $form111-cs#chr-0034-00005
+* section[=].code = $sct#386235000 "Childbirth preparation"
 * section[=].entry[0] = Reference(urn:uuid:11100099-1111-2222-3333-444444444444) //observation-111-physical-preparation
 * section[=].entry[+] = Reference(urn:uuid:11100100-1111-2222-3333-444444444444) //observation-111-ga-physical-preparation
 * section[=].entry[+] = Reference(urn:uuid:11100101-1111-2222-3333-444444444444) //observation-111-uv-irradiation
@@ -520,7 +520,7 @@ Usage: #inline
 
 // --- 12. Patronaj - tashriflar ---
 * section[patronageVisits].title = "Patronaj - tashriflar"
-* section[=].code = $form111-cs#chr-0034-00006
+* section[=].code = $sct#439708006 "Home visit"
 * section[=].entry[0] = Reference(urn:uuid:11100107-1111-2222-3333-444444444444) //encounter-111-patronage-visit
 * section[=].entry[+] = Reference(urn:uuid:11100108-1111-2222-3333-444444444444) //observation-111-patronage-gestational-age
 * section[=].entry[+] = Reference(urn:uuid:11100109-1111-2222-3333-444444444444) //observation-111-patronage-complaints
@@ -545,7 +545,7 @@ Usage: #inline
 
 // --- 14. Perinatal xavf omillari ---
 * section[perinatalRiskFactors].title = "Perinatal xavf omillari"
-* section[=].code = $form111-cs#chr-0034-00008
+* section[=].code = $loinc#92016-5 "Maternal pregnancy risk factors Document"
 * section[=].entry[0] = Reference(urn:uuid:11100121-1111-2222-3333-444444444444) //observation-111-risk-socio-biological
 * section[=].entry[+] = Reference(urn:uuid:11100122-1111-2222-3333-444444444444) //observation-111-risk-obstetric-history
 * section[=].entry[+] = Reference(urn:uuid:11100123-1111-2222-3333-444444444444) //observation-111-risk-extragenital
@@ -565,7 +565,7 @@ Usage: #inline
 
 // --- 16. Tug'ruqdan keyingi davrdagi kuzatuv ---
 * section[postpartumFollowUp].title = "Tug'ruqdan keyingi davrdagi kuzatuv"
-* section[=].code = $form111-cs#chr-0034-00009
+* section[=].code = $sct#133906008 "Postpartum care"
 * section[=].entry[0] = Reference(urn:uuid:11100135-1111-2222-3333-444444444444) //encounter-111-postpartum-7-8
 * section[=].entry[+] = Reference(urn:uuid:11100136-1111-2222-3333-444444444444) //observation-111-postpartum-7-8-complaints
 * section[=].entry[+] = Reference(urn:uuid:11100137-1111-2222-3333-444444444444) //procedure-111-postpartum-7-8-exam
