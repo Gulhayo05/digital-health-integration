@@ -2,7 +2,7 @@ Instance: dmed-form-111-contraception-type-cm
 InstanceOf: ConceptMap
 Usage: #definition
 Title: "DMED Form 111 contraception_type mapping"
-Description: "DMED contraception_type to FHIR terminology. Only explicit listed mappings apply; absence is not an inferred negative answer."
+Description: "Maps DMED `contraception_type` values to `form111-contraception-type-cs`."
 * url = "https://terminology.dhp.uz/fhir/integrations/ConceptMap/dmed-form-111-contraception-type-cm"
 * name = "DMEDForm111ContraceptionTypeCM"
 * status = #draft
@@ -33,7 +33,7 @@ Instance: dmed-form-111-contraception-details-cm
 InstanceOf: ConceptMap
 Usage: #definition
 Title: "DMED Form 111 contraception_details mapping"
-Description: "DMED contraception_details to FHIR terminology. Only explicit listed mappings apply; absence is not an inferred negative answer."
+Description: "Maps DMED `contraception_details` values to `form111-contraception-details-cs`."
 * url = "https://terminology.dhp.uz/fhir/integrations/ConceptMap/dmed-form-111-contraception-details-cm"
 * name = "DMEDForm111ContraceptionDetailsCM"
 * status = #draft
@@ -94,7 +94,7 @@ Instance: dmed-form-111-patient-bad-habits-cm
 InstanceOf: ConceptMap
 Usage: #definition
 Title: "DMED Form 111 patient_bad_habits mapping"
-Description: "DMED patient_bad_habits to FHIR terminology. Only explicit listed mappings apply; absence is not an inferred negative answer."
+Description: "Maps DMED `patient_bad_habits` values to SNOMED CT where an equivalent exists, otherwise to `form111-patient-bad-habit-cs`."
 * url = "https://terminology.dhp.uz/fhir/integrations/ConceptMap/dmed-form-111-patient-bad-habits-cm"
 * name = "DMEDForm111PatientBadHabitsCM"
 * status = #draft
@@ -171,7 +171,7 @@ Instance: dmed-form-111-breast-condition-cm
 InstanceOf: ConceptMap
 Usage: #definition
 Title: "DMED Form 111 breast_condition mapping"
-Description: "DMED breast_condition to FHIR terminology. Only explicit listed mappings apply; absence is not an inferred negative answer."
+Description: "Maps DMED `breast_condition` values to `form111-breast-condition-cs`."
 * url = "https://terminology.dhp.uz/fhir/integrations/ConceptMap/dmed-form-111-breast-condition-cm"
 * name = "DMEDForm111BreastConditionCM"
 * status = #draft
@@ -196,7 +196,7 @@ Instance: dmed-form-111-vascular-system-status-cm
 InstanceOf: ConceptMap
 Usage: #definition
 Title: "DMED Form 111 vascular_system_status mapping"
-Description: "DMED vascular_system_status to FHIR terminology. Only explicit listed mappings apply; absence is not an inferred negative answer."
+Description: "Maps DMED `vascular_system_status` values to `form111-examination-status-cs`."
 * url = "https://terminology.dhp.uz/fhir/integrations/ConceptMap/dmed-form-111-vascular-system-status-cm"
 * name = "DMEDForm111VascularSystemStatusCM"
 * status = #draft
@@ -221,7 +221,7 @@ Instance: dmed-form-111-fetal-presentation-cm
 InstanceOf: ConceptMap
 Usage: #definition
 Title: "DMED Form 111 fetal_presentation mapping"
-Description: "DMED fetal_presentation to FHIR terminology. Only explicit listed mappings apply; absence is not an inferred negative answer."
+Description: "Maps DMED `fetal_presentation` values to SNOMED CT where an equivalent exists, otherwise to `form111-fetal-presentation-cs`."
 * url = "https://terminology.dhp.uz/fhir/integrations/ConceptMap/dmed-form-111-fetal-presentation-cm"
 * name = "DMEDForm111FetalPresentationCM"
 * status = #draft
@@ -256,7 +256,7 @@ Instance: dmed-form-111-gynecological-examination-status-cm
 InstanceOf: ConceptMap
 Usage: #definition
 Title: "DMED Form 111 gynecological-examination-status mapping"
-Description: "DMED gynecological-examination-status to FHIR terminology. Only explicit listed mappings apply; absence is not an inferred negative answer."
+Description: "Maps DMED gynecological examination status values to `form111-examination-status-cs`."
 * url = "https://terminology.dhp.uz/fhir/integrations/ConceptMap/dmed-form-111-gynecological-examination-status-cm"
 * name = "DMEDForm111GynecologicalExaminationStatusCM"
 * status = #draft
@@ -281,7 +281,7 @@ Instance: dmed-form-111-special-characteristics-cm
 InstanceOf: ConceptMap
 Usage: #definition
 Title: "DMED Form 111 special_characteristics mapping"
-Description: "DMED special_characteristics to FHIR terminology. Only explicit listed mappings apply; absence is not an inferred negative answer."
+Description: "Maps DMED `special_characteristics` values to `form111-examination-status-cs`."
 * url = "https://terminology.dhp.uz/fhir/integrations/ConceptMap/dmed-form-111-special-characteristics-cm"
 * name = "DMEDForm111SpecialCharacteristicsCM"
 * status = #draft
@@ -306,7 +306,7 @@ Instance: dmed-form-111-pregnancy-progress-boolean-cm
 InstanceOf: ConceptMap
 Usage: #definition
 Title: "DMED Form 111 pregnancy-progress-boolean mapping"
-Description: "DMED pregnancy-progress-boolean to FHIR terminology. Only explicit listed mappings apply; absence is not an inferred negative answer."
+Description: "Maps DMED yes/no answers in `pregnancy_progress` to `form111113-boolean-cs`."
 * url = "https://terminology.dhp.uz/fhir/integrations/ConceptMap/dmed-form-111-pregnancy-progress-boolean-cm"
 * name = "DMEDForm111PregnancyProgressBooleanCM"
 * status = #draft
@@ -331,7 +331,7 @@ Instance: dmed-form-111-general-condition-cm
 InstanceOf: ConceptMap
 Usage: #definition
 Title: "DMED Form 111 general_condition mapping"
-Description: "DMED general_condition to FHIR terminology. Only explicit listed mappings apply; absence is not an inferred negative answer."
+Description: "Maps DMED `general_condition` values to `form111-general-condition-cs`."
 * url = "https://terminology.dhp.uz/fhir/integrations/ConceptMap/dmed-form-111-general-condition-cm"
 * name = "DMEDForm111GeneralConditionCM"
 * status = #draft
@@ -356,7 +356,7 @@ Instance: dmed-form-111-risk-level-cm
 InstanceOf: ConceptMap
 Usage: #definition
 Title: "DMED Form 111 risk_level mapping"
-Description: "DMED risk_level to FHIR terminology. Only explicit listed mappings apply; absence is not an inferred negative answer."
+Description: "Maps DMED `risk_level` values to `form111-perinatal-risk-level-cs`."
 * url = "https://terminology.dhp.uz/fhir/integrations/ConceptMap/dmed-form-111-risk-level-cm"
 * name = "DMEDForm111RiskLevelCM"
 * status = #draft
@@ -387,7 +387,7 @@ Instance: dmed-form-111-socio-biological-factors-cm
 InstanceOf: ConceptMap
 Usage: #definition
 Title: "DMED Form 111 socio_biological_factors mapping"
-Description: "DMED socio_biological_factors to FHIR terminology. Only explicit listed mappings apply; absence is not an inferred negative answer."
+Description: "Maps DMED `socio_biological_factors` values to `form111-socio-biological-factor-cs`."
 * url = "https://terminology.dhp.uz/fhir/integrations/ConceptMap/dmed-form-111-socio-biological-factors-cm"
 * name = "DMEDForm111SocioBiologicalFactorsCM"
 * status = #draft
@@ -436,7 +436,7 @@ Instance: dmed-form-111-obstetric-gynecological-history-cm
 InstanceOf: ConceptMap
 Usage: #definition
 Title: "DMED Form 111 obstetric_gynecological_history mapping"
-Description: "DMED obstetric_gynecological_history to FHIR terminology. Only explicit listed mappings apply; absence is not an inferred negative answer."
+Description: "Maps DMED `obstetric_gynecological_history` values to `form111-obstetric-history-factor-cs`."
 * url = "https://terminology.dhp.uz/fhir/integrations/ConceptMap/dmed-form-111-obstetric-gynecological-history-cm"
 * name = "DMEDForm111ObstetricGynecologicalHistoryCM"
 * status = #draft
@@ -533,7 +533,7 @@ Instance: dmed-form-111-extragenital-diseases-cm
 InstanceOf: ConceptMap
 Usage: #definition
 Title: "DMED Form 111 extragenital_diseases mapping"
-Description: "DMED extragenital_diseases to FHIR terminology. Only explicit listed mappings apply; absence is not an inferred negative answer."
+Description: "Maps DMED `extragenital_diseases` values to `form111-extragenital-disease-factor-cs`."
 * url = "https://terminology.dhp.uz/fhir/integrations/ConceptMap/dmed-form-111-extragenital-diseases-cm"
 * name = "DMEDForm111ExtragenitalDiseasesCM"
 * status = #draft
@@ -600,7 +600,7 @@ Instance: dmed-form-111-pregnancy-progress-pregnancy-complications-cm
 InstanceOf: ConceptMap
 Usage: #definition
 Title: "DMED Form 111 pregnancy_progress.pregnancy_complications mapping"
-Description: "DMED pregnancy_progress.pregnancy_complications to FHIR terminology. Only explicit listed mappings apply; absence is not an inferred negative answer."
+Description: "Maps DMED `pregnancy_progress.pregnancy_complications` values to SNOMED CT where an equivalent exists, otherwise to `form111-pregnancy-complication-factor-cs`."
 * url = "https://terminology.dhp.uz/fhir/integrations/ConceptMap/dmed-form-111-pregnancy-progress-pregnancy-complications-cm"
 * name = "DMEDForm111PregnancyProgressPregnancyComplicationsCM"
 * status = #draft
@@ -707,7 +707,7 @@ Instance: dmed-form-111-education-type-cm
 InstanceOf: ConceptMap
 Usage: #definition
 Title: "DMED Form 111 education_type mapping"
-Description: "DMED education_type to FHIR terminology. Only explicit listed mappings apply; absence is not an inferred negative answer."
+Description: "Maps DMED `education_type` to the optional Form 111 `form111-education-level-cs` coding of the education Observation; values without a Form 111 code are noMap."
 * url = "https://terminology.dhp.uz/fhir/integrations/ConceptMap/dmed-form-111-education-type-cm"
 * name = "DMEDForm111EducationTypeCM"
 * status = #draft
@@ -780,7 +780,7 @@ Instance: dmed-form-111-status-cm
 InstanceOf: ConceptMap
 Usage: #definition
 Title: "DMED Form 111 status mapping"
-Description: "DMED status to FHIR terminology. Only explicit listed mappings apply; absence is not an inferred negative answer."
+Description: "Maps DMED pregnancy `status` values to SNOMED CT where an equivalent exists, otherwise to `form111-pregnancy-outcome-cs`."
 * url = "https://terminology.dhp.uz/fhir/integrations/ConceptMap/dmed-form-111-status-cm"
 * name = "DMEDForm111StatusCM"
 * status = #draft
@@ -825,7 +825,7 @@ Instance: dmed-form-111-pregnancy-outcome-cm
 InstanceOf: ConceptMap
 Usage: #definition
 Title: "DMED Form 111 pregnancy_outcome mapping"
-Description: "DMED pregnancy_outcome to FHIR terminology. Only explicit listed mappings apply; absence is not an inferred negative answer."
+Description: "Maps DMED `pregnancy_outcome` values to SNOMED CT."
 * url = "https://terminology.dhp.uz/fhir/integrations/ConceptMap/dmed-form-111-pregnancy-outcome-cm"
 * name = "DMEDForm111PregnancyOutcomeCM"
 * status = #draft
@@ -850,7 +850,7 @@ Instance: dmed-form-111-analysis-title-cm
 InstanceOf: ConceptMap
 Usage: #definition
 Title: "DMED Form 111 analysis_title mapping"
-Description: "DMED analysis_title to FHIR terminology. Only explicit listed mappings apply; absence is not an inferred negative answer."
+Description: "Maps DMED `analysis_title` values to `form111-analysis-test-code-cs`."
 * url = "https://terminology.dhp.uz/fhir/integrations/ConceptMap/dmed-form-111-analysis-title-cm"
 * name = "DMEDForm111AnalysisTitleCM"
 * status = #draft
@@ -869,7 +869,7 @@ Instance: dmed-form-111-child-birth-status-cm
 InstanceOf: ConceptMap
 Usage: #definition
 Title: "DMED Form 111 child_birth_status mapping"
-Description: "DMED child_birth_status to FHIR terminology. Only explicit listed mappings apply; absence is not an inferred negative answer."
+Description: "Maps DMED `child_birth_status` values to SNOMED CT."
 * url = "https://terminology.dhp.uz/fhir/integrations/ConceptMap/dmed-form-111-child-birth-status-cm"
 * name = "DMEDForm111ChildBirthStatusCM"
 * status = #draft
@@ -894,7 +894,7 @@ Instance: dmed-form-111-blood-group-cm
 InstanceOf: ConceptMap
 Usage: #definition
 Title: "DMED Form 111 blood_group mapping"
-Description: "DMED blood_group to FHIR terminology. Only explicit listed mappings apply; absence is not an inferred negative answer."
+Description: "Maps DMED `blood_group` values to SNOMED CT."
 * url = "https://terminology.dhp.uz/fhir/integrations/ConceptMap/dmed-form-111-blood-group-cm"
 * name = "DMEDForm111BloodGroupCM"
 * status = #draft
@@ -931,7 +931,7 @@ Instance: dmed-form-111-rhesus-factor-cm
 InstanceOf: ConceptMap
 Usage: #definition
 Title: "DMED Form 111 rhesus_factor mapping"
-Description: "DMED rhesus_factor to FHIR terminology. Only explicit listed mappings apply; absence is not an inferred negative answer."
+Description: "Maps DMED `rhesus_factor` values to SNOMED CT."
 * url = "https://terminology.dhp.uz/fhir/integrations/ConceptMap/dmed-form-111-rhesus-factor-cm"
 * name = "DMEDForm111RhesusFactorCM"
 * status = #draft
@@ -956,7 +956,7 @@ Instance: dmed-form-111-birth-type-cm
 InstanceOf: ConceptMap
 Usage: #definition
 Title: "DMED Form 111 birth_type mapping"
-Description: "DMED birth_type to FHIR terminology. Only explicit listed mappings apply; absence is not an inferred negative answer."
+Description: "Maps DMED `birth_type` values to `form111-birth-type-cs`."
 * url = "https://terminology.dhp.uz/fhir/integrations/ConceptMap/dmed-form-111-birth-type-cm"
 * name = "DMEDForm111BirthTypeCM"
 * status = #draft
@@ -981,7 +981,7 @@ Instance: dmed-form-111-child-birth-condition-cm
 InstanceOf: ConceptMap
 Usage: #definition
 Title: "DMED Form 111 child_birth_condition mapping"
-Description: "DMED child_birth_condition to FHIR terminology. Only explicit listed mappings apply; absence is not an inferred negative answer."
+Description: "Maps DMED `child_birth_condition` values to SNOMED CT."
 * url = "https://terminology.dhp.uz/fhir/integrations/ConceptMap/dmed-form-111-child-birth-condition-cm"
 * name = "DMEDForm111ChildBirthConditionCM"
 * status = #draft
@@ -1012,7 +1012,7 @@ Instance: dmed-form-111-family-status-cm
 InstanceOf: ConceptMap
 Usage: #definition
 Title: "DMED Form 111 family_status mapping"
-Description: "DMED family_status to FHIR terminology. Only explicit listed mappings apply; absence is not an inferred negative answer."
+Description: "Maps DMED `family_status` values to HL7 `v3-MaritalStatus`."
 * url = "https://terminology.dhp.uz/fhir/integrations/ConceptMap/dmed-form-111-family-status-cm"
 * name = "DMEDForm111FamilyStatusCM"
 * status = #draft
@@ -1056,7 +1056,7 @@ Instance: dmed-form-111-education-type-core-cm
 InstanceOf: ConceptMap
 Usage: #definition
 Title: "DMED Form 111 education-type-core mapping"
-Description: "DMED education-type-core to FHIR terminology. Only explicit listed mappings apply; absence is not an inferred negative answer."
+Description: "Maps DMED `education_type` to UZ Core `education-cs`, the coding the education Observation always carries."
 * url = "https://terminology.dhp.uz/fhir/integrations/ConceptMap/dmed-form-111-education-type-core-cm"
 * name = "DMEDForm111EducationTypeCoreCM"
 * status = #draft

@@ -376,6 +376,7 @@
   1. UZ Core `education-cs` - всегда, его требует базовый профиль. Значения DMED `education_type` сопоставляются по [этой ConceptMap](ConceptMap-dmed-form-111-education-type-core-cm.html).
   2. Код Формы 111 `chr-0010-*` - если в [этой ConceptMap](ConceptMap-dmed-form-111-education-type-cm.html) есть целевой код (начальное, среднее общее, бакалавриат).
   3. Значение DMED `education_type` из [dmed-form-111-education-type-cs](CodeSystem-dmed-form-111-education-type-cs.html) - если код UZ Core шире значения DMED, например ординатура → "Высшее образование", начальное → "Другое".
+- **Поля с множественным выбором** (вредные привычки, социально-биологические, акушерские и экстрагенитальные факторы риска, осложнения беременности): по одному Observation на каждое значение, отмеченное в DMED. Неотмеченное значение означает "неизвестно", а не "нет".
 - **Не показаны в примере**: допплерография `chr-0013-00001`, [детализация метода контрацепции](ValueSet-form111-contraception-details-vs.html), исходы «смерть матери/ребёнка» `chr-0024-00001`/`chr-0024-00002`, `chr-0005-00002`/`chr-0005-00004` и остальные коды [form111-analysis-test-code-vs](ValueSet-form111-analysis-test-code-vs.html).
 
 ---

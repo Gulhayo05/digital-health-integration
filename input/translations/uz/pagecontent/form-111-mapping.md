@@ -376,6 +376,7 @@ Bo'lim kodi: [Form111 CodeSystem](CodeSystem-form111-cs.html) `chr-0034-00009`.
   1. UZ Core `education-cs` - har doim, uni asosiy profil talab qiladi. DMED `education_type` qiymatlari [ushbu ConceptMap](ConceptMap-dmed-form-111-education-type-core-cm.html) bo'yicha moslashtiriladi.
   2. 111-shakl `chr-0010-*` kodi - agar [ushbu ConceptMap](ConceptMap-dmed-form-111-education-type-cm.html) da maqsadli kod bo'lsa (boshlang'ich, o'rta umumiy, bakalavriat).
   3. DMED `education_type` qiymati [dmed-form-111-education-type-cs](CodeSystem-dmed-form-111-education-type-cs.html) dan - agar UZ Core kodi DMED qiymatidan kengroq bo'lsa, masalan ordinatura → "Oliy ma'lumot", boshlang'ich → "Boshqa".
+- **Ko'p tanlovli maydonlar** (zararli odatlar, ijtimoiy-biologik, akusherlik va ekstragenital xavf omillari, homiladorlik asoratlari): DMED da belgilangan har bir qiymat uchun bitta Observation yuboriladi. Belgilanmagan qiymat "yo'q" emas, "noma'lum" degani.
 - **Misolda ko'rsatilmagan**: dopplerografiya `chr-0013-00001`, [kontratseptsiya usuli tafsiloti](ValueSet-form111-contraception-details-vs.html), ona/bola o'limi natijalari `chr-0024-00001`/`chr-0024-00002`, `chr-0005-00002`/`chr-0005-00004` va [form111-analysis-test-code-vs](ValueSet-form111-analysis-test-code-vs.html) ning qolgan kodlari.
 
 ---
