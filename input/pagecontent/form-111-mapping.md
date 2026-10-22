@@ -83,8 +83,8 @@ Section code: LOINC `45970-1` "Demographic information section".
 | Ma'lumoti | Образование | [UZCoreSocioeconomicObservation](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-socioeconomic-observation.html).valueCodeableConcept | `code` SNOMED `105421008` "Educational achievement"<br>`value` [UZ Core Education](https://dhp.uz/fhir/core/en/CodeSystem-education-cs.html) `regis0005.00004` "Secondary" + [Form 111 Education Level](CodeSystem-form111-education-level-cs.html) `chr-0010-00003` "Secondary general education" | O'rta umumiy ta'lim |
 | Ish joyi | Место работы | Observation.valueString | [Form111 General Observation Code](CodeSystem-form111-general-observation-code-cs.html) `chr-0035-00028` "Workplace" | 45-son umumta'lim maktabi |
 | Ish joyi telefon raqami | Телефон места работы | Observation.valueString | [Social Observation Code](CodeSystem-form111-social-observation-code-cs.html) `chr-0029-00004` "Workplace phone number" | +998712345678 |
-| Mutaxassisligi | Специальность | Observation.valueString | SNOMED `14679004` "Occupation" | Boshlang'ich sinf o'qituvchisi |
-| Lavozimi | Должность | Observation.valueString | SNOMED `14679004` "Occupation" | O'qituvchi |
+| Mutaxassisligi | Специальность | [UZCoreSocioeconomicObservation](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-socioeconomic-observation.html).valueCodeableConcept | `code` SNOMED `14679004` "Occupation"<br>`value` [UZ Core Position and Profession](https://dhp.uz/fhir/core/en/CodeSystem-position-and-profession-cs.html) | `2341.8` "Boshlang'ich sinflar (kichik) o'qituvchisi" |
+| Lavozimi | Должность | [UZCoreSocioeconomicObservation](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-socioeconomic-observation.html).valueCodeableConcept | `code` SNOMED `14679004` "Occupation"<br>`value` [UZ Core Position and Profession](https://dhp.uz/fhir/core/en/CodeSystem-position-and-profession-cs.html) | `2330.9` "O'qituvchi" |
 | Ish sharoiti | Условия труда | Observation.valueString | [Social Observation Code](CodeSystem-form111-social-observation-code-cs.html) `chr-0029-00003` "Working conditions" | Yengil mehnat sharoiti |
 | Turmush o'rtog'ining F.I.Sh | Ф.И.О. супруга | [RelatedPerson](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-relatedperson.html).name | - | Ergashev Sardor Alisherovich |
 | Turmush o'rtog'ining ish joyi | Место работы супруга | Observation.valueString (`focus` = RelatedPerson) | Social Observation Code `chr-0029-00002` "Spouse workplace" | Toshkent shahar avtobazasi, haydovchi |
@@ -176,8 +176,8 @@ Section code: LOINC `29545-1` "Physical findings note".
 | Tana tuzilishining o'ziga xosligi | Особенности телосложения | Observation.valueString | [Anthropometry Observation Code](CodeSystem-form111-anthropometry-observation-code-cs.html) `chr-0002-00001` "Body build characteristics" | Normostenik tana tuzilishi |
 | Ko'krak bezi holati | Состояние молочных желёз | Observation.valueCodeableConcept | `code` [Gynecological Examination Observation Code](CodeSystem-form111-gynecological-examination-observation-code-cs.html) `chr-0017-00002` "Breast condition"<br>`value` [Breast Condition](CodeSystem-form111-breast-condition-cs.html) `chr-0004-00001` "No pathology" | Patologiya yo'q |
 | Qon tomir tizimi | Сердечно-сосудистая система | Observation.valueCodeableConcept | `code` [Assessment Observation Code](CodeSystem-form111-assessment-observation-code-cs.html) `chr-0005-00006` "Vascular system condition"<br>`value` [Examination Status](CodeSystem-form111-examination-status-cs.html) `chr-0011-00001` "Normal" | Normal |
-| Arterial qon bosimi (o'ng qo'l) | Артериальное давление (правая рука) | Observation.valueString + Observation.bodySite (SNOMED `368209003`) | General Observation Code `chr-0035-00024` "Blood pressure" | 115/70 mm sim.ust. |
-| Arterial qon bosimi (chap qo'l) | Артериальное давление (левая рука) | Observation.valueString + Observation.bodySite (SNOMED `368208006`) | General Observation Code `chr-0035-00024` "Blood pressure" | 110/70 mm sim.ust. |
+| Arterial qon bosimi (o'ng qo'l) | Артериальное давление (правая рука) | Observation.component.valueQuantity + Observation.bodySite (SNOMED `368209003`) | LOINC `85354-9` "Blood pressure panel" + `component` LOINC `8480-6` / `8462-4` in `mm[Hg]` | 115 / 70 |
+| Arterial qon bosimi (chap qo'l) | Артериальное давление (левая рука) | Observation.component.valueQuantity + Observation.bodySite (SNOMED `368208006`) | LOINC `85354-9` "Blood pressure panel" + `component` LOINC `8480-6` / `8462-4` in `mm[Hg]` | 110 / 70 |
 | Boshqa a'zolari | Другие органы | Observation.valueString | Form111 General Observation Code `chr-0035-00020` "Other organs" | Patologiyasiz |
 | Chanoq o'lchovlari (D.sp, D.Cr, D.troch, C.ext, C.diag, C.vera) | Размеры таза | Observation.component | Form111 General Observation Code `chr-0035-00002` "Pelvis measurements"..`chr-0035-00008` "Conjugata vera (C.vera)" | D.sp 26, D.Cr 29, D.troch 31, C.ext 20, C.diag 13, C.vera 11 (sm) |
 
@@ -236,7 +236,7 @@ Section code: LOINC `57059-8` "Pregnancy visit summary note Narrative".
 | Shikoyati | Жалобы | Observation.valueString | Assessment Observation Code `chr-0005-00001` "Complaints" | Tez charchash, bosh aylanishi |
 | Umumiy ahvoli | Общее состояние | Observation.valueCodeableConcept | `code` Assessment Observation Code `chr-0005-00003` "General condition"<br>`value` [General Condition](CodeSystem-form111-general-condition-cs.html) `chr-0016-00001` "Satisfactory" | Qoniqarli |
 | Vazni | Вес | Observation.valueQuantity | LOINC `29463-7` "Body weight" | 63.2 kg |
-| Arterial qon bosimi | Артериальное давление | Observation.valueString + bodySite (o'ng: SNOMED `368209003`, chap: `368208006`) | General Observation Code `chr-0035-00024` "Blood pressure" | 110/65 mm sim.ust., 105/65 mm sim.ust. |
+| Arterial qon bosimi | Артериальное давление | Observation.component.valueQuantity + bodySite (o'ng: SNOMED `368209003`, chap: `368208006`) | LOINC `85354-9` "Blood pressure panel" + `component` LOINC `8480-6` / `8462-4` in `mm[Hg]` | 110 / 65, 105 / 65 |
 | Puls | Пульс | Observation.valueQuantity | LOINC `8867-4` "Heart rate" | 84 /min |
 | Qorin aylanasi | Окружность живота | Observation.valueQuantity | Pregnancy Monitoring Observation Code `chr-0023-00001` "Maternal abdominal circumference" | 84 cm |
 | Bachadon tubi balandligi | Высота дна матки | Observation.valueQuantity | LOINC `11881-0` "Uterus Fundal height Tape measure" | 21 cm |
@@ -281,7 +281,7 @@ Section code: SNOMED `439708006` "Home visit".
 | Homiladorlik muddati | Срок беременности | Observation.valueQuantity | LOINC `18185-9` "Gestational age" | 29 wk |
 | Shikoyatlari | Жалобы | Observation.valueString | Assessment Observation Code `chr-0005-00001` "Complaints" | Shikoyatlari yo'q |
 | Umumiy holati (shishlar) | Общее состояние (отёки) | Observation.valueString | Assessment Observation Code `chr-0005-00003` "General condition" | Qoniqarli, oyoqlarda shish yo'q |
-| Arterial qon bosimi | Артериальное давление | Observation.valueString + bodySite (o'ng: SNOMED `368209003`, chap: `368208006`) | General Observation Code `chr-0035-00024` "Blood pressure" | 115/70 mm sim.ust., 110/70 mm sim.ust. |
+| Arterial qon bosimi | Артериальное давление | Observation.component.valueQuantity + bodySite (o'ng: SNOMED `368209003`, chap: `368208006`) | LOINC `85354-9` "Blood pressure panel" + `component` LOINC `8480-6` / `8462-4` in `mm[Hg]` | 115 / 70, 110 / 70 |
 | Homilaning holati | Положение плода | Observation.valueCodeableConcept | `code` SNOMED `364607000` "Position of fetus"<br>`value` SNOMED `1209182005` "Cephalic fetal presentation" | Bosh bilan kelish |
 | Homilaning yurak urishi | Сердцебиение плода | Observation.valueQuantity + component | `code` LOINC `55283-6` "Fetal Heart rate"<br>`component` Fetal Heartbeat Side `chr-0014-00001` "Left" | 138 /min, chapda |
 | Tavsiyalar | Рекомендации | CarePlan.description | - | Kunlik rejim, tuz cheklash |
@@ -363,7 +363,7 @@ Section code: SNOMED `133906008` "Postpartum care".
 
 ### Terminology notes
 
-- **Blood pressure** is free text in `Observation.valueString` with `chr-0035-00024`, one Observation per arm. LOINC `85354-9` is not used, because it requires the systolic/diastolic components of the core [blood pressure profile](https://hl7.org/fhir/R5/bp.html).
+- **Blood pressure** follows the FHIR [vital-signs pattern](https://hl7.org/fhir/R5/bp.html): LOINC `85354-9` with systolic `8480-6` and diastolic `8462-4` components in `mm[Hg]`, one Observation per arm with `bodySite`. Split the DMED "115/70" string into the two components.
 - **Test results** (WR I/II, HBsAg I/II, HIV, gonorrhoea, toxoplasmosis) are sent verbatim in `Observation.valueString`, without a positive/negative code.
 - **Previous pregnancy outcome** is only termination or birth; abortion type and stage are not coded.
 - **Sick-leave certificate number** is a plain `DocumentReference.identifier`.

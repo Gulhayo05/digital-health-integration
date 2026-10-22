@@ -881,30 +881,30 @@ Usage: #inline
 
 // form111-social-observation-code-vs
 Instance: observation-111-profession
-InstanceOf: UZCoreObservation
+InstanceOf: UZCoreSocioeconomicObservation
 Usage: #inline
 * language = #uz
 * status = #final
-* code = $sct#14679004 "Occupation"
+* code.coding[socioeconomicType] = $sct#14679004 "Occupation"
 * code.text = "Mutaxassisligi"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100003-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
 * effectiveDateTime = "2025-10-20"
-* valueString = "Boshlang'ich sinf o'qituvchisi"
+* valueCodeableConcept = $position-and-profession-cs#2341.8 "Boshlang'ich sinflar (kichik) o'qituvchisi"
 
 Instance: observation-111-work-position
-InstanceOf: UZCoreObservation
+InstanceOf: UZCoreSocioeconomicObservation
 Usage: #inline
 * language = #uz
 * status = #final
-* code = $sct#14679004 "Occupation"
+* code.coding[socioeconomicType] = $sct#14679004 "Occupation"
 * code.text = "Lavozimi"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100003-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
 * effectiveDateTime = "2025-10-20"
-* valueString = "O'qituvchi"
+* valueCodeableConcept = $position-and-profession-cs#2330.9 "O'qituvchi"
 
 Instance: observation-111-working-conditions
 InstanceOf: UZCoreObservation
@@ -1563,14 +1563,17 @@ Usage: #inline
 * language = #uz
 * status = #final
 * category = $observation-category#vital-signs
-* code = $form111-general-obs-cs#chr-0035-00024 "Arterial qon bosimi"
+* code = $loinc#85354-9 "Blood pressure panel with all children optional"
 * code.text = "Arterial qon bosimi (o'ng qo'l)"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100003-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
 * effectiveDateTime = "2025-10-20"
 * bodySite = $sct#368209003 "Right upper arm structure"
-* valueString = "115/70 mm sim.ust."
+* component[0].code = $loinc#8480-6 "Systolic blood pressure"
+* component[=].valueQuantity = 115 'mm[Hg]' "mm sim.ust."
+* component[+].code = $loinc#8462-4 "Diastolic blood pressure"
+* component[=].valueQuantity = 70 'mm[Hg]' "mm sim.ust."
 
 Instance: observation-111-bp-left-first
 InstanceOf: UZCoreObservation
@@ -1578,14 +1581,17 @@ Usage: #inline
 * language = #uz
 * status = #final
 * category = $observation-category#vital-signs
-* code = $form111-general-obs-cs#chr-0035-00024 "Arterial qon bosimi"
+* code = $loinc#85354-9 "Blood pressure panel with all children optional"
 * code.text = "Arterial qon bosimi (chap qo'l)"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100003-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
 * effectiveDateTime = "2025-10-20"
 * bodySite = $sct#368208006 "Left upper arm structure"
-* valueString = "110/70 mm sim.ust."
+* component[0].code = $loinc#8480-6 "Systolic blood pressure"
+* component[=].valueQuantity = 110 'mm[Hg]' "mm sim.ust."
+* component[+].code = $loinc#8462-4 "Diastolic blood pressure"
+* component[=].valueQuantity = 70 'mm[Hg]' "mm sim.ust."
 
 // YANGI kod: chr-0035-00020
 Instance: observation-111-other-organs
@@ -1879,14 +1885,17 @@ Usage: #inline
 * language = #uz
 * status = #final
 * category = $observation-category#vital-signs
-* code = $form111-general-obs-cs#chr-0035-00024 "Arterial qon bosimi"
+* code = $loinc#85354-9 "Blood pressure panel with all children optional"
 * code.text = "Arterial qon bosimi (o'ng qo'l)"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100079-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-01-15"
 * bodySite = $sct#368209003 "Right upper arm structure"
-* valueString = "110/65 mm sim.ust."
+* component[0].code = $loinc#8480-6 "Systolic blood pressure"
+* component[=].valueQuantity = 110 'mm[Hg]' "mm sim.ust."
+* component[+].code = $loinc#8462-4 "Diastolic blood pressure"
+* component[=].valueQuantity = 65 'mm[Hg]' "mm sim.ust."
 
 Instance: observation-111-visit-bp-left
 InstanceOf: UZCoreObservation
@@ -1894,14 +1903,17 @@ Usage: #inline
 * language = #uz
 * status = #final
 * category = $observation-category#vital-signs
-* code = $form111-general-obs-cs#chr-0035-00024 "Arterial qon bosimi"
+* code = $loinc#85354-9 "Blood pressure panel with all children optional"
 * code.text = "Arterial qon bosimi (chap qo'l)"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100079-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-01-15"
 * bodySite = $sct#368208006 "Left upper arm structure"
-* valueString = "105/65 mm sim.ust."
+* component[0].code = $loinc#8480-6 "Systolic blood pressure"
+* component[=].valueQuantity = 105 'mm[Hg]' "mm sim.ust."
+* component[+].code = $loinc#8462-4 "Diastolic blood pressure"
+* component[=].valueQuantity = 65 'mm[Hg]' "mm sim.ust."
 
 Instance: observation-111-visit-pulse
 InstanceOf: UZCoreObservation
@@ -2283,14 +2295,17 @@ Usage: #inline
 * language = #uz
 * status = #final
 * category = $observation-category#vital-signs
-* code = $form111-general-obs-cs#chr-0035-00024 "Arterial qon bosimi"
+* code = $loinc#85354-9 "Blood pressure panel with all children optional"
 * code.text = "Arterial qon bosimi (o'ng qo'l)"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100107-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-03-10"
 * bodySite = $sct#368209003 "Right upper arm structure"
-* valueString = "115/70 mm sim.ust."
+* component[0].code = $loinc#8480-6 "Systolic blood pressure"
+* component[=].valueQuantity = 115 'mm[Hg]' "mm sim.ust."
+* component[+].code = $loinc#8462-4 "Diastolic blood pressure"
+* component[=].valueQuantity = 70 'mm[Hg]' "mm sim.ust."
 
 Instance: observation-111-patronage-bp-left
 InstanceOf: UZCoreObservation
@@ -2298,14 +2313,17 @@ Usage: #inline
 * language = #uz
 * status = #final
 * category = $observation-category#vital-signs
-* code = $form111-general-obs-cs#chr-0035-00024 "Arterial qon bosimi"
+* code = $loinc#85354-9 "Blood pressure panel with all children optional"
 * code.text = "Arterial qon bosimi (chap qo'l)"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100107-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-03-10"
 * bodySite = $sct#368208006 "Left upper arm structure"
-* valueString = "110/70 mm sim.ust."
+* component[0].code = $loinc#8480-6 "Systolic blood pressure"
+* component[=].valueQuantity = 110 'mm[Hg]' "mm sim.ust."
+* component[+].code = $loinc#8462-4 "Diastolic blood pressure"
+* component[=].valueQuantity = 70 'mm[Hg]' "mm sim.ust."
 
 Instance: observation-111-patronage-fetal-position
 InstanceOf: UZCoreObservation
