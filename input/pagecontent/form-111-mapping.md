@@ -118,7 +118,7 @@ Section code: [Form111 CodeSystem](CodeSystem-form111-cs.html) `chr-0034-00001`.
 | UZ | RU | FHIR Path | Code | Example Value |
 |----|----|------------|------|---------------|
 | Homiladorlikni yakuni | Исход беременности | Observation.valueCodeableConcept | LOINC `63893-2` "Outcome of pregnancy" / [Pregnancy Outcome](ValueSet-form111-pregnancy-outcome-vs.html) (SNOMED `3950001`, or local `chr-0024-*` for maternal/child death) | Birth |
-| Sanasi | Дата | EpisodeOfCare.period.end | - | 2026-05-24 |
+| Sanasi | Дата завершения наблюдения | EpisodeOfCare.period.end | - | 2026-07-03 |
 | Necha haftada yakunlangani | На какой неделе завершилась | Observation.valueQuantity | LOINC `18185-9` "Gestational age" | 39 wk |
 | Tug'ruqning alohida xususiyatlari | Особенности родов | Observation.valueString | Form111 General Observation Code `chr-0035-00012` | Tabiiy tug'ruq yo'llari orqali, asoratlarsiz tug'ruq; qon yo'qotish 250 ml |
 | Bola tirik/o'lik tug'ilgani | Ребёнок родился живым/мёртвым | Observation.valueCodeableConcept | Form111 General Observation Code `chr-0035-00013` / [Newborn Birth Condition](ValueSet-form111-newborn-birth-condition-vs.html) (SNOMED `281050002`, `713202001`, `237362003`) | Livebirth |
