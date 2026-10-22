@@ -82,7 +82,7 @@ Bo'lim kodi: LOINC `LP36348-8` "Patient Information".
 | Oilaviy sharoiti | Семейное положение | Patient.maritalStatus | `http://terminology.hl7.org/CodeSystem/v3-MaritalStatus#M` | Married |
 | Yashash manzili | Адрес проживания | Patient.address | - | Chilonzor tumani, 7-kvartal, 21-uy |
 | Telefon raqami (uy) | Номер домашнего телефона | Patient.telecom | - | +998901112233 |
-| Ma'lumoti | Образование | [UZCoreSocioeconomicObservation](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-socioeconomic-observation.html).valueCodeableConcept | `code` SNOMED `105421008` "Educational achievement"<br>`value` [Education Level](CodeSystem-form111-education-level-cs.html) `chr-0010-00002` "Oliy ta'lim — bakalavriat" | O'rta umumiy ta'lim |
+| Ma'lumoti | Образование | [UZCoreSocioeconomicObservation](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-socioeconomic-observation.html).valueCodeableConcept | `code` SNOMED `105421008` "Educational achievement"<br>`value` [UZ Core Education](https://dhp.uz/fhir/core/en/CodeSystem-education-cs.html) `regis0005.00004` "O'rtacha" + [Education Level](CodeSystem-form111-education-level-cs.html) `chr-0010-00003` "O'rta umumiy ta'lim" | O'rta umumiy ta'lim |
 | Ish joyi | Место работы | Observation.valueString | [Form111 General Observation Code](CodeSystem-form111-general-observation-code-cs.html) `chr-0035-00028` "Ish joyi" | 45-son umumta'lim maktabi |
 | Ish joyi telefon raqami | Телефон места работы | Observation.valueString | [Social Observation Code](CodeSystem-form111-social-observation-code-cs.html) `chr-0029-00004` "Ish joyi telefon raqami" | +998712345678 |
 | Mutaxassisligi | Специальность | Observation.valueString | SNOMED `14679004` "Occupation" | Boshlang'ich sinf o'qituvchisi |
