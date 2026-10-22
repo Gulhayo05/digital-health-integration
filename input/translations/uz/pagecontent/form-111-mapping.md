@@ -15,9 +15,6 @@
 
 Ushbu sahifada 111-shakl (Homilador va tuqqan ayolning individual kartasi) maydonlarining FHIR resurslari bilan moslashtirilishi tavsiflanadi.
 
-
-**DMED terminologiya shartnomasi:** tushuncha `system + code` juftligi bilan aniqlanadi; standart ekvivalent qo‘shilganda qolgan lokal kodlar qayta raqamlanmaydi. Aniq `anemia`, `cephalic` va bemorning alohida `smoking` tokenlari SNOMED CT `271737000`, `1209182005`, `77176002` ga moslanadi. Oldingi lokal kodlar moslik uchun saqlanadi. Birlashtirilgan xavf omillari, gestoz va usuli tasdiqlanmagan tahlillar lokal ma’nosini saqlaydi. Homila harakati va shifoxonaga yotqizish belgisi `valueBoolean`, tug‘ruqqa tayyorgarlik sanalari `valueDateTime` orqali uzatiladi; homiladorlik haftalari alohida kuzatuvlardir. [Oldingi homiladorlik yakuni](ValueSet-form111-previous-pregnancy-outcome-vs.html) faqat `abort/birth` javoblarini qamraydi. [Tug‘ruq muddati](ValueSet-form111-previous-delivery-term-vs.html) preterm va term ni o‘z ichiga oladi, zaxira post-term kodi yo‘q. Eski `chr-0035-00022/00023` xavf dublikatlari deprecated deb belgilangan va amaldagi General Observation ValueSet dan chiqarilgan; ball/daraja uchun `chr-0027-00006/00005` ishlatiladi.
-
 ---
 
 ### Umumiy ma'lumot
@@ -27,8 +24,6 @@ Ushbu sahifada 111-shakl (Homilador va tuqqan ayolning individual kartasi) maydo
 Composition ning 16 ta bo'limining har biri o'zining `section.code` kodiga ega (mos keluvchi tushuncha bo'lsa LOINC, aks holda [Form 111 CodeSystem](CodeSystem-form111-cs.html) dan lokal kod) va shakl shu qismiga tegishli resurslarni sanab o'tadi.
 
 To'liq namunaviy nusxa uchun [111-shakl homilador ayolning individual kartasi misoli](Bundle-example-form-111-pregnant-woman-individual-card.html)ga qarang.
-
-**Lokal kod raqamlash haqida:** ushbu IG'dagi `chr-XXXX-YYYYY` lokal kodlari maydonlar amalga oshirilgan tartibda ketma-ket berilgan. Alohida DMED maydon moslashtirish tahlili ba'zi bir xil tushunchalar uchun boshqa raqamlash sxemasini taklif qildi; ular farq qilgan joyda, ushbu IG allaqachon nashr etilgan CodeSystem'larni qayta raqamlashdan ko'ra o'zining ichki izchil raqamlashini (quyida hujjatlashtirilgan) saqlab qoladi — raqamning o'zi, u noyob va hujjatlashtirilgan ekan, klinik ma'noga ega emas.
 
 ---
 
@@ -366,31 +361,17 @@ Bo'lim kodi: [Form111 CodeSystem](CodeSystem-form111-cs.html) `chr-0034-00009`.
 
 ---
 
-### Terminologiya haqida izohlar / DMED maydon moslashtirish tahlilidan bilinigan farqlar
+### Terminologiya haqida izohlar
 
-Alohida DMED maydon moslashtirish tahlili aniq lokal kod raqamlarini va bir qator strukturaviy yechimlarni taklif qiladi, ular ushbu IG'da ataylab qo'llanilmagan — sabablari quyida:
-
-- **Rh SNOMED kodlari**: tahlil RhD musbat/manfiy uchun `165747005`/`165748000`'ni ko'rsatadi. SNOMED CT'da to'g'ridan-to'g'ri tekshiruv bu kodlar mavjud emasligini tasdiqlaydi; ushbu IG tekshirilgan haqiqiy kodlarni ishlatadi: `165747007` (RhD positive) / `165746003` (RhD negative).
-- **Arterial qon bosimi kodi**: tahlil qon bosimi matni uchun `chr-0034-00001`'ni qayta ishlatishni taklif qiladi, lekin bu kod allaqachon [Form111 CodeSystem](CodeSystem-form111-cs.html)'da 3-bo'lim kodi hisoblanadi. Ushbu IG buning o'rniga `chr-0035-00024`'ni ishlatadi. Qon bosimi shuningdek LOINC `85354-9` ("Blood pressure panel") bilan **kodlanmaydi**, chunki FHIR validatori bu kodni ishlatgan har qanday Observation'ga avtomatik ravishda asosiy `http://hl7.org/fhir/StructureDefinition/bp` profilini qo'llaydi, bu esa sistolik/diastolik `component` slice'larini talab qiladi — DMED taqdim etadigan erkin matnli `valueString` bilan mos kelmaydi.
-- **Lokal kod raqamlash**: bir qator tushunchalar ushbu IG'da bir xil tushunchalar uchun allaqachon mavjud bo'lgan `chr-0035-*` General Observation Code yozuvlaridan boshqa raqamlar ostida taklif qilingan:
-  - `chr-0023-00003` (tahlil) va `chr-0035-00012` (ushbu IG) — "Tug'ruqning alohida xususiyatlari"
-  - `chr-0005-00007` (tahlil) va `chr-0035-00020` (ushbu IG) — "Boshqa a'zolari"
-  - `chr-0035-00001` (tahlil, to'qnashuvga olib kelardi) — ushbu IG taklif qilinganidek "yangi tug'ilgan bola holati" uchun `chr-0035-00001`ni qayta ishlata olmaydi, chunki u allaqachon "Ro'yxatga olingan kun" maydoniga biriktirilgan; buning o'rniga `chr-0035-00013` ishlatiladi
-  - `chr-0036-00001`/`chr-0036-00002` (tahlil) va `chr-0035-00011`/`chr-0035-00009` (ushbu IG) — xayz xususiyati / oxirgi xayz tugash sanasi
-  - `chr-0037-00004` (tahlil) va `chr-0035-00021` (ushbu IG) — "Muddatdan farq (kun)"
-  - `chr-0037-00001`/`00002` (tahlil) va yagona `chr-0035-00017` `effectivePeriod` (ushbu IG) — homiladorlik ta'tili boshlanish/tugash sanalari
-  - `chr-0037-00005`/`00006`/`00007` (tahlil, 3 ta alohida maydon) va yagona `chr-0035-00018` `valueQuantity` + `effectivePeriod` (ushbu IG) — tug'ruqdan keyingi ta'til muddati/boshlanish/tugash sanasi bu yerda bitta Observation'ning sub-elementlari, uchta alohida resurs emas, chunki DMED ularni bitta yozuv sifatida beradi
-
-  Tushuncha tahlil qabul qilinishidan oldin ishlaydigan, tekshirilgan raqam ostida allaqachon amalga oshirilgan bo'lsa, ushbu IG o'z raqamini saqlaydi, qayta raqamlamaydi (sahifa boshidagi izohga qarang).
-- **Kontratseptsiya usuli tafsiloti** (`form111-contraception-details-vs`: to'siqli/gormonal/bachadon ichi va h.k.), **abort turi/bosqichi/kategoriyasi** (`form111-abortion-*-vs`), **hujjat turi** (`form111-document-type-vs`, `document-category-cs#form-111` bilan dublikat) va **musbat/manfiy** (`form111-positive-negative-vs`, erkin matnli tahlil natijasi bilan almashtirilgan) — misolda ishlatilmagan haqiqiy nashr etilgan ValueSet'lar, chunki DMED maydon moslashtirish tahlilining o'zi manba ma'lumotlari qo'llab-quvvatlamaydigan joyda bunday tafsilot qo'shmaslikni ko'rsatadi.
-- **Dopplerografiya natijasi** (`chr-0013-00001`) — shaklning o'z tuzilishida mos maydoni bo'lmagan nashr etilgan kod, shuning uchun misolda ishlatilmaydi.
-- **Ona/bola o'limi natijasi kodlari** (`chr-0024-00001`/`chr-0024-00002`, `form111-pregnancy-outcome-vs`ning qismi) faqat *joriy* homiladorlik natijasiga (3-bo'lim) tegishli va bu misolda tug'ruqdan keyingi kuzatuv va kontratseptsiya maslahati orqali tirik ona va bolani tasvirlaydigan hujjatning qolgan qismiga zid kelmasdan qo'llanilishi mumkin emas.
-- **Ta'lim darajasi raqamlashi**: ushbu IG'da `chr-0010-00001` = "Oliy ta'lim" / `chr-0010-00002` = "O'rta umumiy ta'lim" (ichki izchil — misoldagi `chr-0010-00002` "O'rta umumiy ta'lim" ushbu IG'ning o'z CodeSystem'iga to'g'ri mos keladi). DMED tahlilidagi raqamlash teskari (`chr-0010-00001` = boshlang'ich, `chr-0010-00002` = oliy). Yuqoridagi bilan bir xil "boshqa raqamlash sxemasi" holati.
-- **Perinatal xavf kodlari, ikkita nomzod raqam**: misolda xavf darajasi/ballar yig'indisi uchun `chr-0027-00005`/`chr-0027-00006` (Risk Factor Observation Code) ishlatiladi, ularni 14-bo'limning boshqa xavf omili kodlari bilan birga guruhlab. Xuddi shu ikki tushuncha uchun eskiroq `chr-0035-00022`/`chr-0035-00023` (General Observation Code) yozuvlari hamon mavjud (CodeSystem `#draft`, tashqi havolalarni buzmaslik uchun olib tashlanmagan), lekin misolda **ishlatilmaydi** — `chr-0027-00005`/`chr-0027-00006` asosiy hisoblansin.
-- **Chaqaloqning chiqarilish holati**: alohida yangi tug'ilgan Encounter'idagi ikkinchi `Encounter.dischargeDisposition` o'rniga `Observation.valueCodeableConcept` (`observation-111-newborn-discharge-status`) sifatida modellashtirilgan, chunki ushbu IG chaqaloqni o'zining `Patient`/`Encounter` sub'ekti sifatida modellashtirmaydi. Onaning o'z chiqarilish holati kutilganidek `Encounter.admission.dischargeDisposition`ni ishlatadi.
-- **Ish joyi Organization'i**: `organization-111-workplace` endi tasdiqlangan `identifier`ga ega (tashkilot kodi tizimi), bu DMED tahlilining identifikatorsiz erkin matndan `Organization` yaratishga qarshi ogohlantirishiga mos keladi; "Ish joyi" maydonining asosiy ifodasi yuqoridagi `Observation.valueString` qatorida qolmoqda.
-- **Qo'shimcha ishlatilmagan lug'at**: `chr-0005-00002` "Doctor recommendations" va `chr-0005-00004` "Other examination" (Clinical Assessment Observation Code) ishlatilmagan — 9/10-bo'lim tavsiyalari kodsiz oddiy `CarePlan.description`dan foydalanadi, "Boshqa tekshiruv" esa Analysis Test Code `chr-0001-00006`ni ishlatadi. `chr-0001-00005` (OIV uchun muqobil belgi), `chr-0001-00007` (surtma), `chr-0001-00008` (najas), `chr-0001-00010` (siydik) va LOINC `56888-1`/`31201-7` (metodga xos OIV testlari) `form111-analysis-test-code-vs`da nashr etilgan, lekin misolda ishlatilmagan — misol har bir test toifasi uchun faqat bitta vakillik natijasini ko'rsatadi.
-- **Kodlar display tili konventsiyasi**: ushbu IG'dagi barcha lokal `chr-XXXX-YYYYY` kodlari asosiy `display` sifatida o'zbek tilini ishlatadi (CodeSystem'ning `language`si `#uz`), ingliz/rus tillar `designation` sifatida beriladi — masalan, `chr-0001-00004`ning asosiy display'i "OIV" (`designation[en] = "HIV test"` bilan). Bu IG'dagi barcha CodeSystem'lar uchun izchil, faqat shu kodga xos emas.
+- **Arterial qon bosimi** `chr-0035-00024` bilan `Observation.valueString` da erkin matn sifatida, har bir qo'l uchun alohida Observation bilan uzatiladi. LOINC `85354-9` ishlatilmaydi, chunki u asosiy [qon bosimi profili](https://hl7.org/fhir/R5/bp.html)ning sistolik/diastolik komponentlarini talab qiladi.
+- **Tahlil natijalari** (WR I/II, HBsAg I/II, OIV, gonoreya, toksoplazmoz) musbat/manfiy kodisiz, `Observation.valueString` da so'zma-so'z uzatiladi.
+- **Oldingi homiladorlik yakuni** faqat to'xtatish yoki tug'ruq; abort turi va bosqichi kodlanmaydi.
+- **Mehnatga layoqatsizlik varag'i raqami** oddiy `DocumentReference.identifier`.
+- **Perinatal xavf darajasi va ballari** `chr-0027-00005`/`chr-0027-00006` bilan kodlanadi; `chr-0035-00022`/`chr-0035-00023` eskirgan (deprecated).
+- **Chaqaloqning chiqarilish holati** `valueCodeableConcept` li Observation, chunki chaqaloq alohida Patient sifatida modellashtirilmaydi; onaning chiqarilish holati `Encounter.admission.dischargeDisposition` da uzatiladi.
+- **Ish joyi** `Observation.valueString` da uzatiladi; `Organization` ga havola faqat tashkilot kodi ma'lum bo'lganda qo'shiladi.
+- **Ta'lim darajasi** asosiy profil talab qiladigan UZ Core `education-cs` kodini ham, 111-shakl `chr-0010-*` kodini ham o'z ichiga oladi.
+- **Misolda ko'rsatilmagan**: dopplerografiya `chr-0013-00001`, [kontratseptsiya usuli tafsiloti](ValueSet-form111-contraception-details-vs.html), ona/bola o'limi natijalari `chr-0024-00001`/`chr-0024-00002`, `chr-0005-00002`/`chr-0005-00004` va [form111-analysis-test-code-vs](ValueSet-form111-analysis-test-code-vs.html) ning qolgan kodlari.
 
 ---
 

@@ -23,11 +23,7 @@ Each of the 16 sections of the Composition carries its own `section.code` (LOINC
 
 For a complete reference instance, see the [Form 111 pregnant woman individual card example](Bundle-example-form-111-pregnant-woman-individual-card.html).
 
-**Note on local code numbering:** local `chr-XXXX-YYYYY` codes in this IG were assigned incrementally as fields were implemented. A separate DMED field-mapping review proposed a different numbering scheme for some of the same concepts; where the two disagree, this IG keeps its own internally-consistent numbering (documented below) rather than renumbering already-published CodeSystems, since the numeral itself carries no clinical meaning as long as it is unique and documented.
-
 ---
-
-**DMED terminology contract:** identify a concept by `system + code`; never renumber the remaining local concepts when adding standard equivalents. The explicit tokens `anemia`, `cephalic`, and the patient's standalone `smoking` map to SNOMED CT `271737000`, `1209182005`, and `77176002`. Their previous local codes remain valid legacy concepts. Combined risk selections, gestosis and laboratory tests with an unconfirmed method retain their local meanings. Fetal movement and the hospitalization flag use native `valueBoolean`; birth-preparation source dates use `valueDateTime`, with gestational weeks in separate observations. The [previous-pregnancy outcome ValueSet](ValueSet-form111-previous-pregnancy-outcome-vs.html) permits only the two explicit `abort/birth` outcomes. The [delivery-term ValueSet](ValueSet-form111-previous-delivery-term-vs.html) currently contains preterm and term, without a reserved post-term code. Legacy risk duplicates `chr-0035-00022/00023` are deprecated and excluded from the current General Observation ValueSet; use `chr-0027-00006/00005` for score/level.
 
 ### Field Mapping
 
@@ -363,35 +359,17 @@ Section code: [Form111 CodeSystem](CodeSystem-form111-cs.html) `chr-0034-00009`.
 
 ---
 
-### Terminology notes / known deviations from the DMED field-mapping review
+### Terminology notes
 
-A separate DMED-sourced field-mapping review proposes specific local code numbers and a few structural choices that this IG deliberately does not follow, for the reasons below:
-
-- **Rh SNOMED codes**: the review lists `165747005`/`165748000` for RhD positive/negative. Live lookup against SNOMED CT confirms these codes do not exist; this IG uses the verified real codes `165747007` (RhD positive) / `165746003` (RhD negative).
-- **Blood pressure code**: the review proposes reusing `chr-0034-00001` for blood pressure text, but that code is already the Section 3 section-code in [Form111 CodeSystem](CodeSystem-form111-cs.html). This IG uses `chr-0035-00024` instead. Blood pressure is also **not** coded with LOINC `85354-9` (the "Blood pressure panel" LOINC code), because the FHIR validator auto-applies the core `http://hl7.org/fhir/StructureDefinition/bp` profile to any Observation using that code, which requires systolic/diastolic `component` slices — incompatible with a single free-text `valueString` as DMED provides.
-- **Local code numbering**: several concepts are proposed under different numbers than this IG's existing `chr-0035-*` General Observation Code entries for the same concepts:
-  - `chr-0023-00003` (review) vs `chr-0035-00012` (this IG) — "Tug'ruqning alohida xususiyatlari"
-  - `chr-0005-00007` (review) vs `chr-0035-00020` (this IG) — "Boshqa a'zolari"
-  - `chr-0035-00001` (review, would collide) — this IG cannot reuse `chr-0035-00001` for "newborn birth condition" as the review proposes, since it is already assigned to "Ro'yxatga olingan kun" (registration date); this IG keeps `chr-0035-00013` for newborn birth condition instead
-  - `chr-0036-00001`/`chr-0036-00002` (review) vs `chr-0035-00011`/`chr-0035-00009` (this IG) — menstrual character / last-period-end-date
-  - `chr-0037-00004` (review) vs `chr-0035-00021` (this IG) — "Muddatdan farq (kun)"
-  - `chr-0037-00001`/`00002` (review) vs the single `chr-0035-00017` `effectivePeriod` (this IG) — prenatal leave start/end dates
-  - `chr-0037-00005`/`00006`/`00007` (review, three separate fields) vs the single `chr-0035-00018` `valueQuantity` + `effectivePeriod` (this IG) — postpartum leave duration/start/end are one Observation's sub-elements here, not three separate resources, since DMED provides them as one record
-  
-  Where the concept was already implemented under a working, validated number before the review was received, this IG keeps its own number rather than renumbering (see note at the top of this page).
-- **Contraception method detail** (`form111-contraception-details-vs`: barrier/hormonal/IUD/etc.) is a published ValueSet, backed by a validated DMED ConceptMap (`contraception_details`, 8 tokens), but not yet exercised in the example.
-- **Abortion type/stage/category**, **document-type**, and **positive/negative** are deliberately *not* modeled as separate ValueSets — not published, not planned as a gap to fill:
-  - Abortion type/stage: DMED only ever sends a coarse `abort`/`birth` outcome for a previous pregnancy (`previous_pregnancies[].pregnancy_outcome`); it does not separately code abortion type or stage, and the DMED field-mapping review explicitly instructs against adding that detail artificially.
-  - Document-type: the sick-leave certificate number is a plain `DocumentReference.identifier` string (`Нет в DMED` in the source review — DMED doesn't send it at all yet), not a coded concept; a "type" ValueSet would be redundant with the existing `document-category-cs#form-111` code in any case.
-  - Positive/negative: WR I/II, HBsAg I/II, HIV, gonorrhea, and toxoplasmosis results are carried verbatim in `Observation.valueString` by design — the DMED review is explicit that a positive/negative code must not be invented for free-text lab results.
-- **Doppler ultrasound** (`chr-0013-00001`) is a published code with no corresponding field in this form's own layout, so it is not exercised in the example.
-- **Mother/child death outcome codes** (`chr-0024-00001`/`chr-0024-00002`, part of `form111-pregnancy-outcome-vs`) apply only to the *current* pregnancy's outcome (Section 3) and cannot be exercised in this example without contradicting the rest of the document, which describes a live mother and baby through postpartum follow-up and contraception counseling.
-- **Education level coding**: the Form 111 CodeSystem follows the confirmed DMED mapping: `chr-0010-00001` = primary, `chr-0010-00002` = higher, and `chr-0010-00003` = secondary general education. The example carries both UZ Core `education-cs#regis0005.00004` (required by `UZCoreSocioeconomicObservation`) and Form 111 `chr-0010-00003` so that it conforms to the core profile while preserving the integration-specific mapping.
-- **Perinatal risk codes, two candidate numbers**: the example uses `chr-0027-00005`/`chr-0027-00006` (Risk Factor Observation Code) for risk level / score sum, keeping them grouped with the other Section 14 risk-factor codes. The older `chr-0035-00022`/`chr-0035-00023` (General Observation Code) entries for the same two concepts are still defined (CodeSystem is `#draft`, not removed to avoid breaking any external reference) but are **not used** in the example — treat `chr-0027-00005`/`chr-0027-00006` as authoritative.
-- **Newborn discharge status**: modeled as `Observation.valueCodeableConcept` (`observation-111-newborn-discharge-status`) rather than a second `Encounter.dischargeDisposition` on a dedicated newborn Encounter, because this IG does not model the newborn as its own `Patient`/`Encounter` subject. The mother's own discharge status uses `Encounter.admission.dischargeDisposition` as expected.
-- **Workplace Organization**: `organization-111-workplace` now carries a confirmed `identifier` (organization-code system), consistent with the DMED review's caution against creating an `Organization` from free text without one; the primary field representation for "Ish joyi" remains the `Observation.valueString` row above it.
-- **Additional unused vocabulary**: `chr-0005-00002` "Doctor recommendations" and `chr-0005-00004` "Other examination" (Clinical Assessment Observation Code) are not exercised — Section 9/10 recommendations use plain `CarePlan.description` without a code, and "Boshqa tekshiruv" uses the Analysis Test Code `chr-0001-00006` instead. `chr-0001-00005` (alternate HIV label), `chr-0001-00007` (smear), `chr-0001-00008` (stool), `chr-0001-00010` (urine), and LOINC `56888-1`/`31201-7` (method-specific HIV tests) are published in `form111-analysis-test-code-vs` but not exercised in the example, which only demonstrates one representative result per test category.
-- **Code display language convention**: all local `chr-XXXX-YYYYY` codes in this IG use Uzbek as the primary `display` (the CodeSystem's `language` is `#uz`), with English/Russian carried as `designation`s — e.g. `chr-0001-00004`'s primary display is "OIV" (Uzbek for HIV), with `designation[en] = "HIV test"`. This is consistent across every CodeSystem in the IG, not specific to this code.
+- **Blood pressure** is free text in `Observation.valueString` with `chr-0035-00024`, one Observation per arm. LOINC `85354-9` is not used, because it requires the systolic/diastolic components of the core [blood pressure profile](https://hl7.org/fhir/R5/bp.html).
+- **Test results** (WR I/II, HBsAg I/II, HIV, gonorrhoea, toxoplasmosis) are sent verbatim in `Observation.valueString`, without a positive/negative code.
+- **Previous pregnancy outcome** is only termination or birth; abortion type and stage are not coded.
+- **Sick-leave certificate number** is a plain `DocumentReference.identifier`.
+- **Perinatal risk level and score** use `chr-0027-00005`/`chr-0027-00006`; `chr-0035-00022`/`chr-0035-00023` are deprecated.
+- **Newborn discharge status** is an Observation with `valueCodeableConcept`, because the newborn is not a separate Patient; the mother's discharge status uses `Encounter.admission.dischargeDisposition`.
+- **Workplace** is sent in `Observation.valueString`; an `Organization` is referenced only when its organization code is known.
+- **Education level** carries both the UZ Core `education-cs` code required by the core profile and the Form 111 `chr-0010-*` code.
+- **Not shown in the example**: Doppler ultrasound `chr-0013-00001`, [contraception method detail](ValueSet-form111-contraception-details-vs.html), mother/child death outcomes `chr-0024-00001`/`chr-0024-00002`, `chr-0005-00002`/`chr-0005-00004`, and the remaining codes of [form111-analysis-test-code-vs](ValueSet-form111-analysis-test-code-vs.html).
 
 ---
 

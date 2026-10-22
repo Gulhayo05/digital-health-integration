@@ -24,6 +24,23 @@ Combined `alcoholism_drug_addiction` and `smoking_alcoholism_drug_addiction` sel
 - `form111-previous-delivery-term-vs` contains only preterm and term. There is no implemented reserved post-term concept in this set.
 - Perinatal risk level/score use `chr-0027-00005`/`chr-0027-00006`. The old General Observation duplicates `chr-0035-00023`/`chr-0035-00022` retain their meanings, are marked deprecated and are excluded from the current General Observation ValueSet.
 
+## Deviations from the DMED field-mapping review
+
+Local codes were numbered as fields were implemented. Where the DMED field-mapping review proposes a different number for an already implemented concept, the IG keeps its own:
+
+| Concept | Review | IG |
+|---|---|---|
+| Tug'ruqning alohida xususiyatlari | `chr-0023-00003` | `chr-0035-00012` |
+| Boshqa a'zolari | `chr-0005-00007` | `chr-0035-00020` |
+| Newborn birth condition | `chr-0035-00001` (already registration date) | `chr-0035-00013` |
+| Menstrual character / last period end date | `chr-0036-00001`/`00002` | `chr-0035-00011`/`chr-0035-00009` |
+| Muddatdan farq (kun) | `chr-0037-00004` | `chr-0035-00021` |
+| Prenatal leave start/end | `chr-0037-00001`/`00002` | `chr-0035-00017` `effectivePeriod` |
+| Postpartum leave duration/start/end | `chr-0037-00005`/`00006`/`00007` | `chr-0035-00018` `valueQuantity` + `effectivePeriod` |
+| Blood pressure text | `chr-0034-00001` (already a section code) | `chr-0035-00024` |
+
+The review's RhD codes `165747005`/`165748000` do not exist in SNOMED CT; the IG uses `165747007`/`165746003`.
+
 ## Automated check
 
 After the IG build, run:
