@@ -463,7 +463,7 @@ Usage: #inline
 
 // --- 8. Qin orqali tekshiruv ---
 * section[vaginalExamination].title = "Qin orqali tekshiruv"
-* section[=].code = $loinc#11401-7 "Physical findings of Female genitalia Narrative"
+* section[=].code = $form111-cs#chr-0034-00003
 * section[=].entry[0] = Reference(urn:uuid:11100070-1111-2222-3333-444444444444) //observation-111-external-genitalia
 * section[=].entry[+] = Reference(urn:uuid:11100071-1111-2222-3333-444444444444) //observation-111-vagina
 * section[=].entry[+] = Reference(urn:uuid:11100072-1111-2222-3333-444444444444) //observation-111-cervix
@@ -482,7 +482,7 @@ Usage: #inline
 
 // --- 10. Homiladorlikning kechishi ---
 * section[courseOfPregnancy].title = "Homiladorlikning kechishi"
-* section[=].code = $loinc#57059-8 "Pregnancy visit summary note Narrative" 
+* section[=].code = $form111-cs#chr-0034-00004
 * section[=].entry[0] = Reference(urn:uuid:11100079-1111-2222-3333-444444444444) //encounter-111-antenatal-visit
 * section[=].entry[+] = Reference(urn:uuid:11100080-1111-2222-3333-444444444444) //observation-111-visit-complaints
 * section[=].entry[+] = Reference(urn:uuid:11100081-1111-2222-3333-444444444444) //observation-111-visit-general-condition
@@ -508,7 +508,7 @@ Usage: #inline
 
 // --- 11. Tug'ishga tayyorlash ---
 * section[birthPreparation].title = "Tug'ishga tayyorlash"
-* section[=].code = $form111-cs#chr-0034-00003
+* section[=].code = $form111-cs#chr-0034-00005
 * section[=].entry[0] = Reference(urn:uuid:11100099-1111-2222-3333-444444444444) //observation-111-physical-preparation
 * section[=].entry[+] = Reference(urn:uuid:11100100-1111-2222-3333-444444444444) //observation-111-ga-physical-preparation
 * section[=].entry[+] = Reference(urn:uuid:11100101-1111-2222-3333-444444444444) //observation-111-uv-irradiation
@@ -520,7 +520,7 @@ Usage: #inline
 
 // --- 12. Patronaj - tashriflar ---
 * section[patronageVisits].title = "Patronaj - tashriflar"
-* section[=].code = $form111-cs#chr-0034-00004
+* section[=].code = $form111-cs#chr-0034-00006
 * section[=].entry[0] = Reference(urn:uuid:11100107-1111-2222-3333-444444444444) //encounter-111-patronage-visit
 * section[=].entry[+] = Reference(urn:uuid:11100108-1111-2222-3333-444444444444) //observation-111-patronage-gestational-age
 * section[=].entry[+] = Reference(urn:uuid:11100109-1111-2222-3333-444444444444) //observation-111-patronage-complaints
@@ -534,7 +534,7 @@ Usage: #inline
 
 // --- 13. Aylanma karta va boshqa hujjatlarni yopishtirish uchun varoq ---
 * section[attachmentsSheet].title = "Aylanma karta va boshqa hujjatlarni yopishtirish uchun varoq"
-* section[=].code = $form111-cs#chr-0034-00005
+* section[=].code = $form111-cs#chr-0034-00007
 * section[=].entry[0] = Reference(urn:uuid:11100116-1111-2222-3333-444444444444) //observation-111-prenatal-leave
 * section[=].entry[+] = Reference(urn:uuid:11100154-1111-2222-3333-444444444444) //documentreference-111-prenatal-leave-certificate
 * section[=].entry[+] = Reference(urn:uuid:11100117-1111-2222-3333-444444444444) //observation-111-postpartum-leave
@@ -545,7 +545,7 @@ Usage: #inline
 
 // --- 14. Perinatal xavf omillari ---
 * section[perinatalRiskFactors].title = "Perinatal xavf omillari"
-* section[=].code = $loinc#92016-5 "Maternal pregnancy risk factors Document"
+* section[=].code = $form111-cs#chr-0034-00008
 * section[=].entry[0] = Reference(urn:uuid:11100121-1111-2222-3333-444444444444) //observation-111-risk-socio-biological
 * section[=].entry[+] = Reference(urn:uuid:11100122-1111-2222-3333-444444444444) //observation-111-risk-obstetric-history
 * section[=].entry[+] = Reference(urn:uuid:11100123-1111-2222-3333-444444444444) //observation-111-risk-extragenital
@@ -565,7 +565,7 @@ Usage: #inline
 
 // --- 16. Tug'ruqdan keyingi davrdagi kuzatuv ---
 * section[postpartumFollowUp].title = "Tug'ruqdan keyingi davrdagi kuzatuv"
-* section[=].code = $form111-cs#chr-0034-00006
+* section[=].code = $form111-cs#chr-0034-00009
 * section[=].entry[0] = Reference(urn:uuid:11100135-1111-2222-3333-444444444444) //encounter-111-postpartum-7-8
 * section[=].entry[+] = Reference(urn:uuid:11100136-1111-2222-3333-444444444444) //observation-111-postpartum-7-8-complaints
 * section[=].entry[+] = Reference(urn:uuid:11100137-1111-2222-3333-444444444444) //procedure-111-postpartum-7-8-exam
@@ -758,7 +758,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #uz
 * status = #final
-* code = $loinc#22461-8 "Reagin Ab [Presence] in Serum"
+* code = $form111-analysis-test-code-cs#chr-0001-00011 "WR I tahlili"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100003-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
@@ -770,7 +770,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #uz
 * status = #final
-* code = $loinc#22461-8 "Reagin Ab [Presence] in Serum"
+* code = $form111-analysis-test-code-cs#chr-0001-00012 "WR II tahlili"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100003-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
@@ -783,7 +783,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #uz
 * status = #final
-* code = $loinc#7918-6 "HIV 1+2 Ab [Presence] in Serum"
+* code = $form111-analysis-test-code-cs#chr-0001-00004 "OIV"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100003-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
@@ -795,7 +795,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #uz
 * status = #final
-* code = $loinc#5195-3 "Hepatitis B virus surface Ag [Presence] in Serum"
+* code = $form111-analysis-test-code-cs#chr-0001-00002 "HBsAg I tahlili"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100003-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
@@ -807,7 +807,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #uz
 * status = #final
-* code = $loinc#5195-3 "Hepatitis B virus surface Ag [Presence] in Serum"
+* code = $form111-analysis-test-code-cs#chr-0001-00003 "HBsAg II tahlili"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100003-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
@@ -831,7 +831,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #uz
 * status = #final
-* code = $loinc#22577-1 "Toxoplasma gondii Ab [Presence] in Serum"
+* code = $form111-analysis-test-code-cs#chr-0001-00009 "Toksoplazmoz"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100003-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
@@ -844,7 +844,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #uz
 * status = #final
-* code = $form111-analysis-test-code-cs#chr-0001-00002 "Boshqa tahlil"
+* code = $form111-analysis-test-code-cs#chr-0001-00006 "Boshqa tahlil"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100003-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
@@ -872,7 +872,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #uz
 * status = #final
-* code = $loinc#80427-8 "Employer name [Identifier]"
+* code = $form111-general-obs-cs#chr-0035-00028 "Ish joyi"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100003-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
@@ -911,7 +911,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #uz
 * status = #final
-* code = $form111-social-observation-code-cs#chr-0029-00002 "Mehnat sharoitlari"
+* code = $form111-social-observation-code-cs#chr-0029-00003 "Mehnat sharoitlari"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100003-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
@@ -923,7 +923,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #uz
 * status = #final
-* code = $form111-social-observation-code-cs#chr-0029-00003 "Ish joyi telefon raqami"
+* code = $form111-social-observation-code-cs#chr-0029-00004 "Ish joyi telefon raqami"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100003-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
@@ -935,7 +935,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #uz
 * status = #final
-* code = $loinc#80427-8 "Employer name [Identifier]"
+* code = $form111-social-observation-code-cs#chr-0029-00002 "Turmush o'rtog'ining ish joyi"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * focus = Reference(urn:uuid:11100006-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100003-1111-2222-3333-444444444444)
@@ -956,7 +956,7 @@ Usage: #inline
 * encounter = Reference(urn:uuid:11100003-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
 * effectiveDateTime = "2025-10-20"
-* valueCodeableConcept = $sct#77176002 "Smoker"
+* valueCodeableConcept = $form111-patient-bad-habit-cs#chr-0020-00009 "Chekish"
 * note.text = "Surunkali kasalliklari yo'q; kuniga 5-6 dona chekadi"
 
 // 2. TASHXIS
@@ -1067,7 +1067,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #uz
 * status = #final
-* code = $form111-general-obs-cs#chr-0035-00010 "Tug'ruqning alohida xususiyatlari"
+* code = $form111-general-obs-cs#chr-0035-00012 "Tug'ruqning alohida xususiyatlari"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100037-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
@@ -1080,7 +1080,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #uz
 * status = #final
-* code = $form111-general-obs-cs#chr-0035-00011 "Bola tirik / o'lik tug'ilgani"
+* code = $form111-general-obs-cs#chr-0035-00013 "Bola tirik / o'lik tug'ilgani"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100037-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
@@ -1194,7 +1194,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #uz
 * status = #final
-* code = $form111-general-obs-cs#chr-0035-00022 "O'tgan operatsiyalar"
+* code = $form111-general-obs-cs#chr-0035-00025 "O'tgan operatsiyalar"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100003-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
@@ -1207,7 +1207,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #uz
 * status = #final
-* code = $form111-general-obs-cs#chr-0035-00023 "O'tgan operatsiya sanasi"
+* code = $form111-general-obs-cs#chr-0035-00026 "O'tgan operatsiya sanasi"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100003-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
@@ -1235,7 +1235,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #uz
 * status = #final
-* code = $loinc#49033-4 "Menstrual History - Reported"
+* code = $form111-general-obs-cs#chr-0035-00011 "Xayz ko'rish xususiyatlari"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100003-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
@@ -1275,7 +1275,7 @@ Usage: #inline
 * language = #uz
 * status = #final
 * category = $observation-category#social-history
-* code = $sct#228456002 "Age became sexually active"
+* code = $form111-general-obs-cs#chr-0035-00010 "Jinsiy hayoti necha yoshdan boshlangani"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100003-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
@@ -1315,7 +1315,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #uz
 * status = #final
-* code = $form111-general-obs-cs#chr-0035-00024 "Avvalgi homiladorlik yili"
+* code = $form111-general-obs-cs#chr-0035-00027 "Avvalgi homiladorlik yili"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
 * effectiveDateTime = "2025-10-20"
@@ -1335,13 +1335,13 @@ Usage: #inline
 * effectiveDateTime = "2019-06-02"
 * valueCodeableConcept = $sct#3950001 "Birth"
 
-// YANGI kod: chr-0035-00013 + form111-previous-delivery-term-vs
+// YANGI kod: chr-0035-00015 + form111-previous-delivery-term-vs
 Instance: observation-111-previous-delivery-term-1
 InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #uz
 * status = #final
-* code = $form111-general-obs-cs#chr-0035-00013 "Tug'ruq turi (muddati bo'yicha)"
+* code = $form111-general-obs-cs#chr-0035-00015 "Tug'ruq turi (muddati bo'yicha)"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100149-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
@@ -1353,7 +1353,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #uz
 * status = #final
-* code = $form111-general-obs-cs#chr-0035-00011 "Bola tirik / o'lik tug'ilgani"
+* code = $form111-general-obs-cs#chr-0035-00013 "Bola tirik / o'lik tug'ilgani"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100149-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
@@ -1378,7 +1378,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #uz
 * status = #final
-* code = $form111-general-obs-cs#chr-0035-00024 "Avvalgi homiladorlik yili"
+* code = $form111-general-obs-cs#chr-0035-00027 "Avvalgi homiladorlik yili"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
 * effectiveDateTime = "2025-10-20"
@@ -1404,7 +1404,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #uz
 * status = #final
-* code = $form111-general-obs-cs#chr-0035-00013 "Tug'ruq turi (muddati bo'yicha)"
+* code = $form111-general-obs-cs#chr-0035-00015 "Tug'ruq turi (muddati bo'yicha)"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100048-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
@@ -1416,7 +1416,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #uz
 * status = #final
-* code = $form111-general-obs-cs#chr-0035-00011 "Bola tirik / o'lik tug'ilgani"
+* code = $form111-general-obs-cs#chr-0035-00013 "Bola tirik / o'lik tug'ilgani"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100048-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
@@ -1442,7 +1442,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #uz
 * status = #final
-* code = $form111-general-obs-cs#chr-0035-00012 "Bola tirikligi (hozirgi holati)"
+* code = $form111-general-obs-cs#chr-0035-00014 "Bola tirikligi (hozirgi holati)"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100003-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
@@ -1455,7 +1455,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #uz
 * status = #final
-* code = $form111-general-obs-cs#chr-0035-00024 "Avvalgi homiladorlik yili"
+* code = $form111-general-obs-cs#chr-0035-00027 "Avvalgi homiladorlik yili"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
 * effectiveDateTime = "2025-10-20"
@@ -1481,7 +1481,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #uz
 * status = #final
-* code = $form111-general-obs-cs#chr-0035-00014 "Avvalgi homiladorliklarning o'ziga xosligi"
+* code = $form111-general-obs-cs#chr-0035-00016 "Avvalgi homiladorliklarning o'ziga xosligi"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100003-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
@@ -1535,12 +1535,12 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #uz
 * status = #final
-* code = $loinc#10193-1 "Physical findings of Breasts Narrative"
+* code = $form111-gynecological-examination-obs-cs#chr-0017-00002 "Ko'krak bezlari holati"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100003-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
 * effectiveDateTime = "2025-10-20"
-* valueCodeableConcept = $sct#17621005 "Normal"
+* valueCodeableConcept = $form111-breast-condition-cs#chr-0004-00001 "Patologiya yo'q"
 
 // form111-clinical-assessment-observation-code-vs + form111-examination-status-vs
 Instance: observation-111-vascular-system
@@ -1548,12 +1548,12 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #uz
 * status = #final
-* code = $loinc#11421-5 "Physical findings of Cardiovascular system"
+* code = $form111-assessment-obs-cs#chr-0005-00006 "Qon-tomir tizimi holati"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100003-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
 * effectiveDateTime = "2025-10-20"
-* valueCodeableConcept = $sct#17621005 "Normal"
+* valueCodeableConcept = $form111-examination-status-cs#chr-0011-00001 "Me'yor"
 * note.text = "Yurak tonlari aniq, ritmik; varikoz kengayish belgilari yo'q"
 
 // form111-vital-sign-observation-code-vs
@@ -1563,17 +1563,14 @@ Usage: #inline
 * language = #uz
 * status = #final
 * category = $observation-category#vital-signs
-* code = $loinc#85354-9 "Blood pressure panel with all children optional"
+* code = $form111-general-obs-cs#chr-0035-00024 "Arterial qon bosimi"
 * code.text = "Arterial qon bosimi (o'ng qo'l)"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100003-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
 * effectiveDateTime = "2025-10-20"
 * bodySite = $sct#368209003 "Right upper arm structure"
-* component[0].code = $loinc#8480-6 "Systolic blood pressure"
-* component[0].valueQuantity = 115 'mm[Hg]' "mmHg"
-* component[1].code = $loinc#8462-4 "Diastolic blood pressure"
-* component[1].valueQuantity = 70 'mm[Hg]' "mmHg"
+* valueString = "115/70 mm sim.ust."
 
 Instance: observation-111-bp-left-first
 InstanceOf: UZCoreObservation
@@ -1581,25 +1578,22 @@ Usage: #inline
 * language = #uz
 * status = #final
 * category = $observation-category#vital-signs
-* code = $loinc#85354-9 "Blood pressure panel with all children optional"
+* code = $form111-general-obs-cs#chr-0035-00024 "Arterial qon bosimi"
 * code.text = "Arterial qon bosimi (chap qo'l)"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100003-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
 * effectiveDateTime = "2025-10-20"
 * bodySite = $sct#368208006 "Left upper arm structure"
-* component[0].code = $loinc#8480-6 "Systolic blood pressure"
-* component[0].valueQuantity = 110 'mm[Hg]' "mmHg"
-* component[1].code = $loinc#8462-4 "Diastolic blood pressure"
-* component[1].valueQuantity = 70 'mm[Hg]' "mmHg"
+* valueString = "110/70 mm sim.ust."
 
-// YANGI kod: chr-0035-00018
+// YANGI kod: chr-0035-00020
 Instance: observation-111-other-organs
 InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #uz
 * status = #final
-* code = $form111-general-obs-cs#chr-0035-00018 "Boshqa a'zolari"
+* code = $form111-general-obs-cs#chr-0035-00020 "Boshqa a'zolari"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100003-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
@@ -1607,7 +1601,7 @@ Usage: #inline
 * valueString = "Nafas olish, hazm qilish va siydik ajratish tizimlari patologiyasiz"
 
 // YANGI kodlar: chr-0035-00002..00008 (chanoq o'lchovlari)
-// + mavjud chr-0023-00001 (chanoq aylanasi)
+// + mavjud chr-0023-00002 (chanoq aylanasi)
 Instance: observation-111-pelvimetry
 InstanceOf: UZCoreObservation
 Usage: #inline
@@ -1630,7 +1624,7 @@ Usage: #inline
 * component[=].valueQuantity = 13 'cm' "sm"
 * component[+].code = $form111-general-obs-cs#chr-0035-00008 "Conjugata vera (C.vera)"
 * component[=].valueQuantity = 11 'cm' "sm"
-* component[+].code = $form111-pregnancy-monitoring-cs#chr-0023-00001 "Chanoq aylanasi"
+* component[+].code = $form111-pregnancy-monitoring-cs#chr-0023-00002 "Chanoq aylanasi"
 * component[=].valueQuantity = 92 'cm' "sm"
 
 // 7. TASHQI AKUSHERLIK TEKSHIRUVI (birinchi ko'rikda)
@@ -1639,7 +1633,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #uz
 * status = #final
-* code = $sct#396552003 "Abdominal circumference"
+* code = $form111-pregnancy-monitoring-cs#chr-0023-00001 "Homilador qorin aylanasi"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100003-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
@@ -1658,7 +1652,7 @@ Usage: #inline
 * encounter = Reference(urn:uuid:11100003-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
 * effectiveDateTime = "2025-10-20"
-* valueCodeableConcept = $sct#373068000 "Undetermined"
+* valueCodeableConcept = $form111-fetal-presentation-cs#chr-0015-00003 "Aniqlanmagan"
 * note.text = "9-haftalik muddatda homilaning joylashishini aniqlash mumkin emas"
 
 Instance: observation-111-obstetric-ultrasound
@@ -1686,7 +1680,7 @@ Usage: #inline
 * encounter = Reference(urn:uuid:11100003-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
 * effectiveDateTime = "2025-10-20"
-* valueCodeableConcept = $sct#17621005 "Normal"
+* valueCodeableConcept = $form111-examination-status-cs#chr-0011-00001 "Me'yor"
 
 Instance: observation-111-vagina
 InstanceOf: UZCoreObservation
@@ -1699,7 +1693,7 @@ Usage: #inline
 * encounter = Reference(urn:uuid:11100003-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
 * effectiveDateTime = "2025-10-20"
-* valueCodeableConcept = $sct#17621005 "Normal"
+* valueCodeableConcept = $form111-examination-status-cs#chr-0011-00001 "Me'yor"
 * note.text = "Erkin, shilliq qavati siyanotik"
 
 Instance: observation-111-cervix
@@ -1707,12 +1701,12 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #uz
 * status = #final
-* code = $loinc#11401-7 "Physical findings of Female genitalia Narrative"
+* code = $form111-gynecological-examination-obs-cs#chr-0017-00004 "Bachadon bo'ynining fizik ko'rigi"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100003-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
 * effectiveDateTime = "2025-10-20"
-* valueCodeableConcept = $sct#17621005 "Normal"
+* valueCodeableConcept = $form111-examination-status-cs#chr-0011-00001 "Me'yor"
 * note.text = "Zich, uzunligi 3 sm, tashqi teshigi yopiq"
 
 Instance: observation-111-uterus-body
@@ -1726,7 +1720,7 @@ Usage: #inline
 * encounter = Reference(urn:uuid:11100003-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
 * effectiveDateTime = "2025-10-20"
-* valueCodeableConcept = $sct#17621005 "Normal"
+* valueCodeableConcept = $form111-examination-status-cs#chr-0011-00001 "Me'yor"
 * note.text = "9 haftalik muddatga mos kattalashgan, yumshoq, harakatchan"
 
 Instance: observation-111-ovaries-tubes
@@ -1734,12 +1728,12 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #uz
 * status = #final
-* code = $form111-gynecological-examination-obs-cs#chr-0017-00004 "Tuxumdon va naychalar ko'rigi"
+* code = $form111-gynecological-examination-obs-cs#chr-0017-00006 "Tuxumdon va naychalar ko'rigi"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100003-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
 * effectiveDateTime = "2025-10-20"
-* valueCodeableConcept = $sct#17621005 "Normal"
+* valueCodeableConcept = $form111-examination-status-cs#chr-0011-00001 "Me'yor"
 * note.text = "Paypaslanmaydi, og'riqsiz"
 
 Instance: observation-111-special-gyn-findings
@@ -1747,12 +1741,12 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #uz
 * status = #final
-* code = $form111-gynecological-examination-obs-cs#chr-0017-00003 "Ginekologik ko'rikning o'ziga xos xususiyatlari"
+* code = $form111-gynecological-examination-obs-cs#chr-0017-00005 "Ginekologik ko'rikning o'ziga xos xususiyatlari"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100003-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
 * effectiveDateTime = "2025-10-20"
-* valueCodeableConcept = $sct#17621005 "Normal"
+* valueCodeableConcept = $form111-examination-status-cs#chr-0011-00001 "Me'yor"
 * note.text = "Ajralmalar shilliq, me'yorda; alohida xususiyatlar qayd etilmagan"
 
 Instance: observation-111-microflora-smear
@@ -1760,7 +1754,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #uz
 * status = #final
-* code = $loinc#14361-0 "Microscopic observation [Identifier] in Vaginal fluid by Gram stain"
+* code = $form111-laboratory-obs-cs#chr-0018-00001 "Mikroflora surtmasi natijasi"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100003-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
@@ -1844,7 +1838,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #uz
 * status = #final
-* code = $loinc#8661-1 "Chief complaint - Reported"
+* code = $form111-assessment-obs-cs#chr-0005-00001 "Shikoyatlar"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100079-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
@@ -1857,12 +1851,12 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #uz
 * status = #final
-* code = $form111-assessment-obs-cs#chr-0005-00001 "Umumiy ahvoli"
+* code = $form111-assessment-obs-cs#chr-0005-00003 "Umumiy ahvoli"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100079-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-01-15"
-* valueCodeableConcept = $sct#162669003 "Patient's condition satisfactory"
+* valueCodeableConcept = $form111-general-condition-cs#chr-0016-00001 "Qoniqarli"
 * note.text = "Shishlar yo'q"
 
 Instance: observation-111-visit-weight
@@ -1885,17 +1879,14 @@ Usage: #inline
 * language = #uz
 * status = #final
 * category = $observation-category#vital-signs
-* code = $loinc#85354-9 "Blood pressure panel with all children optional"
+* code = $form111-general-obs-cs#chr-0035-00024 "Arterial qon bosimi"
 * code.text = "Arterial qon bosimi (o'ng qo'l)"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100079-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-01-15"
 * bodySite = $sct#368209003 "Right upper arm structure"
-* component[0].code = $loinc#8480-6 "Systolic blood pressure"
-* component[0].valueQuantity = 110 'mm[Hg]' "mmHg"
-* component[1].code = $loinc#8462-4 "Diastolic blood pressure"
-* component[1].valueQuantity = 65 'mm[Hg]' "mmHg"
+* valueString = "110/65 mm sim.ust."
 
 Instance: observation-111-visit-bp-left
 InstanceOf: UZCoreObservation
@@ -1903,17 +1894,14 @@ Usage: #inline
 * language = #uz
 * status = #final
 * category = $observation-category#vital-signs
-* code = $loinc#85354-9 "Blood pressure panel with all children optional"
+* code = $form111-general-obs-cs#chr-0035-00024 "Arterial qon bosimi"
 * code.text = "Arterial qon bosimi (chap qo'l)"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100079-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-01-15"
 * bodySite = $sct#368208006 "Left upper arm structure"
-* component[0].code = $loinc#8480-6 "Systolic blood pressure"
-* component[0].valueQuantity = 105 'mm[Hg]' "mmHg"
-* component[1].code = $loinc#8462-4 "Diastolic blood pressure"
-* component[1].valueQuantity = 65 'mm[Hg]' "mmHg"
+* valueString = "105/65 mm sim.ust."
 
 Instance: observation-111-visit-pulse
 InstanceOf: UZCoreObservation
@@ -1934,8 +1922,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #uz
 * status = #final
-* code = $sct#396552003 "Abdominal circumference"
-* code.text = "Homilador qorin aylanasi"
+* code = $form111-pregnancy-monitoring-cs#chr-0023-00001 "Homilador qorin aylanasi"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100079-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
@@ -1983,7 +1970,7 @@ Usage: #inline
 * effectiveDateTime = "2026-01-15"
 * valueQuantity = 142 '/min' "zarba/daqiqa"
 * component.code.text = "Eshitilish tomoni"
-* component.valueCodeableConcept = $sct#24028007 "Right"
+* component.valueCodeableConcept = $form111-fetal-heartbeat-side-cs#chr-0014-00002 "O'ngda"
 
 // form111113-boolean-vs
 Instance: observation-111-visit-fetal-movement
@@ -1997,7 +1984,7 @@ Usage: #inline
 * encounter = Reference(urn:uuid:11100079-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-01-15"
-* valueCodeableConcept = $form111-boolean-cs#chr-0031-00002 "Ha"
+* valueBoolean = true
 * note.text = "Faol, muntazam sezilmoqda"
 
 // form111-laboratory-observation-code-vs
@@ -2063,7 +2050,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #uz
 * status = #final
-* code = $form111-gynecological-examination-obs-cs#chr-0017-00002 "Patologik o'zgarishlar"
+* code = $form111-gynecological-examination-obs-cs#chr-0017-00003 "Patologik o'zgarishlar"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100079-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
@@ -2083,18 +2070,18 @@ Usage: #inline
 * period.start = "2026-01-15"
 * custodian = Reference(urn:uuid:11100004-1111-2222-3333-444444444444)
 
-// YANGI kod: chr-0035-00017 + form111113-boolean-vs
+// YANGI kod: chr-0035-00019 + form111113-boolean-vs
 Instance: observation-111-visit-hospitalization
 InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #uz
 * status = #final
-* code = $form111-general-obs-cs#chr-0035-00017 "Shifoxonaga yotqizildi"
+* code = $form111-general-obs-cs#chr-0035-00019 "Shifoxonaga yotqizildi"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100079-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-01-15"
-* valueCodeableConcept = $form111-boolean-cs#chr-0031-00001 "Yo'q"
+* valueBoolean = false
 
 // form111-vaccine-code-vs
 Instance: immunization-111-staphylococcal-toxoid
@@ -2136,20 +2123,18 @@ Usage: #inline
 * signature.sigFormat = #application/pdf
 * signature.data = "JVBERi0xLjQKMSAwIG9iago8PAovVHlwZSAvQ2F0YWxvZwo+PgplbmRvYmoKdHJhaWxlcgo8PAovUm9vdCAxIDAgUgo+PgolJUVPRg=="
 
-// 11. TUG'ISHGA TAYYORLASH — DMED da faqat ha/yo'q + haftalik soni saqlanadi
+// 11. Birth preparation: the source activity date is the result; gestational weeks are separate observations.
 Instance: observation-111-physical-preparation
 InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #uz
 * status = #final
-* code = $sct#183329005 "Antenatal exercises"
+* code = $form111-preparation-activity-cs#chr-0025-00002 "Tug'ruqqa jismoniy tayyorgarlik"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100003-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-02-12"
-* valueBoolean = true
-* component.code.text = "Haftasiga mashg'ulotlar soni"
-* component.valueInteger = 2
+* valueDateTime = "2026-02-12"
 
 Instance: observation-111-ga-physical-preparation
 InstanceOf: UZCoreObservation
@@ -2169,14 +2154,12 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #uz
 * status = #final
-* code = $sct#363695005 "Ultraviolet light therapy"
+* code = $form111-preparation-activity-cs#chr-0025-00004 "Ultrabinafsha nurlanish"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100003-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-02-19"
-* valueBoolean = true
-* component.code.text = "Haftasiga seanslar soni"
-* component.valueInteger = 1
+* valueDateTime = "2026-02-19"
 
 Instance: observation-111-ga-uv-irradiation
 InstanceOf: UZCoreObservation
@@ -2201,9 +2184,7 @@ Usage: #inline
 * encounter = Reference(urn:uuid:11100003-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-03-05"
-* valueBoolean = true
-* component.code.text = "Mashg'ulotlar soni"
-* component.valueInteger = 3
+* valueDateTime = "2026-03-05"
 
 Instance: observation-111-ga-mothers-school
 InstanceOf: UZCoreObservation
@@ -2223,14 +2204,12 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #uz
 * status = #final
-* code = $sct#408779007 "Psychoprophylaxis"
+* code = $form111-preparation-activity-cs#chr-0025-00003 "Psixoprofilaktik tayyorgarlik"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100003-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-03-19"
-* valueBoolean = true
-* component.code.text = "Haftasiga mashg'ulotlar soni"
-* component.valueInteger = 1
+* valueDateTime = "2026-03-19"
 
 Instance: observation-111-ga-psychoprophylactic
 InstanceOf: UZCoreObservation
@@ -2278,7 +2257,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #uz
 * status = #final
-* code = $loinc#8661-1 "Chief complaint - Reported"
+* code = $form111-assessment-obs-cs#chr-0005-00001 "Shikoyatlar"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100107-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
@@ -2290,7 +2269,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #uz
 * status = #final
-* code = $form111-assessment-obs-cs#chr-0005-00001 "Umumiy ahvoli"
+* code = $form111-assessment-obs-cs#chr-0005-00003 "Umumiy ahvoli"
 * code.text = "Umumiy holati (shishlar)"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100107-1111-2222-3333-444444444444)
@@ -2304,17 +2283,14 @@ Usage: #inline
 * language = #uz
 * status = #final
 * category = $observation-category#vital-signs
-* code = $loinc#85354-9 "Blood pressure panel with all children optional"
+* code = $form111-general-obs-cs#chr-0035-00024 "Arterial qon bosimi"
 * code.text = "Arterial qon bosimi (o'ng qo'l)"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100107-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-03-10"
 * bodySite = $sct#368209003 "Right upper arm structure"
-* component[0].code = $loinc#8480-6 "Systolic blood pressure"
-* component[0].valueQuantity = 115 'mm[Hg]' "mmHg"
-* component[1].code = $loinc#8462-4 "Diastolic blood pressure"
-* component[1].valueQuantity = 70 'mm[Hg]' "mmHg"
+* valueString = "115/70 mm sim.ust."
 
 Instance: observation-111-patronage-bp-left
 InstanceOf: UZCoreObservation
@@ -2322,17 +2298,14 @@ Usage: #inline
 * language = #uz
 * status = #final
 * category = $observation-category#vital-signs
-* code = $loinc#85354-9 "Blood pressure panel with all children optional"
+* code = $form111-general-obs-cs#chr-0035-00024 "Arterial qon bosimi"
 * code.text = "Arterial qon bosimi (chap qo'l)"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100107-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-03-10"
 * bodySite = $sct#368208006 "Left upper arm structure"
-* component[0].code = $loinc#8480-6 "Systolic blood pressure"
-* component[0].valueQuantity = 110 'mm[Hg]' "mmHg"
-* component[1].code = $loinc#8462-4 "Diastolic blood pressure"
-* component[1].valueQuantity = 70 'mm[Hg]' "mmHg"
+* valueString = "110/70 mm sim.ust."
 
 Instance: observation-111-patronage-fetal-position
 InstanceOf: UZCoreObservation
@@ -2360,7 +2333,7 @@ Usage: #inline
 * effectiveDateTime = "2026-03-10"
 * valueQuantity = 138 '/min' "zarba/daqiqa"
 * component.code.text = "Eshitilish tomoni"
-* component.valueCodeableConcept =  $sct#7771000 "Left"
+* component.valueCodeableConcept = $form111-fetal-heartbeat-side-cs#chr-0014-00001 "Chapda"
 
 Instance: careplan-111-patronage
 InstanceOf: CarePlan
@@ -2391,13 +2364,13 @@ Usage: #inline
 * signature.data = "JVBERi0xLjQKMSAwIG9iago8PAovVHlwZSAvQ2F0YWxvZwo+PgplbmRvYmoKdHJhaWxlcgo8PAovUm9vdCAxIDAgUgo+PgolJUVPRg=="
 
 // 13. AYLANMA KARTA VA BOSHQA HUJJATLARNI YOPISHTIRISH UCHUN VAROQ
-// YANGI kod: chr-0035-00015
+// YANGI kod: chr-0035-00017
 Instance: observation-111-prenatal-leave
 InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #uz
 * status = #final
-* code = $form111-general-obs-cs#chr-0035-00015 "Homiladorlik bo'yicha ta'til"
+* code = $form111-general-obs-cs#chr-0035-00017 "Homiladorlik bo'yicha ta'til"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100003-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
@@ -2416,13 +2389,13 @@ Usage: #inline
 * content.attachment.contentType = #application/pdf
 * content.attachment.title = "Homiladorlik bo'yicha mehnatga layoqatsizlik varog'i"
 
-// YANGI kod: chr-0035-00016
+// YANGI kod: chr-0035-00018
 Instance: observation-111-postpartum-leave
 InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #uz
 * status = #final
-* code = $form111-general-obs-cs#chr-0035-00016 "Tug'ruqdan keyingi ta'til"
+* code = $form111-general-obs-cs#chr-0035-00018 "Tug'ruqdan keyingi ta'til"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100003-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
@@ -2454,20 +2427,20 @@ Usage: #inline
 * encounter = Reference(urn:uuid:11100037-1111-2222-3333-444444444444)
 * occurrenceDateTime = "2026-05-24T05:40:00+05:00"              // Tug'ruq sanasi
 
-// YANGI kodlar: chr-0035-00013 (tug'ruq holati) va chr-0035-00019 (muddatdan farq)
+// YANGI kodlar: chr-0035-00015 (tug'ruq holati) va chr-0035-00021 (muddatdan farq)
 Instance: observation-111-delivery-term
 InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #uz
 * status = #final
-* code = $form111-general-obs-cs#chr-0035-00013 "Tug'ruq turi (muddati bo'yicha)"
+* code = $form111-general-obs-cs#chr-0035-00015 "Tug'ruq turi (muddati bo'yicha)"
 * code.text = "Tug'ruq holati"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100037-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-05-24"
 * valueCodeableConcept = $sct#21243004 "Term birth of newborn"  // Muddatida tug'ruq
-* component.code = $form111-general-obs-cs#chr-0035-00019 "Muddatdan farq (kun)"
+* component.code = $form111-general-obs-cs#chr-0035-00021 "Muddatdan farq (kun)"
 * component.valueQuantity = -3 'd' "kun"
 
 Instance: organization-111-maternity-hospital
@@ -2485,12 +2458,12 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #uz
 * status = #final
-* code = $form111-risk-factor-observation-cs#chr-0027-00003 "Ijtimoiy-biologik xavf omillari"
+* code = $form111-risk-factor-observation-cs#chr-0027-00004 "Ijtimoiy-biologik xavf omillari"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100003-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-01-15"
-* valueCodeableConcept = $sct#77176002 "Smoker"
+* valueCodeableConcept = $form111-socio-biological-factor-cs#chr-0028-00005 "Chekish, alkogolizm yoki giyohvandlik"
 * note.text = "Turmush o'rtog'i chekadi (passiv chekish)"
 
 // + form111-obstetric-history-factor-vs
@@ -2504,7 +2477,7 @@ Usage: #inline
 * encounter = Reference(urn:uuid:11100003-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-01-15"
-* valueCodeableConcept = $form111-obstetric-history-factor-cs#chr-0019-00006 "Homiladorlikni yo'qotish"
+* valueCodeableConcept = $form111-obstetric-history-factor-cs#chr-0019-00010 "Homiladorlikni yo'qotish"
 
 // + form111-extragenital-disease-factor-vs
 Instance: observation-111-risk-extragenital
@@ -2517,7 +2490,7 @@ Usage: #inline
 * encounter = Reference(urn:uuid:11100003-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-01-15"
-* valueCodeableConcept = $sct#414022008 "Disorder of cellular component of blood"
+* valueCodeableConcept = $form111-extragenital-disease-factor-cs#chr-0012-00003 "Qon kasalliklari"
 
 // + form111-pregnancy-complication-factor-vs
 Instance: observation-111-risk-pregnancy-complications
@@ -2525,7 +2498,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #uz
 * status = #final
-* code = $loinc#92016-5 "Maternal pregnancy risk factors Document"
+* code = $form111-risk-factor-observation-cs#chr-0027-00003 "Homiladorlik asoratlari xavf omillari"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100003-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
@@ -2550,7 +2523,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #uz
 * status = #final
-* code = $form111-risk-factor-observation-cs#chr-0027-00005 "Perinatal xavf ballari yig'indisi"
+* code = $form111-risk-factor-observation-cs#chr-0027-00006 "Perinatal xavf ballari yig'indisi"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100003-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
@@ -2563,7 +2536,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #uz
 * status = #final
-* code = $form111-risk-factor-observation-cs#chr-0027-00004 "Perinatal xavf darajasi"
+* code = $form111-risk-factor-observation-cs#chr-0027-00005 "Perinatal xavf darajasi"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100003-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
@@ -2577,7 +2550,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #uz
 * status = #final
-* code = $loinc#11488-4 "Consult note"
+* code = $form111-assessment-obs-cs#chr-0005-00005 "Mutaxassis xulosasi"
 * code.text = "Terapevt xulosasi"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100003-1111-2222-3333-444444444444)
@@ -2590,7 +2563,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #uz
 * status = #final
-* code = $loinc#11488-4 "Consult note"
+* code = $form111-assessment-obs-cs#chr-0005-00005 "Mutaxassis xulosasi"
 * code.text = "Stomatolog xulosasi"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100003-1111-2222-3333-444444444444)
@@ -2603,7 +2576,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #uz
 * status = #final
-* code = $loinc#11488-4 "Consult note"
+* code = $form111-assessment-obs-cs#chr-0005-00005 "Mutaxassis xulosasi"
 * code.text = "Venerolog xulosasi"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100003-1111-2222-3333-444444444444)
@@ -2616,7 +2589,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #uz
 * status = #final
-* code = $form111-assessment-obs-cs#chr-0005-00003 "Homiladorlikning kechishi va patronaj kuzatuv ma'lumotlari"
+* code = $form111-assessment-obs-cs#chr-0005-00008 "Homiladorlikning kechishi va patronaj kuzatuv ma'lumotlari"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100003-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
@@ -2654,7 +2627,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #uz
 * status = #final
-* code = $loinc#8661-1 "Chief complaint - Reported"
+* code = $form111-assessment-obs-cs#chr-0005-00001 "Shikoyatlar"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100135-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100009-1111-2222-3333-444444444444)
@@ -2704,7 +2677,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #uz
 * status = #final
-* code = $loinc#8661-1 "Chief complaint - Reported"
+* code = $form111-assessment-obs-cs#chr-0005-00001 "Shikoyatlar"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100139-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100009-1111-2222-3333-444444444444)

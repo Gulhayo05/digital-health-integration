@@ -1,22 +1,17 @@
 CodeSystem: Form111_GeneralConditionCS
 Id: form111-general-condition-cs
 Title: "Form 111 General Condition CodeSystem"
-Description: "SNOMED CT supplement containing Uzbek and Russian designations for general condition codes used in Form 111."
+Description: "Form 111 General Condition CodeSystem for clinical documents and other knowledge resources in Uzbekistan integrations. Based on Ministry of Health Order 399."
+* insert OriginalCodeSystemDraft(form111-general-condition-cs)
 
-* insert SupplementCodeSystemDraft(
-    form111-general-condition-cs,
-    $sct,
-    2026.1.0
-)
-
-* #162669003 "Patient's condition satisfactory"
-  * ^designation[0].language = #uz
-  * ^designation[=].value = "Qoniqarli"
+* #chr-0016-00001 "Qoniqarli"
+  * ^designation[0].language = #en
+  * ^designation[=].value = "Satisfactory"
   * ^designation[+].language = #ru
   * ^designation[=].value = "Удовлетворительное"
 
-* #162667001 "Patient's condition poor"
-  * ^designation[0].language = #uz
-  * ^designation[=].value = "Qoniqarsiz"
+* #chr-0016-00002 "Qoniqarsiz"
+  * ^designation[0].language = #en
+  * ^designation[=].value = "Unsatisfactory"
   * ^designation[+].language = #ru
   * ^designation[=].value = "Неудовлетворительное"

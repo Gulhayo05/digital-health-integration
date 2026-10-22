@@ -1,266 +1,256 @@
 Instance: dmed-form-111-contraception-type-cm
 InstanceOf: ConceptMap
 Usage: #definition
-Title: "DMED Form 111 Contraception Type"
+Title: "DMED Form 111 contraception_type mapping"
 Description: "DMED contraception_type to FHIR terminology. Only explicit listed mappings apply; absence is not an inferred negative answer."
-* name = "DMEDForm111ContraceptionTypeCM"
 * url = "https://terminology.dhp.uz/fhir/integrations/ConceptMap/dmed-form-111-contraception-type-cm"
+* name = "DMEDForm111ContraceptionTypeCM"
 * status = #draft
 * experimental = false
 * publisher = "Uzinfocom"
-
-// Group 1: DMEDForm111ContraceptionTypeCS to Form111ContraceptionTypeCS
 * group[+].source = "https://terminology.dhp.uz/fhir/integrations/CodeSystem/dmed-form-111-contraception-type-cs"
 * group[=].target = "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-contraception-type-cs"
-
 * group[=].element[+].code = #"surgical"
 * group[=].element[=].display = "Хирургическая"
 * group[=].element[=].target[+].code = #"chr-0008-00003"
 * group[=].element[=].target[=].display = "Jarrohlik kontratseptsiyasi"
 * group[=].element[=].target[=].relationship = #equivalent
-
+* group[=].element[=].target[=].comment = "Точное соответствие подтверждённому коду ValueSet."
 * group[=].element[+].code = #"non_surgical"
 * group[=].element[=].display = "Нехирургическая"
 * group[=].element[=].target[+].code = #"chr-0008-00001"
 * group[=].element[=].target[=].display = "Jarrohliksiz kontratseptsiya"
 * group[=].element[=].target[=].relationship = #equivalent
-
-// Group 2: DMEDForm111ContraceptionTypeCS to SNOMED CT
-* group[+].source = "https://terminology.dhp.uz/fhir/integrations/CodeSystem/dmed-form-111-contraception-type-cs"
-* group[=].target = $sct
-
+* group[=].element[=].target[=].comment = "Точное соответствие подтверждённому коду ValueSet."
 * group[=].element[+].code = #"none"
 * group[=].element[=].display = "Не пользуется контрацепцией"
-* group[=].element[=].target[+].code = #373068000
-* group[=].element[=].target[=].display = "No contraception"
+* group[=].element[=].target[+].code = #"chr-0008-00002"
+* group[=].element[=].target[=].display = "Qo'llanilmagan"
 * group[=].element[=].target[=].relationship = #equivalent
+* group[=].element[=].target[=].comment = "Точное соответствие подтверждённому коду ValueSet."
 
 Instance: dmed-form-111-contraception-details-cm
 InstanceOf: ConceptMap
 Usage: #definition
-Title: "DMED Form 111 Contraception Details"
+Title: "DMED Form 111 contraception_details mapping"
 Description: "DMED contraception_details to FHIR terminology. Only explicit listed mappings apply; absence is not an inferred negative answer."
-* name = "DMEDForm111ContraceptionDetailsCM"
 * url = "https://terminology.dhp.uz/fhir/integrations/ConceptMap/dmed-form-111-contraception-details-cm"
+* name = "DMEDForm111ContraceptionDetailsCM"
 * status = #draft
 * experimental = false
 * publisher = "Uzinfocom"
-
-// Group 1: DMEDForm111ContraceptionDetailsCS to Form111_ContraceptionDetailsCS
 * group[+].source = "https://terminology.dhp.uz/fhir/integrations/CodeSystem/dmed-form-111-contraception-details-cs"
-* group[=].target = $sct
-
-
+* group[=].target = "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-contraception-details-cs"
 * group[=].element[+].code = #"female_sterilization"
 * group[=].element[=].display = "Женская стерилизация"
-* group[=].element[=].target[+].code = #60890002
+* group[=].element[=].target[+].code = #"chr-0006-00004"
 * group[=].element[=].target[=].display = "Female sterilization"
 * group[=].element[=].target[=].relationship = #equivalent
-
+* group[=].element[=].target[=].comment = "Точное соответствие DMED token нормализованному терминологическому коду."
 * group[=].element[+].code = #"vasectomy"
 * group[=].element[=].display = "Вазэктомия"
-* group[=].element[=].target[+].code = #22523008
+* group[=].element[=].target[+].code = #"chr-0006-00008"
 * group[=].element[=].target[=].display = "Vasectomy"
 * group[=].element[=].target[=].relationship = #equivalent
-
+* group[=].element[=].target[=].comment = "Точное соответствие DMED token нормализованному терминологическому коду."
 * group[=].element[+].code = #"natural"
 * group[=].element[=].display = "Естественная"
-* group[=].element[=].target[+].code = #718701005
-* group[=].element[=].target[=].display = "Natural family planning method"
+* group[=].element[=].target[+].code = #"chr-0006-00007"
+* group[=].element[=].target[=].display = "Natural"
 * group[=].element[=].target[=].relationship = #equivalent
-
+* group[=].element[=].target[=].comment = "Точное соответствие подтверждённому коду ValueSet."
 * group[=].element[+].code = #"barrier"
 * group[=].element[=].display = "Барьерная"
-* group[=].element[=].target[+].code = #225370004
-* group[=].element[=].target[=].display = "Uses barrier contraception method"
+* group[=].element[=].target[+].code = #"chr-0006-00001"
+* group[=].element[=].target[=].display = "Barrier"
 * group[=].element[=].target[=].relationship = #equivalent
-
+* group[=].element[=].target[=].comment = "Точное соответствие подтверждённому коду ValueSet."
 * group[=].element[+].code = #"chemical"
 * group[=].element[=].display = "Химическая"
-* group[=].element[=].target[+].code = #268466006
-* group[=].element[=].target[=].display = "Uses spermicidal contraception"
+* group[=].element[=].target[+].code = #"chr-0006-00002"
+* group[=].element[=].target[=].display = "Chemical"
 * group[=].element[=].target[=].relationship = #equivalent
-
+* group[=].element[=].target[=].comment = "Точное соответствие подтверждённому коду ValueSet."
 * group[=].element[+].code = #"intrauterine"
 * group[=].element[=].display = "Внутриматочная"
-* group[=].element[=].target[+].code = #312081001
-* group[=].element[=].target[=].display = "Uses IUD (intrauterine device) contraception"
+* group[=].element[=].target[+].code = #"chr-0006-00006"
+* group[=].element[=].target[=].display = "Intrauterine"
 * group[=].element[=].target[=].relationship = #equivalent
-
+* group[=].element[=].target[=].comment = "Точное соответствие подтверждённому коду ValueSet."
 * group[=].element[+].code = #"hormonal"
 * group[=].element[=].display = "Гормональная"
-* group[=].element[=].target[+].code = #1237404009
-* group[=].element[=].target[=].display = "Uses hormonal contraception"
+* group[=].element[=].target[+].code = #"chr-0006-00005"
+* group[=].element[=].target[=].display = "Hormonal"
 * group[=].element[=].target[=].relationship = #equivalent
-
+* group[=].element[=].target[=].comment = "Точное соответствие подтверждённому коду ValueSet."
 * group[=].element[+].code = #"emergency"
 * group[=].element[=].display = "Экстренная"
-* group[=].element[=].target[+].code = #268463003
-* group[=].element[=].target[=].display = "Uses postcoital contraception"
+* group[=].element[=].target[+].code = #"chr-0006-00003"
+* group[=].element[=].target[=].display = "Emergency"
 * group[=].element[=].target[=].relationship = #equivalent
+* group[=].element[=].target[=].comment = "Точное соответствие подтверждённому коду ValueSet."
 
 Instance: dmed-form-111-patient-bad-habits-cm
 InstanceOf: ConceptMap
 Usage: #definition
-Title: "DMED Form 111 Patient Bad Habits"
+Title: "DMED Form 111 patient_bad_habits mapping"
 Description: "DMED patient_bad_habits to FHIR terminology. Only explicit listed mappings apply; absence is not an inferred negative answer."
-* name = "DMEDForm111PatientBadHabitsCM"
 * url = "https://terminology.dhp.uz/fhir/integrations/ConceptMap/dmed-form-111-patient-bad-habits-cm"
+* name = "DMEDForm111PatientBadHabitsCM"
 * status = #draft
 * experimental = false
 * publisher = "Uzinfocom"
-
-// Group 1: DMEDForm111PatientBadHabitsCS to Form111_PatientBadHabitCS
 * group[+].source = "https://terminology.dhp.uz/fhir/integrations/CodeSystem/dmed-form-111-patient-bad-habits-cs"
-* group[=].target = Canonical(Form111_PatientBadHabitCS)
-
-* group[=].element[+].code = #"criminal_dependency"
-* group[=].element[=].display = "Зависимость от уголовной преступности"
-* group[=].element[=].target[+].code = #chr-0020-00001
-* group[=].element[=].target[=].display = "Jinoiy xulq-atvorga qaramlik"
-* group[=].element[=].target[=].relationship = #equivalent
-
-* group[=].element[+].code = #"internet_addiction"
-* group[=].element[=].display = "Интернет-зависимость"
-* group[=].element[=].target[+].code = #chr-0020-00002
-* group[=].element[=].target[=].display = "Internetga qaramlik"
-* group[=].element[=].target[=].relationship = #equivalent
-
-* group[=].element[+].code = #"uncontrolled_self_medication"
-* group[=].element[=].display = "Бесконтрольное самолечение"
-* group[=].element[=].target[+].code = #chr-0020-00003
-* group[=].element[=].target[=].display = "Nazoratsiz o'zini davolash"
-* group[=].element[=].target[=].relationship = #equivalent
-
-// Group 2: DMEDForm111PatientBadHabitsCS to SNOMED CT
-* group[+].source = "https://terminology.dhp.uz/fhir/integrations/CodeSystem/dmed-form-111-patient-bad-habits-cs"
-* group[=].target = $sct
-
-* group[=].element[+].code = #"alcoholism"
-* group[=].element[=].display = "Алкоголизм"
-* group[=].element[=].target[+].code = #66590003
-* group[=].element[=].target[=].display = "Alcohol dependence"
-* group[=].element[=].target[=].relationship = #equivalent
-
+* group[=].target = "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-patient-bad-habit-cs"
 * group[=].element[+].code = #"drug_addiction"
 * group[=].element[=].display = "Наркомания"
-* group[=].element[=].target[+].code = #1254812006
-* group[=].element[=].target[=].display = "Substance dependence"
+* group[=].element[=].target[+].code = #"chr-0020-00003"
+* group[=].element[=].target[=].display = "Giyohvandlik"
 * group[=].element[=].target[=].relationship = #equivalent
-
-* group[=].element[+].code = #"gambling_addiction"
-* group[=].element[=].display = "Игромания"
-* group[=].element[=].target[+].code = #18085000
-* group[=].element[=].target[=].display = "Compulsive gambling"
+* group[=].element[=].target[=].comment = "Точное соответствие подтверждённому коду ValueSet."
+* group[=].element[+].code = #"alcoholism"
+* group[=].element[=].display = "Алкоголизм"
+* group[=].element[=].target[+].code = #"chr-0020-00001"
+* group[=].element[=].target[=].display = "Alkogolizm"
 * group[=].element[=].target[=].relationship = #equivalent
-
+* group[=].element[=].target[=].comment = "Точное соответствие подтверждённому коду ValueSet."
 * group[=].element[+].code = #"poor_diet"
 * group[=].element[=].display = "Неправильное питание"
-* group[=].element[=].target[+].code = #310502008
-* group[=].element[=].target[=].display = "Diet poor"
+* group[=].element[=].target[+].code = #"chr-0020-00006"
+* group[=].element[=].target[=].display = "Noto'g'ri ovqatlanish"
 * group[=].element[=].target[=].relationship = #equivalent
-
-* group[=].element[+].code = #"promiscuous_sexual_life"
-* group[=].element[=].display = "Беспорядочная половая жизнь"
-* group[=].element[=].target[+].code = #44276009
-* group[=].element[=].target[=].display = "Habitual promiscuity"
-* group[=].element[=].target[=].relationship = #equivalent
-
+* group[=].element[=].target[=].comment = "Точное соответствие подтверждённому коду ValueSet."
 * group[=].element[+].code = #"sedentary_lifestyle"
 * group[=].element[=].display = "Пассивный образ жизни"
-* group[=].element[=].target[+].code = #415510005
-* group[=].element[=].target[=].display = "Sedentary lifestyle"
+* group[=].element[=].target[+].code = #"chr-0020-00008"
+* group[=].element[=].target[=].display = "Kamharakat turmush tarzi"
 * group[=].element[=].target[=].relationship = #equivalent
+* group[=].element[=].target[=].comment = "Точное соответствие подтверждённому коду ValueSet."
+* group[=].element[+].code = #"gambling_addiction"
+* group[=].element[=].display = "Игромания"
+* group[=].element[=].target[+].code = #"chr-0020-00004"
+* group[=].element[=].target[=].display = "Qimorbozlik"
+* group[=].element[=].target[=].relationship = #equivalent
+* group[=].element[=].target[=].comment = "Точное соответствие подтверждённому коду ValueSet."
+* group[=].element[+].code = #"internet_addiction"
+* group[=].element[=].display = "Интернет-зависимость"
+* group[=].element[=].target[+].code = #"chr-0020-00005"
+* group[=].element[=].target[=].display = "Internetga qaramlik"
+* group[=].element[=].target[=].relationship = #equivalent
+* group[=].element[=].target[=].comment = "Точное соответствие подтверждённому коду ValueSet."
+* group[=].element[+].code = #"uncontrolled_self_medication"
+* group[=].element[=].display = "Бесконтрольное самолечение"
+* group[=].element[=].target[+].code = #"chr-0020-00010"
+* group[=].element[=].target[=].display = "Nazoratsiz o'zini davolash"
+* group[=].element[=].target[=].relationship = #equivalent
+* group[=].element[=].target[=].comment = "Точное соответствие подтверждённому коду ValueSet."
+* group[=].element[+].code = #"promiscuous_sexual_life"
+* group[=].element[=].display = "Беспорядочная половая жизнь"
+* group[=].element[=].target[+].code = #"chr-0020-00007"
+* group[=].element[=].target[=].display = "Tartibsiz jinsiy hayot"
+* group[=].element[=].target[=].relationship = #equivalent
+* group[=].element[=].target[=].comment = "Точное соответствие подтверждённому коду ValueSet."
+* group[=].element[+].code = #"criminal_dependency"
+* group[=].element[=].display = "Зависимость от уголовной преступности"
+* group[=].element[=].target[+].code = #"chr-0020-00002"
+* group[=].element[=].target[=].display = "Jinoiy xulq-atvorga qaramlik"
+* group[=].element[=].target[=].relationship = #equivalent
+* group[=].element[=].target[=].comment = "Точное соответствие подтверждённому коду ValueSet."
 
+// Standard target; existing local concept identifiers remain unchanged for compatibility.
+* group[+].source = "https://terminology.dhp.uz/fhir/integrations/CodeSystem/dmed-form-111-patient-bad-habits-cs"
+* group[=].target = "http://snomed.info/sct"
 * group[=].element[+].code = #"smoking"
 * group[=].element[=].display = "Курение"
-* group[=].element[=].target[+].code = #77176002
+* group[=].element[=].target[+].code = #"77176002"
 * group[=].element[=].target[=].display = "Smoker"
 * group[=].element[=].target[=].relationship = #equivalent
+* group[=].element[=].target[=].comment = "Only the explicit source token supports this standard concept; do not apply it to a combined or free-text answer."
 
 Instance: dmed-form-111-breast-condition-cm
 InstanceOf: ConceptMap
 Usage: #definition
-Title: "DMED Form 111 Breast Condition"
+Title: "DMED Form 111 breast_condition mapping"
 Description: "DMED breast_condition to FHIR terminology. Only explicit listed mappings apply; absence is not an inferred negative answer."
-* name = "DMEDForm111BreastConditionCM"
 * url = "https://terminology.dhp.uz/fhir/integrations/ConceptMap/dmed-form-111-breast-condition-cm"
+* name = "DMEDForm111BreastConditionCM"
 * status = #draft
 * experimental = false
 * publisher = "Uzinfocom"
-
 * group[+].source = "https://terminology.dhp.uz/fhir/integrations/CodeSystem/dmed-form-111-breast-condition-cs"
-* group[=].target = $sct
-
+* group[=].target = "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-breast-condition-cs"
 * group[=].element[+].code = #"no_pathology"
 * group[=].element[=].display = "Без патологий"
-* group[=].element[=].target[+].code = #17621005
-* group[=].element[=].target[=].display = "Normal"
+* group[=].element[=].target[+].code = #"chr-0004-00001"
+* group[=].element[=].target[=].display = "Patologiya yo'q"
 * group[=].element[=].target[=].relationship = #equivalent
-
+* group[=].element[=].target[=].comment = "Точное соответствие подтверждённому коду ValueSet."
 * group[=].element[+].code = #"pathology_present"
 * group[=].element[=].display = "Патологии присутствуют"
-* group[=].element[=].target[+].code = #263654008
-* group[=].element[=].target[=].display = "Abnormal"
+* group[=].element[=].target[+].code = #"chr-0004-00002"
+* group[=].element[=].target[=].display = "Patologiya mavjud"
 * group[=].element[=].target[=].relationship = #equivalent
+* group[=].element[=].target[=].comment = "Точное соответствие подтверждённому коду ValueSet."
 
 Instance: dmed-form-111-vascular-system-status-cm
 InstanceOf: ConceptMap
 Usage: #definition
-Title: "DMED Form 111 Vascular System Status"
+Title: "DMED Form 111 vascular_system_status mapping"
 Description: "DMED vascular_system_status to FHIR terminology. Only explicit listed mappings apply; absence is not an inferred negative answer."
-* name = "DMEDForm111VascularSystemStatusCM"
 * url = "https://terminology.dhp.uz/fhir/integrations/ConceptMap/dmed-form-111-vascular-system-status-cm"
+* name = "DMEDForm111VascularSystemStatusCM"
 * status = #draft
 * experimental = false
 * publisher = "Uzinfocom"
-
 * group[+].source = "https://terminology.dhp.uz/fhir/integrations/CodeSystem/dmed-form-111-vascular-system-status-cs"
-* group[=].target = $sct
-
+* group[=].target = "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-examination-status-cs"
 * group[=].element[+].code = #"normal"
 * group[=].element[=].display = "Норма"
-* group[=].element[=].target[+].code = #17621005
-* group[=].element[=].target[=].display = "Normal"
+* group[=].element[=].target[+].code = #"chr-0011-00001"
+* group[=].element[=].target[=].display = "Me'yor"
 * group[=].element[=].target[=].relationship = #equivalent
-
+* group[=].element[=].target[=].comment = "Точное соответствие подтверждённому коду ValueSet."
 * group[=].element[+].code = #"pathology"
 * group[=].element[=].display = "Патология"
-* group[=].element[=].target[+].code = #263654008
-* group[=].element[=].target[=].display = "Abnormal"
+* group[=].element[=].target[+].code = #"chr-0011-00002"
+* group[=].element[=].target[=].display = "Patologiya"
 * group[=].element[=].target[=].relationship = #equivalent
+* group[=].element[=].target[=].comment = "Точное соответствие подтверждённому коду ValueSet."
 
 Instance: dmed-form-111-fetal-presentation-cm
 InstanceOf: ConceptMap
 Usage: #definition
-Title: "DMED Form 111 Fetal Presentation"
+Title: "DMED Form 111 fetal_presentation mapping"
 Description: "DMED fetal_presentation to FHIR terminology. Only explicit listed mappings apply; absence is not an inferred negative answer."
-* name = "DMEDForm111FetalPresentationCM"
 * url = "https://terminology.dhp.uz/fhir/integrations/ConceptMap/dmed-form-111-fetal-presentation-cm"
+* name = "DMEDForm111FetalPresentationCM"
 * status = #draft
 * experimental = false
 * publisher = "Uzinfocom"
-
 * group[+].source = "https://terminology.dhp.uz/fhir/integrations/CodeSystem/dmed-form-111-fetal-presentation-cs"
-* group[=].target = $sct
-
-* group[=].element[+].code = #"cephalic"
-* group[=].element[=].display = "Головное"
-* group[=].element[=].target[+].code = #1209182005
-* group[=].element[=].target[=].display = "Cephalic fetal presentation"
-* group[=].element[=].target[=].relationship = #equivalent
-
+* group[=].target = "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-fetal-presentation-cs"
 * group[=].element[+].code = #"breech"
 * group[=].element[=].display = "Ягодичное"
-* group[=].element[=].target[+].code = #6096002
-* group[=].element[=].target[=].display = "Breech presentation"
+* group[=].element[=].target[+].code = #"chr-0015-00001"
+* group[=].element[=].target[=].display = "Chanoq bilan kelish"
 * group[=].element[=].target[=].relationship = #equivalent
-
+* group[=].element[=].target[=].comment = "Точное соответствие подтверждённому коду ValueSet."
 * group[=].element[+].code = #"undetermined"
 * group[=].element[=].display = "Не определено"
-* group[=].element[=].target[+].code = #373068000
-* group[=].element[=].target[=].display = "Undetermined"
+* group[=].element[=].target[+].code = #"chr-0015-00003"
+* group[=].element[=].target[=].display = "Aniqlanmagan"
 * group[=].element[=].target[=].relationship = #equivalent
+* group[=].element[=].target[=].comment = "Точное соответствие подтверждённому коду ValueSet."
+
+// Standard target; existing local concept identifiers remain unchanged for compatibility.
+* group[+].source = "https://terminology.dhp.uz/fhir/integrations/CodeSystem/dmed-form-111-fetal-presentation-cs"
+* group[=].target = "http://snomed.info/sct"
+* group[=].element[+].code = #"cephalic"
+* group[=].element[=].display = "Головное"
+* group[=].element[=].target[+].code = #"1209182005"
+* group[=].element[=].target[=].display = "Cephalic fetal presentation"
+* group[=].element[=].target[=].relationship = #equivalent
+* group[=].element[=].target[=].comment = "Only the explicit source token supports this standard concept; do not apply it to a combined or free-text answer."
 
 Instance: dmed-form-111-gynecological-examination-status-cm
 InstanceOf: ConceptMap
@@ -273,45 +263,44 @@ Description: "DMED gynecological-examination-status to FHIR terminology. Only ex
 * experimental = false
 * publisher = "Uzinfocom"
 * group[+].source = "https://terminology.dhp.uz/fhir/integrations/CodeSystem/dmed-form-111-gynecological-examination-status-cs"
-* group[=].target = $sct
-
+* group[=].target = "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-examination-status-cs"
 * group[=].element[+].code = #"normal"
 * group[=].element[=].display = "Норма"
-* group[=].element[=].target[+].code = #17621005
-* group[=].element[=].target[=].display = "Normal"
+* group[=].element[=].target[+].code = #"chr-0011-00001"
+* group[=].element[=].target[=].display = "Me'yor"
 * group[=].element[=].target[=].relationship = #equivalent
-
+* group[=].element[=].target[=].comment = "Точное соответствие подтверждённому коду ValueSet."
 * group[=].element[+].code = #"pathology"
 * group[=].element[=].display = "Патология"
-* group[=].element[=].target[+].code = #263654008
-* group[=].element[=].target[=].display = "Abnormal"
+* group[=].element[=].target[+].code = #"chr-0011-00002"
+* group[=].element[=].target[=].display = "Patologiya"
 * group[=].element[=].target[=].relationship = #equivalent
+* group[=].element[=].target[=].comment = "Точное соответствие подтверждённому коду ValueSet."
 
 Instance: dmed-form-111-special-characteristics-cm
 InstanceOf: ConceptMap
 Usage: #definition
-Title: "DMED Form 111 Special Characteristics"
+Title: "DMED Form 111 special_characteristics mapping"
 Description: "DMED special_characteristics to FHIR terminology. Only explicit listed mappings apply; absence is not an inferred negative answer."
-* name = "DMEDForm111SpecialCharacteristicsCM"
 * url = "https://terminology.dhp.uz/fhir/integrations/ConceptMap/dmed-form-111-special-characteristics-cm"
+* name = "DMEDForm111SpecialCharacteristicsCM"
 * status = #draft
 * experimental = false
 * publisher = "Uzinfocom"
-
 * group[+].source = "https://terminology.dhp.uz/fhir/integrations/CodeSystem/dmed-form-111-special-characteristics-cs"
-* group[=].target = $sct
-
+* group[=].target = "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-examination-status-cs"
 * group[=].element[+].code = #"false"
 * group[=].element[=].display = "Норма"
-* group[=].element[=].target[+].code = #17621005
-* group[=].element[=].target[=].display = "Normal"
+* group[=].element[=].target[+].code = #"chr-0011-00001"
+* group[=].element[=].target[=].display = "Me'yor"
 * group[=].element[=].target[=].relationship = #equivalent
-
+* group[=].element[=].target[=].comment = "Точное соответствие подтверждённому коду ValueSet."
 * group[=].element[+].code = #"true"
 * group[=].element[=].display = "Патология"
-* group[=].element[=].target[+].code = #263654008
-* group[=].element[=].target[=].display = "Abnormal"
+* group[=].element[=].target[+].code = #"chr-0011-00002"
+* group[=].element[=].target[=].display = "Patologiya"
 * group[=].element[=].target[=].relationship = #equivalent
+* group[=].element[=].target[=].comment = "Точное соответствие подтверждённому коду ValueSet."
 
 Instance: dmed-form-111-pregnancy-progress-boolean-cm
 InstanceOf: ConceptMap
@@ -341,28 +330,27 @@ Description: "DMED pregnancy-progress-boolean to FHIR terminology. Only explicit
 Instance: dmed-form-111-general-condition-cm
 InstanceOf: ConceptMap
 Usage: #definition
-Title: "DMED Form 111 General Condition"
+Title: "DMED Form 111 general_condition mapping"
 Description: "DMED general_condition to FHIR terminology. Only explicit listed mappings apply; absence is not an inferred negative answer."
-* name = "DMEDForm111GeneralConditionCM"
 * url = "https://terminology.dhp.uz/fhir/integrations/ConceptMap/dmed-form-111-general-condition-cm"
+* name = "DMEDForm111GeneralConditionCM"
 * status = #draft
 * experimental = false
 * publisher = "Uzinfocom"
-
 * group[+].source = "https://terminology.dhp.uz/fhir/integrations/CodeSystem/dmed-form-111-general-condition-cs"
-* group[=].target = $sct
-
+* group[=].target = "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-general-condition-cs"
 * group[=].element[+].code = #"satisfactory"
 * group[=].element[=].display = "Удовлетворительное"
-* group[=].element[=].target[+].code = #162669003
-* group[=].element[=].target[=].display = "Patient's condition satisfactory"
+* group[=].element[=].target[+].code = #"chr-0016-00001"
+* group[=].element[=].target[=].display = "Qoniqarli"
 * group[=].element[=].target[=].relationship = #equivalent
-
+* group[=].element[=].target[=].comment = "Точное соответствие подтверждённому коду ValueSet."
 * group[=].element[+].code = #"unsatisfactory"
 * group[=].element[=].display = "Неудовлетворительное"
-* group[=].element[=].target[+].code = #162667001
-* group[=].element[=].target[=].display = "Patient's condition poor"
+* group[=].element[=].target[+].code = #"chr-0016-00002"
+* group[=].element[=].target[=].display = "Qoniqarsiz"
 * group[=].element[=].target[=].relationship = #equivalent
+* group[=].element[=].target[=].comment = "Точное соответствие подтверждённому коду ValueSet."
 
 Instance: dmed-form-111-risk-level-cm
 InstanceOf: ConceptMap
@@ -447,263 +435,273 @@ Description: "DMED socio_biological_factors to FHIR terminology. Only explicit l
 Instance: dmed-form-111-obstetric-gynecological-history-cm
 InstanceOf: ConceptMap
 Usage: #definition
-Title: "DMED Form 111 Obstetric Gynecological History"
+Title: "DMED Form 111 obstetric_gynecological_history mapping"
 Description: "DMED obstetric_gynecological_history to FHIR terminology. Only explicit listed mappings apply; absence is not an inferred negative answer."
-* name = "DMEDForm111ObstetricGynecologicalHistoryCM"
 * url = "https://terminology.dhp.uz/fhir/integrations/ConceptMap/dmed-form-111-obstetric-gynecological-history-cm"
+* name = "DMEDForm111ObstetricGynecologicalHistoryCM"
 * status = #draft
 * experimental = false
 * publisher = "Uzinfocom"
-
-// Group 1: DMEDForm111ObstetricGynecologicalHistoryCS to Form111_ObstetricHistoryFactorCS
 * group[+].source = "https://terminology.dhp.uz/fhir/integrations/CodeSystem/dmed-form-111-obstetric-gynecological-history-cs"
-* group[=].target = Canonical(Form111_ObstetricHistoryFactorCS)
-
+* group[=].target = "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-obstetric-history-factor-cs"
 * group[=].element[+].code = #"number_of_births_4_or_more"
 * group[=].element[=].display = "Число родов 4 и более"
-* group[=].element[=].target[+].code = #chr-0019-00004
+* group[=].element[=].target[+].code = #"chr-0019-00005"
 * group[=].element[=].target[=].display = "To'rt va undan ortiq tug'ruq"
 * group[=].element[=].target[=].relationship = #equivalent
-
+* group[=].element[=].target[=].comment = "Точное соответствие подтверждённому коду ValueSet."
 * group[=].element[+].code = #"multiple_or_complicated_abortions"
 * group[=].element[=].display = "Неоднократные или осложненные аборты"
-* group[=].element[=].target[+].code = #chr-0019-00005
+* group[=].element[=].target[+].code = #"chr-0019-00007"
 * group[=].element[=].target[=].display = "Ko'p yoki asoratlangan abortlar"
 * group[=].element[=].target[=].relationship = #equivalent
-
+* group[=].element[=].target[=].comment = "Точное соответствие подтверждённому коду ValueSet."
 * group[=].element[+].code = #"surgical_interventions_on_uterus_or_appendages"
 * group[=].element[=].display = "Оперативные вмешательства на матке или придатках"
-* group[=].element[=].target[+].code = #chr-0019-00007
+* group[=].element[=].target[+].code = #"chr-0019-00013"
 * group[=].element[=].target[=].display = "Bachadon yoki qo'shimchalarda operatsiya"
 * group[=].element[=].target[=].relationship = #equivalent
-
-// Group 2: DMEDForm111ObstetricGynecologicalHistoryCS to SNOMED CT
-* group[+].source = "https://terminology.dhp.uz/fhir/integrations/CodeSystem/dmed-form-111-obstetric-gynecological-history-cs"
-* group[=].target = $sct
-
-* group[=].element[+].code = #"bacterial_viral_gynecological_diseases"
-* group[=].element[=].display = "Бактериально-вирусные гинекологические заболевания (генитальный герпес, хламидиоз, цитомегаловирус, сифилис, гонорея и др.)"
-* group[=].element[=].target[+].code = #40733004
-* group[=].element[=].target[=].display = "Infectious disease"
-* group[=].element[=].target[=].relationship = #source-is-narrower-than-target
-
-* group[=].element[+].code = #"infertility"
-* group[=].element[=].display = "Бесплодие"
-* group[=].element[=].target[+].code = #8619003
-* group[=].element[=].target[=].display = "Infertile"
-* group[=].element[=].target[=].relationship = #equivalent
-
-* group[=].element[+].code = #"neonatal_death"
-* group[=].element[=].display = "Смерть в неонатальном периоде"
-* group[=].element[=].target[+].code = #276506001
-* group[=].element[=].target[=].display = "Neonatal death"
-* group[=].element[=].target[=].relationship = #equivalent
-
-* group[=].element[+].code = #"non_developing_pregnancy"
-* group[=].element[=].display = "Неразвивающаяся беременность"
-* group[=].element[=].target[+].code = #16607004
-* group[=].element[=].target[=].display = "Missed miscarriage"
-* group[=].element[=].target[=].relationship = #equivalent
-
-* group[=].element[+].code = #"premature_birth"
-* group[=].element[=].display = "Преждевременные роды"
-* group[=].element[=].target[+].code = #161765003
-* group[=].element[=].target[=].display = "Past pregnancy history of premature delivery"
-* group[=].element[=].target[=].relationship = #equivalent
-
-* group[=].element[+].code = #"stillbirth"
-* group[=].element[=].display = "Мертворождение"
-* group[=].element[=].target[+].code = #161743003
-* group[=].element[=].target[=].display = "Past pregnancy history of stillbirth"
-* group[=].element[=].target[=].relationship = #equivalent
-
+* group[=].element[=].target[=].comment = "Точное соответствие подтверждённому коду ValueSet."
 * group[=].element[+].code = #"uterine_malformations"
 * group[=].element[=].display = "Пороки развития матки"
-* group[=].element[=].target[+].code = #37849005
-* group[=].element[=].target[=].display = "Congenital uterine anomaly"
+* group[=].element[=].target[+].code = #"chr-0019-00014"
+* group[=].element[=].target[=].display = "Bachadon rivojlanish nuqsonlari"
 * group[=].element[=].target[=].relationship = #equivalent
-
+* group[=].element[=].target[=].comment = "Точное соответствие подтверждённому коду ValueSet."
+* group[=].element[+].code = #"infertility"
+* group[=].element[=].display = "Бесплодие"
+* group[=].element[=].target[+].code = #"chr-0019-00006"
+* group[=].element[=].target[=].display = "Bepushtlik"
+* group[=].element[=].target[=].relationship = #equivalent
+* group[=].element[=].target[=].comment = "Точное соответствие подтверждённому коду ValueSet."
+* group[=].element[+].code = #"pregnancy_loss"
+* group[=].element[=].display = "Невынашивание беременности"
+* group[=].element[=].target[+].code = #"chr-0019-00010"
+* group[=].element[=].target[=].display = "Homiladorlikni yo'qotish"
+* group[=].element[=].target[=].relationship = #equivalent
+* group[=].element[=].target[=].comment = "Точное соответствие подтверждённому коду ValueSet."
+* group[=].element[+].code = #"non_developing_pregnancy"
+* group[=].element[=].display = "Неразвивающаяся беременность"
+* group[=].element[=].target[+].code = #"chr-0019-00009"
+* group[=].element[=].target[=].display = "Rivojlanmayotgan homiladorlik"
+* group[=].element[=].target[=].relationship = #equivalent
+* group[=].element[=].target[=].comment = "Точное соответствие подтверждённому коду ValueSet."
+* group[=].element[+].code = #"premature_birth"
+* group[=].element[=].display = "Преждевременные роды"
+* group[=].element[=].target[+].code = #"chr-0019-00011"
+* group[=].element[=].target[=].display = "Muddatidan oldin tug'ruq"
+* group[=].element[=].target[=].relationship = #equivalent
+* group[=].element[=].target[=].comment = "Точное соответствие подтверждённому коду ValueSet."
+* group[=].element[+].code = #"stillbirth"
+* group[=].element[=].display = "Мертворождение"
+* group[=].element[=].target[+].code = #"chr-0019-00012"
+* group[=].element[=].target[=].display = "O'lik tug'ilish"
+* group[=].element[=].target[=].relationship = #equivalent
+* group[=].element[=].target[=].comment = "Точное соответствие подтверждённому коду ValueSet."
+* group[=].element[+].code = #"neonatal_death"
+* group[=].element[=].display = "Смерть в неонатальном периоде"
+* group[=].element[=].target[+].code = #"chr-0019-00008"
+* group[=].element[=].target[=].display = "Neonatal o'lim"
+* group[=].element[=].target[=].relationship = #equivalent
+* group[=].element[=].target[=].comment = "Точное соответствие подтверждённому коду ValueSet."
+* group[=].element[+].code = #"birth_of_children_with_genetic_diseases_or_developmental_anomalies"
+* group[=].element[=].display = "Рождение детей с генетическими заболеваниями, аномалиями развития"
+* group[=].element[=].target[+].code = #"chr-0019-00002"
+* group[=].element[=].target[=].display = "Genetik kasallik yoki rivojlanish anomaliyasi bo'lgan bola tug'ilishi"
+* group[=].element[=].target[=].relationship = #equivalent
+* group[=].element[=].target[=].comment = "Точное соответствие подтверждённому коду ValueSet."
+* group[=].element[+].code = #"birth_of_children_with_low_or_high_birth_weight"
+* group[=].element[=].display = "Рождение детей с низкой или крупной массой тела"
+* group[=].element[=].target[+].code = #"chr-0019-00003"
+* group[=].element[=].target[=].display = "Vazni past yoki yuqori bola tug'ilishi"
+* group[=].element[=].target[=].relationship = #equivalent
+* group[=].element[=].target[=].comment = "Точное соответствие подтверждённому коду ValueSet."
+* group[=].element[+].code = #"complicated_previous_pregnancy"
+* group[=].element[=].display = "Осложненное течение предыдущей беременности"
+* group[=].element[=].target[+].code = #"chr-0019-00004"
+* group[=].element[=].target[=].display = "Avvalgi homiladorlikning asoratli kechishi"
+* group[=].element[=].target[=].relationship = #equivalent
+* group[=].element[=].target[=].comment = "Точное соответствие подтверждённому коду ValueSet."
+* group[=].element[+].code = #"bacterial_viral_gynecological_diseases"
+* group[=].element[=].display = "Бактериально-вирусные гинекологические заболевания (генитальный герпес, хламидиоз, цитомегаловирус, сифилис, гонорея и др.)"
+* group[=].element[=].target[+].code = #"chr-0019-00001"
+* group[=].element[=].target[=].display = "Bakterial yoki virusli ginekologik kasalliklar"
+* group[=].element[=].target[=].relationship = #equivalent
+* group[=].element[=].target[=].comment = "Точное соответствие подтверждённому коду ValueSet."
 
 Instance: dmed-form-111-extragenital-diseases-cm
 InstanceOf: ConceptMap
 Usage: #definition
-Title: "DMED Form 111 Extragenital Diseases"
+Title: "DMED Form 111 extragenital_diseases mapping"
 Description: "DMED extragenital_diseases to FHIR terminology. Only explicit listed mappings apply; absence is not an inferred negative answer."
-* name = "DMEDForm111ExtragenitalDiseasesCM"
 * url = "https://terminology.dhp.uz/fhir/integrations/ConceptMap/dmed-form-111-extragenital-diseases-cm"
+* name = "DMEDForm111ExtragenitalDiseasesCM"
 * status = #draft
 * experimental = false
 * publisher = "Uzinfocom"
-
 * group[+].source = "https://terminology.dhp.uz/fhir/integrations/CodeSystem/dmed-form-111-extragenital-diseases-cs"
-* group[=].target = $sct
-
-* group[=].element[+].code = #"acute_and_chronic_infections"
-* group[=].element[=].display = "Острые и хронические инфекции"
-* group[=].element[=].target[+].code = #40733004
-* group[=].element[=].target[=].display = "Infectious disease"
-* group[=].element[=].target[=].relationship = #equivalent
-
-* group[=].element[+].code = #"alcoholism_drug_addiction"
-* group[=].element[=].display = "Алкоголизм, наркомания"
-* group[=].element[=].target[+].code = #66590003
-* group[=].element[=].target[=].display = "Alcohol dependence"
-* group[=].element[=].target[=].relationship = #equivalent
-
-* group[=].element[=].target[+].code = #1254812006
-* group[=].element[=].target[=].display = "Substance dependence"
-* group[=].element[=].target[=].relationship = #equivalent
-
-* group[=].element[+].code = #"blood_diseases"
-* group[=].element[=].display = "Болезни крови"
-* group[=].element[=].target[+].code = #414022008
-* group[=].element[=].target[=].display = "Disorder of cellular component of blood"
-* group[=].element[=].target[=].relationship = #equivalent
-
-* group[=].element[+].code = #"connective_tissue_diseases"
-* group[=].element[=].display = "Заболевания соединительной ткани"
-* group[=].element[=].target[+].code = #105969002
-* group[=].element[=].target[=].display = "Disorder of connective tissue"
-* group[=].element[=].target[=].relationship = #equivalent
-
-* group[=].element[+].code = #"endocrinopathy"
-* group[=].element[=].display = "Эндокринопатия"
-* group[=].element[=].target[+].code = #362969004
-* group[=].element[=].target[=].display = "Disorder of endocrine system"
-* group[=].element[=].target[=].relationship = #equivalent
-
-* group[=].element[+].code = #"hemostasis_disorders"
-* group[=].element[=].display = "Нарушение гемостаза"
-* group[=].element[=].target[+].code = #362970003
-* group[=].element[=].target[=].display = "Disorder of hemostatic system"
-* group[=].element[=].target[=].relationship = #equivalent
-
-* group[=].element[+].code = #"liver_diseases"
-* group[=].element[=].display = "Болезни печени"
-* group[=].element[=].target[+].code = #235856003
-* group[=].element[=].target[=].display = "Disease of liver"
-* group[=].element[=].target[=].relationship = #equivalent
-
-* group[=].element[+].code = #"lung_diseases"
-* group[=].element[=].display = "Болезни легких"
-* group[=].element[=].target[+].code = #19829001
-* group[=].element[=].target[=].display = "Disorder of lung"
-* group[=].element[=].target[=].relationship = #equivalent
-
+* group[=].target = "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-extragenital-disease-factor-cs"
 * group[=].element[+].code = #"urinary_system_diseases"
 * group[=].element[=].display = "Заболевания мочевыделительной системы"
-* group[=].element[=].target[+].code = #128606002
-* group[=].element[=].target[=].display = "Disorder of urinary system"
+* group[=].element[=].target[+].code = #"chr-0012-00009"
+* group[=].element[=].target[=].display = "Siydik chiqarish tizimi kasalliklari"
 * group[=].element[=].target[=].relationship = #equivalent
+* group[=].element[=].target[=].comment = "Точное соответствие подтверждённому коду ValueSet."
+* group[=].element[+].code = #"endocrinopathy"
+* group[=].element[=].display = "Эндокринопатия"
+* group[=].element[=].target[+].code = #"chr-0012-00005"
+* group[=].element[=].target[=].display = "Endokrinopatiya"
+* group[=].element[=].target[=].relationship = #equivalent
+* group[=].element[=].target[=].comment = "Точное соответствие подтверждённому коду ValueSet."
+* group[=].element[+].code = #"blood_diseases"
+* group[=].element[=].display = "Болезни крови"
+* group[=].element[=].target[+].code = #"chr-0012-00003"
+* group[=].element[=].target[=].display = "Qon kasalliklari"
+* group[=].element[=].target[=].relationship = #equivalent
+* group[=].element[=].target[=].comment = "Точное соответствие подтверждённому коду ValueSet."
+* group[=].element[+].code = #"liver_diseases"
+* group[=].element[=].display = "Болезни печени"
+* group[=].element[=].target[+].code = #"chr-0012-00007"
+* group[=].element[=].target[=].display = "Jigar kasalliklari"
+* group[=].element[=].target[=].relationship = #equivalent
+* group[=].element[=].target[=].comment = "Точное соответствие подтверждённому коду ValueSet."
+* group[=].element[+].code = #"lung_diseases"
+* group[=].element[=].display = "Болезни легких"
+* group[=].element[=].target[+].code = #"chr-0012-00008"
+* group[=].element[=].target[=].display = "O'pka kasalliklari"
+* group[=].element[=].target[=].relationship = #equivalent
+* group[=].element[=].target[=].comment = "Точное соответствие подтверждённому коду ValueSet."
+* group[=].element[+].code = #"connective_tissue_diseases"
+* group[=].element[=].display = "Заболевания соединительной ткани"
+* group[=].element[=].target[+].code = #"chr-0012-00004"
+* group[=].element[=].target[=].display = "Biriktiruvchi to'qima kasalliklari"
+* group[=].element[=].target[=].relationship = #equivalent
+* group[=].element[=].target[=].comment = "Точное соответствие подтверждённому коду ValueSet."
+* group[=].element[+].code = #"acute_and_chronic_infections"
+* group[=].element[=].display = "Острые и хронические инфекции"
+* group[=].element[=].target[+].code = #"chr-0012-00001"
+* group[=].element[=].target[=].display = "O'tkir va surunkali infeksiyalar"
+* group[=].element[=].target[=].relationship = #equivalent
+* group[=].element[=].target[=].comment = "Точное соответствие подтверждённому коду ValueSet."
+* group[=].element[+].code = #"hemostasis_disorders"
+* group[=].element[=].display = "Нарушение гемостаза"
+* group[=].element[=].target[+].code = #"chr-0012-00006"
+* group[=].element[=].target[=].display = "Gemostaz buzilishlari"
+* group[=].element[=].target[=].relationship = #equivalent
+* group[=].element[=].target[=].comment = "Точное соответствие подтверждённому коду ValueSet."
+* group[=].element[+].code = #"alcoholism_drug_addiction"
+* group[=].element[=].display = "Алкоголизм, наркомания"
+* group[=].element[=].target[+].code = #"chr-0012-00002"
+* group[=].element[=].target[=].display = "Alkogolizm yoki giyohvandlik"
+* group[=].element[=].target[=].relationship = #equivalent
+* group[=].element[=].target[=].comment = "Точное соответствие подтверждённому коду ValueSet."
 
 Instance: dmed-form-111-pregnancy-progress-pregnancy-complications-cm
 InstanceOf: ConceptMap
 Usage: #definition
-Title: "DMED Form 111 Pregnancy Progress Pregnancy Complications"
+Title: "DMED Form 111 pregnancy_progress.pregnancy_complications mapping"
 Description: "DMED pregnancy_progress.pregnancy_complications to FHIR terminology. Only explicit listed mappings apply; absence is not an inferred negative answer."
-* name = "DMEDForm111PregnancyProgressPregnancyComplicationsCM"
 * url = "https://terminology.dhp.uz/fhir/integrations/ConceptMap/dmed-form-111-pregnancy-progress-pregnancy-complications-cm"
+* name = "DMEDForm111PregnancyProgressPregnancyComplicationsCM"
 * status = #draft
 * experimental = false
 * publisher = "Uzinfocom"
-
-// Group 1: DMEDForm111PregnancyProgressPregnancyComplicationsCS to Form111_PregnancyComplicationFactorCS
 * group[+].source = "https://terminology.dhp.uz/fhir/integrations/CodeSystem/dmed-form-111-pregnancy-progress-pregnancy-complications-cs"
-* group[=].target = Canonical(Form111_PregnancyComplicationFactorCS)
-
-* group[=].element[+].code = #"gestosis"
-* group[=].element[=].display = "Гестоз"
-* group[=].element[=].target[+].code = #chr-0022-00001
-* group[=].element[=].target[=].display = "Gestoz"
-* group[=].element[=].target[=].relationship = #equivalent
-
-* group[=].element[+].code = #"induced_pregnancy"
-* group[=].element[=].display = "Индуцированная беременность"
-* group[=].element[=].target[+].code = #chr-0022-00002
-* group[=].element[=].target[=].display = "Induksiyalangan homiladorlik"
-* group[=].element[=].target[=].relationship = #equivalent
-
-// Group 2: DMEDForm111PregnancyProgressPregnancyComplicationsCS to SNOMED CT
-* group[+].source = "https://terminology.dhp.uz/fhir/integrations/CodeSystem/dmed-form-111-pregnancy-progress-pregnancy-complications-cs"
-* group[=].target = $sct
-
+* group[=].target = "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-pregnancy-complication-factor-cs"
 * group[=].element[+].code = #"vomiting_during_pregnancy"
 * group[=].element[=].display = "Рвота беременной"
-* group[=].element[=].target[+].code = #90325002
-* group[=].element[=].target[=].display = "Vomiting of pregnancy"
+* group[=].element[=].target[+].code = #"chr-0022-00015"
+* group[=].element[=].target[=].display = "Homiladorlikdagi qusish"
 * group[=].element[=].target[=].relationship = #equivalent
-
+* group[=].element[=].target[=].comment = "Точное соответствие подтверждённому коду ValueSet."
 * group[=].element[+].code = #"threat_of_pregnancy_termination"
 * group[=].element[=].display = "Угроза прерывания беременности"
-* group[=].element[=].target[+].code = #54048003
-* group[=].element[=].target[=].display = "Threatened miscarriage"
+* group[=].element[=].target[+].code = #"chr-0022-00014"
+* group[=].element[=].target[=].display = "Homiladorlikni to'xtatish xavfi"
 * group[=].element[=].target[=].relationship = #equivalent
-
+* group[=].element[=].target[=].comment = "Точное соответствие подтверждённому коду ValueSet."
 * group[=].element[+].code = #"bleeding_in_first_and_second_half_of_pregnancy"
 * group[=].element[=].display = "Кровотечения в I и II половине беременности"
-* group[=].element[=].target[+].code = #34842007
-* group[=].element[=].target[=].display = "Antepartum hemorrhage"
+* group[=].element[=].target[+].code = #"chr-0022-00003"
+* group[=].element[=].target[=].display = "Homiladorlikning birinchi yoki ikkinchi yarmida qon ketishi"
 * group[=].element[=].target[=].relationship = #equivalent
-
+* group[=].element[=].target[=].comment = "Точное соответствие подтверждённому коду ValueSet."
+* group[=].element[+].code = #"gestosis"
+* group[=].element[=].display = "Гестоз"
+* group[=].element[=].target[+].code = #"chr-0022-00005"
+* group[=].element[=].target[=].display = "Gestoz"
+* group[=].element[=].target[=].relationship = #equivalent
+* group[=].element[=].target[=].comment = "Точное соответствие подтверждённому коду ValueSet."
 * group[=].element[+].code = #"polyhydramnios"
 * group[=].element[=].display = "Многоводие"
-* group[=].element[=].target[+].code = #86203003
-* group[=].element[=].target[=].display = "Polyhydramnios"
+* group[=].element[=].target[+].code = #"chr-0022-00011"
+* group[=].element[=].target[=].display = "Ko'p suvlik"
 * group[=].element[=].target[=].relationship = #equivalent
-
+* group[=].element[=].target[=].comment = "Точное соответствие подтверждённому коду ValueSet."
 * group[=].element[+].code = #"oligohydramnios"
 * group[=].element[=].display = "Маловодие"
-* group[=].element[=].target[+].code = #59566000
-* group[=].element[=].target[=].display = "Oligohydramnios"
+* group[=].element[=].target[+].code = #"chr-0022-00009"
+* group[=].element[=].target[=].display = "Kam suvlik"
 * group[=].element[=].target[=].relationship = #equivalent
-
+* group[=].element[=].target[=].comment = "Точное соответствие подтверждённому коду ValueSet."
 * group[=].element[+].code = #"multiple_pregnancy"
 * group[=].element[=].display = "Многоплодие"
-* group[=].element[=].target[+].code = #16356006
-* group[=].element[=].target[=].display = "Multiple pregnancy"
+* group[=].element[=].target[+].code = #"chr-0022-00008"
+* group[=].element[=].target[=].display = "Ko'p homilali homiladorlik"
 * group[=].element[=].target[=].relationship = #equivalent
-
+* group[=].element[=].target[=].comment = "Точное соответствие подтверждённому коду ValueSet."
 * group[=].element[+].code = #"placental_insufficiency"
 * group[=].element[=].display = "Плацентарная недостаточность"
-* group[=].element[=].target[+].code = #237292005
-* group[=].element[=].target[=].display = "Placental insufficiency"
+* group[=].element[=].target[+].code = #"chr-0022-00010"
+* group[=].element[=].target[=].display = "Platsentar yetishmovchilik"
 * group[=].element[=].target[=].relationship = #equivalent
-
-* group[=].element[+].code = #"anemia"
-* group[=].element[=].display = "Анемия"
-* group[=].element[=].target[+].code = #271737000
-* group[=].element[=].target[=].display = "Anemia"
-* group[=].element[=].target[=].relationship = #equivalent
-
+* group[=].element[=].target[=].comment = "Точное соответствие подтверждённому коду ValueSet."
 * group[=].element[+].code = #"rh_and_abo_isoimmunization"
 * group[=].element[=].display = "Rh и АВО изосенсибилизация"
-* group[=].element[=].target[+].code = #237300009
-* group[=].element[=].target[=].display = "Pregnancy with isoimmunization"
+* group[=].element[=].target[+].code = #"chr-0022-00013"
+* group[=].element[=].target[=].display = "Rh va ABO izoimmunizatsiyasi"
 * group[=].element[=].target[=].relationship = #equivalent
-
+* group[=].element[=].target[=].comment = "Точное соответствие подтверждённому коду ValueSet."
 * group[=].element[+].code = #"exacerbation_of_viral_infection"
 * group[=].element[=].display = "Обострение вирусной инфекции"
-* group[=].element[=].target[+].code = #40733004
-* group[=].element[=].target[=].display = "Infectious disease"
-* group[=].element[=].target[=].relationship = #source-is-narrower-than-target
-
+* group[=].element[=].target[+].code = #"chr-0022-00004"
+* group[=].element[=].target[=].display = "Virusli infeksiyaning zo'rayishi"
+* group[=].element[=].target[=].relationship = #equivalent
+* group[=].element[=].target[=].comment = "Исправлено соответствие в таблице: DMED-токен передаётся корректно."
 * group[=].element[+].code = #"anatomically_narrow_pelvis"
 * group[=].element[=].display = "Анатомически узкий таз"
-* group[=].element[=].target[+].code = #871005
-* group[=].element[=].target[=].display = "Contracted pelvis"
+* group[=].element[=].target[+].code = #"chr-0022-00001"
+* group[=].element[=].target[=].display = "Anatomik tor chanoq"
 * group[=].element[=].target[=].relationship = #equivalent
-
+* group[=].element[=].target[=].comment = "Исправлено соответствие в таблице: DMED-токен передаётся корректно."
 * group[=].element[+].code = #"incorrect_fetal_position"
 * group[=].element[=].display = "Неправильное положение плода"
-* group[=].element[=].target[+].code = #80002007
-* group[=].element[=].target[=].display = "Malpresentation of fetus"
+* group[=].element[=].target[+].code = #"chr-0022-00006"
+* group[=].element[=].target[=].display = "Homilaning noto'g'ri joylashuvi"
 * group[=].element[=].target[=].relationship = #equivalent
-
+* group[=].element[=].target[=].comment = "Точное соответствие подтверждённому коду ValueSet."
 * group[=].element[+].code = #"prolonged_pregnancy"
 * group[=].element[=].display = "Переношенная беременность"
-* group[=].element[=].target[+].code = #90968009
-* group[=].element[=].target[=].display = "Post-term pregnancy"
+* group[=].element[=].target[+].code = #"chr-0022-00012"
+* group[=].element[=].target[=].display = "Muddati o'tgan homiladorlik"
 * group[=].element[=].target[=].relationship = #equivalent
+* group[=].element[=].target[=].comment = "Точное соответствие подтверждённому коду ValueSet."
+* group[=].element[+].code = #"induced_pregnancy"
+* group[=].element[=].display = "Индуцированная беременность"
+* group[=].element[=].target[+].code = #"chr-0022-00007"
+* group[=].element[=].target[=].display = "Induksiyalangan homiladorlik"
+* group[=].element[=].target[=].relationship = #equivalent
+* group[=].element[=].target[=].comment = "Точное соответствие подтверждённому коду ValueSet."
+
+// Standard target; existing local concept identifiers remain unchanged for compatibility.
+* group[+].source = "https://terminology.dhp.uz/fhir/integrations/CodeSystem/dmed-form-111-pregnancy-progress-pregnancy-complications-cs"
+* group[=].target = "http://snomed.info/sct"
+* group[=].element[+].code = #"anemia"
+* group[=].element[=].display = "Анемия"
+* group[=].element[=].target[+].code = #"271737000"
+* group[=].element[=].target[=].display = "Anemia"
+* group[=].element[=].target[=].relationship = #equivalent
+* group[=].element[=].target[=].comment = "Only the explicit source token supports this standard concept; do not apply it to a combined or free-text answer."
 
 Instance: dmed-form-111-education-type-cm
 InstanceOf: ConceptMap
@@ -862,7 +860,7 @@ Description: "DMED analysis_title to FHIR terminology. Only explicit listed mapp
 * group[=].target = "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-analysis-test-code-cs"
 * group[=].element[+].code = #"OTHER"
 * group[=].element[=].display = "Другой анализ"
-* group[=].element[=].target[+].code = #"chr-0001-00002"
+* group[=].element[=].target[+].code = #"chr-0001-00006"
 * group[=].element[=].target[=].display = "Boshqa tahlil"
 * group[=].element[=].target[=].relationship = #equivalent
 * group[=].element[=].target[=].comment = "Для анализов DMED, отсутствующих в реальной форме 111: мазок, кал, моча и аналогичные позиции."
