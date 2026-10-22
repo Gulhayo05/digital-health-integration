@@ -6,6 +6,10 @@ Description: "Form 111 General Observation Code for clinical documents and other
 * ^property[0].code = #status
 * ^property[=].uri = "http://hl7.org/fhir/concept-properties#status"
 * ^property[=].type = #code
+* ^filter[0].code = #status
+* ^filter[=].description = "Select concepts by their lifecycle status."
+* ^filter[=].operator = #=
+* ^filter[=].value = "A concept status code, such as deprecated."
 
 * #chr-0035-00001 "Ro'yxatga olingan kun"
   * ^designation[0].language = #en

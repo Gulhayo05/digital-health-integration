@@ -1,5 +1,7 @@
 ### Version 0.11.1
 
+Form 111 represents actual visits with separate Encounters linked directly to EpisodeOfCare, stores newborn discharge status as an Observation in the maternal record and excludes deprecated risk duplicates by status without deprecated-code warnings.
+
 Form 111 preserves existing local code meanings, adds verified standard targets for three explicit tokens, publishes the previous-pregnancy outcome ValueSet and aligns source booleans/activity dates with the DMED contract.
 
 #### Added

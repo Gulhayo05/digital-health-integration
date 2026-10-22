@@ -1,5 +1,7 @@
 ### Versiya 0.11.1
 
+111-shaklda haqiqiy tashriflar EpisodeOfCare bilan bevosita bog'langan alohida Encounter larda, chaqaloqning chiqarilish holati esa ona kartasidagi Observation da ko'rsatiladi; eskirgan xavf kodlari deprecated-kod ogohlantirishlarisiz status bo'yicha chiqariladi.
+
 111-shaklda lokal kodlar ma’nosi saqlandi, uchta aniq token uchun tekshirilgan standart mosliklar va oldingi homiladorlik yakuni ValueSet qo‘shildi; boolean va tadbir sanalari DMED shartnomasiga moslashtirildi.
 
 #### Qo'shildi

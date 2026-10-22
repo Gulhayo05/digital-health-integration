@@ -29,6 +29,10 @@ For a complete reference instance, see the [Form 111 pregnant woman individual c
 
 **DMED terminology contract:** identify a concept by `system + code`; never renumber the remaining local concepts when adding standard equivalents. The explicit tokens `anemia`, `cephalic`, and the patient's standalone `smoking` map to SNOMED CT `271737000`, `1209182005`, and `77176002`. Their previous local codes remain valid legacy concepts. Combined risk selections, gestosis and laboratory tests with an unconfirmed method retain their local meanings. Fetal movement and the hospitalization flag use native `valueBoolean`; birth-preparation source dates use `valueDateTime`, with gestational weeks in separate observations. The [previous-pregnancy outcome ValueSet](ValueSet-form111-previous-pregnancy-outcome-vs.html) permits only the two explicit `abort/birth` outcomes. The [delivery-term ValueSet](ValueSet-form111-previous-delivery-term-vs.html) currently contains preterm and term, without a reserved post-term code. Legacy risk duplicates `chr-0035-00022/00023` are deprecated and excluded from the current General Observation ValueSet; use `chr-0027-00006/00005` for score/level.
 
+The EpisodeOfCare remains open through completion of all applicable postpartum follow-up; its end is the actual care-closure date, not the birth date. In this example delivery is on 24 May 2026 and care ends after the final review on 3 July 2026.
+
+**Clinical contacts:** one EpisodeOfCare carries the pregnancy context and card number. Each actual registration, follow-up, delivery or home visit is a separate Encounter linked directly by `Encounter.episodeOfCare`; there is no umbrella Encounter. The longitudinal Composition identifies its episode through `event.detail.reference` and leaves `Composition.encounter` unset when no single generating contact is known. Observations reference an actual known contact; a laboratory result or activity date alone does not establish one. The newborn discharge status is a separate Observation in the maternal record, with the mother as subject and an explicit newborn-status label; the mother's own discharge disposition remains on her delivery Encounter.
+
 ### Field Mapping
 
 ### Form 111 Individual Card of a Pregnant and Postpartum Woman - FHIR Mapping
@@ -40,14 +44,14 @@ For a complete reference instance, see the [Form 111 pregnant woman individual c
 | UZ | RU | FHIR Path | Code | Example Value |
 |----|----|------------|------|---------------|
 | Hujjat instansiyasi UUID va shakl raqami | Идентификатор документа и номер формы | Composition.identifier | - | 111 |
-| Individual karta raqami | Номер индивидуальной карты | Encounter.identifier | Local | 111-2025-000123 |
+| Individual karta raqami | Номер индивидуальной карты | EpisodeOfCare.identifier | Local | 111-2025-000123 |
 | Hujjat holati | Статус документа | Composition.status | - | final |
 | Hujjat turi | Тип документа | Composition.type | LOINC `34133-9` "Summary of episode note" | - |
 | Hujjat kategoriyasi | Категория документа | Composition.category | [Document Category](CodeSystem-document-category-cs.html) `form-111` | - |
 | Bemor | Пациентка | Composition.subject | [Patient](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-patient.html) | Ergasheva N.B. |
-| Ayollar maslahatxonasidagi kuzatuv epizodi | Эпизод наблюдения в женской консультации | Composition.encounter | [Encounter](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-encounter.html) | Antenatal episode |
+| Ayollar maslahatxonasidagi kuzatuv epizodi | Эпизод наблюдения в женской консультации | Composition.event.detail.reference | [EpisodeOfCare](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-episodeofcare.html) | Antenatal episode |
 | Hujjat shakllantirilgan sana | Дата составления документа | Composition.date | - | 2026-07-05 |
-| Homiladorlik davri | Период наблюдения беременности | Composition.event.period | - | 2025-10-20 - 2026-05-24 |
+| Homiladorlik davri | Период наблюдения беременности | Composition.event.period | - | 2025-10-20 - 2026-07-03 |
 | Kartani yurituvchi shifokor va bo'lim boshlig'i | Ведущий врач и заведующий отделением | Composition.author | [PractitionerRole](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-practitioner-role.html) | Yusupova S.T., Abdullayeva G.N. |
 | Kartani saqlovchi muassasa | Учреждение, хранящее карту | Composition.custodian | [Organization](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-organization.html) | Chilonzor tumani ayollar maslahatxonasi |
 | Hujjat sarlavhasi | Заголовок документа | Composition.title | - | Homilador va tuqqan ayolning individual kartasi (111-shakl) |
@@ -61,8 +65,8 @@ Section code: LOINC `LP36348-8` "Patient Information".
 
 | UZ | RU | FHIR Path | Code | Example Value |
 |----|----|------------|------|---------------|
-| Qon guruhi | Группа крови | Observation.valueCodeableConcept | LOINC `883-9` "Qonda ABO guruhi turi" / SNOMED `112144000` | Blood group A |
-| Homiladorning Rh mansubligi | Резус-принадлежность беременной | Observation.valueCodeableConcept | LOINC `10331-7` "Qonda Rh turi" / SNOMED `165747007` (RhD positive), `165746003` (RhD negative) | RhD positive |
+| Qon guruhi | Группа крови | Observation.valueCodeableConcept | LOINC `883-9` "ABO group [Type] in Blood" / SNOMED `112144000` | Blood group A |
+| Homiladorning Rh mansubligi | Резус-принадлежность беременной | Observation.valueCodeableConcept | LOINC `10331-7` "Rh [Type] in Blood" / SNOMED `165747007` (RhD positive), `165746003` (RhD negative) | RhD positive |
 | Homiladorning turmush o'rtog'ining Rh mansubligi | Резус-принадлежность супруга беременной | Observation.valueCodeableConcept (`focus` = RelatedPerson) | LOINC `10331-7` / SNOMED `165746003` | RhD negative |
 | Ro'yxatga olingan kun | Дата постановки на учёт | EpisodeOfCare.period.start + Encounter.actualPeriod.start + Encounter.episodeOfCare[] | - | 2025-10-20 |
 | WR I | RW I | Observation.valueString | [Analysis Test Code](CodeSystem-form111-analysis-test-code-cs.html) `chr-0001-00011` | Negative |
@@ -246,7 +250,7 @@ Section code: [Form111 CodeSystem](CodeSystem-form111-cs.html) `chr-0034-00004`.
 | Yurak urishi | Сердцебиение | Observation.valueQuantity + component | LOINC `55283-6` / [Fetal Heartbeat Side](CodeSystem-form111-fetal-heartbeat-side-cs.html) `chr-0014-00002` | 142 /min, o'ngda |
 | Homilaning qimirlashi | Шевеление плода | Observation.valueBoolean | LOINC `57088-7` | true |
 | Siydikdagi oqsil miqdori | Белок в моче | Observation.valueQuantity | LOINC `2888-6` "Siydikda oqsil miqdori" | 0 mg/dL |
-| Qondagi Hb miqdori | Гемоглобин крови | Observation.valueQuantity | LOINC `718-7` "Qonda gemoglobin miqdori" | 104 g/L |
+| Qondagi Hb miqdori | Гемоглобин крови | Observation.valueQuantity | LOINC `718-7` "Hemoglobin [Mass/volume] in Blood" | 104 g/L |
 | Tashxis (homiladorlik haftasi) | Диагноз (неделя беременности) | Observation.valueQuantity | LOINC `18185-9` "Gestational age" | 21 wk |
 | Patologik o'zgarishlar | Патологические изменения | Observation.valueString | Gynecological Examination Observation Code `chr-0017-00003` | Gemoglobin pasayishi |
 | Ko'rsatmalar va maslahatlar | Указания и рекомендации | CarePlan.description | - | Temir preparatlari, parhez |
@@ -405,7 +409,7 @@ Bundle (document)
 ├── Patient (pregnant woman demographics)
 ├── RelatedPerson (spouse)
 ├── EpisodeOfCare (antenatal episode)
-├── Encounter[] (antenatal episode, delivery, follow-up visits, patronage visits, previous pregnancies, postpartum visits)
+├── Encounter[] (registration visit, delivery, follow-up visits, patronage visits, previous delivery contacts, postpartum visits)
 ├── Organization[] (women's consultation, workplaces, maternity hospital)
 ├── Practitioner[] / PractitionerRole[] (attending doctor, department head)
 ├── Condition[] (extragenital disease, current pregnancy complications, outcome diagnosis, past illness, gynecological, current pregnancy diagnosis)

@@ -6,7 +6,7 @@ Title: "Form 111 - Individual Card of a Pregnant and Postpartum Woman Compositio
 Description: "Composition profile for Form 111 (Homilador va tuqqan ayolning individual kartasi). The document is a longitudinal antenatal/postpartum record maintained by a women's consultation (ayollar maslahatxonasi)."
 
 * identifier 1..*
-* identifier ^short = "Hujjat instansiyasi UUID va shakl raqami (111); qo'shimcha — individual karta raqami"
+* identifier ^short = "Document instance UUID and form number (111); the card number belongs to EpisodeOfCare.identifier"
 
 * status = #final
 * status ^short = "Hujjat holati"
@@ -24,7 +24,7 @@ Description: "Composition profile for Form 111 (Homilador va tuqqan ayolning ind
 
 * encounter 0..1
 * encounter only Reference(UZCoreEncounter)
-* encounter ^short = "Ayollar maslahatxonasidagi kuzatuv epizodi"
+* encounter ^short = "Actual clinical contact associated with document creation, when known"
 
 * date 1..1
 * date ^short = "Hujjat shakllantirilgan sana"

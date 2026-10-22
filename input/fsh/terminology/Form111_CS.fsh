@@ -8,7 +8,7 @@ Description: "Form 111 CodeSystem"
   * ^designation[0].language = #en
   * ^designation[=].value = "End of pregnancy"
   * ^designation[+].language = #ru
-  * ^designation[=].value = "Конец беременности"
+  * ^designation[=].value = "Исход беременности"
 
 * #chr-0034-00002 "Tashqi akusherlik tekshiruvi"
   * ^designation[0].language = #en
@@ -38,13 +38,13 @@ Description: "Form 111 CodeSystem"
   * ^designation[0].language = #en
   * ^designation[=].value = "Patronage visits"
   * ^designation[+].language = #ru
-  * ^designation[=].value = "Покровительственные визиты"
+  * ^designation[=].value = "Патронажные посещения"
 
 * #chr-0034-00007 "Aylanma karta va boshqa hujjatlarni yopishtirish uchun varoq"
   * ^designation[0].language = #en
-  * ^designation[=].value = "Sheet for pasting business cards and other documents"
+  * ^designation[=].value = "Sheet for attaching the exchange card and other documents"
   * ^designation[+].language = #ru
-  * ^designation[=].value = "Лист для наклеивания визитных карточек и других документов"
+  * ^designation[=].value = "Лист для вклеивания обменной карты и других документов"
 
 * #chr-0034-00008 "Perinatal xavf omillari"
   * ^designation[0].language = #en
