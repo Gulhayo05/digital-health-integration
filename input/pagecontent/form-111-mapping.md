@@ -370,7 +370,10 @@ Section code: [Form111 CodeSystem](CodeSystem-form111-cs.html) `chr-0034-00009`.
 - **Perinatal risk level and score** use `chr-0027-00005`/`chr-0027-00006`; `chr-0035-00022`/`chr-0035-00023` are deprecated.
 - **Newborn discharge status** is an Observation with `valueCodeableConcept`, because the newborn is not a separate Patient; the mother's discharge status uses `Encounter.admission.dischargeDisposition`.
 - **Workplace** is sent in `Observation.valueString`; an `Organization` is referenced only when its organization code is known.
-- **Education level** carries both the UZ Core `education-cs` code required by the core profile and the Form 111 `chr-0010-*` code. DMED `education_type` values are mapped to [UZ Core codes](ConceptMap-dmed-form-111-education-type-core-cm.html) and [Form 111 codes](ConceptMap-dmed-form-111-education-type-cm.html).
+- **Education level** is one `valueCodeableConcept` with up to three codings of the same answer; `text` carries the wording from the form.
+  1. UZ Core `education-cs` - always, the core profile requires it. DMED `education_type` values map with [this ConceptMap](ConceptMap-dmed-form-111-education-type-core-cm.html).
+  2. Form 111 `chr-0010-*` - when [this ConceptMap](ConceptMap-dmed-form-111-education-type-cm.html) has a target (primary, secondary general, bachelor).
+  3. DMED `education_type` from [dmed-form-111-education-type-cs](CodeSystem-dmed-form-111-education-type-cs.html) - when the UZ Core code is broader than the DMED value, e.g. residency → "Higher education", primary → "Other".
 - **Not shown in the example**: Doppler ultrasound `chr-0013-00001`, [contraception method detail](ValueSet-form111-contraception-details-vs.html), mother/child death outcomes `chr-0024-00001`/`chr-0024-00002`, `chr-0005-00002`/`chr-0005-00004`, and the remaining codes of [form111-analysis-test-code-vs](ValueSet-form111-analysis-test-code-vs.html).
 
 ---
