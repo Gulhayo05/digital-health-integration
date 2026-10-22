@@ -53,7 +53,7 @@ For a complete reference instance, see the [Form 111 pregnant woman individual c
 
 ---
 
-### 1. Ro'yxatga olish va shaxsiy ma'lumotlar
+### 1. Registration and personal information
 
 Section code: LOINC `LP36348-8` "Patient Information".
 
@@ -92,7 +92,7 @@ Section code: LOINC `LP36348-8` "Patient Information".
 
 ---
 
-### 2. Tashxis
+### 2. Diagnosis
 
 Section code: LOINC `29308-4` "Diagnosis".
 
@@ -105,7 +105,7 @@ Section code: LOINC `29308-4` "Diagnosis".
 
 ---
 
-### 3. Homiladorlikning yakuni
+### 3. Pregnancy outcome
 
 Section code: [Form111 CodeSystem](CodeSystem-form111-cs.html) `chr-0034-00001`.
 
@@ -124,7 +124,7 @@ Section code: [Form111 CodeSystem](CodeSystem-form111-cs.html) `chr-0034-00001`.
 
 ---
 
-### 4. Anamnez
+### 4. History
 
 Section code: LOINC `11348-0` "History of Past illness note".
 
@@ -143,7 +143,7 @@ Section code: LOINC `11348-0` "History of Past illness note".
 
 ---
 
-### 5. Avvalgi homiladorliklarning yakuni
+### 5. Outcomes of previous pregnancies
 
 Section code: LOINC `10162-6` "History of pregnancies Narrative".
 
@@ -165,7 +165,7 @@ Uchta avvalgi homiladorlik namunada keltirilgan: 1-homiladorlik (2019, muddatida
 
 ---
 
-### 6. Homiladorni birinchi ko'rigi
+### 6. First prenatal visit
 
 Section code: LOINC `29545-1` "Physical findings note".
 
@@ -183,7 +183,7 @@ Section code: LOINC `29545-1` "Physical findings note".
 
 ---
 
-### 7. Tashqi akusherlik tekshiruvi
+### 7. External obstetric examination
 
 Section code: [Form111 CodeSystem](CodeSystem-form111-cs.html) `chr-0034-00002`.
 
@@ -196,7 +196,7 @@ Section code: [Form111 CodeSystem](CodeSystem-form111-cs.html) `chr-0034-00002`.
 
 ---
 
-### 8. Qin orqali tekshiruv
+### 8. Vaginal examination
 
 Section code: [Form111 CodeSystem](CodeSystem-form111-cs.html) `chr-0034-00003`.
 
@@ -213,7 +213,7 @@ Section code: [Form111 CodeSystem](CodeSystem-form111-cs.html) `chr-0034-00003`.
 
 ---
 
-### 9. Ko'rsatmalar
+### 9. Recommendations
 
 Section code: LOINC `18776-5` "Plan of care note".
 
@@ -226,7 +226,7 @@ Section code: LOINC `18776-5` "Plan of care note".
 
 ---
 
-### 10. Homiladorlikning kechishi (takroriy kuzatuv tashriflari)
+### 10. Course of pregnancy (follow-up visits)
 
 Section code: [Form111 CodeSystem](CodeSystem-form111-cs.html) `chr-0034-00004`.
 
@@ -255,7 +255,7 @@ Section code: [Form111 CodeSystem](CodeSystem-form111-cs.html) `chr-0034-00004`.
 
 ---
 
-### 11. Tug'ishga tayyorlash
+### 11. Birth preparation
 
 Section code: [Form111 CodeSystem](CodeSystem-form111-cs.html) `chr-0034-00005`.
 
@@ -272,7 +272,7 @@ Section code: [Form111 CodeSystem](CodeSystem-form111-cs.html) `chr-0034-00005`.
 
 ---
 
-### 12. Patronaj - tashriflar
+### 12. Patronage visits
 
 Section code: [Form111 CodeSystem](CodeSystem-form111-cs.html) `chr-0034-00006`.
 
@@ -289,7 +289,7 @@ Section code: [Form111 CodeSystem](CodeSystem-form111-cs.html) `chr-0034-00006`.
 
 ---
 
-### 13. Aylanma karta va boshqa hujjatlarni yopishtirish uchun varoq
+### 13. Sheet for attaching the exchange card and other documents
 
 Section code: [Form111 CodeSystem](CodeSystem-form111-cs.html) `chr-0034-00007`.
 
@@ -308,7 +308,7 @@ Section code: [Form111 CodeSystem](CodeSystem-form111-cs.html) `chr-0034-00007`.
 
 ---
 
-### 14. Perinatal xavf omillari
+### 14. Perinatal risk factors
 
 Section code: [Form111 CodeSystem](CodeSystem-form111-cs.html) `chr-0034-00008`.
 
@@ -326,7 +326,7 @@ Section code: [Form111 CodeSystem](CodeSystem-form111-cs.html) `chr-0034-00008`.
 
 ---
 
-### 15. Terapevt, venerolog va boshqa mutaxassislarning xulosalari
+### 15. Conclusions of the therapist, venereologist and other specialists
 
 Section code: LOINC `11488-4` "Consult note".
 
@@ -341,7 +341,7 @@ Section code: LOINC `11488-4` "Consult note".
 
 ---
 
-### 16. Tug'ruqdan keyingi davrdagi kuzatuv
+### 16. Postpartum follow-up
 
 Section code: [Form111 CodeSystem](CodeSystem-form111-cs.html) `chr-0034-00009`.
 

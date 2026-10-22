@@ -55,7 +55,7 @@
 
 ---
 
-### 1. Ro'yxatga olish va shaxsiy ma'lumotlar
+### 1. Регистрация и личные данные
 
 Код раздела: LOINC `LP36348-8` "Patient Information".
 
@@ -94,7 +94,7 @@
 
 ---
 
-### 2. Tashxis
+### 2. Диагноз
 
 Код раздела: LOINC `29308-4` "Diagnosis".
 
@@ -107,7 +107,7 @@
 
 ---
 
-### 3. Homiladorlikning yakuni
+### 3. Исход беременности
 
 Код раздела: [Form111 CodeSystem](CodeSystem-form111-cs.html) `chr-0034-00001`.
 
@@ -126,7 +126,7 @@
 
 ---
 
-### 4. Anamnez
+### 4. Анамнез
 
 Код раздела: LOINC `11348-0` "History of Past illness note".
 
@@ -145,7 +145,7 @@
 
 ---
 
-### 5. Avvalgi homiladorliklarning yakuni
+### 5. Исходы предыдущих беременностей
 
 Код раздела: LOINC `10162-6` "History of pregnancies Narrative".
 
@@ -167,7 +167,7 @@
 
 ---
 
-### 6. Homiladorni birinchi ko'rigi
+### 6. Первый осмотр беременной
 
 Код раздела: LOINC `29545-1` "Physical findings note".
 
@@ -185,7 +185,7 @@
 
 ---
 
-### 7. Tashqi akusherlik tekshiruvi
+### 7. Наружное акушерское обследование
 
 Код раздела: [Form111 CodeSystem](CodeSystem-form111-cs.html) `chr-0034-00002`.
 
@@ -198,7 +198,7 @@
 
 ---
 
-### 8. Qin orqali tekshiruv
+### 8. Влагалищное исследование
 
 Код раздела: [Form111 CodeSystem](CodeSystem-form111-cs.html) `chr-0034-00003`.
 
@@ -215,7 +215,7 @@
 
 ---
 
-### 9. Ko'rsatmalar
+### 9. Рекомендации
 
 Код раздела: LOINC `18776-5` "Plan of care note".
 
@@ -228,7 +228,7 @@
 
 ---
 
-### 10. Homiladorlikning kechishi (takroriy kuzatuv tashriflari)
+### 10. Течение беременности (повторные визиты наблюдения)
 
 Код раздела: [Form111 CodeSystem](CodeSystem-form111-cs.html) `chr-0034-00004`.
 
@@ -257,7 +257,7 @@
 
 ---
 
-### 11. Tug'ishga tayyorlash
+### 11. Подготовка к родам
 
 Код раздела: [Form111 CodeSystem](CodeSystem-form111-cs.html) `chr-0034-00005`.
 
@@ -274,7 +274,7 @@
 
 ---
 
-### 12. Patronaj - tashriflar
+### 12. Патронажные визиты
 
 Код раздела: [Form111 CodeSystem](CodeSystem-form111-cs.html) `chr-0034-00006`.
 
@@ -291,7 +291,7 @@
 
 ---
 
-### 13. Aylanma karta va boshqa hujjatlarni yopishtirish uchun varoq
+### 13. Лист для вклеивания обменной карты и других документов
 
 Код раздела: [Form111 CodeSystem](CodeSystem-form111-cs.html) `chr-0034-00007`.
 
@@ -310,7 +310,7 @@
 
 ---
 
-### 14. Perinatal xavf omillari
+### 14. Перинатальные факторы риска
 
 Код раздела: [Form111 CodeSystem](CodeSystem-form111-cs.html) `chr-0034-00008`.
 
@@ -328,7 +328,7 @@
 
 ---
 
-### 15. Terapevt, venerolog va boshqa mutaxassislarning xulosalari
+### 15. Заключения терапевта, венеролога и других специалистов
 
 Код раздела: LOINC `11488-4` "Consult note".
 
@@ -343,7 +343,7 @@
 
 ---
 
-### 16. Tug'ruqdan keyingi davrdagi kuzatuv
+### 16. Наблюдение в послеродовом периоде
 
 Код раздела: [Form111 CodeSystem](CodeSystem-form111-cs.html) `chr-0034-00009`.
 
