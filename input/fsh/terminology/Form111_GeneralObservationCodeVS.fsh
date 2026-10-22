@@ -6,7 +6,7 @@ Description: "Form 111 General Observation Code ValueSet for clinical documents 
 
 * include codes from system form111-general-observation-code-cs
 // Legacy risk duplicates retain their meanings but are not used for new observations.
-* exclude codes from system form111-general-observation-code-cs where status = "deprecated"
+* exclude codes from system form111-general-observation-code-cs where inactive = "true"
 
 * ^experimental = true
 * ^status = #draft

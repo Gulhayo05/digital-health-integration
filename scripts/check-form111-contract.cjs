@@ -96,11 +96,12 @@ assert.deepEqual(previous?.compose?.include?.flatMap(i => i.concept.map(c => `${
 const generalVS = resources.find(r => r.resourceType === 'ValueSet' && r.id === 'form111-general-observation-code-vs');
 const generalSystem = integrationCS + 'form111-general-observation-code-cs';
 assert(generalVS.compose.exclude.some(i => i.system === generalSystem &&
-  i.filter?.some(f => f.property === 'status' && f.op === '=' && f.value === 'deprecated')),
-  'Exclude deprecated concepts by status without directly referencing deprecated codes');
+  i.filter?.some(f => f.property === 'inactive' && f.op === '=' && f.value === 'true')),
+  'Exclude inactive concepts without directly referencing deprecated codes');
 assert(generalVS.compose.exclude.every(i => !i.concept?.length), 'Do not enumerate deprecated concepts in exclusions');
 for (const code of ['chr-0035-00022', 'chr-0035-00023']) {
   assert(systems.get(generalSystem).concepts.get(code).property.some(p => p.code === 'status' && p.valueCode === 'deprecated'));
+  assert(systems.get(generalSystem).concepts.get(code).property.some(p => p.code === 'inactive' && p.valueBoolean === true));
 }
 const entries = new Map(bundle.entry.map(e => [e.fullUrl, e.resource]));
 const ref = n => `urn:uuid:${n}-1111-2222-3333-444444444444`;

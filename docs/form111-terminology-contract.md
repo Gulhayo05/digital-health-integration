@@ -22,7 +22,7 @@ Combined `alcoholism_drug_addiction` and `smoking_alcoholism_drug_addiction` sel
 - Birth-preparation fields contain a source activity date in `valueDateTime`. Gestational weeks are separate `valueQuantity` observations. Do not invent an activity frequency from the number of pregnancy weeks.
 - `form111-previous-pregnancy-outcome-vs` contains only `386639001` (termination) and `3950001` (birth), matching the two explicit DMED tokens. An independent clinical history may contain more detail; the coarse token alone does not establish miscarriage subtype.
 - `form111-previous-delivery-term-vs` contains only preterm and term. There is no implemented reserved post-term concept in this set.
-- Perinatal risk level/score use `chr-0027-00005`/`chr-0027-00006`. The old General Observation duplicates `chr-0035-00023`/`chr-0035-00022` retain their meanings and are marked deprecated. The current General Observation ValueSet excludes concepts by the `status = deprecated` filter, avoiding direct references to deprecated concepts in its exclusion list.
+- Perinatal risk level/score use `chr-0027-00005`/`chr-0027-00006`. The old General Observation duplicates `chr-0035-00023`/`chr-0035-00022` retain their meanings and are marked deprecated and inactive. The current General Observation ValueSet excludes concepts by the boolean `inactive = true` filter, avoiding direct references to deprecated concepts in its exclusion list.
 
 ## Clinical contacts and maternal record
 

@@ -6,10 +6,13 @@ Description: "Form 111 General Observation Code for clinical documents and other
 * ^property[0].code = #status
 * ^property[=].uri = "http://hl7.org/fhir/concept-properties#status"
 * ^property[=].type = #code
-* ^filter[0].code = #status
-* ^filter[=].description = "Select concepts by their lifecycle status."
+* ^property[+].code = #inactive
+* ^property[=].uri = "http://hl7.org/fhir/concept-properties#inactive"
+* ^property[=].type = #boolean
+* ^filter[0].code = #inactive
+* ^filter[=].description = "Select concepts by their inactive flag."
 * ^filter[=].operator = #=
-* ^filter[=].value = "A concept status code, such as deprecated."
+* ^filter[=].value = "true or false"
 
 * #chr-0035-00001 "Ro'yxatga olingan kun"
   * ^designation[0].language = #en
@@ -143,6 +146,8 @@ Description: "Form 111 General Observation Code for clinical documents and other
 * #chr-0035-00022 "Ballar yig'indisi"
   * ^property[0].code = #status
   * ^property[=].valueCode = #deprecated
+  * ^property[+].code = #inactive
+  * ^property[=].valueBoolean = true
   * ^designation[0].language = #en
   * ^designation[=].value = "Sum of points"
   * ^designation[+].language = #ru
@@ -151,6 +156,8 @@ Description: "Form 111 General Observation Code for clinical documents and other
 * #chr-0035-00023 "Xavf darajasi"
   * ^property[0].code = #status
   * ^property[=].valueCode = #deprecated
+  * ^property[+].code = #inactive
+  * ^property[=].valueBoolean = true
   * ^designation[0].language = #en
   * ^designation[=].value = "Risk level"
   * ^designation[+].language = #ru
