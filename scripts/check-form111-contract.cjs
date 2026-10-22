@@ -94,10 +94,45 @@ for (const code of ['chr-0025-00001', 'chr-0025-00002', 'chr-0025-00003', 'chr-0
 const previous = resources.find(r => r.resourceType === 'ValueSet' && r.id === 'form111-previous-pregnancy-outcome-vs');
 assert.deepEqual(previous?.compose?.include?.flatMap(i => i.concept.map(c => `${i.system}#${c.code}`)).sort(), [`${sct}#386639001`, `${sct}#3950001`].sort());
 const generalVS = resources.find(r => r.resourceType === 'ValueSet' && r.id === 'form111-general-observation-code-vs');
+const generalSystem = integrationCS + 'form111-general-observation-code-cs';
+assert(generalVS.compose.exclude.some(i => i.system === generalSystem &&
+  i.filter?.some(f => f.property === 'inactive' && f.op === '=' && f.value === 'true')),
+  'Exclude inactive concepts without directly referencing deprecated codes');
+assert(generalVS.compose.exclude.every(i => !i.concept?.length), 'Do not enumerate deprecated concepts in exclusions');
 for (const code of ['chr-0035-00022', 'chr-0035-00023']) {
-  assert(systems.get(integrationCS + 'form111-general-observation-code-cs').concepts.get(code).property.some(p => p.code === 'status' && p.valueCode === 'deprecated'));
-  assert(generalVS.compose.exclude.some(i => i.system === integrationCS + 'form111-general-observation-code-cs' && i.concept.some(c => c.code === code)));
+  assert(systems.get(generalSystem).concepts.get(code).property.some(p => p.code === 'status' && p.valueCode === 'deprecated'));
+  assert(systems.get(generalSystem).concepts.get(code).property.some(p => p.code === 'inactive' && p.valueBoolean === true));
 }
+const entries = new Map(bundle.entry.map(e => [e.fullUrl, e.resource]));
+const ref = n => `urn:uuid:${n}-1111-2222-3333-444444444444`;
+const pregnancyEpisode = ref('11100011');
+const registration = entries.get(ref('11100003'));
+assert.equal(registration.resourceType, 'Encounter');
+assert.equal(registration.actualPeriod.start, '2025-10-20');
+assert.equal(registration.actualPeriod.end, '2025-10-20', 'Registration must represent an actual visit, not the entire pregnancy');
+assert.equal(entries.get(pregnancyEpisode).identifier[0].value, '111-2025-000123');
+assert.equal(entries.get(pregnancyEpisode).period.end, '2026-07-03', 'Close the care episode after the final postpartum review, not at delivery');
+const composition = bundle.entry[0].resource;
+assert(!composition.encounter, 'The longitudinal document must not use an umbrella Encounter');
+assert(composition.event.some(e => e.detail?.some(d => d.reference?.reference === pregnancyEpisode)));
+for (const id of ['11100003', '11100037', '11100079', '11100107', '11100135', '11100139']) {
+  const encounter = entries.get(ref(id));
+  assert(encounter.episodeOfCare.some(e => e.reference === pregnancyEpisode), `Missing pregnancy episode on actual contact ${id}`);
+  assert(!encounter.partOf, `Pregnancy context must use episodeOfCare, not an umbrella encounter: ${id}`);
+  assert(encounter.actualPeriod.end.slice(0, 10) <= entries.get(pregnancyEpisode).period.end, `Clinical contact exceeds the closed care period: ${id}`);
+}
+for (const observation of observations.filter(o => (o.code?.coding || []).some(c => c.code?.startsWith('chr-0027-')) && o.effectiveDateTime === '2026-01-15')) {
+  assert.equal(observation.encounter?.reference, ref('11100079'), 'Risk findings must reference their actual follow-up visit');
+}
+for (const id of ['11100012', '11100013', '11100014']) {
+  const result = entries.get(ref(id));
+  if (result?.resourceType === 'Observation') assert(!result.encounter, 'A laboratory date alone does not establish a clinical encounter');
+}
+const newbornStatus = observations.find(o => o.code?.text === "Chaqaloqning tug'ruqxonadan chiqarilishidagi holati");
+assert(newbornStatus, 'Missing newborn discharge status in the maternal record');
+assert.equal(newbornStatus.subject.reference, composition.subject[0].reference);
+assert.equal(newbornStatus.encounter.reference, ref('11100037'));
+assert.equal(bundle.entry.filter(e => e.resource.resourceType === 'Patient').length, 1, 'Do not invent a separate newborn patient in this maternal card');
 if (process.argv[2]) {
   const doc = fs.readFileSync(path.resolve(process.argv[2]), 'utf8');
   for (const old of ['165747005', '165748000', '112141000', '112142007', '112143002']) assert(!doc.includes(old), `Obsolete blood-group/Rh code in document: ${old}`);

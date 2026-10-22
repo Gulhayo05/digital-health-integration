@@ -32,6 +32,10 @@ To'liq namunaviy nusxa uchun [111-shakl homilador ayolning individual kartasi mi
 
 ---
 
+EpisodeOfCare barcha tegishli tug'ruqdan keyingi kuzatuv tugaguncha ochiq qoladi; uning tugash sanasi tug'ruq sanasi emas, kuzatuvning haqiqiy yakun sanasidir. Misolda tug'ruq 2026-yil 24-mayda, kuzatuv esa oxirgi ko'rikdan keyin 2026-yil 3-iyulda yakunlangan.
+
+**Klinik uchrashuvlar:** homiladorlik konteksti va karta raqami bitta EpisodeOfCare da saqlanadi. Har bir haqiqiy ro'yxatga olish, nazorat, tug'ruq yoki patronaj tashrifi alohida Encounter bo'lib, `Encounter.episodeOfCare` orqali bevosita bog'lanadi; butun homiladorlik uchun umumiy Encounter yaratilmaydi. Composition epizodga `event.detail.reference` orqali murojaat qiladi; bitta hujjat tuzish uchrashuvi ma'lum bo'lmasa, `Composition.encounter` to'ldirilmaydi. Observation faqat ma'lum haqiqiy uchrashuvga bog'lanadi; tahlil yoki tadbir sanasi o'zi uchrashuv mavjudligini tasdiqlamaydi. Chaqaloqning chiqarilish holati ona kartasida, subject sifatida ona ko'rsatilgan va chaqaloq holati aniq belgilangan alohida Observation da saqlanadi; onaning chiqarilish holati tug'ruq Encounter ida qoladi.
+
 ### Maydonlarni moslashtirish
 
 ### 111-shakl Homilador va tuqqan ayolning individual kartasi - FHIR bilan moslashtirish
@@ -43,14 +47,14 @@ To'liq namunaviy nusxa uchun [111-shakl homilador ayolning individual kartasi mi
 | UZ | RU | FHIR yo'li | Kod | Misol qiymati |
 |----|----|------------|------|---------------|
 | Hujjat instansiyasi UUID va shakl raqami | Идентификатор документа и номер формы | Composition.identifier | - | 111 |
-| Individual karta raqami | Номер индивидуальной карты | Encounter.identifier | Local | 111-2025-000123 |
+| Individual karta raqami | Номер индивидуальной карты | EpisodeOfCare.identifier | Local | 111-2025-000123 |
 | Hujjat holati | Статус документа | Composition.status | - | final |
 | Hujjat turi | Тип документа | Composition.type | LOINC `34133-9` "Summary of episode note" | - |
 | Hujjat kategoriyasi | Категория документа | Composition.category | [Document Category](CodeSystem-document-category-cs.html) `form-111` | - |
 | Bemor | Пациентка | Composition.subject | [Patient](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-patient.html) | Ergasheva N.B. |
-| Ayollar maslahatxonasidagi kuzatuv epizodi | Эпизод наблюдения в женской консультации | Composition.encounter | [Encounter](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-encounter.html) | Antenatal episode |
+| Ayollar maslahatxonasidagi kuzatuv epizodi | Эпизод наблюдения в женской консультации | Composition.event.detail.reference | [EpisodeOfCare](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-episodeofcare.html) | Antenatal episode |
 | Hujjat shakllantirilgan sana | Дата составления документа | Composition.date | - | 2026-07-05 |
-| Homiladorlik davri | Период наблюдения беременности | Composition.event.period | - | 2025-10-20 - 2026-05-24 |
+| Homiladorlik davri | Период наблюдения беременности | Composition.event.period | - | 2025-10-20 - 2026-07-03 |
 | Kartani yurituvchi shifokor va bo'lim boshlig'i | Ведущий врач и заведующий отделением | Composition.author | [PractitionerRole](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-practitioner-role.html) | Yusupova S.T., Abdullayeva G.N. |
 | Kartani saqlovchi muassasa | Учреждение, хранящее карту | Composition.custodian | [Organization](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-organization.html) | Chilonzor tumani ayollar maslahatxonasi |
 | Hujjat sarlavhasi | Заголовок документа | Composition.title | - | Homilador va tuqqan ayolning individual kartasi (111-shakl) |
@@ -64,8 +68,8 @@ Bo'lim kodi: LOINC `LP36348-8` "Patient Information".
 
 | UZ | RU | FHIR yo'li | Kod | Misol qiymati |
 |----|----|------------|------|---------------|
-| Qon guruhi | Группа крови | Observation.valueCodeableConcept | LOINC `883-9` "Qonda ABO guruhi turi" / SNOMED `112144000` | Blood group A |
-| Homiladorning Rh mansubligi | Резус-принадлежность беременной | Observation.valueCodeableConcept | LOINC `10331-7` "Qonda Rh turi" / SNOMED `165747007` (RhD positive), `165746003` (RhD negative) | RhD positive |
+| Qon guruhi | Группа крови | Observation.valueCodeableConcept | LOINC `883-9` "ABO group [Type] in Blood" / SNOMED `112144000` | Blood group A |
+| Homiladorning Rh mansubligi | Резус-принадлежность беременной | Observation.valueCodeableConcept | LOINC `10331-7` "Rh [Type] in Blood" / SNOMED `165747007` (RhD positive), `165746003` (RhD negative) | RhD positive |
 | Homiladorning turmush o'rtog'ining Rh mansubligi | Резус-принадлежность супруга беременной | Observation.valueCodeableConcept (`focus` = RelatedPerson) | LOINC `10331-7` / SNOMED `165746003` | RhD negative |
 | Ro'yxatga olingan kun | Дата постановки на учёт | EpisodeOfCare.period.start + Encounter.actualPeriod.start + Encounter.episodeOfCare[] | - | 2025-10-20 |
 | WR I | RW I | Observation.valueString | [Analysis Test Code](CodeSystem-form111-analysis-test-code-cs.html) `chr-0001-00011` | Negative |
@@ -117,7 +121,7 @@ Bo'lim kodi: [Form111 CodeSystem](CodeSystem-form111-cs.html) `chr-0034-00001`.
 | UZ | RU | FHIR yo'li | Kod | Misol qiymati |
 |----|----|------------|------|---------------|
 | Homiladorlikni yakuni | Исход беременности | Observation.valueCodeableConcept | LOINC `63893-2` "Outcome of pregnancy" / [Pregnancy Outcome](ValueSet-form111-pregnancy-outcome-vs.html) (SNOMED `3950001`, or local `chr-0024-*` for maternal/child death) | Birth |
-| Sanasi | Дата | EpisodeOfCare.period.end | - | 2026-05-24 |
+| Sanasi | Дата завершения наблюдения | EpisodeOfCare.period.end | - | 2026-07-03 |
 | Necha haftada yakunlangani | На какой неделе завершилась | Observation.valueQuantity | LOINC `18185-9` "Gestational age" | 39 wk |
 | Tug'ruqning alohida xususiyatlari | Особенности родов | Observation.valueString | Form111 General Observation Code `chr-0035-00012` | Tabiiy tug'ruq yo'llari orqali, asoratlarsiz tug'ruq; qon yo'qotish 250 ml |
 | Bola tirik/o'lik tug'ilgani | Ребёнок родился живым/мёртвым | Observation.valueCodeableConcept | Form111 General Observation Code `chr-0035-00013` / [Newborn Birth Condition](ValueSet-form111-newborn-birth-condition-vs.html) (SNOMED `281050002`, `713202001`, `237362003`) | Livebirth |
@@ -249,7 +253,7 @@ Bo'lim kodi: [Form111 CodeSystem](CodeSystem-form111-cs.html) `chr-0034-00004`.
 | Yurak urishi | Сердцебиение | Observation.valueQuantity + component | LOINC `55283-6` / [Fetal Heartbeat Side](CodeSystem-form111-fetal-heartbeat-side-cs.html) `chr-0014-00002` | 142 /min, o'ngda |
 | Homilaning qimirlashi | Шевеление плода | Observation.valueBoolean | LOINC `57088-7` | true |
 | Siydikdagi oqsil miqdori | Белок в моче | Observation.valueQuantity | LOINC `2888-6` "Siydikda oqsil miqdori" | 0 mg/dL |
-| Qondagi Hb miqdori | Гемоглобин крови | Observation.valueQuantity | LOINC `718-7` "Qonda gemoglobin miqdori" | 104 g/L |
+| Qondagi Hb miqdori | Гемоглобин крови | Observation.valueQuantity | LOINC `718-7` "Hemoglobin [Mass/volume] in Blood" | 104 g/L |
 | Tashxis (homiladorlik haftasi) | Диагноз (неделя беременности) | Observation.valueQuantity | LOINC `18185-9` "Gestational age" | 21 wk |
 | Patologik o'zgarishlar | Патологические изменения | Observation.valueString | Gynecological Examination Observation Code `chr-0017-00003` | Gemoglobin pasayishi |
 | Ko'rsatmalar va maslahatlar | Указания и рекомендации | CarePlan.description | - | Temir preparatlari, parhez |
@@ -404,7 +408,7 @@ Bundle (document)
 ├── Patient (homilador ayolning demografik ma'lumotlari)
 ├── RelatedPerson (turmush o'rtog'i)
 ├── EpisodeOfCare (antenatal epizod)
-├── Encounter[] (antenatal epizod, tug'ruq, takroriy tashriflar, patronaj tashriflari, avvalgi homiladorliklar, tug'ruqdan keyingi tashriflar)
+├── Encounter[] (ro'yxatga olish tashrifi, tug'ruq, takroriy tashriflar, patronaj tashriflari, oldingi tug'ruq uchrashuvlari, tug'ruqdan keyingi tashriflar)
 ├── Organization[] (ayollar maslahatxonasi, ish joylari, tug'ruqxona)
 ├── Practitioner[] / PractitionerRole[] (kartani yurituvchi shifokor, bo'lim boshlig'i)
 ├── Condition[] (ekstragenital kasalliklar, joriy homiladorlik asoratlari, yakun tashxisi, o'tgan kasalliklar, ginekologik, joriy homiladorlik tashxisi)
