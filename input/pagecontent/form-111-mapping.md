@@ -370,10 +370,12 @@ Section code: [Form111 CodeSystem](CodeSystem-form111-cs.html) `chr-0034-00009`.
 - **Perinatal risk level and score** use `chr-0027-00005`/`chr-0027-00006`; `chr-0035-00022`/`chr-0035-00023` are deprecated.
 - **Newborn discharge status** is an Observation with `valueCodeableConcept`, because the newborn is not a separate Patient; the mother's discharge status uses `Encounter.admission.dischargeDisposition`.
 - **Workplace** is sent in `Observation.valueString`; an `Organization` is referenced only when its organization code is known.
-- **Education level** is one `valueCodeableConcept` with up to three codings of the same answer; `text` carries the wording from the form.
+- **Education level** is one answer described by three vocabularies: UZ Core `education-cs` is mandatory but coarser than the DMED list, so the original DMED value is kept when it would otherwise be lost. Send one `valueCodeableConcept` with up to three codings of the same answer; `text` carries the wording from the form.
   1. UZ Core `education-cs` - always, the core profile requires it. DMED `education_type` values map with [this ConceptMap](ConceptMap-dmed-form-111-education-type-core-cm.html).
   2. Form 111 `chr-0010-*` - when [this ConceptMap](ConceptMap-dmed-form-111-education-type-cm.html) has a target (primary, secondary general, bachelor).
   3. DMED `education_type` from [dmed-form-111-education-type-cs](CodeSystem-dmed-form-111-education-type-cs.html) - when the UZ Core code is broader than the DMED value, e.g. residency → "Higher education", primary → "Other".
+
+  Example: DMED `residency` becomes `education-cs` `regis0005.00008` "Higher education" + `dmed-form-111-education-type-cs` `residency`, with no Form 111 coding, since `chr-0010-*` has no residency level.
 - **Multi-select fields** (bad habits, socio-biological, obstetric and extragenital risk factors, pregnancy complications): send one Observation per value DMED marks as present. An unmarked value is unknown, not "no".
 - **Not shown in the example**: Doppler ultrasound `chr-0013-00001`, [contraception method detail](ValueSet-form111-contraception-details-vs.html), mother/child death outcomes `chr-0024-00001`/`chr-0024-00002`, `chr-0005-00002`/`chr-0005-00004`, and the remaining codes of [form111-analysis-test-code-vs](ValueSet-form111-analysis-test-code-vs.html).
 

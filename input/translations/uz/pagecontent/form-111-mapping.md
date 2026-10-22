@@ -372,10 +372,12 @@ Bo'lim kodi: [Form111 CodeSystem](CodeSystem-form111-cs.html) `chr-0034-00009`.
 - **Perinatal xavf darajasi va ballari** `chr-0027-00005`/`chr-0027-00006` bilan kodlanadi; `chr-0035-00022`/`chr-0035-00023` eskirgan (deprecated).
 - **Chaqaloqning chiqarilish holati** `valueCodeableConcept` li Observation, chunki chaqaloq alohida Patient sifatida modellashtirilmaydi; onaning chiqarilish holati `Encounter.admission.dischargeDisposition` da uzatiladi.
 - **Ish joyi** `Observation.valueString` da uzatiladi; `Organization` ga havola faqat tashkilot kodi ma'lum bo'lganda qo'shiladi.
-- **Ta'lim darajasi** - bitta javobning uchtagacha kodlanishi bo'lgan bitta `valueCodeableConcept`; `text` da shakldagi yozuv.
+- **Ta'lim darajasi** - uchta lug'at bilan tavsiflangan bitta javob: UZ Core `education-cs` majburiy, lekin DMED ro'yxatidan dag'alroq, shuning uchun aks holda yo'qoladigan asl DMED qiymati saqlanadi. Bitta javobning uchtagacha kodlanishi bo'lgan bitta `valueCodeableConcept` yuboriladi; `text` da shakldagi yozuv.
   1. UZ Core `education-cs` - har doim, uni asosiy profil talab qiladi. DMED `education_type` qiymatlari [ushbu ConceptMap](ConceptMap-dmed-form-111-education-type-core-cm.html) bo'yicha moslashtiriladi.
   2. 111-shakl `chr-0010-*` kodi - agar [ushbu ConceptMap](ConceptMap-dmed-form-111-education-type-cm.html) da maqsadli kod bo'lsa (boshlang'ich, o'rta umumiy, bakalavriat).
   3. DMED `education_type` qiymati [dmed-form-111-education-type-cs](CodeSystem-dmed-form-111-education-type-cs.html) dan - agar UZ Core kodi DMED qiymatidan kengroq bo'lsa, masalan ordinatura → "Oliy ma'lumot", boshlang'ich → "Boshqa".
+
+  Misol: DMED `residency` `education-cs` `regis0005.00008` "Oliy ma'lumot" + `dmed-form-111-education-type-cs` `residency` sifatida yuboriladi, 111-shakl kodisiz, chunki `chr-0010-*` da ordinatura darajasi yo'q.
 - **Ko'p tanlovli maydonlar** (zararli odatlar, ijtimoiy-biologik, akusherlik va ekstragenital xavf omillari, homiladorlik asoratlari): DMED da belgilangan har bir qiymat uchun bitta Observation yuboriladi. Belgilanmagan qiymat "yo'q" emas, "noma'lum" degani.
 - **Misolda ko'rsatilmagan**: dopplerografiya `chr-0013-00001`, [kontratseptsiya usuli tafsiloti](ValueSet-form111-contraception-details-vs.html), ona/bola o'limi natijalari `chr-0024-00001`/`chr-0024-00002`, `chr-0005-00002`/`chr-0005-00004` va [form111-analysis-test-code-vs](ValueSet-form111-analysis-test-code-vs.html) ning qolgan kodlari.
 
