@@ -372,7 +372,7 @@ Bo'lim kodi: [Form111 CodeSystem](CodeSystem-form111-cs.html) `chr-0034-00009`.
 - **Perinatal xavf darajasi va ballari** `chr-0027-00005`/`chr-0027-00006` bilan kodlanadi; `chr-0035-00022`/`chr-0035-00023` eskirgan (deprecated).
 - **Chaqaloqning chiqarilish holati** `valueCodeableConcept` li Observation, chunki chaqaloq alohida Patient sifatida modellashtirilmaydi; onaning chiqarilish holati `Encounter.admission.dischargeDisposition` da uzatiladi.
 - **Ish joyi** `Observation.valueString` da uzatiladi; `Organization` ga havola faqat tashkilot kodi ma'lum bo'lganda qo'shiladi.
-- **Ta'lim darajasi** asosiy profil talab qiladigan UZ Core `education-cs` kodini ham, 111-shakl `chr-0010-*` kodini ham o'z ichiga oladi.
+- **Ta'lim darajasi** asosiy profil talab qiladigan UZ Core `education-cs` kodini ham, 111-shakl `chr-0010-*` kodini ham o'z ichiga oladi. DMED `education_type` qiymatlari [UZ Core kodlariga](ConceptMap-dmed-form-111-education-type-core-cm.html) va [111-shakl kodlariga](ConceptMap-dmed-form-111-education-type-cm.html) moslashtirilgan.
 - **Misolda ko'rsatilmagan**: dopplerografiya `chr-0013-00001`, [kontratseptsiya usuli tafsiloti](ValueSet-form111-contraception-details-vs.html), ona/bola o'limi natijalari `chr-0024-00001`/`chr-0024-00002`, `chr-0005-00002`/`chr-0005-00004` va [form111-analysis-test-code-vs](ValueSet-form111-analysis-test-code-vs.html) ning qolgan kodlari.
 
 ---

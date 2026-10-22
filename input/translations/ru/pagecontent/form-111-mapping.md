@@ -372,7 +372,7 @@
 - **Уровень и сумма баллов перинатального риска** кодируются `chr-0027-00005`/`chr-0027-00006`; `chr-0035-00022`/`chr-0035-00023` устарели (deprecated).
 - **Статус выписки новорождённого** - Observation с `valueCodeableConcept`, так как новорождённый не моделируется отдельным Patient; статус выписки матери передаётся в `Encounter.admission.dischargeDisposition`.
 - **Место работы** передаётся в `Observation.valueString`; ссылка на `Organization` добавляется только при известном коде организации.
-- **Уровень образования** содержит и код UZ Core `education-cs`, требуемый базовым профилем, и код Формы 111 `chr-0010-*`.
+- **Уровень образования** содержит и код UZ Core `education-cs`, требуемый базовым профилем, и код Формы 111 `chr-0010-*`. Значения DMED `education_type` сопоставлены с [кодами UZ Core](ConceptMap-dmed-form-111-education-type-core-cm.html) и [кодами Формы 111](ConceptMap-dmed-form-111-education-type-cm.html).
 - **Не показаны в примере**: допплерография `chr-0013-00001`, [детализация метода контрацепции](ValueSet-form111-contraception-details-vs.html), исходы «смерть матери/ребёнка» `chr-0024-00001`/`chr-0024-00002`, `chr-0005-00002`/`chr-0005-00004` и остальные коды [form111-analysis-test-code-vs](ValueSet-form111-analysis-test-code-vs.html).
 
 ---
