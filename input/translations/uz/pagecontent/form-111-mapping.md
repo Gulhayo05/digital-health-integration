@@ -92,7 +92,7 @@ Misol: DMED `residency` `education-cs` `regis0005.00008` "Oliy ma'lumot" va `dme
 
 ### 1b. Ro'yxatga olishdagi laboratoriya tekshiruvlari
 
-Bo'lim kodi: LOINC `30954-2` "Relevant diagnostic tests/laboratory data Narrative".
+Bo'lim kodi: LOINC `30954-2` "Relevant diagnostic tests/laboratory data note".
 
 Tahlil natijalari (WR I/II, HBsAg I/II, OIV, gonoreya, toksoplazmoz) `Observation.valueCodeableConcept` da SNOMED `260385009` "Negative" yoki `10828004` "Positive" sifatida kodlanadi. Tahlillarning o'zi LOINC kodlari bilan beriladi; gonokokk lokal tahlil kodi `chr-0001-00001` ni saqlab qoladi.
 

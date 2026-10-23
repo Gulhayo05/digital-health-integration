@@ -92,7 +92,7 @@
 
 ### 1b. Лабораторные исследования при постановке на учёт
 
-Код раздела: LOINC `30954-2` "Relevant diagnostic tests/laboratory data Narrative".
+Код раздела: LOINC `30954-2` "Relevant diagnostic tests/laboratory data note".
 
 Результаты анализов (RW I/II, HBsAg I/II, ВИЧ, гонорея, токсоплазмоз) кодируются в `Observation.valueCodeableConcept` как SNOMED `260385009` "Negative" или `10828004` "Positive". Сами анализы кодируются LOINC; гонококк сохраняет локальный код анализа `chr-0001-00001`.
 

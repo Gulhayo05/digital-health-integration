@@ -80,7 +80,7 @@ Description: "Composition profile for Form 111 (Homilador va tuqqan ayolning ind
 * section[registrationLaboratoryTests].title 1..1
 * section[registrationLaboratoryTests].title ^short = "1b. Laboratory tests at registration"
 * section[registrationLaboratoryTests].code 1..1
-* section[registrationLaboratoryTests].code = $loinc#30954-2 "Relevant diagnostic tests/laboratory data Narrative"
+* section[registrationLaboratoryTests].code = $loinc#30954-2 "Relevant diagnostic tests/laboratory data note"
 * section[registrationLaboratoryTests].code ^short = "Qon guruhi, homiladorning va turmush o'rtog'ining Rh mansubligi, WR I, WR II, OIV, HBs Ag I, HBs Ag II, gonokokk, toksoplazmoz, boshqa tekshiruv"
 * section[registrationLaboratoryTests].entry 1..*
 * section[registrationLaboratoryTests].entry only Reference(UZCoreObservation)

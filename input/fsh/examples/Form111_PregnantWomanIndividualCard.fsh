@@ -372,7 +372,7 @@ Usage: #inline
 
 // --- 1b. Ro'yxatga olishdagi laboratoriya tekshiruvlari ---
 * section[registrationLaboratoryTests].title = "Ro'yxatga olishdagi laboratoriya tekshiruvlari"
-* section[=].code = $loinc#30954-2 "Relevant diagnostic tests/laboratory data Narrative"
+* section[=].code = $loinc#30954-2 "Relevant diagnostic tests/laboratory data note"
 * section[=].entry[0] = Reference(urn:uuid:11100012-1111-2222-3333-444444444444) //observation-111-blood-group
 * section[=].entry[+] = Reference(urn:uuid:11100013-1111-2222-3333-444444444444) //observation-111-rh-patient
 * section[=].entry[+] = Reference(urn:uuid:11100014-1111-2222-3333-444444444444) //observation-111-rh-spouse

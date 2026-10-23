@@ -90,7 +90,7 @@ Example: DMED `residency` is sent as `education-cs` `regis0005.00008` "Higher ed
 
 ### 1b. Laboratory tests at registration
 
-Section code: LOINC `30954-2` "Relevant diagnostic tests/laboratory data Narrative".
+Section code: LOINC `30954-2` "Relevant diagnostic tests/laboratory data note".
 
 Test results (WR I/II, HBsAg I/II, HIV, gonorrhoea, toxoplasmosis) are coded in `Observation.valueCodeableConcept` as SNOMED `260385009` "Negative" or `10828004` "Positive". The tests themselves are LOINC codes; gonococcus keeps the local test code `chr-0001-00001`.
 
