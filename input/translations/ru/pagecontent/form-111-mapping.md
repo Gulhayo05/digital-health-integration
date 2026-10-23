@@ -62,7 +62,7 @@
 | UZ | RU | Путь FHIR | Код | Пример значения |
 |----|----|------------|------|---------------|
 | Ro'yxatga olingan kun | Дата постановки на учёт | EpisodeOfCare.period.start | - | 2025-10-20 |
-| Med ID raqami | Идентификатор медкарты | Patient.identifier[healthCardId] | - | HC-2025-00111 |
+| Med ID raqami | Идентификатор медкарты | Patient.identifier[healthCardId] | `https://dhp.uz/fhir/core/sid/pid/uz/hc`, type `HC` | HC-2025-00111 |
 | Familiya, ismi, otasining ismi (F.I.Sh) | Фамилия, имя, отчество (Ф.И.О.) | Patient.name | - | Ergasheva Nilufar Baxtiyorovna |
 | Tug'ilgan sanasi | Дата рождения | Patient.birthDate | - | 1997-03-08 |
 | Oilaviy sharoiti | Семейное положение | Patient.maritalStatus | `http://terminology.hl7.org/CodeSystem/v3-MaritalStatus#M` | Married |
