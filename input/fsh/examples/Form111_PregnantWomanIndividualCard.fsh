@@ -25,6 +25,12 @@ Description: "Example of an individual antenatal/postpartum card (Form 111) as a
 * entry[=].resource = practitioner-111-001
 * entry[+].fullUrl = "urn:uuid:11100008-1111-2222-3333-444444444444"
 * entry[=].resource = practitioner-111-002
+* entry[+].fullUrl = "urn:uuid:11100167-1111-2222-3333-444444444444"
+* entry[=].resource = practitioner-111-therapist
+* entry[+].fullUrl = "urn:uuid:11100168-1111-2222-3333-444444444444"
+* entry[=].resource = practitioner-111-dentist
+* entry[+].fullUrl = "urn:uuid:11100169-1111-2222-3333-444444444444"
+* entry[=].resource = practitioner-111-dermatovenereologist
 * entry[+].fullUrl = "urn:uuid:11100009-1111-2222-3333-444444444444"
 * entry[=].resource = practitionerrole-111-001
 * entry[+].fullUrl = "urn:uuid:11100010-1111-2222-3333-444444444444"
@@ -666,6 +672,39 @@ Usage: #inline
 * name.family = "Abdullayeva"
 * name.given[0] = "G."
 * name.given[+] = "N."
+
+Instance: practitioner-111-therapist
+InstanceOf: UZCorePractitioner
+Usage: #inline
+* language = #uz
+* identifier[nationalId].value = "12345678903333"
+* name.use = #official
+* name.text = "Karimov A.B."
+* name.family = "Karimov"
+* name.given[0] = "A."
+* name.given[+] = "B."
+
+Instance: practitioner-111-dentist
+InstanceOf: UZCorePractitioner
+Usage: #inline
+* language = #uz
+* identifier[nationalId].value = "12345678904444"
+* name.use = #official
+* name.text = "Rahimova D.S."
+* name.family = "Rahimova"
+* name.given[0] = "D."
+* name.given[+] = "S."
+
+Instance: practitioner-111-dermatovenereologist
+InstanceOf: UZCorePractitioner
+Usage: #inline
+* language = #uz
+* identifier[nationalId].value = "12345678905555"
+* name.use = #official
+* name.text = "Toshmatov F.R."
+* name.family = "Toshmatov"
+* name.given[0] = "F."
+* name.given[+] = "R."
 
 Instance: practitionerrole-111-001
 InstanceOf: UZCorePractitionerRole
@@ -2567,10 +2606,10 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #uz
 * status = #final
-* code = $loinc#11488-4 "Consult note"
+* code = $loinc#85238-4 "Internal medicine Consult note"
 * code.text = "Terapevt xulosasi"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
-* performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
+* performer = Reference(urn:uuid:11100167-1111-2222-3333-444444444444)
 * effectiveDateTime = "2025-11-05"
 * valueString = "Ichki a'zolar tomonidan patologiya aniqlanmadi."
 
@@ -2579,10 +2618,10 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #uz
 * status = #final
-* code = $loinc#11488-4 "Consult note"
+* code = $loinc#34756-7 "Dentistry Consult note"
 * code.text = "Stomatolog xulosasi"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
-* performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
+* performer = Reference(urn:uuid:11100168-1111-2222-3333-444444444444)
 * effectiveDateTime = "2025-11-06"
 * valueString = "Og'iz bo'shlig'i sanatsiya qilindi, ikkita karies davolandi."
 
@@ -2591,10 +2630,10 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #uz
 * status = #final
-* code = $loinc#11488-4 "Consult note"
+* code = $loinc#34758-3 "Dermatology Consult note"
 * code.text = "Venerolog xulosasi"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
-* performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
+* performer = Reference(urn:uuid:11100169-1111-2222-3333-444444444444)
 * effectiveDateTime = "2025-11-06"
 * valueString = "Jinsiy yo'l bilan yuqadigan infeksiyalar aniqlanmadi."
 
