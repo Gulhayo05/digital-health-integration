@@ -35,7 +35,7 @@ Description: "Uzbek and Russian displays for the SNOMED CT codes used by Form 11
   * ^designation[+].language = #uz
   * ^designation[=].value = "Shoshilinch kontratseptsiya"
 
-* #60890002 "Female sterilization"
+* #275572005 "History of female sterilization"
   * ^designation[0].language = #ru
   * ^designation[=].value = "Женская стерилизация"
   * ^designation[+].language = #uz
@@ -59,11 +59,11 @@ Description: "Uzbek and Russian displays for the SNOMED CT codes used by Form 11
   * ^designation[+].language = #uz
   * ^designation[=].value = "Tabiiy usul"
 
-* #22523008 "Vasectomy"
+* #830148006 "Partner had vasectomy"
   * ^designation[0].language = #ru
-  * ^designation[=].value = "Вазэктомия"
+  * ^designation[=].value = "Вазэктомия у партнёра"
   * ^designation[+].language = #uz
-  * ^designation[=].value = "Vazektomiya"
+  * ^designation[=].value = "Sherigida vazektomiya"
 
 * #445375000 "Does not use contraception"
   * ^designation[0].language = #ru
@@ -166,11 +166,11 @@ Description: "Uzbek and Russian displays for the SNOMED CT codes used by Form 11
   * ^designation[+].language = #uz
   * ^designation[=].value = "Bepushtlik"
 
-* #276506001 "Neonatal death"
+* #1290167007 "Past pregnancy history of neonatal death"
   * ^designation[0].language = #ru
-  * ^designation[=].value = "Неонатальная смерть"
+  * ^designation[=].value = "Неонатальная смерть в анамнезе"
   * ^designation[+].language = #uz
-  * ^designation[=].value = "Neonatal o'lim"
+  * ^designation[=].value = "Anamnezda neonatal o'lim"
 
 * #16607004 "Missed miscarriage"
   * ^designation[0].language = #ru

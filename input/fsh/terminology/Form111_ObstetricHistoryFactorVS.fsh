@@ -8,7 +8,7 @@ Description: "Form 111 Obstetric History Factor ValueSet for clinical documents 
 
 // SNOMED CT equivalents of the DMED tokens; the remaining local codes have no standard match.
 * $sct#8619003 "Infertile"
-* $sct#276506001 "Neonatal death"
+* $sct#1290167007 "Past pregnancy history of neonatal death"
 * $sct#16607004 "Missed miscarriage"
 * $sct#161765003 "Past pregnancy history of premature delivery"
 * $sct#161743003 "Past pregnancy history of stillbirth"

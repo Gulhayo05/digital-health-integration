@@ -46,16 +46,16 @@ Description: "Maps DMED `contraception_details` values to SNOMED CT."
 * group[=].target = "http://snomed.info/sct"
 * group[=].element[+].code = #"female_sterilization"
 * group[=].element[=].display = "Женская стерилизация"
-* group[=].element[=].target[+].code = #"60890002"
-* group[=].element[=].target[=].display = "Female sterilization"
+* group[=].element[=].target[+].code = #"275572005"
+* group[=].element[=].target[=].display = "History of female sterilization"
 * group[=].element[=].target[=].relationship = #equivalent
-* group[=].element[=].target[=].comment = "Procedure concept; the source records the method, not the operation."
+* group[=].element[=].target[=].comment = "Situation concept: the woman was sterilized, which is her contraception method."
 * group[=].element[+].code = #"vasectomy"
 * group[=].element[=].display = "Вазэктомия"
-* group[=].element[=].target[+].code = #"22523008"
-* group[=].element[=].target[=].display = "Vasectomy"
+* group[=].element[=].target[+].code = #"830148006"
+* group[=].element[=].target[=].display = "Partner had vasectomy"
 * group[=].element[=].target[=].relationship = #equivalent
-* group[=].element[=].target[=].comment = "Partner vasectomy recorded as the woman's method."
+* group[=].element[=].target[=].comment = "Situation concept: the woman's partner had a vasectomy."
 * group[=].element[+].code = #"natural"
 * group[=].element[=].display = "Естественная"
 * group[=].element[=].target[+].code = #"718701005"
@@ -527,10 +527,10 @@ Description: "Maps DMED `obstetric_gynecological_history` values to SNOMED CT wh
 * group[=].element[=].target[=].comment = "History-context concept, as the field records past pregnancies."
 * group[=].element[+].code = #"neonatal_death"
 * group[=].element[=].display = "Смерть в неонатальном периоде"
-* group[=].element[=].target[+].code = #"276506001"
-* group[=].element[=].target[=].display = "Neonatal death"
+* group[=].element[=].target[+].code = #"1290167007"
+* group[=].element[=].target[=].display = "Past pregnancy history of neonatal death"
 * group[=].element[=].target[=].relationship = #equivalent
-* group[=].element[=].target[=].comment = "Exact SNOMED CT equivalent."
+* group[=].element[=].target[=].comment = "History-context concept, as the field records past pregnancies."
 
 Instance: dmed-form-111-extragenital-diseases-cm
 InstanceOf: ConceptMap
