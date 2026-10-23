@@ -31,17 +31,3 @@ Local codes were numbered as fields were implemented. Where the DMED field-mappi
 | Blood pressure text | `chr-0034-00001` (already a section code) | LOINC `85354-9` with `8480-6`/`8462-4` components |
 
 The review's RhD codes `165747005`/`165748000` do not exist in SNOMED CT; the IG uses `165747007`/`165746003`.
-
-## Automated check
-
-After the IG build, run:
-
-```sh
-node scripts/check-form111-contract.cjs
-# Optionally check JSON examples in the source integration document as well:
-node scripts/check-form111-contract.cjs /absolute/path/to/integration-111.md
-```
-
-The check protects the local code identities listed in `scripts/fixtures/form111-code-identities.json`, rejects duplicate codes/canonicals, resolves local codings and ConceptMap targets and checks the source-specific result types and combined-answer mappings. CI runs it after SUSHI.
-
-Before integrating another branch, compare complete `system + code` pairs against this registry. Reusing an international code in another form is expected; assigning a different meaning to an existing local pair is a conflict. The 21 October 2026 audit found no Form 111 code collisions in main or in the other 18 open PRs.
