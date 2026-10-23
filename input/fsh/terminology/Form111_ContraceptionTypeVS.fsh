@@ -6,5 +6,8 @@ Description: "Form 111 Contraception Type ValueSet for clinical documents and ot
 
 * include codes from system form111-contraception-type-cs
 
+// SNOMED CT equivalent of the DMED `none` token; surgical and non-surgical stay local.
+* $sct#445375000 "Does not use contraception"
+
 * ^experimental = true
 * ^status = #draft

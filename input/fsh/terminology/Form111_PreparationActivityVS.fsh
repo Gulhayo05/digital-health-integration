@@ -6,5 +6,10 @@ Description: "Form 111 Preparation Activity ValueSet"
 
 * include codes from system form111-preparation-activity-cs
 
+// SNOMED CT procedures for the activities that have a standard equivalent; the mothers' school stays local.
+* $sct#183329005 "Antenatal exercises"
+* $sct#408779007 "Psychoprophylaxis"
+* $sct#363695005 "Ultraviolet light therapy"
+
 * ^experimental = true
 * ^status = #draft

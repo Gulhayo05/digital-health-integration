@@ -2,24 +2,16 @@
 
 Local concepts are identified by their canonical CodeSystem URL and code. The existing meanings in PR 69 at `9b1440ea58c41739dabfb0794d3a5bc5c5c40037` are retained. Removing a local concept in favour of a standard equivalent must never shift the remaining local numbers.
 
-## Standard mappings
+## Standard codes
 
-| Explicit source field/token | Standard target | Legacy local concept retained |
-|---|---|---|
-| `family_sexual_history.patient_bad_habits`: `smoking` | SNOMED CT `77176002` | `form111-patient-bad-habit-cs#chr-0020-00009` |
-| `fetal_presentation`: `cephalic` | SNOMED CT `1209182005` | `form111-fetal-presentation-cs#chr-0015-00002` |
-| `pregnancy_progress[].pregnancy_complications`: `anemia` | SNOMED CT `271737000` | `form111-pregnancy-complication-factor-cs#chr-0022-00002` |
+Local concepts with a LOINC or SNOMED CT equivalent were replaced by the standard code and removed: laboratory tests, clinical note and examination codes, contraception methods, extragenital disease groups, normal/abnormal findings, fetal presentation, general condition, obstetric history factors, bad habits, pregnancy complications, birth-preparation activities, delivery type, left/right, blood pressure (LOINC `85354-9` with components) and yes/no (HL7 `v2-0532`). The Form 111 ValueSets list the standard codes explicitly; Uzbek and Russian displays are in `form111-snomed-supplement-cs` and `form111-loinc-supplement-cs`. The remaining local codes have no standard equivalent. A selected risk factor remains an Observation; a diagnosis requires its own clinical confirmation.
 
-The ValueSets accept the standard targets and the legacy local concepts. A selected risk factor remains an Observation; a diagnosis requires its own clinical confirmation.
-
-References: [SNOMED International anemia terminology](https://docs.snomed.org/snomed-ct-specifications/snomed-ct-release-file-specification/reference-set-release-file-specification/5.2-reference-set-types/5.2.2.1-language-reference-set), [HL7 smoking terminology example](https://hl7.org.au/fhir/core/2.1.0-draft/Observation-smokingstatus-current-smoker.json.html), [NCBI terminology cross-reference for cephalic fetal presentation](https://www.ncbi.nlm.nih.gov/medgen/453352).
-
-Combined `alcoholism_drug_addiction` and `smoking_alcoholism_drug_addiction` selections retain their single local target. Do not assert every individual factor from a combined selection. Gestosis retains its local concept until a clinical owner confirms an exact standard equivalent. Laboratory test codes remain local until the source establishes the analyte, specimen and method required by a proposed LOINC code.
+Combined `alcoholism_drug_addiction` and `smoking_alcoholism_drug_addiction` selections keep their single local target. Do not assert every individual factor from a combined selection. Gestosis keeps `chr-0022-00005` as the primary target, with SNOMED CT `398254007` as a narrower second target. The gonococcus test keeps `chr-0001-00001` until the source confirms the test method.
 
 ## Result types
 
 - Fetal movement (`LOINC 57088-7`) and the hospitalization flag (`chr-0035-00019`) use native `Observation.valueBoolean`.
-- Birth-preparation fields contain a source activity date in `valueDateTime`. Gestational weeks are separate `valueQuantity` observations. Do not invent an activity frequency from the number of pregnancy weeks.
+- Birth-preparation fields (SNOMED CT activity codes, mothers' school `chr-0025-00001`) contain a source activity date in `valueDateTime`. Gestational weeks are separate `valueQuantity` observations. Do not invent an activity frequency from the number of pregnancy weeks.
 - `form111-previous-pregnancy-outcome-vs` contains only `386639001` (termination) and `3950001` (birth), matching the two explicit DMED tokens. An independent clinical history may contain more detail; the coarse token alone does not establish miscarriage subtype.
 - `form111-previous-delivery-term-vs` contains only preterm and term. There is no implemented reserved post-term concept in this set.
 - Perinatal risk level/score use `chr-0027-00005`/`chr-0027-00006`. The old General Observation duplicates `chr-0035-00023`/`chr-0035-00022` retain their meanings, are marked deprecated and are excluded from the current General Observation ValueSet.
@@ -35,9 +27,8 @@ Local codes were numbered as fields were implemented. Where the DMED field-mappi
 | Newborn birth condition | `chr-0035-00001` (already registration date) | `chr-0035-00013` |
 | Menstrual character / last period end date | `chr-0036-00001`/`00002` | `chr-0035-00011`/`chr-0035-00009` |
 | Muddatdan farq (kun) | `chr-0037-00004` | `chr-0035-00021` |
-| Prenatal leave start/end | `chr-0037-00001`/`00002` | `chr-0035-00017` `effectivePeriod` |
-| Postpartum leave duration/start/end | `chr-0037-00005`/`00006`/`00007` | `chr-0035-00018` `valueQuantity` + `effectivePeriod` |
-| Blood pressure text | `chr-0034-00001` (already a section code) | `chr-0035-00024` |
+| Prenatal / postpartum leave | `chr-0037-00001`/`00002`, `00005`/`00006`/`00007` | `SickLeaveCarePlan` `period` + `identifier` |
+| Blood pressure text | `chr-0034-00001` (already a section code) | LOINC `85354-9` with `8480-6`/`8462-4` components |
 
 The review's RhD codes `165747005`/`165748000` do not exist in SNOMED CT; the IG uses `165747007`/`165746003`.
 
@@ -51,6 +42,6 @@ node scripts/check-form111-contract.cjs
 node scripts/check-form111-contract.cjs /absolute/path/to/integration-111.md
 ```
 
-The check protects all 172 original local code identities, rejects duplicate codes/canonicals, resolves local codings and ConceptMap targets and checks the source-specific result types and combined-answer mappings. CI runs it after SUSHI.
+The check protects the local code identities listed in `scripts/fixtures/form111-code-identities.json`, rejects duplicate codes/canonicals, resolves local codings and ConceptMap targets and checks the source-specific result types and combined-answer mappings. CI runs it after SUSHI.
 
-Before integrating another branch, compare complete `system + code` pairs against this registry. Reusing an international code in another form is expected; assigning a different meaning to an existing local pair is a conflict. The 21 October 2026 audit found no Form 111 code collisions in main or in the other 18 open PRs. PR 120 is an alternative implementation with 44 conflicting local primary labels and must be aligned with this contract before combining the branches.
+Before integrating another branch, compare complete `system + code` pairs against this registry. Reusing an international code in another form is expected; assigning a different meaning to an existing local pair is a conflict. The 21 October 2026 audit found no Form 111 code collisions in main or in the other 18 open PRs.

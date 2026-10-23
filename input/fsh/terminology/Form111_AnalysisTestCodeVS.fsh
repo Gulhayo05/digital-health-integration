@@ -6,5 +6,14 @@ Description: "Form 111 Analysis Test Code ValueSet for clinical documents and ot
 
 * include codes from system form111-analysis-test-code-cs
 
+// LOINC test codes; the local system keeps only gonococcus and "other analysis".
+* $loinc#22461-8 "Reagin Ab [Presence] in Serum"
+* $loinc#7918-6 "HIV 1+2 Ab [Presence] in Serum"
+* $loinc#5195-3 "Hepatitis B virus surface Ag [Presence] in Serum"
+* $loinc#14361-0 "Microscopic observation [Identifier] in Vaginal fluid by Gram stain"
+* $loinc#10704-5 "Ova and parasites identified in Stool by Light microscopy"
+* $loinc#22577-1 "Toxoplasma gondii Ab [Presence] in Serum"
+* $loinc#24356-8 "Urinalysis complete panel - Urine"
+
 * ^experimental = true
 * ^status = #draft

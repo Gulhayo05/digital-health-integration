@@ -6,5 +6,8 @@ Description: "Form 111 Pregnancy Monitoring Observation Code ValueSet"
 
 * include codes from system form111-pregnancy-monitoring-observation-code-cs
 
+// Standard codes replacing the former local concepts.
+* $sct#396552003 "Abdominal circumference"
+
 * ^experimental = true
 * ^status = #draft

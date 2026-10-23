@@ -61,18 +61,6 @@ Description: "Form 111 General Observation Code for clinical documents and other
   * ^designation[+].language = #ru
   * ^designation[=].value = "Дата последней менструации (окончание)"
 
-* #chr-0035-00010 "Jinsiy hayoti necha yoshdan boshlangani"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Age at onset of sexual activity"
-  * ^designation[+].language = #ru
-  * ^designation[=].value = "Возраст начала половой жизни"
-
-* #chr-0035-00011 "Xayz ko'rish xususiyatlari"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Menstrual characteristics"
-  * ^designation[+].language = #ru
-  * ^designation[=].value = "Особенности менструации"
-
 * #chr-0035-00012 "Tug'ruqning alohida xususiyatlari"
   * ^designation[0].language = #en
   * ^designation[=].value = "Special features of delivery"
@@ -102,18 +90,6 @@ Description: "Form 111 General Observation Code for clinical documents and other
   * ^designation[=].value = "Characteristics of previous pregnancies"
   * ^designation[+].language = #ru
   * ^designation[=].value = "Особенности предыдущих беременностей"
-
-* #chr-0035-00017 "Homiladorlik bo'yicha ta'til"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Pregnancy leave"
-  * ^designation[+].language = #ru
-  * ^designation[=].value = "Отпуск по беременности"
-
-* #chr-0035-00018 "Tug'ruqdan keyingi ta'til"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Postpartum leave"
-  * ^designation[+].language = #ru
-  * ^designation[=].value = "Послеродовой отпуск"
 
 * #chr-0035-00019 "Shifoxonaga yotqizildi"
   * ^designation[0].language = #en
@@ -152,12 +128,6 @@ Description: "Form 111 General Observation Code for clinical documents and other
   * ^designation[+].language = #ru
   * ^designation[=].value = "Уровень риска"
 
-* #chr-0035-00024 "Arterial qon bosimi"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Blood pressure"
-  * ^designation[+].language = #ru
-  * ^designation[=].value = "Артериальное давление"
-
 * #chr-0035-00025 "O'tgan operatsiyalar"
   * ^designation[0].language = #en
   * ^designation[=].value = "Past surgeries"
@@ -175,9 +145,3 @@ Description: "Form 111 General Observation Code for clinical documents and other
   * ^designation[=].value = "Previous pregnancy year"
   * ^designation[+].language = #ru
   * ^designation[=].value = "Год предыдущей беременности"
-
-* #chr-0035-00028 "Ish joyi"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Workplace"
-  * ^designation[+].language = #ru
-  * ^designation[=].value = "Место работы"

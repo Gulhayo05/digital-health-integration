@@ -6,5 +6,8 @@ Description: "Form 111 Social Observation Code ValueSet"
 
 * include codes from system form111-social-observation-code-cs
 
+// Standard codes replacing the former local concepts.
+* $loinc#80427-8 "Employer name [Identifier]"
+
 * ^experimental = true
 * ^status = #draft

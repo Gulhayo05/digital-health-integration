@@ -6,5 +6,8 @@ Description: "Form 111 Gynecological Examination Observation Code ValueSet for c
 
 * include codes from system form111-gynecological-examination-observation-code-cs
 
+// Standard codes replacing the former local concepts.
+* $loinc#10193-1 "Physical findings of Breasts Narrative"
+
 * ^experimental = true
 * ^status = #draft

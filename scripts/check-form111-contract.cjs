@@ -26,7 +26,7 @@ for (const c of baseline.concepts) {
   assert(actual, `Removed legacy concept: ${c.system}#${c.code}`);
   assert.equal(actual.display, c.display, `Reassigned legacy concept: ${c.system}#${c.code}`);
 }
-const formSystems = [...systems].filter(([url]) => /\/form111(?:113)?-/.test(url));
+const formSystems = [...systems].filter(([url]) => /\/form111-/.test(url));
 const localCodes = new Map();
 for (const [url, { concepts }] of formSystems) {
   for (const code of concepts.keys()) {
@@ -87,8 +87,8 @@ for (const [system, code, value] of [
   assert(matches.length, `Missing boolean example for ${code}`);
   for (const o of matches) { assert.equal(o.valueBoolean, value); assert(!o.valueCodeableConcept); }
 }
-for (const code of ['chr-0025-00001', 'chr-0025-00002', 'chr-0025-00003', 'chr-0025-00004']) {
-  const observation = observations.find(o => hasCode(o, integrationCS + 'form111-preparation-activity-cs', code));
+for (const [system, code] of [[integrationCS + 'form111-preparation-activity-cs', 'chr-0025-00001'], [sct, '183329005'], [sct, '408779007'], [sct, '363695005']]) {
+  const observation = observations.find(o => hasCode(o, system, code));
   assert(observation?.valueDateTime, `Activity date must be a result: ${code}`);
   assert(!observation.valueBoolean && !observation.component, `Invented activity completion/frequency: ${code}`);
 }

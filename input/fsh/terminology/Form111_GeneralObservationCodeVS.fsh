@@ -9,5 +9,10 @@ Description: "Form 111 General Observation Code ValueSet for clinical documents 
 * exclude form111-general-observation-code-cs#chr-0035-00022
 * exclude form111-general-observation-code-cs#chr-0035-00023
 
+// Standard codes replacing the former local concepts.
+* $sct#228456002 "Age became sexually active"
+* $loinc#49033-4 "Menstrual History - Reported"
+* $loinc#80427-8 "Employer name [Identifier]"
+
 * ^experimental = true
 * ^status = #draft

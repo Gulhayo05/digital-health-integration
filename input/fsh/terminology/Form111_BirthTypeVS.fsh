@@ -6,5 +6,8 @@ Description: "Form 111 Birth Type ValueSet for clinical documents and other know
 
 * include codes from system form111-birth-type-cs
 
+// Standard codes replacing the former local concepts.
+* $sct#289259007 "Vaginal delivery"
+
 * ^experimental = true
 * ^status = #draft

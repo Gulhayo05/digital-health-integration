@@ -6,5 +6,11 @@ Description: "Form 111 Assessment Observation Code ValueSet for clinical documen
 
 * include codes from system form111-assessment-observation-code-cs
 
+// Standard codes replacing the former local concepts.
+* $loinc#8661-1 "Chief complaint - Reported"
+* $loinc#18776-5 "Plan of care note"
+* $loinc#11488-4 "Consult note"
+* $loinc#11421-5 "Physical findings of Cardiovascular system"
+
 * ^experimental = true
 * ^status = #draft

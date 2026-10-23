@@ -65,16 +65,16 @@
 | Homiladorning Rh mansubligi | Резус-принадлежность беременной | Observation.valueCodeableConcept | `code` LOINC `10331-7` "Rh [Type] in Blood"<br>`value` SNOMED `165747007` (RhD positive), `165746003` (RhD negative) | RhD positive |
 | Homiladorning turmush o'rtog'ining Rh mansubligi | Резус-принадлежность супруга беременной | Observation.valueCodeableConcept (`focus` = RelatedPerson) | `code` LOINC `10331-7` "Rh [Type] in Blood"<br>`value` SNOMED `165746003` "RhD negative" | RhD negative |
 | Ro'yxatga olingan kun | Дата постановки на учёт | EpisodeOfCare.period.start | - | 2025-10-20 |
-| WR I | RW I | Observation.valueString | [Analysis Test Code](CodeSystem-form111-analysis-test-code-cs.html) `chr-0001-00011` "WR I" | Negative |
-| WR II | RW II | Observation.valueString | Analysis Test Code `chr-0001-00012` "WR II" | Negative |
-| OIV | ВИЧ | Observation.valueString | Analysis Test Code `chr-0001-00004` "ВИЧ" | Negative |
+| WR I | RW I | Observation.valueCodeableConcept | LOINC `22461-8` "Reagin Ab [Presence] in Serum" | Negative |
+| WR II | RW II | Observation.valueCodeableConcept | LOINC `22461-8` "Reagin Ab [Presence] in Serum" | Negative |
+| OIV | ВИЧ | Observation.valueCodeableConcept | LOINC `7918-6` "HIV 1+2 Ab [Presence] in Serum" | Negative |
 | OIV tekshirilgan yil | Год обследования на ВИЧ | *(effectiveDateTime того же Observation)* | - | 2025-10-22 |
-| Hbs Ag I | HBsAg I | Observation.valueString | Analysis Test Code `chr-0001-00002` "HBsAg I" | Negative |
+| Hbs Ag I | HBsAg I | Observation.valueCodeableConcept | LOINC `5195-3` "Hepatitis B virus surface Ag [Presence] in Serum" | Negative |
 | Hbs Ag I tekshirilgan yil | Год обследования на HBsAg I | *(effectiveDateTime того же Observation)* | - | 2025-10-22 |
-| Hbs Ag II | HBsAg II | Observation.valueString | Analysis Test Code `chr-0001-00003` "HBsAg II" | Negative |
+| Hbs Ag II | HBsAg II | Observation.valueCodeableConcept | LOINC `5195-3` "Hepatitis B virus surface Ag [Presence] in Serum" | Negative |
 | Hbs Ag II tekshirilgan yil | Год обследования на HBsAg II | *(effectiveDateTime того же Observation)* | - | 2026-02-10 |
-| Gonokokk | Гонококк | Observation.valueString | Analysis Test Code `chr-0001-00001` "Гонококк" | Negative |
-| Toksoplazmoz | Токсоплазмоз | Observation.valueString | Analysis Test Code `chr-0001-00009` "Токсоплазмоз" | Negative |
+| Gonokokk | Гонококк | Observation.valueCodeableConcept | [Analysis Test Code](CodeSystem-form111-analysis-test-code-cs.html) `chr-0001-00001` "Гонококк" | Negative |
+| Toksoplazmoz | Токсоплазмоз | Observation.valueCodeableConcept | LOINC `22577-1` "Toxoplasma gondii Ab [Presence] in Serum" | Negative |
 | Boshqa tekshiruv (siydik tahlili) | Другое обследование (анализ мочи) | Observation.valueString | Analysis Test Code `chr-0001-00006` "Boshqa tahlil" | Siydik tahlili: me'yor |
 | Med ID raqami | Идентификатор медкарты | Patient.identifier[healthCardId] | - | HC-2025-00111 |
 | Familiya, ismi, otasining ismi (F.I.Sh) | Фамилия, имя, отчество (Ф.И.О.) | Patient.name | - | Ergasheva Nilufar Baxtiyorovna |
@@ -83,13 +83,13 @@
 | Yashash manzili | Адрес проживания | Patient.address | - | Chilonzor tumani, 7-kvartal, 21-uy |
 | Telefon raqami (uy) | Номер домашнего телефона | Patient.telecom | - | +998901112233 |
 | Ma'lumoti | Образование | [UZCoreSocioeconomicObservation](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-socioeconomic-observation.html).valueCodeableConcept | `code` SNOMED `105421008` "Educational achievement"<br>`value` [UZ Core Education](https://dhp.uz/fhir/core/en/CodeSystem-education-cs.html) `regis0005.00004` "Среднее" + [Education Level](CodeSystem-form111-education-level-cs.html) `chr-0010-00003` "Среднее общее образование" | O'rta umumiy ta'lim |
-| Ish joyi | Место работы | Observation.valueString | [Form111 General Observation Code](CodeSystem-form111-general-observation-code-cs.html) `chr-0035-00028` "Место работы" | 45-son umumta'lim maktabi |
+| Ish joyi | Место работы | Observation.valueString | LOINC `80427-8` "Employer name [Identifier]" | 45-son umumta'lim maktabi |
 | Ish joyi telefon raqami | Телефон места работы | Observation.valueString | [Social Observation Code](CodeSystem-form111-social-observation-code-cs.html) `chr-0029-00004` "Телефон места работы" | +998712345678 |
 | Mutaxassisligi | Специальность | [UZCoreSocioeconomicObservation](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-socioeconomic-observation.html).valueCodeableConcept | `code` SNOMED `14679004` "Occupation"<br>`value` [UZ Core Position and Profession](https://dhp.uz/fhir/core/en/CodeSystem-position-and-profession-cs.html) | `2341.8` "Boshlang'ich sinflar (kichik) o'qituvchisi" |
 | Lavozimi | Должность | [UZCoreSocioeconomicObservation](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-socioeconomic-observation.html).valueCodeableConcept | `code` SNOMED `14679004` "Occupation"<br>`value` [UZ Core Position and Profession](https://dhp.uz/fhir/core/en/CodeSystem-position-and-profession-cs.html) | `2330.9` "O'qituvchi" |
 | Ish sharoiti | Условия труда | Observation.valueString | [Social Observation Code](CodeSystem-form111-social-observation-code-cs.html) `chr-0029-00003` "Условия труда" | Yengil mehnat sharoiti |
 | Turmush o'rtog'ining F.I.Sh | Ф.И.О. супруга | [RelatedPerson](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-relatedperson.html).name | - | Ergashev Sardor Alisherovich |
-| Turmush o'rtog'ining ish joyi | Место работы супруга | Observation.valueString (`focus` = RelatedPerson) | Social Observation Code `chr-0029-00002` "Место работы супруга" | Toshkent shahar avtobazasi, haydovchi |
+| Turmush o'rtog'ining ish joyi | Место работы супруга | Observation.valueString (`focus` = RelatedPerson) | LOINC `80427-8` "Employer name [Identifier]" | Toshkent shahar avtobazasi, haydovchi |
 | Turmush o'rtog'ining telefon raqami | Телефон супруга | RelatedPerson.telecom | - | +998903334455 |
 
 ---
@@ -116,7 +116,7 @@
 | Homiladorlikni yakuni | Исход беременности | Observation.valueCodeableConcept | `code` LOINC `63893-2` "Outcome of pregnancy"<br>`value` [Pregnancy Outcome](ValueSet-form111-pregnancy-outcome-vs.html) (SNOMED `3950001` "Birth", or local `chr-0024-*` for maternal/child death) | Birth |
 | Sanasi | Дата | Procedure.occurrenceDateTime (delivery) | - | 2026-05-24 |
 | Necha haftada yakunlangani | На какой неделе завершилась | Observation.valueQuantity | LOINC `18185-9` "Gestational age" | 39 wk |
-| Tug'ruqning alohida xususiyatlari | Особенности родов | Observation.valueString | Form111 General Observation Code `chr-0035-00012` "Особенности родов" | Tabiiy tug'ruq yo'llari orqali, asoratlarsiz tug'ruq; qon yo'qotish 250 ml |
+| Tug'ruqning alohida xususiyatlari | Особенности родов | Observation.valueString | [Form111 General Observation Code](CodeSystem-form111-general-observation-code-cs.html) `chr-0035-00012` "Особенности родов" | Tabiiy tug'ruq yo'llari orqali, asoratlarsiz tug'ruq; qon yo'qotish 250 ml |
 | Bola tirik/o'lik tug'ilgani | Ребёнок родился живым/мёртвым | Observation.valueCodeableConcept | `code` Form111 General Observation Code `chr-0035-00013` "Ребёнок родился живым/мёртвым"<br>`value` [Newborn Birth Condition](ValueSet-form111-newborn-birth-condition-vs.html) (SNOMED `281050002` "Livebirth", `713202001` "Antepartum stillbirth", `237362003` "Fetal intrapartum death") | Livebirth |
 | Bola og'irligi | Вес ребёнка | Observation.valueQuantity | LOINC `8339-4` "Birth weight measured" | 3.35 kg |
 | Bola bo'yi | Рост ребёнка | Observation.valueQuantity | LOINC `89269-5` "Body height Measured --at birth" | 52 cm |
@@ -135,10 +135,10 @@
 | Boshdan o'tkazgan kasalliklari | Перенесённые заболевания | Condition.code | ICD-10 `B01.9` "Varicella without complication" | Varicella without complication |
 | Ginekologik kasalliklari | Гинекологические заболевания | Condition.code | ICD-10 `N72` "Inflammatory disease of cervix uteri" | Inflammatory disease of cervix uteri |
 | Operatsiyalar | Операции | Observation.valueBoolean (fakt) + alohida Observation.valueDateTime (sana) | `code` Form111 General Observation Code `chr-0035-00025` "Перенесённые операции"<br>`code` `chr-0035-00026` "Дата перенесённой операции" | Ha (2018-09-12) |
-| Jinsiy hayoti necha yoshdan boshlangani | Возраст начала половой жизни | Observation.valueQuantity | Form111 General Observation Code `chr-0035-00010` "Возраст начала половой жизни" | 21 yosh |
+| Jinsiy hayoti necha yoshdan boshlangani | Возраст начала половой жизни | Observation.valueQuantity | SNOMED `228456002` "Age became sexually active" | 21 yosh |
 | Erining sog'ligi | Состояние здоровья супруга | Observation.category[social-history]; Observation.valueCodeableConcept/valueString (`focus` = RelatedPerson) | Social Observation Code `chr-0029-00001` "Состояние здоровья и вредные привычки супруга" | Chekadi (kuniga 5-6 dona) |
 | Xayz ko'rish necha yoshdan boshlangani | Возраст начала менструации | Observation.valueQuantity | LOINC `42798-9` "Age at menarche" | 13 yosh |
-| Xayz ko'rish va uning xususiyatlari | Менструация и её особенности | Observation.valueString | Form111 General Observation Code `chr-0035-00011` "Особенности менструации" | Muntazam, 28 kunlik sikl |
+| Xayz ko'rish va uning xususiyatlari | Менструация и её особенности | Observation.valueString | LOINC `49033-4` "Menstrual History - Reported" | Muntazam, 28 kunlik sikl |
 | Oxirgi xayz ko'rish sanasi (boshlanish) | Дата последней менструации (начало) | Observation.valueDateTime | LOINC `8665-2` "Last menstrual period start date" | 2025-08-20 |
 | Oxirgi xayz ko'rish sanasi (tugash) | Дата последней менструации (окончание) | Observation.valueDateTime | Form111 General Observation Code `chr-0035-00009` "Дата последней менструации (окончание)" | 2025-08-25 |
 | Homilaning birinchi qimirlagan sanasi | Дата первого шевеления плода | Observation.valueDateTime | LOINC `57065-5` "Quickening date" | 2026-01-05 |
@@ -176,8 +176,8 @@
 | Bo'yining uzunligi | Рост | Observation.valueQuantity | LOINC `8302-2` "Body height" | 164 cm |
 | Tana vazni | Масса тела | Observation.valueQuantity | LOINC `29463-7` "Body weight" | 58.4 kg |
 | Tana tuzilishining o'ziga xosligi | Особенности телосложения | Observation.valueString | [Anthropometry Observation Code](CodeSystem-form111-anthropometry-observation-code-cs.html) `chr-0002-00001` "Особенности телосложения" | Normostenik tana tuzilishi |
-| Ko'krak bezi holati | Состояние молочных желёз | Observation.valueCodeableConcept | `code` [Gynecological Examination Observation Code](CodeSystem-form111-gynecological-examination-observation-code-cs.html) `chr-0017-00002` "Состояние молочных желез"<br>`value` [Breast Condition](CodeSystem-form111-breast-condition-cs.html) `chr-0004-00001` "Патология отсутствует" | Patologiya yo'q |
-| Qon tomir tizimi | Сердечно-сосудистая система | Observation.valueCodeableConcept | `code` [Assessment Observation Code](CodeSystem-form111-assessment-observation-code-cs.html) `chr-0005-00006` "Состояние сосудистой системы"<br>`value` [Examination Status](CodeSystem-form111-examination-status-cs.html) `chr-0011-00001` "Норма" | Normal |
+| Ko'krak bezi holati | Состояние молочных желёз | Observation.valueCodeableConcept | `code` LOINC `10193-1` "Physical findings of Breasts Narrative"<br>`value` SNOMED `17621005` "Normal" | Patologiya yo'q |
+| Qon tomir tizimi | Сердечно-сосудистая система | Observation.valueCodeableConcept | `code` LOINC `11421-5` "Physical findings of Cardiovascular system"<br>`value` SNOMED `17621005` "Normal" | Normal |
 | Arterial qon bosimi (o'ng qo'l) | Артериальное давление (правая рука) | Observation.component.valueQuantity + Observation.bodySite (SNOMED `368209003`) | LOINC `85354-9` "Blood pressure panel" + `component` LOINC `8480-6` / `8462-4` in `mm[Hg]` | 115 / 70 |
 | Arterial qon bosimi (chap qo'l) | Артериальное давление (левая рука) | Observation.component.valueQuantity + Observation.bodySite (SNOMED `368208006`) | LOINC `85354-9` "Blood pressure panel" + `component` LOINC `8480-6` / `8462-4` in `mm[Hg]` | 110 / 70 |
 | Boshqa a'zolari | Другие органы | Observation.valueString | Form111 General Observation Code `chr-0035-00020` "Другие органы" | Patologiyasiz |
@@ -192,8 +192,8 @@
 | UZ | RU | Путь FHIR | Код | Пример значения |
 |----|----|------------|------|---------------|
 | Bachadon tubi balandligi | Высота дна матки | Observation.valueQuantity | LOINC `11881-0` "Uterus Fundal height Tape measure" | - |
-| Qorin aylanasi | Окружность живота | Observation.valueQuantity | [Pregnancy Monitoring Observation Code](CodeSystem-form111-pregnancy-monitoring-observation-code-cs.html) `chr-0023-00001` "Окружность живота беременной" | 76 cm |
-| Homilaning joylanish holati / oldin keluvchi qismi | Положение плода / предлежащая часть | Observation.valueCodeableConcept | `code` SNOMED `364607000` "Position of fetus"<br>`value` [Fetal Presentation](CodeSystem-form111-fetal-presentation-cs.html) `chr-0015-00003` "Не определено" | Aniqlanmagan |
+| Qorin aylanasi | Окружность живота | Observation.valueQuantity | SNOMED `396552003` "Abdominal circumference" | 76 cm |
+| Homilaning joylanish holati / oldin keluvchi qismi | Положение плода / предлежащая часть | Observation.valueCodeableConcept | `code` SNOMED `364607000` "Position of fetus"<br>`value` SNOMED `871479001` "Uncertain presentation of fetus" | Aniqlanmagan |
 | Homilaning yurak urishi | Сердцебиение плода | Observation.valueQuantity | LOINC `55283-6` "Fetal heart rate" | - |
 
 ---
@@ -204,12 +204,12 @@
 
 | UZ | RU | Путь FHIR | Код | Пример значения |
 |----|----|------------|------|---------------|
-| Tashqi jinsiy a'zolari | Наружные половые органы | Observation.valueCodeableConcept | `code` LOINC `11432-2` "Physical findings of female genitalia"<br>`value` Examination Status `chr-0011-00001` "Норма" | Normal |
-| Qin | Влагалище | Observation.valueCodeableConcept | `code` LOINC `32487-1` "Physical findings of vagina"<br>`value` Examination Status `chr-0011-00001` "Норма" | Normal |
-| Bachadon bo'yinchasi | Шейка матки | Observation.valueCodeableConcept + Observation.note | `code` Gynecological Examination Observation Code `chr-0017-00004` "Физикальное исследование шейки матки"<br>`value` Examination Status `chr-0011-00001` "Норма" | Me'yor ("Zich, uzunligi 3 sm") |
-| Bachadon tanasi | Тело матки | Observation.valueCodeableConcept + Observation.note | `code` Gynecological Examination Observation Code `chr-0017-00001` "Бимануальное исследование матки и придатков"<br>`value` Examination Status `chr-0011-00001` "Норма" | Me'yor ("9 haftalik muddatga mos") |
-| Tuxumdon va naychalar | Яичники и трубы | Observation.valueCodeableConcept + Observation.note | `code` [Gynecological Examination Observation Code](CodeSystem-form111-gynecological-examination-observation-code-cs.html) `chr-0017-00006` "Осмотр яичников и маточных труб"<br>`value` Examination Status `chr-0011-00001` "Норма" | Me'yor ("Paypaslanmaydi, og'riqsiz") |
-| Alohida xususiyatlari | Особые находки | Observation.valueCodeableConcept + Observation.note | `code` Gynecological Examination Observation Code `chr-0017-00005` "Особенности гинекологического осмотра"<br>`value` Examination Status `chr-0011-00001` "Норма" | Me'yor |
+| Tashqi jinsiy a'zolari | Наружные половые органы | Observation.valueCodeableConcept | `code` LOINC `11432-2` "Physical findings of female genitalia"<br>`value` SNOMED `17621005` "Normal" | Normal |
+| Qin | Влагалище | Observation.valueCodeableConcept | `code` LOINC `32487-1` "Physical findings of vagina"<br>`value` SNOMED `17621005` "Normal" | Normal |
+| Bachadon bo'yinchasi | Шейка матки | Observation.valueCodeableConcept + Observation.note | `code` Gynecological Examination Observation Code `chr-0017-00004` "Физикальное исследование шейки матки"<br>`value` SNOMED `17621005` "Normal" | Me'yor ("Zich, uzunligi 3 sm") |
+| Bachadon tanasi | Тело матки | Observation.valueCodeableConcept + Observation.note | `code` Gynecological Examination Observation Code `chr-0017-00001` "Бимануальное исследование матки и придатков"<br>`value` SNOMED `17621005` "Normal" | Me'yor ("9 haftalik muddatga mos") |
+| Tuxumdon va naychalar | Яичники и трубы | Observation.valueCodeableConcept + Observation.note | `code` [Gynecological Examination Observation Code](CodeSystem-form111-gynecological-examination-observation-code-cs.html) `chr-0017-00006` "Осмотр яичников и маточных труб"<br>`value` SNOMED `17621005` "Normal" | Me'yor ("Paypaslanmaydi, og'riqsiz") |
+| Alohida xususiyatlari | Особые находки | Observation.valueCodeableConcept + Observation.note | `code` Gynecological Examination Observation Code `chr-0017-00005` "Особенности гинекологического осмотра"<br>`value` SNOMED `17621005` "Normal" | Me'yor |
 | Homiladorlik muddati (hafta) | Срок беременности (нед) | Observation.valueQuantity | LOINC `18185-9` "Gestational age" | 9 wk |
 | Taxminiy tug'ish vaqti | Предполагаемая дата родов | Observation.valueDateTime | LOINC `11778-8` "Delivery date Estimated" | 2026-05-27 |
 
@@ -235,15 +235,15 @@
 | UZ | RU | Путь FHIR | Код | Пример значения |
 |----|----|------------|------|---------------|
 | Sana | Дата | Encounter.actualPeriod | - | 2026-01-15 |
-| Shikoyati | Жалобы | Observation.valueString | Assessment Observation Code `chr-0005-00001` "Жалобы" | Tez charchash, bosh aylanishi |
-| Umumiy ahvoli | Общее состояние | Observation.valueCodeableConcept | `code` Assessment Observation Code `chr-0005-00003` "Общее состояние"<br>`value` [General Condition](CodeSystem-form111-general-condition-cs.html) `chr-0016-00001` "Удовлетворительное" | Qoniqarli |
+| Shikoyati | Жалобы | Observation.valueString | LOINC `8661-1` "Chief complaint - Reported" | Tez charchash, bosh aylanishi |
+| Umumiy ahvoli | Общее состояние | Observation.valueCodeableConcept | `code` [Assessment Observation Code](CodeSystem-form111-assessment-observation-code-cs.html) `chr-0005-00003` "Общее состояние"<br>`value` SNOMED `162669003` "Patient's condition satisfactory" | Qoniqarli |
 | Vazni | Вес | Observation.valueQuantity | LOINC `29463-7` "Body weight" | 63.2 kg |
 | Arterial qon bosimi | Артериальное давление | Observation.component.valueQuantity + bodySite (правая: SNOMED `368209003`, левая: `368208006`) | LOINC `85354-9` "Blood pressure panel" + `component` LOINC `8480-6` / `8462-4` in `mm[Hg]` | 110 / 65, 105 / 65 |
 | Puls | Пульс | Observation.valueQuantity | LOINC `8867-4` "Heart rate" | 84 /min |
-| Qorin aylanasi | Окружность живота | Observation.valueQuantity | Pregnancy Monitoring Observation Code `chr-0023-00001` "Окружность живота беременной" | 84 cm |
+| Qorin aylanasi | Окружность живота | Observation.valueQuantity | SNOMED `396552003` "Abdominal circumference" | 84 cm |
 | Bachadon tubi balandligi | Высота дна матки | Observation.valueQuantity | LOINC `11881-0` "Uterus Fundal height Tape measure" | 21 cm |
 | Homilaning oldin kelayotgan qismi, joylashishi va holati | Предлежащая часть, положение плода | Observation.valueCodeableConcept | `code` SNOMED `364607000` "Position of fetus"<br>`value` SNOMED `1209182005` "Cephalic fetal presentation" | Bosh bilan kelish |
-| Yurak urishi | Сердцебиение | Observation.valueQuantity + component | `code` LOINC `55283-6` "Fetal Heart rate"<br>`component` [Fetal Heartbeat Side](CodeSystem-form111-fetal-heartbeat-side-cs.html) `chr-0014-00002` "Справа" | 142 /min, o'ngda |
+| Yurak urishi | Сердцебиение | Observation.valueQuantity + component | `code` LOINC `55283-6` "Fetal Heart rate"<br>`component` SNOMED `24028007` "Right" | 142 /min, o'ngda |
 | Homilaning qimirlashi | Шевеление плода | Observation.valueBoolean | LOINC `57088-7` "Fetal Movement - Reported" | true |
 | Siydikdagi oqsil miqdori | Белок в моче | Observation.valueQuantity | LOINC `2888-6` "Siydikda oqsil miqdori" | 0 mg/dL |
 | Qondagi Hb miqdori | Гемоглобин крови | Observation.valueQuantity | LOINC `718-7` "Hemoglobin [Mass/volume] in Blood" | 104 g/L |
@@ -263,13 +263,13 @@
 
 | UZ | RU | Путь FHIR | Код | Пример значения |
 |----|----|------------|------|---------------|
-| Jismoniy tarbiya - sana | Физкультура — дата | Observation.valueDateTime + effectiveDateTime | [Preparation Activity](CodeSystem-form111-preparation-activity-cs.html) `chr-0025-00002` "Физическая подготовка к родам" | 2026-02-12 |
+| Jismoniy tarbiya - sana | Физкультура — дата | Observation.valueDateTime + effectiveDateTime | SNOMED `183329005` "Antenatal exercises" | 2026-02-12 |
 | Jismoniy tarbiya vaqtidagi homiladorlik muddati | Срок беременности при занятиях физкультурой | Observation.valueQuantity | LOINC `18185-9` "Gestational age" | 25 wk |
-| Ultrabinafsha nurlari bilan nurlanish - sana | Ультрафиолетовое облучение — дата | Observation.valueDateTime + effectiveDateTime | Preparation Activity `chr-0025-00004` "Ультрафиолетовое облучение" | 2026-02-19 |
+| Ultrabinafsha nurlari bilan nurlanish - sana | Ультрафиолетовое облучение — дата | Observation.valueDateTime + effectiveDateTime | SNOMED `363695005` "Ultraviolet light therapy" | 2026-02-19 |
 | Ultrabinafsha nurlanish vaqtidagi homiladorlik muddati | Срок беременности при ультрафиолетовом облучении | Observation.valueQuantity | LOINC `18185-9` "Gestational age" | 26 wk |
-| Onalar maktabi - sana | Школа матерей — дата | Observation.valueDateTime + effectiveDateTime | Preparation Activity `chr-0025-00001` "Посещение школы матерей" | 2026-03-05 |
+| Onalar maktabi - sana | Школа матерей — дата | Observation.valueDateTime + effectiveDateTime | [Preparation Activity](CodeSystem-form111-preparation-activity-cs.html) `chr-0025-00001` "Посещение школы матерей" | 2026-03-05 |
 | Onalar maktabi vaqtidagi homiladorlik muddati | Срок беременности при посещении школы матерей | Observation.valueQuantity | LOINC `18185-9` "Gestational age" | 28 wk |
-| Psixoprofilaktik tayyorlov - sana | Психопрофилактическая подготовка — дата | Observation.valueDateTime + effectiveDateTime | Preparation Activity `chr-0025-00003` "Психопрофилактическая подготовка" | 2026-03-19 |
+| Psixoprofilaktik tayyorlov - sana | Психопрофилактическая подготовка — дата | Observation.valueDateTime + effectiveDateTime | SNOMED `408779007` "Psychoprophylaxis" | 2026-03-19 |
 | Psixoprofilaktik tayyorlov vaqtidagi homiladorlik muddati | Срок беременности при психопрофилактической подготовке | Observation.valueQuantity | LOINC `18185-9` "Gestational age" | 30 wk |
 
 ---
@@ -281,11 +281,11 @@
 | UZ | RU | Путь FHIR | Код | Пример значения |
 |----|----|------------|------|---------------|
 | Homiladorlik muddati | Срок беременности | Observation.valueQuantity | LOINC `18185-9` "Gestational age" | 29 wk |
-| Shikoyatlari | Жалобы | Observation.valueString | Assessment Observation Code `chr-0005-00001` "Жалобы" | Shikoyatlari yo'q |
+| Shikoyatlari | Жалобы | Observation.valueString | LOINC `8661-1` "Chief complaint - Reported" | Shikoyatlari yo'q |
 | Umumiy holati (shishlar) | Общее состояние (отёки) | Observation.valueString | Assessment Observation Code `chr-0005-00003` "Общее состояние" | Qoniqarli, oyoqlarda shish yo'q |
 | Arterial qon bosimi | Артериальное давление | Observation.component.valueQuantity + bodySite (правая: SNOMED `368209003`, левая: `368208006`) | LOINC `85354-9` "Blood pressure panel" + `component` LOINC `8480-6` / `8462-4` in `mm[Hg]` | 115 / 70, 110 / 70 |
 | Homilaning holati | Положение плода | Observation.valueCodeableConcept | `code` SNOMED `364607000` "Position of fetus"<br>`value` SNOMED `1209182005` "Cephalic fetal presentation" | Bosh bilan kelish |
-| Homilaning yurak urishi | Сердцебиение плода | Observation.valueQuantity + component | `code` LOINC `55283-6` "Fetal Heart rate"<br>`component` Fetal Heartbeat Side `chr-0014-00001` "Слева" | 138 /min, chapda |
+| Homilaning yurak urishi | Сердцебиение плода | Observation.valueQuantity + component | `code` LOINC `55283-6` "Fetal Heart rate"<br>`component` SNOMED `7771000` "Left" | 138 /min, chapda |
 | Tavsiyalar | Рекомендации | CarePlan.description | - | Kunlik rejim, tuz cheklash |
 | F.I.Sh va imzo | Ф.И.О и подпись | PractitionerRole / Provenance | - | Yusupova S.T. |
 
@@ -299,7 +299,7 @@
 |----|----|------------|------|---------------|
 | Homiladorlik bo'yicha ta'til boshlanish va tugash sanasi | Даты начала и окончания дородового отпуска | CarePlan.period | [SickLeaveCarePlan](StructureDefinition-sick-leave-careplan.html) `addresses` `emdoc-0001-0005` | 2026-03-18 - 2026-05-26 |
 | Mehnatga layoqatsizlik varog'i raqami | Номер листка нетрудоспособности | CarePlan.identifier | `https://dhp.uz/fhir/core/sid/doc/uz/sickleave` | MLV-2026-004512 |
-| Tug'ruq sanasi | Дата родов | Procedure.occurrenceDateTime | [Birth Type](CodeSystem-form111-birth-type-cs.html) `chr-0003-00001` "Роды через естественные родовые пути" / SNOMED `236973005` "Delivery procedure" | 2026-05-24 |
+| Tug'ruq sanasi | Дата родов | Procedure.occurrenceDateTime | SNOMED `289259007` "Vaginal delivery" | 2026-05-24 |
 | Tug'ruq holati | Состояние родов | Observation.valueCodeableConcept | `code` Form111 General Observation Code `chr-0035-00015` "Вид родов (по сроку)"<br>`value` SNOMED `21243004` "Term birth of newborn" | Term birth of newborn |
 | Muddatdan farq (kun) | Разница со сроком (дни) | Observation.component.valueQuantity | Form111 General Observation Code `chr-0035-00021` "Разница со сроком (дни)" | -3 kun |
 | Tug'ruq bo'lib o'tgan tug'ruqxona nomi | Название роддома | Organization.name | - | Toshkent shahar 2-son tug'ruqxonasi |
@@ -320,7 +320,7 @@
 |----|----|------------|------|---------------|
 | Ijtimoiy-biologik omillari | Социально-биологические факторы | Observation.valueCodeableConcept | `code` [Risk Factor Observation Code](CodeSystem-form111-risk-factor-observation-code-cs.html) `chr-0027-00004` "Социально-биологические факторы риска"<br>`value` [Socio-biological Factor](CodeSystem-form111-socio-biological-factor-cs.html) `chr-0028-00005` "Курение, алкоголизм или наркомания" | Chekish, alkogolizm yoki giyohvandlik |
 | Akusher-ginekologik anamnez | Акушерско-гинекологический анамнез | Observation.valueCodeableConcept | `code` Risk Factor Observation Code `chr-0027-00002` "Факторы акушерско-гинекологического анамнеза"<br>`value` [Obstetric History Factor](CodeSystem-form111-obstetric-history-factor-cs.html) `chr-0019-00010` "Потеря беременности" | Homiladorlikni yo'qotish |
-| Ekstragenital kasalliklari | Экстрагенитальные заболевания | Observation.valueCodeableConcept | `code` Risk Factor Observation Code `chr-0027-00001` "Факторы экстрагенитальных заболеваний"<br>`value` [Extragenital Disease Factor](CodeSystem-form111-extragenital-disease-factor-cs.html) `chr-0012-00003` "Заболевания крови" | Qon kasalliklari |
+| Ekstragenital kasalliklari | Экстрагенитальные заболевания | Observation.valueCodeableConcept | `code` Risk Factor Observation Code `chr-0027-00001` "Факторы экстрагенитальных заболеваний"<br>`value` SNOMED `414022008` "Disorder of cellular component of blood" | Qon kasalliklari |
 | Homiladorlik asorati | Осложнение беременности | Observation.valueCodeableConcept | `code` Risk Factor Observation Code `chr-0027-00003` "Факторы осложнений беременности"<br>`value` SNOMED `271737000` "Anemia" | Anemiya |
 | Homila holatiga baho berish | Оценка состояния плода | Observation.valueString | [Fetal Assessment Observation Code](CodeSystem-form111-fetal-assessment-observation-code-cs.html) `chr-0013-00002` "Оценка состояния плода" | Homila holati qoniqarli |
 | Ballar yig'indisi | Сумма баллов | Observation.valueInteger | Risk Factor Observation Code `chr-0027-00006` "Сумма баллов перинатального риска" | 6 |
@@ -334,9 +334,9 @@
 
 | UZ | RU | Путь FHIR | Код | Пример значения |
 |----|----|------------|------|---------------|
-| Mutaxassis xulosasi (terapevt) | Заключение специалиста (терапевт) | Observation.valueString | Assessment Observation Code `chr-0005-00005` "Заключение специалиста" | Patologiya aniqlanmadi |
-| Mutaxassis xulosasi (stomatolog) | Заключение специалиста (стоматолог) | Observation.valueString | Assessment Observation Code `chr-0005-00005` "Заключение специалиста" | Sanatsiya qilindi |
-| Mutaxassis xulosasi (venerolog) | Заключение специалиста (венеролог) | Observation.valueString | Assessment Observation Code `chr-0005-00005` "Заключение специалиста" | Infeksiyalar aniqlanmadi |
+| Mutaxassis xulosasi (terapevt) | Заключение специалиста (терапевт) | Observation.valueString | LOINC `11488-4` "Consult note" | Patologiya aniqlanmadi |
+| Mutaxassis xulosasi (stomatolog) | Заключение специалиста (стоматолог) | Observation.valueString | LOINC `11488-4` "Consult note" | Sanatsiya qilindi |
+| Mutaxassis xulosasi (venerolog) | Заключение специалиста (венеролог) | Observation.valueString | LOINC `11488-4` "Consult note" | Infeksiyalar aniqlanmadi |
 | Kun | Дата | *(effectiveDateTime соответствующего Observation)* | - | 2025-11-05 / 2025-11-06 / 2025-11-06 |
 | Homiladorlikning kechishi va patronaj kuzatuv ma'lumotlari | Течение беременности и данные патронажного наблюдения | Observation.valueString | Assessment Observation Code `chr-0005-00008` "Течение беременности и данные патронажного наблюдения" | Homiladorlik asoratsiz kechdi |
 | Maslahat | Рекомендации | CarePlan.description | - | Temir preparatlarini davom ettirish, og'iz bo'shlig'i gigiyenasi |
@@ -350,11 +350,11 @@
 | UZ | RU | Путь FHIR | Код | Пример значения |
 |----|----|------------|------|---------------|
 | 7-8 kun - sana | 7-8-й день - дата | Encounter.actualPeriod.start | - | 2026-06-01 |
-| 7-8 kun shikoyati | 7-8-й день - жалобы | Observation.valueString | Assessment Observation Code `chr-0005-00001` "Жалобы" | Shikoyatlari yo'q |
+| 7-8 kun shikoyati | 7-8-й день - жалобы | Observation.valueString | LOINC `8661-1` "Chief complaint - Reported" | Shikoyatlari yo'q |
 | 7-8 kun tekshiruv-muolajalari | 7-8-й день - обследования и процедуры | Procedure.code | SNOMED `169762003` "Postnatal visit" | Bachadon involyutsiyasi ko'rikdan o'tkazildi |
 | 7-8 kun maslahat, ko'rsatmalar | 7-8-й день - консультации и рекомендации | CarePlan.description | - | Gigiyena, emizishni davom ettirish |
 | 35-40 kun - sana | 35-40-й день - дата | Encounter.actualPeriod.start | - | 2026-07-03 |
-| 35-40 kun shikoyati | 35-40-й день - жалобы | Observation.valueString | Assessment Observation Code `chr-0005-00001` "Жалобы" | Shikoyatlari yo'q |
+| 35-40 kun shikoyati | 35-40-й день - жалобы | Observation.valueString | LOINC `8661-1` "Chief complaint - Reported" | Shikoyatlari yo'q |
 | 35-40 kun tekshiruv-muolajalari | 35-40-й день - обследования и процедуры | Procedure.code | SNOMED `169762003` "Postnatal visit" | Bachadon me'yorga qaytgan |
 | 35-40 kun maslahat, ko'rsatmalar | 35-40-й день - консультации и рекомендации | CarePlan.description | - | Dispanser kuzatuvi yakunlandi |
 | Shifokor imzosi | Подпись врача | Provenance.signature | [Provenance](https://hl7.org/fhir/R5/provenance.html) | Yusupova S.T. |
@@ -366,7 +366,7 @@
 ### Терминологические примечания
 
 - **Артериальное давление** передаётся по [шаблону vital-signs](https://hl7.org/fhir/R5/bp.html) FHIR: LOINC `85354-9` с компонентами систолического `8480-6` и диастолического `8462-4` давления в `mm[Hg]`, по одному Observation на каждую руку с `bodySite`. Строка DMED "115/70" разбивается на два компонента.
-- **Результаты анализов** (RW I/II, HBsAg I/II, ВИЧ, гонорея, токсоплазмоз) передаются дословно в `Observation.valueString`, без кода «положительно/отрицательно».
+- **Результаты анализов** (RW I/II, HBsAg I/II, ВИЧ, гонорея, токсоплазмоз) кодируются в `Observation.valueCodeableConcept` как SNOMED `260385009` "Negative" или `10828004` "Positive". Сами анализы кодируются LOINC; гонококк сохраняет локальный код анализа `chr-0001-00001`.
 - **Исход предыдущей беременности** - только прерывание или роды; вид и стадия аборта не кодируются.
 - **Декретный отпуск** - два [SickLeaveCarePlan](StructureDefinition-sick-leave-careplan.html) (дородовой и послеродовой) с причиной `emdoc-0001-0005` и номером листка в `identifier`; отдельных Observation и DocumentReference нет.
 - **Уровень и сумма баллов перинатального риска** кодируются `chr-0027-00005`/`chr-0027-00006`; `chr-0035-00022`/`chr-0035-00023` устарели (deprecated).
@@ -381,7 +381,7 @@
 - **Эпизод и визиты**: беременность - один `EpisodeOfCare`, который несёт номер карты и заканчивается визитом на 35-40 день после родов; каждый визит, включая роды, - `Encounter` с `episodeOfCare`. Карта пересылается как новая версия той же Composition (тот же `identifier`) после каждого визита.
 - **Гестоз** `chr-0022-00005` шире любого отдельного понятия SNOMED, поэтому остаётся локальным кодом; [его ConceptMap](ConceptMap-dmed-form-111-pregnancy-progress-pregnancy-complications-cm.html) также даёт SNOMED `398254007` "Преэклампсия" как более узкий стандартный код.
 - **Поля с множественным выбором** (вредные привычки, социально-биологические, акушерские и экстрагенитальные факторы риска, осложнения беременности): по одному Observation на каждое значение, отмеченное в DMED. Неотмеченное значение означает "неизвестно", а не "нет".
-- **Не показаны в примере**: допплерография `chr-0013-00001`, [детализация метода контрацепции](ValueSet-form111-contraception-details-vs.html), исходы «смерть матери/ребёнка» `chr-0024-00001`/`chr-0024-00002`, `chr-0005-00002`/`chr-0005-00004` и остальные коды [form111-analysis-test-code-vs](ValueSet-form111-analysis-test-code-vs.html).
+- **Не показаны в примере**: допплерография `chr-0013-00001`, [детализация метода контрацепции](ConceptMap-dmed-form-111-contraception-details-cm.html), исходы «смерть матери/ребёнка» `chr-0024-00001`/`chr-0024-00002`, LOINC `18776-5` "Plan of care note"/`chr-0005-00004` и остальные коды [form111-analysis-test-code-vs](ValueSet-form111-analysis-test-code-vs.html).
 
 ---
 

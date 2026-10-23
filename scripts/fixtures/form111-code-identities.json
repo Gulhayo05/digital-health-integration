@@ -2,74 +2,14 @@
   "source": "PR 69 at 9b1440ea58c41739dabfb0794d3a5bc5c5c40037",
   "concepts": [
     {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111113-boolean-cs",
-      "code": "chr-0031-00001",
-      "display": "Yo'q"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111113-boolean-cs",
-      "code": "chr-0031-00002",
-      "display": "Ha"
-    },
-    {
       "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-analysis-test-code-cs",
       "code": "chr-0001-00001",
       "display": "Gonokokk"
     },
     {
       "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-analysis-test-code-cs",
-      "code": "chr-0001-00002",
-      "display": "HBsAg I tahlili"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-analysis-test-code-cs",
-      "code": "chr-0001-00003",
-      "display": "HBsAg II tahlili"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-analysis-test-code-cs",
-      "code": "chr-0001-00004",
-      "display": "OIV"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-analysis-test-code-cs",
-      "code": "chr-0001-00005",
-      "display": "OIV tahlili"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-analysis-test-code-cs",
       "code": "chr-0001-00006",
       "display": "Boshqa tahlil"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-analysis-test-code-cs",
-      "code": "chr-0001-00007",
-      "display": "Surtma"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-analysis-test-code-cs",
-      "code": "chr-0001-00008",
-      "display": "Najas tahlili"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-analysis-test-code-cs",
-      "code": "chr-0001-00009",
-      "display": "Toksoplazmoz"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-analysis-test-code-cs",
-      "code": "chr-0001-00010",
-      "display": "Siydik tahlili"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-analysis-test-code-cs",
-      "code": "chr-0001-00011",
-      "display": "WR I tahlili"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-analysis-test-code-cs",
-      "code": "chr-0001-00012",
-      "display": "WR II tahlili"
     },
     {
       "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-anthropometry-observation-code-cs",
@@ -78,33 +18,8 @@
     },
     {
       "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-birth-type-cs",
-      "code": "chr-0003-00001",
-      "display": "Tabiiy tug'ruq yo'llari orqali tug'ruq"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-birth-type-cs",
       "code": "chr-0003-00002",
       "display": "Akusherlik-jarrohlik amaliyoti"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-breast-condition-cs",
-      "code": "chr-0004-00001",
-      "display": "Patologiya yo'q"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-breast-condition-cs",
-      "code": "chr-0004-00002",
-      "display": "Patologiya mavjud"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-assessment-observation-code-cs",
-      "code": "chr-0005-00001",
-      "display": "Shikoyatlar"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-assessment-observation-code-cs",
-      "code": "chr-0005-00002",
-      "display": "Shifokor tavsiyalari"
     },
     {
       "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-assessment-observation-code-cs",
@@ -118,58 +33,8 @@
     },
     {
       "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-assessment-observation-code-cs",
-      "code": "chr-0005-00005",
-      "display": "Mutaxassis xulosasi"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-assessment-observation-code-cs",
-      "code": "chr-0005-00006",
-      "display": "Qon-tomir tizimi holati"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-assessment-observation-code-cs",
       "code": "chr-0005-00008",
       "display": "Homiladorlikning kechishi va patronaj kuzatuv ma'lumotlari"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-contraception-details-cs",
-      "code": "chr-0006-00001",
-      "display": "To'siq usuli"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-contraception-details-cs",
-      "code": "chr-0006-00002",
-      "display": "Kimyoviy usul"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-contraception-details-cs",
-      "code": "chr-0006-00003",
-      "display": "Shoshilinch kontratseptsiya"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-contraception-details-cs",
-      "code": "chr-0006-00004",
-      "display": "Ayollar sterilizatsiyasi"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-contraception-details-cs",
-      "code": "chr-0006-00005",
-      "display": "Gormonal usul"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-contraception-details-cs",
-      "code": "chr-0006-00006",
-      "display": "Bachadon ichi vositasi"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-contraception-details-cs",
-      "code": "chr-0006-00007",
-      "display": "Tabiiy usul"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-contraception-details-cs",
-      "code": "chr-0006-00008",
-      "display": "Vazektomiya"
     },
     {
       "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-contraception-observation-code-cs",
@@ -180,11 +45,6 @@
       "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-contraception-type-cs",
       "code": "chr-0008-00001",
       "display": "Jarrohliksiz kontratseptsiya"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-contraception-type-cs",
-      "code": "chr-0008-00002",
-      "display": "Qo'llanilmagan"
     },
     {
       "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-contraception-type-cs",
@@ -252,59 +112,9 @@
       "display": "O'rta umumiy ta'lim"
     },
     {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-examination-status-cs",
-      "code": "chr-0011-00001",
-      "display": "Me'yor"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-examination-status-cs",
-      "code": "chr-0011-00002",
-      "display": "Patologiya"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-extragenital-disease-factor-cs",
-      "code": "chr-0012-00001",
-      "display": "O'tkir va surunkali infeksiyalar"
-    },
-    {
       "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-extragenital-disease-factor-cs",
       "code": "chr-0012-00002",
       "display": "Alkogolizm yoki giyohvandlik"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-extragenital-disease-factor-cs",
-      "code": "chr-0012-00003",
-      "display": "Qon kasalliklari"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-extragenital-disease-factor-cs",
-      "code": "chr-0012-00004",
-      "display": "Biriktiruvchi to'qima kasalliklari"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-extragenital-disease-factor-cs",
-      "code": "chr-0012-00005",
-      "display": "Endokrinopatiya"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-extragenital-disease-factor-cs",
-      "code": "chr-0012-00006",
-      "display": "Gemostaz buzilishlari"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-extragenital-disease-factor-cs",
-      "code": "chr-0012-00007",
-      "display": "Jigar kasalliklari"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-extragenital-disease-factor-cs",
-      "code": "chr-0012-00008",
-      "display": "O'pka kasalliklari"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-extragenital-disease-factor-cs",
-      "code": "chr-0012-00009",
-      "display": "Siydik chiqarish tizimi kasalliklari"
     },
     {
       "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-fetal-assessment-observation-code-cs",
@@ -320,41 +130,6 @@
       "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-fetal-assessment-observation-code-cs",
       "code": "chr-0013-00003",
       "display": "Akusherlik UTT natijasi"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-fetal-heartbeat-side-cs",
-      "code": "chr-0014-00001",
-      "display": "Chapda"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-fetal-heartbeat-side-cs",
-      "code": "chr-0014-00002",
-      "display": "O'ngda"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-fetal-presentation-cs",
-      "code": "chr-0015-00001",
-      "display": "Chanoq bilan kelish"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-fetal-presentation-cs",
-      "code": "chr-0015-00002",
-      "display": "Bosh bilan kelish"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-fetal-presentation-cs",
-      "code": "chr-0015-00003",
-      "display": "Aniqlanmagan"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-general-condition-cs",
-      "code": "chr-0016-00001",
-      "display": "Qoniqarli"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-general-condition-cs",
-      "code": "chr-0016-00002",
-      "display": "Qoniqarsiz"
     },
     {
       "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-general-observation-code-cs",
@@ -403,16 +178,6 @@
     },
     {
       "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-general-observation-code-cs",
-      "code": "chr-0035-00010",
-      "display": "Jinsiy hayoti necha yoshdan boshlangani"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-general-observation-code-cs",
-      "code": "chr-0035-00011",
-      "display": "Xayz ko'rish xususiyatlari"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-general-observation-code-cs",
       "code": "chr-0035-00012",
       "display": "Tug'ruqning alohida xususiyatlari"
     },
@@ -435,16 +200,6 @@
       "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-general-observation-code-cs",
       "code": "chr-0035-00016",
       "display": "Avvalgi homiladorliklarning o'ziga xosligi"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-general-observation-code-cs",
-      "code": "chr-0035-00017",
-      "display": "Homiladorlik bo'yicha ta'til"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-general-observation-code-cs",
-      "code": "chr-0035-00018",
-      "display": "Tug'ruqdan keyingi ta'til"
     },
     {
       "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-general-observation-code-cs",
@@ -473,11 +228,6 @@
     },
     {
       "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-general-observation-code-cs",
-      "code": "chr-0035-00024",
-      "display": "Arterial qon bosimi"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-general-observation-code-cs",
       "code": "chr-0035-00025",
       "display": "O'tgan operatsiyalar"
     },
@@ -492,19 +242,9 @@
       "display": "Avvalgi homiladorlik yili"
     },
     {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-general-observation-code-cs",
-      "code": "chr-0035-00028",
-      "display": "Ish joyi"
-    },
-    {
       "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-gynecological-examination-observation-code-cs",
       "code": "chr-0017-00001",
       "display": "Bachadon va qo'shimchalarning bimanual ko'rigi"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-gynecological-examination-observation-code-cs",
-      "code": "chr-0017-00002",
-      "display": "Ko'krak bezlari holati"
     },
     {
       "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-gynecological-examination-observation-code-cs",
@@ -525,11 +265,6 @@
       "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-gynecological-examination-observation-code-cs",
       "code": "chr-0017-00006",
       "display": "Tuxumdon va naychalar ko'rigi"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-laboratory-observation-code-cs",
-      "code": "chr-0018-00001",
-      "display": "Mikroflora surtmasi natijasi"
     },
     {
       "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-obstetric-history-factor-cs",
@@ -558,23 +293,8 @@
     },
     {
       "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-obstetric-history-factor-cs",
-      "code": "chr-0019-00006",
-      "display": "Bepushtlik"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-obstetric-history-factor-cs",
       "code": "chr-0019-00007",
       "display": "Ko'p yoki asoratlangan abortlar"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-obstetric-history-factor-cs",
-      "code": "chr-0019-00008",
-      "display": "Neonatal o'lim"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-obstetric-history-factor-cs",
-      "code": "chr-0019-00009",
-      "display": "Rivojlanmayotgan homiladorlik"
     },
     {
       "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-obstetric-history-factor-cs",
@@ -583,28 +303,8 @@
     },
     {
       "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-obstetric-history-factor-cs",
-      "code": "chr-0019-00011",
-      "display": "Muddatidan oldin tug'ruq"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-obstetric-history-factor-cs",
-      "code": "chr-0019-00012",
-      "display": "O'lik tug'ilish"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-obstetric-history-factor-cs",
       "code": "chr-0019-00013",
       "display": "Bachadon yoki qo'shimchalarda operatsiya"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-obstetric-history-factor-cs",
-      "code": "chr-0019-00014",
-      "display": "Bachadon rivojlanish nuqsonlari"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-patient-bad-habit-cs",
-      "code": "chr-0020-00001",
-      "display": "Alkogolizm"
     },
     {
       "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-patient-bad-habit-cs",
@@ -613,38 +313,8 @@
     },
     {
       "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-patient-bad-habit-cs",
-      "code": "chr-0020-00003",
-      "display": "Giyohvandlik"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-patient-bad-habit-cs",
-      "code": "chr-0020-00004",
-      "display": "Qimorbozlik"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-patient-bad-habit-cs",
       "code": "chr-0020-00005",
       "display": "Internetga qaramlik"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-patient-bad-habit-cs",
-      "code": "chr-0020-00006",
-      "display": "Noto'g'ri ovqatlanish"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-patient-bad-habit-cs",
-      "code": "chr-0020-00007",
-      "display": "Tartibsiz jinsiy hayot"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-patient-bad-habit-cs",
-      "code": "chr-0020-00008",
-      "display": "Kamharakat turmush tarzi"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-patient-bad-habit-cs",
-      "code": "chr-0020-00009",
-      "display": "Chekish"
     },
     {
       "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-patient-bad-habit-cs",
@@ -668,21 +338,6 @@
     },
     {
       "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-pregnancy-complication-factor-cs",
-      "code": "chr-0022-00001",
-      "display": "Anatomik tor chanoq"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-pregnancy-complication-factor-cs",
-      "code": "chr-0022-00002",
-      "display": "Anemiya"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-pregnancy-complication-factor-cs",
-      "code": "chr-0022-00003",
-      "display": "Homiladorlikning birinchi yoki ikkinchi yarmida qon ketishi"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-pregnancy-complication-factor-cs",
       "code": "chr-0022-00004",
       "display": "Virusli infeksiyaning zo'rayishi"
     },
@@ -693,58 +348,8 @@
     },
     {
       "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-pregnancy-complication-factor-cs",
-      "code": "chr-0022-00006",
-      "display": "Homilaning noto'g'ri joylashuvi"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-pregnancy-complication-factor-cs",
       "code": "chr-0022-00007",
       "display": "Induksiyalangan homiladorlik"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-pregnancy-complication-factor-cs",
-      "code": "chr-0022-00008",
-      "display": "Ko'p homilali homiladorlik"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-pregnancy-complication-factor-cs",
-      "code": "chr-0022-00009",
-      "display": "Kam suvlik"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-pregnancy-complication-factor-cs",
-      "code": "chr-0022-00010",
-      "display": "Platsentar yetishmovchilik"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-pregnancy-complication-factor-cs",
-      "code": "chr-0022-00011",
-      "display": "Ko'p suvlik"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-pregnancy-complication-factor-cs",
-      "code": "chr-0022-00012",
-      "display": "Muddati o'tgan homiladorlik"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-pregnancy-complication-factor-cs",
-      "code": "chr-0022-00013",
-      "display": "Rh va ABO izoimmunizatsiyasi"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-pregnancy-complication-factor-cs",
-      "code": "chr-0022-00014",
-      "display": "Homiladorlikni to'xtatish xavfi"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-pregnancy-complication-factor-cs",
-      "code": "chr-0022-00015",
-      "display": "Homiladorlikdagi qusish"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-pregnancy-monitoring-observation-code-cs",
-      "code": "chr-0023-00001",
-      "display": "Homilador qorin aylanasi"
     },
     {
       "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-pregnancy-monitoring-observation-code-cs",
@@ -765,21 +370,6 @@
       "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-preparation-activity-cs",
       "code": "chr-0025-00001",
       "display": "Onalar maktabiga qatnashish"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-preparation-activity-cs",
-      "code": "chr-0025-00002",
-      "display": "Tug'ruqqa jismoniy tayyorgarlik"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-preparation-activity-cs",
-      "code": "chr-0025-00003",
-      "display": "Psixoprofilaktik tayyorgarlik"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-preparation-activity-cs",
-      "code": "chr-0025-00004",
-      "display": "Ultrabinafsha nurlanish"
     },
     {
       "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-risk-factor-observation-code-cs",
@@ -815,11 +405,6 @@
       "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-social-observation-code-cs",
       "code": "chr-0029-00001",
       "display": "Turmush o'rtog'ining sog'ligi va zararli odatlari"
-    },
-    {
-      "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-social-observation-code-cs",
-      "code": "chr-0029-00002",
-      "display": "Turmush o'rtog'ining ish joyi"
     },
     {
       "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-social-observation-code-cs",

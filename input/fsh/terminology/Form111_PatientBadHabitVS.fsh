@@ -6,8 +6,14 @@ Description: "Form 111 Patient Bad Habits ValueSet"
 
 * include codes from system form111-patient-bad-habit-cs
 
-// Standard equivalent for the explicit DMED token; local codes remain accepted for compatibility.
+// SNOMED CT equivalents of the DMED tokens; the remaining local codes have no standard match.
 * $sct#77176002 "Smoker"
+* $sct#66590003 "Alcohol dependence"
+* $sct#1254812006 "Substance dependence"
+* $sct#18085000 "Compulsive gambling"
+* $sct#310502008 "Diet poor"
+* $sct#44276009 "Habitual promiscuity"
+* $sct#415510005 "Sedentary lifestyle"
 
 * ^experimental = true
 * ^status = #draft

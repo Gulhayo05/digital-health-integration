@@ -10,12 +10,6 @@ Description: "Form 111 Gynecological Examination Observation Code for clinical d
   * ^designation[+].language = #ru
   * ^designation[=].value = "Бимануальное исследование матки и придатков"
 
-* #chr-0017-00002 "Ko'krak bezlari holati"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Breast condition"
-  * ^designation[+].language = #ru
-  * ^designation[=].value = "Состояние молочных желез"
-
 * #chr-0017-00003 "Patologik o'zgarishlar"
   * ^designation[0].language = #en
   * ^designation[=].value = "Pathological changes"

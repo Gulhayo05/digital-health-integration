@@ -34,29 +34,11 @@ Description: "Form 111 Obstetric History Factor Code for clinical documents and 
   * ^designation[+].language = #ru
   * ^designation[=].value = "Четыре и более родов"
 
-* #chr-0019-00006 "Bepushtlik"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Infertility"
-  * ^designation[+].language = #ru
-  * ^designation[=].value = "Бесплодие"
-
 * #chr-0019-00007 "Ko'p yoki asoratlangan abortlar"
   * ^designation[0].language = #en
   * ^designation[=].value = "Multiple or complicated abortions"
   * ^designation[+].language = #ru
   * ^designation[=].value = "Множественные или осложненные аборты"
-
-* #chr-0019-00008 "Neonatal o'lim"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Neonatal death"
-  * ^designation[+].language = #ru
-  * ^designation[=].value = "Неонатальная смерть"
-
-* #chr-0019-00009 "Rivojlanmayotgan homiladorlik"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Non-developing pregnancy"
-  * ^designation[+].language = #ru
-  * ^designation[=].value = "Неразвивающаяся беременность"
 
 * #chr-0019-00010 "Homiladorlikni yo'qotish"
   * ^designation[0].language = #en
@@ -64,26 +46,8 @@ Description: "Form 111 Obstetric History Factor Code for clinical documents and 
   * ^designation[+].language = #ru
   * ^designation[=].value = "Потеря беременности"
 
-* #chr-0019-00011 "Muddatidan oldin tug'ruq"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Premature birth"
-  * ^designation[+].language = #ru
-  * ^designation[=].value = "Преждевременные роды"
-
-* #chr-0019-00012 "O'lik tug'ilish"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Stillbirth"
-  * ^designation[+].language = #ru
-  * ^designation[=].value = "Мертворождение"
-
 * #chr-0019-00013 "Bachadon yoki qo'shimchalarda operatsiya"
   * ^designation[0].language = #en
   * ^designation[=].value = "Surgery on the uterus or appendages"
   * ^designation[+].language = #ru
   * ^designation[=].value = "Операция на матке или придатках"
-
-* #chr-0019-00014 "Bachadon rivojlanish nuqsonlari"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Uterine malformations"
-  * ^designation[+].language = #ru
-  * ^designation[=].value = "Пороки развития матки"
