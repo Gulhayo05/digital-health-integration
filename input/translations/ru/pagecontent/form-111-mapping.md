@@ -21,7 +21,7 @@
 
 Форма 111 - это продольная запись дородового/послеродового наблюдения, которую ведёт женская консультация (ayollar maslahatxonasi): постановка на учёт, диагноз, исход беременности, анамнез, осмотры, повторные визиты, подготовка к родам, патронажные визиты, оценка перинатального риска и заключения специалистов. Данные формы сопоставляются с несколькими ресурсами FHIR, объединёнными в FHIR-документ, который соответствует профилю [Form 111 Pregnant Woman Individual Card Composition](StructureDefinition-form-111-pregnant-woman-individual-card-composition.html). Где это возможно, ресурсы соответствуют профилям [UZ Core](https://dhp.uz/fhir/core/en/artifacts.html).
 
-Каждый из 16 разделов Composition несёт собственный `section.code` (LOINC, если есть подходящее понятие, иначе локальный код из [Form 111 CodeSystem](CodeSystem-form111-cs.html)) и перечисляет ресурсы, относящиеся к этой части формы.
+Каждый из 17 разделов Composition несёт собственный `section.code` (LOINC, если есть подходящее понятие, иначе локальный код из [Form 111 CodeSystem](CodeSystem-form111-cs.html)) и перечисляет ресурсы, относящиеся к этой части формы.
 
 Полный пример экземпляра см. в разделе [Пример индивидуальной карты беременной по Форме 111](Bundle-example-form-111-pregnant-woman-individual-card.html).
 
@@ -61,21 +61,7 @@
 
 | UZ | RU | Путь FHIR | Код | Пример значения |
 |----|----|------------|------|---------------|
-| Qon guruhi | Группа крови | Observation.valueCodeableConcept | `code` LOINC `883-9` "ABO group [Type] in Blood"<br>`value` SNOMED `112144000` "Blood group A" | Blood group A |
-| Homiladorning Rh mansubligi | Резус-принадлежность беременной | Observation.valueCodeableConcept | `code` LOINC `10331-7` "Rh [Type] in Blood"<br>`value` SNOMED `165747007` (RhD positive), `165746003` (RhD negative) | RhD positive |
-| Homiladorning turmush o'rtog'ining Rh mansubligi | Резус-принадлежность супруга беременной | Observation.valueCodeableConcept (`focus` = RelatedPerson) | `code` LOINC `10331-7` "Rh [Type] in Blood"<br>`value` SNOMED `165746003` "RhD negative" | RhD negative |
 | Ro'yxatga olingan kun | Дата постановки на учёт | EpisodeOfCare.period.start | - | 2025-10-20 |
-| WR I | RW I | Observation.valueCodeableConcept | LOINC `22461-8` "Reagin Ab [Presence] in Serum" | Negative |
-| WR II | RW II | Observation.valueCodeableConcept | LOINC `22461-8` "Reagin Ab [Presence] in Serum" | Negative |
-| OIV | ВИЧ | Observation.valueCodeableConcept | LOINC `7918-6` "HIV 1+2 Ab [Presence] in Serum" | Negative |
-| OIV tekshirilgan yil | Год обследования на ВИЧ | *(effectiveDateTime того же Observation)* | - | 2025-10-22 |
-| Hbs Ag I | HBsAg I | Observation.valueCodeableConcept | LOINC `5195-3` "Hepatitis B virus surface Ag [Presence] in Serum" | Negative |
-| Hbs Ag I tekshirilgan yil | Год обследования на HBsAg I | *(effectiveDateTime того же Observation)* | - | 2025-10-22 |
-| Hbs Ag II | HBsAg II | Observation.valueCodeableConcept | LOINC `5195-3` "Hepatitis B virus surface Ag [Presence] in Serum" | Negative |
-| Hbs Ag II tekshirilgan yil | Год обследования на HBsAg II | *(effectiveDateTime того же Observation)* | - | 2026-02-10 |
-| Gonokokk | Гонококк | Observation.valueCodeableConcept | [Analysis Test Code](CodeSystem-form111-analysis-test-code-cs.html) `chr-0001-00001` "Гонококк" | Negative |
-| Toksoplazmoz | Токсоплазмоз | Observation.valueCodeableConcept | LOINC `22577-1` "Toxoplasma gondii Ab [Presence] in Serum" | Negative |
-| Boshqa tekshiruv (siydik tahlili) | Другое обследование (анализ мочи) | Observation.valueString | Analysis Test Code `chr-0001-00006` "Boshqa tahlil" | Siydik tahlili: me'yor |
 | Med ID raqami | Идентификатор медкарты | Patient.identifier[healthCardId] | - | HC-2025-00111 |
 | Familiya, ismi, otasining ismi (F.I.Sh) | Фамилия, имя, отчество (Ф.И.О.) | Patient.name | - | Ergasheva Nilufar Baxtiyorovna |
 | Tug'ilgan sanasi | Дата рождения | Patient.birthDate | - | 1997-03-08 |
@@ -91,6 +77,29 @@
 | Turmush o'rtog'ining F.I.Sh | Ф.И.О. супруга | [RelatedPerson](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-relatedperson.html).name | - | Ergashev Sardor Alisherovich |
 | Turmush o'rtog'ining ish joyi | Место работы супруга | Observation.valueString (`focus` = RelatedPerson) | LOINC `80427-8` "Employer name [Identifier]" | Toshkent shahar avtobazasi, haydovchi |
 | Turmush o'rtog'ining telefon raqami | Телефон супруга | RelatedPerson.telecom | - | +998903334455 |
+
+---
+
+### 1b. Лабораторные исследования при постановке на учёт
+
+Код раздела: LOINC `30954-2` "Relevant diagnostic tests/laboratory data Narrative".
+
+| UZ | RU | Путь FHIR | Код | Пример значения |
+|----|----|------------|------|---------------|
+| Qon guruhi | Группа крови | Observation.valueCodeableConcept | `code` LOINC `883-9` "ABO group [Type] in Blood"<br>`value` SNOMED `112144000` "Blood group A" | Blood group A |
+| Homiladorning Rh mansubligi | Резус-принадлежность беременной | Observation.valueCodeableConcept | `code` LOINC `10331-7` "Rh [Type] in Blood"<br>`value` SNOMED `165747007` (RhD positive), `165746003` (RhD negative) | RhD positive |
+| Homiladorning turmush o'rtog'ining Rh mansubligi | Резус-принадлежность супруга беременной | Observation.valueCodeableConcept (`focus` = RelatedPerson) | `code` LOINC `10331-7` "Rh [Type] in Blood"<br>`value` SNOMED `165746003` "RhD negative" | RhD negative |
+| WR I | RW I | Observation.valueCodeableConcept | LOINC `22461-8` "Reagin Ab [Presence] in Serum" | Negative |
+| WR II | RW II | Observation.valueCodeableConcept | LOINC `22461-8` "Reagin Ab [Presence] in Serum" | Negative |
+| OIV | ВИЧ | Observation.valueCodeableConcept | LOINC `7918-6` "HIV 1+2 Ab [Presence] in Serum" | Negative |
+| OIV tekshirilgan yil | Год обследования на ВИЧ | *(effectiveDateTime того же Observation)* | - | 2025-10-22 |
+| Hbs Ag I | HBsAg I | Observation.valueCodeableConcept | LOINC `5195-3` "Hepatitis B virus surface Ag [Presence] in Serum" | Negative |
+| Hbs Ag I tekshirilgan yil | Год обследования на HBsAg I | *(effectiveDateTime того же Observation)* | - | 2025-10-22 |
+| Hbs Ag II | HBsAg II | Observation.valueCodeableConcept | LOINC `5195-3` "Hepatitis B virus surface Ag [Presence] in Serum" | Negative |
+| Hbs Ag II tekshirilgan yil | Год обследования на HBsAg II | *(effectiveDateTime того же Observation)* | - | 2026-02-10 |
+| Gonokokk | Гонококк | Observation.valueCodeableConcept | [Analysis Test Code](CodeSystem-form111-analysis-test-code-cs.html) `chr-0001-00001` "Гонококк" | Negative |
+| Toksoplazmoz | Токсоплазмоз | Observation.valueCodeableConcept | LOINC `22577-1` "Toxoplasma gondii Ab [Presence] in Serum" | Negative |
+| Boshqa tekshiruv (siydik tahlili) | Другое обследование (анализ мочи) | Observation.valueString | Analysis Test Code `chr-0001-00006` "Boshqa tahlil" | Siydik tahlili: me'yor |
 
 ---
 

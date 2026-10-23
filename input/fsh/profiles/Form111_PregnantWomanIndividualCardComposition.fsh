@@ -49,6 +49,7 @@ Description: "Composition profile for Form 111 (Homilador va tuqqan ayolning ind
 
 * section contains
     registrationAndPersonalInformation 1..1 and
+    registrationLaboratoryTests 0..1 and
     diagnosis 1..1 and
     pregnancyOutcome 0..1 and
     anamnesis 0..1 and
@@ -70,10 +71,20 @@ Description: "Composition profile for Form 111 (Homilador va tuqqan ayolning ind
 * section[registrationAndPersonalInformation].title ^short = "1. Registration and personal information"
 * section[registrationAndPersonalInformation].code 1..1
 * section[registrationAndPersonalInformation].code = $loinc#45970-1 "Demographic information section"
-* section[registrationAndPersonalInformation].code ^short = "Qon guruhi, homiladorning va turmush o'rtog'ining Rh mansubligi, ro'yxatga olingan kun, WR I, WR II, OIV, HBs Ag I, HBs Ag II, gonokokk, toksoplazmoz, boshqa tekshiruv, Med ID raqami, F.I.Sh, tug'ilgan sanasi, oilaviy sharoiti, yashash manzili, telefon raqami, ma'lumoti, ish joyi va uning telefon raqami, mutaxassisligi, lavozimi, ish sharoiti, turmush o'rtog'ining F.I.Sh, ish joyi va telefon raqami"
+* section[registrationAndPersonalInformation].code ^short = "Ro'yxatga olingan kun, Med ID raqami, F.I.Sh, tug'ilgan sanasi, oilaviy sharoiti, yashash manzili, telefon raqami, ma'lumoti, ish joyi va uning telefon raqami, mutaxassisligi, lavozimi, ish sharoiti, turmush o'rtog'ining F.I.Sh, ish joyi va telefon raqami"
 * section[registrationAndPersonalInformation].entry 1..*
 * section[registrationAndPersonalInformation].entry only Reference(UZCorePatient or UZCoreRelatedPerson or Organization or UZCoreObservation or UZCoreEpisodeOfCare)
-* section[registrationAndPersonalInformation].entry ^short = "Bemor, turmush o'rtog'i, muassasa, ish joyi, ijtimoiy-iqtisodiy kuzatuvlar va laboratoriya natijalari"
+* section[registrationAndPersonalInformation].entry ^short = "Bemor, turmush o'rtog'i, muassasa, ish joyi, kuzatuv epizodi va ijtimoiy-iqtisodiy kuzatuvlar"
+
+// 1b. Ro'yxatga olishdagi laboratoriya tekshiruvlari (shakl sarlavhasidagi qon guruhi, Rh va serologiya)
+* section[registrationLaboratoryTests].title 1..1
+* section[registrationLaboratoryTests].title ^short = "1b. Laboratory tests at registration"
+* section[registrationLaboratoryTests].code 1..1
+* section[registrationLaboratoryTests].code = $loinc#30954-2 "Relevant diagnostic tests/laboratory data Narrative"
+* section[registrationLaboratoryTests].code ^short = "Qon guruhi, homiladorning va turmush o'rtog'ining Rh mansubligi, WR I, WR II, OIV, HBs Ag I, HBs Ag II, gonokokk, toksoplazmoz, boshqa tekshiruv"
+* section[registrationLaboratoryTests].entry 1..*
+* section[registrationLaboratoryTests].entry only Reference(UZCoreObservation)
+* section[registrationLaboratoryTests].entry ^short = "Qon guruhi, Rh va serologiya natijalari"
 
 // 2. Tashxis
 * section[diagnosis].title 1..1

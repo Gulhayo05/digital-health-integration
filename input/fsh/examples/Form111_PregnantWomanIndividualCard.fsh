@@ -361,7 +361,19 @@ Usage: #inline
 * section[=].entry[+] = Reference(urn:uuid:11100005-1111-2222-3333-444444444444) //organization-111-workplace
 * section[=].entry[+] = Reference(urn:uuid:11100006-1111-2222-3333-444444444444) //relatedperson-111-spouse
 * section[=].entry[+] = Reference(urn:uuid:11100011-1111-2222-3333-444444444444) //episodeofcare-111-antenatal
-* section[=].entry[+] = Reference(urn:uuid:11100012-1111-2222-3333-444444444444) //observation-111-blood-group
+* section[=].entry[+] = Reference(urn:uuid:11100023-1111-2222-3333-444444444444) //observation-111-education
+* section[=].entry[+] = Reference(urn:uuid:11100164-1111-2222-3333-444444444444) //observation-111-workplace-name
+* section[=].entry[+] = Reference(urn:uuid:11100158-1111-2222-3333-444444444444) //observation-111-profession
+* section[=].entry[+] = Reference(urn:uuid:11100159-1111-2222-3333-444444444444) //observation-111-work-position
+* section[=].entry[+] = Reference(urn:uuid:11100024-1111-2222-3333-444444444444) //observation-111-working-conditions
+* section[=].entry[+] = Reference(urn:uuid:11100146-1111-2222-3333-444444444444) //observation-111-workplace-phone
+* section[=].entry[+] = Reference(urn:uuid:11100025-1111-2222-3333-444444444444) //observation-111-spouse-workplace
+* section[=].entry[+] = Reference(urn:uuid:11100026-1111-2222-3333-444444444444) //observation-111-spouse-health
+
+// --- 1b. Ro'yxatga olishdagi laboratoriya tekshiruvlari ---
+* section[registrationLaboratoryTests].title = "Ro'yxatga olishdagi laboratoriya tekshiruvlari"
+* section[=].code = $loinc#30954-2 "Relevant diagnostic tests/laboratory data Narrative"
+* section[=].entry[0] = Reference(urn:uuid:11100012-1111-2222-3333-444444444444) //observation-111-blood-group
 * section[=].entry[+] = Reference(urn:uuid:11100013-1111-2222-3333-444444444444) //observation-111-rh-patient
 * section[=].entry[+] = Reference(urn:uuid:11100014-1111-2222-3333-444444444444) //observation-111-rh-spouse
 * section[=].entry[+] = Reference(urn:uuid:11100015-1111-2222-3333-444444444444) //observation-111-wr-1
@@ -372,14 +384,6 @@ Usage: #inline
 * section[=].entry[+] = Reference(urn:uuid:11100020-1111-2222-3333-444444444444) //observation-111-gonococcus
 * section[=].entry[+] = Reference(urn:uuid:11100021-1111-2222-3333-444444444444) //observation-111-toxoplasmosis
 * section[=].entry[+] = Reference(urn:uuid:11100022-1111-2222-3333-444444444444) //observation-111-urine-test
-* section[=].entry[+] = Reference(urn:uuid:11100023-1111-2222-3333-444444444444) //observation-111-education
-* section[=].entry[+] = Reference(urn:uuid:11100164-1111-2222-3333-444444444444) //observation-111-workplace-name
-* section[=].entry[+] = Reference(urn:uuid:11100158-1111-2222-3333-444444444444) //observation-111-profession
-* section[=].entry[+] = Reference(urn:uuid:11100159-1111-2222-3333-444444444444) //observation-111-work-position
-* section[=].entry[+] = Reference(urn:uuid:11100024-1111-2222-3333-444444444444) //observation-111-working-conditions
-* section[=].entry[+] = Reference(urn:uuid:11100146-1111-2222-3333-444444444444) //observation-111-workplace-phone
-* section[=].entry[+] = Reference(urn:uuid:11100025-1111-2222-3333-444444444444) //observation-111-spouse-workplace
-* section[=].entry[+] = Reference(urn:uuid:11100026-1111-2222-3333-444444444444) //observation-111-spouse-health
 
 // --- 2. Tashxis ---
 * section[diagnosis].title = "Tashxis"
