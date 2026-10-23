@@ -301,31 +301,6 @@ Description: "Maps DMED `special_characteristics` values to SNOMED CT."
 * group[=].element[=].target[=].relationship = #equivalent
 * group[=].element[=].target[=].comment = "Qualifier value for a pathological finding."
 
-Instance: dmed-form-111-pregnancy-progress-boolean-cm
-InstanceOf: ConceptMap
-Usage: #definition
-Title: "DMED Form 111 pregnancy-progress-boolean mapping"
-Description: "Maps DMED yes/no answers in `pregnancy_progress` to HL7 `v2-0532`."
-* url = "https://terminology.dhp.uz/fhir/integrations/ConceptMap/dmed-form-111-pregnancy-progress-boolean-cm"
-* name = "DMEDForm111PregnancyProgressBooleanCM"
-* status = #draft
-* experimental = false
-* publisher = "Uzinfocom"
-* group[+].source = "https://terminology.dhp.uz/fhir/integrations/CodeSystem/dmed-form-111-pregnancy-progress-boolean-cs"
-* group[=].target = "http://terminology.hl7.org/CodeSystem/v2-0532"
-* group[=].element[+].code = #"false"
-* group[=].element[=].display = "Нет"
-* group[=].element[=].target[+].code = #"N"
-* group[=].element[=].target[=].display = "No"
-* group[=].element[=].target[=].relationship = #equivalent
-* group[=].element[=].target[=].comment = "Exact HL7 v2-0532 equivalent."
-* group[=].element[+].code = #"true"
-* group[=].element[=].display = "Да"
-* group[=].element[=].target[+].code = #"Y"
-* group[=].element[=].target[=].display = "Yes"
-* group[=].element[=].target[=].relationship = #equivalent
-* group[=].element[=].target[=].comment = "Exact HL7 v2-0532 equivalent."
-
 Instance: dmed-form-111-general-condition-cm
 InstanceOf: ConceptMap
 Usage: #definition

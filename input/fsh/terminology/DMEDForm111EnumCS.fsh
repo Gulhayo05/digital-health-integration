@@ -102,17 +102,6 @@ Description: "Source tokens for special_characteristics. Preserves the observed 
 * #"false" "Норма"
 * #"true" "Патология"
 
-CodeSystem: DMEDForm111PregnancyProgressBooleanCS
-Id: dmed-form-111-pregnancy-progress-boolean-cs
-Title: "DMED Form 111 pregnancy-progress-boolean"
-Description: "Source tokens for pregnancy-progress-boolean. Preserves the observed DMED values; see the form mapping evidence document."
-* ^url = "https://terminology.dhp.uz/fhir/integrations/CodeSystem/dmed-form-111-pregnancy-progress-boolean-cs"
-* ^status = #draft
-* ^experimental = false
-* ^caseSensitive = true
-* #"false" "Нет"
-* #"true" "Да"
-
 CodeSystem: DMEDForm111GeneralConditionCS
 Id: dmed-form-111-general-condition-cs
 Title: "DMED Form 111 general_condition"
