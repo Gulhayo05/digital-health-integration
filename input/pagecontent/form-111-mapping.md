@@ -33,7 +33,7 @@ For a complete reference instance, see the [Form 111 pregnant woman individual c
 
 ### Document Information
 
-Episode and visits: the pregnancy is one `EpisodeOfCare` that carries the card number and ends at the 35-40 day postpartum visit; every visit, delivery included, is an `Encounter` with `episodeOfCare`. The card is re-sent as a new version of the same Composition (same `identifier`) after each visit.
+Episode and visits: the pregnancy is one `EpisodeOfCare` that carries the card number and ends at the 35-40 day postpartum visit; every visit, delivery included, is an `Encounter` with an `episodeOfCare` reference. The card is re-sent as a new version of the same Composition (same `identifier`) after each visit.
 
 | UZ | RU | FHIR Path | Code | Example Value |
 |----|----|------------|------|---------------|
