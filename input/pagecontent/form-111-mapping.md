@@ -38,12 +38,12 @@ For a complete reference instance, see the [Form 111 pregnant woman individual c
 | Hujjat instansiyasi UUID | Идентификатор документа | Composition.identifier | `urn:ietf:rfc:3986` | urn:uuid:7e51c0b8-9d34-42a6-b7f1-05c8e2a91111 |
 | Shakl raqami | Номер формы | Composition.identifier | `https://dhp.uz/fhir/core/sid/doc/uz/form-number` | 111 |
 | Hujjat versiyasi UUID | Идентификатор версии документа | Bundle.identifier | `urn:ietf:rfc:3986` | urn:uuid:c1f4a9d7-2b60-4e13-9a5c-8d7e6f0b1112 |
-| Individual karta raqami | Номер индивидуальной карты | Encounter.identifier | `https://dhp.uz/fhir/core/sid/doc/uz/antenatal-card-number` | 111-2025-000123 |
+| Individual karta raqami | Номер индивидуальной карты | EpisodeOfCare.identifier | `https://dhp.uz/fhir/core/sid/doc/uz/antenatal-card-number` | 111-2025-000123 |
 | Hujjat holati | Статус документа | Composition.status | [Document statuses](document-statuses.html): `preliminary` while the card is kept, `final` after postpartum follow-up | final |
 | Hujjat turi | Тип документа | Composition.type | LOINC `34133-9` "Summary of episode note" | - |
 | Hujjat kategoriyasi | Категория документа | Composition.category | [Document Category](CodeSystem-document-category-cs.html) `form-111` "Individual card of a pregnant and postpartum woman" | - |
 | Bemor | Пациентка | Composition.subject | [Patient](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-patient.html) | Ergasheva N.B. |
-| Ayollar maslahatxonasidagi kuzatuv epizodi | Эпизод наблюдения в женской консультации | Composition.encounter | [Encounter](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-encounter.html) | Antenatal episode |
+| Ayollar maslahatxonasidagi kuzatuv epizodi | Эпизод наблюдения в женской консультации | EpisodeOfCare | [EpisodeOfCare](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-episodeofcare.html) | Antenatal episode |
 | Hujjat shakllantirilgan sana | Дата составления документа | Composition.date | - | 2026-07-05 |
 | Homiladorlik davri | Период наблюдения беременности | Composition.event.period | - | 2025-10-20 - 2026-05-24 |
 | Kartani yurituvchi shifokor va bo'lim boshlig'i | Ведущий врач и заведующий отделением | Composition.author | [PractitionerRole](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-practitioner-role.html) | Yusupova S.T., Abdullayeva G.N. |
@@ -62,7 +62,7 @@ Section code: LOINC `45970-1` "Demographic information section".
 | Qon guruhi | Группа крови | Observation.valueCodeableConcept | `code` LOINC `883-9` "ABO group [Type] in Blood"<br>`value` SNOMED `112144000` "Blood group A" | Blood group A |
 | Homiladorning Rh mansubligi | Резус-принадлежность беременной | Observation.valueCodeableConcept | `code` LOINC `10331-7` "Rh [Type] in Blood"<br>`value` SNOMED `165747007` (RhD positive), `165746003` (RhD negative) | RhD positive |
 | Homiladorning turmush o'rtog'ining Rh mansubligi | Резус-принадлежность супруга беременной | Observation.valueCodeableConcept (`focus` = RelatedPerson) | `code` LOINC `10331-7` "Rh [Type] in Blood"<br>`value` SNOMED `165746003` "RhD negative" | RhD negative |
-| Ro'yxatga olingan kun | Дата постановки на учёт | EpisodeOfCare.period.start + Encounter.actualPeriod.start + Encounter.episodeOfCare[] | - | 2025-10-20 |
+| Ro'yxatga olingan kun | Дата постановки на учёт | EpisodeOfCare.period.start | - | 2025-10-20 |
 | WR I | RW I | Observation.valueString | [Analysis Test Code](CodeSystem-form111-analysis-test-code-cs.html) `chr-0001-00011` "WR I test" | Negative |
 | WR II | RW II | Observation.valueString | Analysis Test Code `chr-0001-00012` "WR II test" | Negative |
 | OIV | ВИЧ | Observation.valueString | Analysis Test Code `chr-0001-00004` "HIV test" | Negative |
@@ -112,7 +112,7 @@ Section code: LOINC `57074-7` "Labor and delivery process Narrative".
 | UZ | RU | FHIR Path | Code | Example Value |
 |----|----|------------|------|---------------|
 | Homiladorlikni yakuni | Исход беременности | Observation.valueCodeableConcept | `code` LOINC `63893-2` "Outcome of pregnancy"<br>`value` [Pregnancy Outcome](ValueSet-form111-pregnancy-outcome-vs.html) (SNOMED `3950001` "Birth", or local `chr-0024-*` for maternal/child death) | Birth |
-| Sanasi | Дата | EpisodeOfCare.period.end | - | 2026-05-24 |
+| Sanasi | Дата | Procedure.occurrenceDateTime (delivery) | - | 2026-05-24 |
 | Necha haftada yakunlangani | На какой неделе завершилась | Observation.valueQuantity | LOINC `18185-9` "Gestational age" | 39 wk |
 | Tug'ruqning alohida xususiyatlari | Особенности родов | Observation.valueString | Form111 General Observation Code `chr-0035-00012` "Special features of delivery" | Tabiiy tug'ruq yo'llari orqali, asoratlarsiz tug'ruq; qon yo'qotish 250 ml |
 | Bola tirik/o'lik tug'ilgani | Ребёнок родился живым/мёртвым | Observation.valueCodeableConcept | `code` Form111 General Observation Code `chr-0035-00013` "Live/stillbirth status"<br>`value` [Newborn Birth Condition](ValueSet-form111-newborn-birth-condition-vs.html) (SNOMED `281050002` "Livebirth", `713202001` "Antepartum stillbirth", `237362003` "Fetal intrapartum death") | Livebirth |
@@ -295,14 +295,14 @@ Section code: [Form111 CodeSystem](CodeSystem-form111-cs.html) `chr-0034-00007`.
 
 | UZ | RU | FHIR Path | Code | Example Value |
 |----|----|------------|------|---------------|
-| Homiladorlik bo'yicha ta'til boshlanish va tugash sanasi | Даты начала и окончания дородового отпуска | Observation.effectivePeriod | Form111 General Observation Code `chr-0035-00017` "Pregnancy leave" | 2026-03-18 - 2026-05-26 |
-| Mehnatga layoqatsizlik varog'i raqami | Номер листка нетрудоспособности | DocumentReference.identifier | Local (sick-leave number system) | MLV-2026-004512 |
+| Homiladorlik bo'yicha ta'til boshlanish va tugash sanasi | Даты начала и окончания дородового отпуска | CarePlan.period | [SickLeaveCarePlan](StructureDefinition-sick-leave-careplan.html) `addresses` `emdoc-0001-0005` | 2026-03-18 - 2026-05-26 |
+| Mehnatga layoqatsizlik varog'i raqami | Номер листка нетрудоспособности | CarePlan.identifier | `https://dhp.uz/fhir/core/sid/doc/uz/sickleave` | MLV-2026-004512 |
 | Tug'ruq sanasi | Дата родов | Procedure.occurrenceDateTime | [Birth Type](CodeSystem-form111-birth-type-cs.html) `chr-0003-00001` "Vaginal delivery" / SNOMED `236973005` "Delivery procedure" | 2026-05-24 |
 | Tug'ruq holati | Состояние родов | Observation.valueCodeableConcept | `code` Form111 General Observation Code `chr-0035-00015` "Type of delivery (by term)"<br>`value` SNOMED `21243004` "Term birth of newborn" | Term birth of newborn |
 | Muddatdan farq (kun) | Разница со сроком (дни) | Observation.component.valueQuantity | Form111 General Observation Code `chr-0035-00021` "Difference from due date (days)" | -3 kun |
 | Tug'ruq bo'lib o'tgan tug'ruqxona nomi | Название роддома | Organization.name | - | Toshkent shahar 2-son tug'ruqxonasi |
-| Tug'ruqdan keyingi ta'til muddati, boshlanish va tugash sanasi | Срок и даты послеродового отпуска | Observation.valueQuantity / Observation.effectivePeriod | Form111 General Observation Code `chr-0035-00018` "Postpartum leave" | 56 kun (2026-05-27 - 2026-07-21) |
-| Mehnatga layoqatsizlik varog'i raqami | Номер листка нетрудоспособности | DocumentReference.identifier | Local (sick-leave number system) | MLV-2026-007788 |
+| Tug'ruqdan keyingi ta'til muddati, boshlanish va tugash sanasi | Срок и даты послеродового отпуска | CarePlan.period | [SickLeaveCarePlan](StructureDefinition-sick-leave-careplan.html) `addresses` `emdoc-0001-0005` | 2026-05-27 - 2026-07-21 (56 kun) |
+| Mehnatga layoqatsizlik varog'i raqami | Номер листка нетрудоспособности | CarePlan.identifier | `https://dhp.uz/fhir/core/sid/doc/uz/sickleave` | MLV-2026-007788 |
 
 > `Tug'ruq bo'lib o'tgan tug'ruqxona nomi` (maternity hospital name) could also be modelled as `Procedure.location` → `Location` instead of `Organization.name`. This IG keeps `Organization.name` for now: `UZCoreLocation` requires `identifier` and `type` slices, so a conformant `Location` needs data the form does not have.
 
@@ -366,7 +366,7 @@ Section code: SNOMED `133906008` "Postpartum care".
 - **Blood pressure** follows the FHIR [vital-signs pattern](https://hl7.org/fhir/R5/bp.html): LOINC `85354-9` with systolic `8480-6` and diastolic `8462-4` components in `mm[Hg]`, one Observation per arm with `bodySite`. Split the DMED "115/70" string into the two components.
 - **Test results** (WR I/II, HBsAg I/II, HIV, gonorrhoea, toxoplasmosis) are sent verbatim in `Observation.valueString`, without a positive/negative code.
 - **Previous pregnancy outcome** is only termination or birth; abortion type and stage are not coded.
-- **Sick-leave certificate number** is a plain `DocumentReference.identifier`.
+- **Maternity leave** is two [SickLeaveCarePlan](StructureDefinition-sick-leave-careplan.html)s (prenatal and postpartum) with reason `emdoc-0001-0005` and the certificate number in `identifier`; there is no separate Observation or DocumentReference.
 - **Perinatal risk level and score** use `chr-0027-00005`/`chr-0027-00006`; `chr-0035-00022`/`chr-0035-00023` are deprecated.
 - **Newborn discharge status** is an Observation with `valueCodeableConcept`, because the newborn is not a separate Patient; the mother's discharge status uses `Encounter.admission.dischargeDisposition`.
 - **Workplace** is sent in `Observation.valueString`; an `Organization` is referenced only when its organization code is known.
@@ -376,6 +376,8 @@ Section code: SNOMED `133906008` "Postpartum care".
   3. DMED `education_type` from [dmed-form-111-education-type-cs](CodeSystem-dmed-form-111-education-type-cs.html) - when the UZ Core code is broader than the DMED value, e.g. residency → "Higher education", primary → "Other".
 
   Example: DMED `residency` becomes `education-cs` `regis0005.00008` "Higher education" + `dmed-form-111-education-type-cs` `residency`, with no Form 111 coding, since `chr-0010-*` has no residency level.
+- **Episode and visits**: the pregnancy is one `EpisodeOfCare` that carries the card number and ends at the 35-40 day postpartum visit; every visit, delivery included, is an `Encounter` with `episodeOfCare`. The card is re-sent as a new version of the same Composition (same `identifier`) after each visit.
+- **Gestoz** `chr-0022-00005` is broader than any single SNOMED concept, so it stays local; [its ConceptMap](ConceptMap-dmed-form-111-pregnancy-progress-pregnancy-complications-cm.html) also gives SNOMED `398254007` "Pre-eclampsia" as the narrower standard target.
 - **Multi-select fields** (bad habits, socio-biological, obstetric and extragenital risk factors, pregnancy complications): send one Observation per value DMED marks as present. An unmarked value is unknown, not "no".
 - **Not shown in the example**: Doppler ultrasound `chr-0013-00001`, [contraception method detail](ValueSet-form111-contraception-details-vs.html), mother/child death outcomes `chr-0024-00001`/`chr-0024-00002`, `chr-0005-00002`/`chr-0005-00004`, and the remaining codes of [form111-analysis-test-code-vs](ValueSet-form111-analysis-test-code-vs.html).
 
@@ -391,15 +393,14 @@ Bundle (document)
 ├── Patient (pregnant woman demographics)
 ├── RelatedPerson (spouse)
 ├── EpisodeOfCare (antenatal episode)
-├── Encounter[] (antenatal episode, delivery, follow-up visits, patronage visits, previous pregnancies, postpartum visits)
+├── Encounter[] (first visit, delivery, follow-up visits, patronage visits, previous pregnancies, postpartum visits)
 ├── Organization[] (women's consultation, workplaces, maternity hospital)
 ├── Practitioner[] / PractitionerRole[] (attending doctor, department head)
 ├── Condition[] (extragenital disease, current pregnancy complications, outcome diagnosis, past illness, gynecological, current pregnancy diagnosis)
 ├── Procedure[] (delivery, postpartum visits)
 ├── Observation[] (laboratory results, examinations, vital signs, past surgery, birth preparation, mothers' school, fetal assessment, risk factors, specialist conclusions, contraception type)
 ├── Immunization (staphylococcal toxoid)
-├── CarePlan[] (recommendations per visit)
-├── DocumentReference[] (sick-leave certificates)
+├── CarePlan[] (recommendations per visit, maternity leave)
 └── Provenance[] (visit and document signatures)
 ```
 

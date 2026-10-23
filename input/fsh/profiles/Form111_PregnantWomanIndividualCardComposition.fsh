@@ -23,7 +23,7 @@ Description: "Composition profile for Form 111 (Homilador va tuqqan ayolning ind
 
 * encounter 0..1
 * encounter only Reference(UZCoreEncounter)
-* encounter ^short = "Ayollar maslahatxonasidagi kuzatuv epizodi"
+* encounter ^short = "Hujjat tuzilgan tashrif (ixtiyoriy); kuzatuv epizodi EpisodeOfCare orqali beriladi"
 
 * date 1..1
 * date ^short = "Hujjat shakllantirilgan sana"
@@ -181,7 +181,7 @@ Description: "Composition profile for Form 111 (Homilador va tuqqan ayolning ind
 * section[attachmentsSheet].code = $form111-cs#chr-0034-00007
 * section[attachmentsSheet].code ^short = "Homiladorlik bo'yicha ta'til boshlanish va tugash sanasi, mehnatga layoqatsizlik varog'i raqami, tug'ruq sanasi, tug'ruq holati, muddatdan farq (kun), tug'ruq bo'lib o'tgan tug'ruqxona nomi, tug'ruqdan keyingi ta'til muddati, boshlanish va tugash sanasi, mehnatga layoqatsizlik varog'i raqami"
 * section[attachmentsSheet].entry 1..*
-* section[attachmentsSheet].entry only Reference(UZCoreObservation or UZCoreProcedure or UZCoreEncounter or Organization or DocumentReference)
+* section[attachmentsSheet].entry only Reference(UZCoreObservation or UZCoreProcedure or UZCoreEncounter or Organization or SickLeaveCarePlan)
 
 // 14. Perinatal xavf omillari
 * section[perinatalRiskFactors].title 1..1

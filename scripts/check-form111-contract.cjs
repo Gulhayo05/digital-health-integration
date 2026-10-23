@@ -74,8 +74,9 @@ for (const [map, token, system, code] of [
   ['dmed-form-111-pregnancy-progress-pregnancy-complications-cm', 'anemia', sct, '271737000'],
   ['dmed-form-111-extragenital-diseases-cm', 'alcoholism_drug_addiction', integrationCS + 'form111-extragenital-disease-factor-cs', 'chr-0012-00002'],
   ['dmed-form-111-socio-biological-factors-cm', 'smoking_alcoholism_drug_addiction', integrationCS + 'form111-socio-biological-factor-cs', 'chr-0028-00005'],
-  ['dmed-form-111-pregnancy-progress-pregnancy-complications-cm', 'gestosis', integrationCS + 'form111-pregnancy-complication-factor-cs', 'chr-0022-00005'],
 ]) assert.deepEqual(targets(map, token), [{ system, code }], `Incorrect or ambiguous mapping for ${token}`);
+assert.deepEqual(targets('dmed-form-111-pregnancy-progress-pregnancy-complications-cm', 'gestosis'),
+  [{ system: integrationCS + 'form111-pregnancy-complication-factor-cs', code: 'chr-0022-00005' }, { system: sct, code: '398254007' }], 'gestosis keeps the local code and gains the SNOMED target');
 const observations = bundle.entry.map(e => e.resource).filter(r => r.resourceType === 'Observation');
 const hasCode = (o, system, code) => (o.code?.coding || []).some(c => c.system === system && c.code === code);
 for (const [system, code, value] of [

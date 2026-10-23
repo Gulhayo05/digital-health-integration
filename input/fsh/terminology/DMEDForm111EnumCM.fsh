@@ -702,6 +702,12 @@ Description: "Maps DMED `pregnancy_progress.pregnancy_complications` values to S
 * group[=].element[=].target[=].display = "Anemia"
 * group[=].element[=].target[=].relationship = #equivalent
 * group[=].element[=].target[=].comment = "Only the explicit source token supports this standard concept; do not apply it to a combined or free-text answer."
+* group[=].element[+].code = #"gestosis"
+* group[=].element[=].display = "Гестоз"
+* group[=].element[=].target[+].code = #"398254007"
+* group[=].element[=].target[=].display = "Pre-eclampsia"
+* group[=].element[=].target[=].relationship = #source-is-broader-than-target
+* group[=].element[=].target[=].comment = "Gestoz covers the pre-eclampsia spectrum; the local code chr-0022-00005 stays the primary target."
 
 Instance: dmed-form-111-education-type-cm
 InstanceOf: ConceptMap

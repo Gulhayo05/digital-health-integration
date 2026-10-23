@@ -40,12 +40,12 @@ To'liq namunaviy nusxa uchun [111-shakl homilador ayolning individual kartasi mi
 | Hujjat instansiyasi UUID | Идентификатор документа | Composition.identifier | `urn:ietf:rfc:3986` | urn:uuid:7e51c0b8-9d34-42a6-b7f1-05c8e2a91111 |
 | Shakl raqami | Номер формы | Composition.identifier | `https://dhp.uz/fhir/core/sid/doc/uz/form-number` | 111 |
 | Hujjat versiyasi UUID | Идентификатор версии документа | Bundle.identifier | `urn:ietf:rfc:3986` | urn:uuid:c1f4a9d7-2b60-4e13-9a5c-8d7e6f0b1112 |
-| Individual karta raqami | Номер индивидуальной карты | Encounter.identifier | `https://dhp.uz/fhir/core/sid/doc/uz/antenatal-card-number` | 111-2025-000123 |
+| Individual karta raqami | Номер индивидуальной карты | EpisodeOfCare.identifier | `https://dhp.uz/fhir/core/sid/doc/uz/antenatal-card-number` | 111-2025-000123 |
 | Hujjat holati | Статус документа | Composition.status | [Hujjat holatlari](document-statuses.html): karta yuritilayotganda `preliminary`, tug'ruqdan keyingi kuzatuvdan so'ng `final` | final |
 | Hujjat turi | Тип документа | Composition.type | LOINC `34133-9` "Summary of episode note" | - |
 | Hujjat kategoriyasi | Категория документа | Composition.category | [Document Category](CodeSystem-document-category-cs.html) `form-111` "Homilador va tuqqan ayolning individual kartasi" | - |
 | Bemor | Пациентка | Composition.subject | [Patient](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-patient.html) | Ergasheva N.B. |
-| Ayollar maslahatxonasidagi kuzatuv epizodi | Эпизод наблюдения в женской консультации | Composition.encounter | [Encounter](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-encounter.html) | Antenatal episode |
+| Ayollar maslahatxonasidagi kuzatuv epizodi | Эпизод наблюдения в женской консультации | EpisodeOfCare | [EpisodeOfCare](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-episodeofcare.html) | Antenatal episode |
 | Hujjat shakllantirilgan sana | Дата составления документа | Composition.date | - | 2026-07-05 |
 | Homiladorlik davri | Период наблюдения беременности | Composition.event.period | - | 2025-10-20 - 2026-05-24 |
 | Kartani yurituvchi shifokor va bo'lim boshlig'i | Ведущий врач и заведующий отделением | Composition.author | [PractitionerRole](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-practitioner-role.html) | Yusupova S.T., Abdullayeva G.N. |
@@ -64,7 +64,7 @@ Bo'lim kodi: LOINC `45970-1` "Demographic information section".
 | Qon guruhi | Группа крови | Observation.valueCodeableConcept | `code` LOINC `883-9` "ABO group [Type] in Blood"<br>`value` SNOMED `112144000` "Blood group A" | Blood group A |
 | Homiladorning Rh mansubligi | Резус-принадлежность беременной | Observation.valueCodeableConcept | `code` LOINC `10331-7` "Rh [Type] in Blood"<br>`value` SNOMED `165747007` (RhD positive), `165746003` (RhD negative) | RhD positive |
 | Homiladorning turmush o'rtog'ining Rh mansubligi | Резус-принадлежность супруга беременной | Observation.valueCodeableConcept (`focus` = RelatedPerson) | `code` LOINC `10331-7` "Rh [Type] in Blood"<br>`value` SNOMED `165746003` "RhD negative" | RhD negative |
-| Ro'yxatga olingan kun | Дата постановки на учёт | EpisodeOfCare.period.start + Encounter.actualPeriod.start + Encounter.episodeOfCare[] | - | 2025-10-20 |
+| Ro'yxatga olingan kun | Дата постановки на учёт | EpisodeOfCare.period.start | - | 2025-10-20 |
 | WR I | RW I | Observation.valueString | [Analysis Test Code](CodeSystem-form111-analysis-test-code-cs.html) `chr-0001-00011` "WR I tahlili" | Negative |
 | WR II | RW II | Observation.valueString | Analysis Test Code `chr-0001-00012` "WR II tahlili" | Negative |
 | OIV | ВИЧ | Observation.valueString | Analysis Test Code `chr-0001-00004` "OIV" | Negative |
@@ -114,7 +114,7 @@ Bo'lim kodi: LOINC `57074-7` "Labor and delivery process Narrative".
 | UZ | RU | FHIR yo'li | Kod | Misol qiymati |
 |----|----|------------|------|---------------|
 | Homiladorlikni yakuni | Исход беременности | Observation.valueCodeableConcept | `code` LOINC `63893-2` "Outcome of pregnancy"<br>`value` [Pregnancy Outcome](ValueSet-form111-pregnancy-outcome-vs.html) (SNOMED `3950001` "Birth", or local `chr-0024-*` for maternal/child death) | Birth |
-| Sanasi | Дата | EpisodeOfCare.period.end | - | 2026-05-24 |
+| Sanasi | Дата | Procedure.occurrenceDateTime (delivery) | - | 2026-05-24 |
 | Necha haftada yakunlangani | На какой неделе завершилась | Observation.valueQuantity | LOINC `18185-9` "Gestational age" | 39 wk |
 | Tug'ruqning alohida xususiyatlari | Особенности родов | Observation.valueString | Form111 General Observation Code `chr-0035-00012` "Tug'ruqning alohida xususiyatlari" | Tabiiy tug'ruq yo'llari orqali, asoratlarsiz tug'ruq; qon yo'qotish 250 ml |
 | Bola tirik/o'lik tug'ilgani | Ребёнок родился живым/мёртвым | Observation.valueCodeableConcept | `code` Form111 General Observation Code `chr-0035-00013` "Bola tirik / o'lik tug'ilgani"<br>`value` [Newborn Birth Condition](ValueSet-form111-newborn-birth-condition-vs.html) (SNOMED `281050002` "Livebirth", `713202001` "Antepartum stillbirth", `237362003` "Fetal intrapartum death") | Livebirth |
@@ -297,14 +297,14 @@ Bo'lim kodi: [Form111 CodeSystem](CodeSystem-form111-cs.html) `chr-0034-00007`.
 
 | UZ | RU | FHIR yo'li | Kod | Misol qiymati |
 |----|----|------------|------|---------------|
-| Homiladorlik bo'yicha ta'til boshlanish va tugash sanasi | Даты начала и окончания дородового отпуска | Observation.effectivePeriod | Form111 General Observation Code `chr-0035-00017` "Homiladorlik bo'yicha ta'til" | 2026-03-18 - 2026-05-26 |
-| Mehnatga layoqatsizlik varog'i raqami | Номер листка нетрудоспособности | DocumentReference.identifier | Local (sick-leave number system) | MLV-2026-004512 |
+| Homiladorlik bo'yicha ta'til boshlanish va tugash sanasi | Даты начала и окончания дородового отпуска | CarePlan.period | [SickLeaveCarePlan](StructureDefinition-sick-leave-careplan.html) `addresses` `emdoc-0001-0005` | 2026-03-18 - 2026-05-26 |
+| Mehnatga layoqatsizlik varog'i raqami | Номер листка нетрудоспособности | CarePlan.identifier | `https://dhp.uz/fhir/core/sid/doc/uz/sickleave` | MLV-2026-004512 |
 | Tug'ruq sanasi | Дата родов | Procedure.occurrenceDateTime | [Birth Type](CodeSystem-form111-birth-type-cs.html) `chr-0003-00001` "Tabiiy tug'ruq yo'llari orqali tug'ruq" / SNOMED `236973005` "Delivery procedure" | 2026-05-24 |
 | Tug'ruq holati | Состояние родов | Observation.valueCodeableConcept | `code` Form111 General Observation Code `chr-0035-00015` "Tug'ruq turi (muddati bo'yicha)"<br>`value` SNOMED `21243004` "Term birth of newborn" | Term birth of newborn |
 | Muddatdan farq (kun) | Разница со сроком (дни) | Observation.component.valueQuantity | Form111 General Observation Code `chr-0035-00021` "Muddatdan farq (kun)" | -3 kun |
 | Tug'ruq bo'lib o'tgan tug'ruqxona nomi | Название роддома | Organization.name | - | Toshkent shahar 2-son tug'ruqxonasi |
-| Tug'ruqdan keyingi ta'til muddati, boshlanish va tugash sanasi | Срок и даты послеродового отпуска | Observation.valueQuantity / Observation.effectivePeriod | Form111 General Observation Code `chr-0035-00018` "Tug'ruqdan keyingi ta'til" | 56 kun (2026-05-27 - 2026-07-21) |
-| Mehnatga layoqatsizlik varog'i raqami | Номер листка нетрудоспособности | DocumentReference.identifier | Local (sick-leave number system) | MLV-2026-007788 |
+| Tug'ruqdan keyingi ta'til muddati, boshlanish va tugash sanasi | Срок и даты послеродового отпуска | CarePlan.period | [SickLeaveCarePlan](StructureDefinition-sick-leave-careplan.html) `addresses` `emdoc-0001-0005` | 2026-05-27 - 2026-07-21 (56 kun) |
+| Mehnatga layoqatsizlik varog'i raqami | Номер листка нетрудоспособности | CarePlan.identifier | `https://dhp.uz/fhir/core/sid/doc/uz/sickleave` | MLV-2026-007788 |
 
 > `Tug'ruq bo'lib o'tgan tug'ruqxona nomi` bo'yicha boshqacha modellashtirish taklifi bor: `Procedure.location` → `Location` (`Organization.name` o'rniga). Bu IG'da hozircha `Organization.name` sifatida qoldirilgan — `UZCoreLocation` profilida majburiy `identifier`/`type` slice'lari mavjudligi sababli, to'liq mos `Location` resursini xato kiritmasdan yaratish qo'shimcha tekshiruvni talab qiladi.
 
@@ -368,7 +368,7 @@ Bo'lim kodi: SNOMED `133906008` "Postpartum care".
 - **Arterial qon bosimi** FHIR [vital-signs namunasi](https://hl7.org/fhir/R5/bp.html) bo'yicha uzatiladi: LOINC `85354-9`, sistolik `8480-6` va diastolik `8462-4` komponentlari `mm[Hg]` da, har bir qo'l uchun `bodySite` bilan alohida Observation. DMED dagi "115/70" satri ikki komponentga ajratiladi.
 - **Tahlil natijalari** (WR I/II, HBsAg I/II, OIV, gonoreya, toksoplazmoz) musbat/manfiy kodisiz, `Observation.valueString` da so'zma-so'z uzatiladi.
 - **Oldingi homiladorlik yakuni** faqat to'xtatish yoki tug'ruq; abort turi va bosqichi kodlanmaydi.
-- **Mehnatga layoqatsizlik varag'i raqami** oddiy `DocumentReference.identifier`.
+- **Tug'ruq ta'tili** - sabab `emdoc-0001-0005` va varaqa raqami `identifier` da bo'lgan ikkita [SickLeaveCarePlan](StructureDefinition-sick-leave-careplan.html) (tug'ruqdan oldingi va keyingi); alohida Observation yoki DocumentReference yo'q.
 - **Perinatal xavf darajasi va ballari** `chr-0027-00005`/`chr-0027-00006` bilan kodlanadi; `chr-0035-00022`/`chr-0035-00023` eskirgan (deprecated).
 - **Chaqaloqning chiqarilish holati** `valueCodeableConcept` li Observation, chunki chaqaloq alohida Patient sifatida modellashtirilmaydi; onaning chiqarilish holati `Encounter.admission.dischargeDisposition` da uzatiladi.
 - **Ish joyi** `Observation.valueString` da uzatiladi; `Organization` ga havola faqat tashkilot kodi ma'lum bo'lganda qo'shiladi.
@@ -378,6 +378,8 @@ Bo'lim kodi: SNOMED `133906008` "Postpartum care".
   3. DMED `education_type` qiymati [dmed-form-111-education-type-cs](CodeSystem-dmed-form-111-education-type-cs.html) dan - agar UZ Core kodi DMED qiymatidan kengroq bo'lsa, masalan ordinatura → "Oliy ma'lumot", boshlang'ich → "Boshqa".
 
   Misol: DMED `residency` `education-cs` `regis0005.00008` "Oliy ma'lumot" + `dmed-form-111-education-type-cs` `residency` sifatida yuboriladi, 111-shakl kodisiz, chunki `chr-0010-*` da ordinatura darajasi yo'q.
+- **Epizod va tashriflar**: homiladorlik - karta raqamini o'z ichiga olgan va tug'ruqdan keyingi 35-40 kunlik ko'rik bilan tugaydigan bitta `EpisodeOfCare`; har bir tashrif, tug'ruq ham, `episodeOfCare` ko'rsatilgan `Encounter`. Karta har bir tashrifdan keyin o'sha Composition ning yangi versiyasi (bir xil `identifier`) sifatida qayta yuboriladi.
+- **Gestoz** `chr-0022-00005` har qanday alohida SNOMED tushunchasidan kengroq, shuning uchun lokal kod sifatida qoladi; [uning ConceptMap](ConceptMap-dmed-form-111-pregnancy-progress-pregnancy-complications-cm.html) da SNOMED `398254007` "Preeklampsiya" torroq standart kod sifatida ham berilgan.
 - **Ko'p tanlovli maydonlar** (zararli odatlar, ijtimoiy-biologik, akusherlik va ekstragenital xavf omillari, homiladorlik asoratlari): DMED da belgilangan har bir qiymat uchun bitta Observation yuboriladi. Belgilanmagan qiymat "yo'q" emas, "noma'lum" degani.
 - **Misolda ko'rsatilmagan**: dopplerografiya `chr-0013-00001`, [kontratseptsiya usuli tafsiloti](ValueSet-form111-contraception-details-vs.html), ona/bola o'limi natijalari `chr-0024-00001`/`chr-0024-00002`, `chr-0005-00002`/`chr-0005-00004` va [form111-analysis-test-code-vs](ValueSet-form111-analysis-test-code-vs.html) ning qolgan kodlari.
 
@@ -393,15 +395,14 @@ Bundle (document)
 ├── Patient (homilador ayolning demografik ma'lumotlari)
 ├── RelatedPerson (turmush o'rtog'i)
 ├── EpisodeOfCare (antenatal epizod)
-├── Encounter[] (antenatal epizod, tug'ruq, takroriy tashriflar, patronaj tashriflari, avvalgi homiladorliklar, tug'ruqdan keyingi tashriflar)
+├── Encounter[] (birinchi ko'rik, tug'ruq, takroriy tashriflar, patronaj tashriflari, avvalgi homiladorliklar, tug'ruqdan keyingi tashriflar)
 ├── Organization[] (ayollar maslahatxonasi, ish joylari, tug'ruqxona)
 ├── Practitioner[] / PractitionerRole[] (kartani yurituvchi shifokor, bo'lim boshlig'i)
 ├── Condition[] (ekstragenital kasalliklar, joriy homiladorlik asoratlari, yakun tashxisi, o'tgan kasalliklar, ginekologik, joriy homiladorlik tashxisi)
 ├── Procedure[] (tug'ruq, tug'ruqdan keyingi tashriflar)
 ├── Observation[] (laboratoriya natijalari, ko'riklar, hayotiy ko'rsatkichlar, o'tgan operatsiya, tug'ruqqa tayyorgarlik, onalar maktabi, homila baholash, xavf omillari, mutaxassis xulosalari, kontratseptsiya turi)
 ├── Immunization (stafilokokk anatoksini)
-├── CarePlan[] (har bir tashrif bo'yicha tavsiyalar)
-├── DocumentReference[] (mehnatga layoqatsizlik varaqalari)
+├── CarePlan[] (har bir tashrif bo'yicha tavsiyalar, tug'ruq ta'tili)
 └── Provenance[] (tashrif va hujjat imzolari)
 ```
 
