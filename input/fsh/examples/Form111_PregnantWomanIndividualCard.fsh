@@ -879,6 +879,7 @@ Usage: #inline
 * language = #uz
 * status = #final
 * code.coding[socioeconomicType] = $sct#14679004 "Occupation"
+* code.coding[1] = $form111-social-observation-code-cs#chr-0029-00005 "Mutaxassisligi"
 * code.text = "Mutaxassisligi"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100003-1111-2222-3333-444444444444)
@@ -892,6 +893,7 @@ Usage: #inline
 * language = #uz
 * status = #final
 * code.coding[socioeconomicType] = $sct#14679004 "Occupation"
+* code.coding[1] = $form111-social-observation-code-cs#chr-0029-00006 "Lavozimi"
 * code.text = "Lavozimi"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100003-1111-2222-3333-444444444444)

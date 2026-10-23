@@ -21,3 +21,16 @@ Description: "Form 111 Social Observation Code CodeSystem"
   * ^designation[=].value = "Workplace phone number"
   * ^designation[+].language = #ru
   * ^designation[=].value = "Телефон места работы"
+
+// Second coding next to SNOMED CT 14679004 "Occupation" until the core can tell specialty from position (uzinfocom-org/digital-health-ig#391).
+* #chr-0029-00005 "Mutaxassisligi"
+  * ^designation[0].language = #en
+  * ^designation[=].value = "Specialty"
+  * ^designation[+].language = #ru
+  * ^designation[=].value = "Специальность"
+
+* #chr-0029-00006 "Lavozimi"
+  * ^designation[0].language = #en
+  * ^designation[=].value = "Position"
+  * ^designation[+].language = #ru
+  * ^designation[=].value = "Должность"
