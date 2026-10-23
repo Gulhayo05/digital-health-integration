@@ -335,8 +335,6 @@ Tug'ruq ta'tili - sabab `emdoc-0001-0005` va varaqa raqami `identifier` da bo'lg
 | Tug'ruqdan keyingi ta'til muddati, boshlanish va tugash sanasi | Срок и даты послеродового отпуска | CarePlan.period | [SickLeaveCarePlan](StructureDefinition-sick-leave-careplan.html) `addresses` `emdoc-0001-0005` | 2026-05-27 - 2026-07-21 (56 kun) |
 | Mehnatga layoqatsizlik varog'i raqami | Номер листка нетрудоспособности | CarePlan.identifier | `system` `https://dhp.uz/fhir/core/sid/doc/uz/sickleave` | MLV-2026-007788 |
 
-> `Tug'ruq bo'lib o'tgan tug'ruqxona nomi` bo'yicha boshqacha modellashtirish taklifi bor: `Procedure.location` → `Location` (`Organization.name` o'rniga). Bu IG'da hozircha `Organization.name` sifatida qoldirilgan - `UZCoreLocation` profilida majburiy `identifier`/`type` slice'lari mavjudligi sababli, to'liq mos `Location` resursini xato kiritmasdan yaratish qo'shimcha tekshiruvni talab qiladi.
-
 ---
 
 ### 14. Perinatal xavf omillari
