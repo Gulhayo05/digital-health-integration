@@ -694,7 +694,7 @@ Usage: #inline
 * episodeOfCare = Reference(urn:uuid:11100011-1111-2222-3333-444444444444)
 
 // 1. RO'YXATGA OLISH VA SHAXSIY MA'LUMOTLAR
-// Ro'yxatga olingan kun — uzun muddatli homiladorlik epizodini ochuvchi EpisodeOfCare.period.start sifatida qayd etiladi
+// Ro'yxatga olingan kun - uzun muddatli homiladorlik epizodini ochuvchi EpisodeOfCare.period.start sifatida qayd etiladi
 Instance: episodeofcare-111-antenatal
 InstanceOf: UZCoreEpisodeOfCare
 Usage: #inline
@@ -831,7 +831,7 @@ Usage: #inline
 * effectiveDateTime = "2025-10-22"
 * valueCodeableConcept = $sct#260385009 "Negative"
 
-// "Boshqa tekshiruv" — DMED exchange_card.lab_and_other_examinations (erkin matn)
+// "Boshqa tekshiruv" - DMED exchange_card.lab_and_other_examinations (erkin matn)
 Instance: observation-111-urine-test
 InstanceOf: UZCoreObservation
 Usage: #inline
@@ -981,7 +981,7 @@ Usage: #inline
 * valueInteger = 2
 
 // form111-risk-factor-observation-code-vs + form111-pregnancy-complication-factor-vs
-// Ushbu homiladorlik vaqtidagi asoratlar — tashxis sifatida ICD-10 kodlangan Condition orqali qayd etiladi
+// Ushbu homiladorlik vaqtidagi asoratlar - tashxis sifatida ICD-10 kodlangan Condition orqali qayd etiladi
 Instance: condition-111-complication-anemia
 InstanceOf: UZCoreCondition
 Usage: #inline
@@ -992,7 +992,7 @@ Usage: #inline
 * code.coding.system = $icd10
 * code.coding.code = #O99.0
 * code.coding.display = "Anaemia complicating pregnancy, childbirth and the puerperium"
-* code.text = "Homiladorlik vaqtidagi asorat — anemiya"
+* code.text = "Homiladorlik vaqtidagi asorat - anemiya"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100079-1111-2222-3333-444444444444)
 * onsetDateTime = "2026-01-15"
@@ -1007,7 +1007,7 @@ Usage: #inline
 * code.coding.system = $icd10
 * code.coding.code = #O21.9
 * code.coding.display = "Vomiting of pregnancy, unspecified"
-* code.text = "Homiladorlik vaqtidagi asorat — homiladorlikdagi qusish"
+* code.text = "Homiladorlik vaqtidagi asorat - homiladorlikdagi qusish"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100079-1111-2222-3333-444444444444)
 * onsetDateTime = "2026-01-15"
@@ -1023,7 +1023,7 @@ Usage: #inline
 * code.coding.system = $icd10
 * code.coding.code = #D50.9
 * code.coding.display = "Iron deficiency anaemia, unspecified"
-* code.text = "Ekstragenital kasalligi — temir taqchilligi anemiyasi"
+* code.text = "Ekstragenital kasalligi - temir taqchilligi anemiyasi"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:11100079-1111-2222-3333-444444444444)
 * onsetDateTime = "2026-01-15"
@@ -1164,7 +1164,7 @@ Usage: #inline
 * code.coding.system = $icd10
 * code.coding.code = #B01.9
 * code.coding.display = "Varicella without complication"
-* code.text = "Boshdan o'tkazgan kasalligi — suvchechak (bolalikda)"
+* code.text = "Boshdan o'tkazgan kasalligi - suvchechak (bolalikda)"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * onsetDateTime = "2005-04-01"
 * abatementDateTime = "2005-04-20"
@@ -1179,7 +1179,7 @@ Usage: #inline
 * code.coding.system = $icd10
 * code.coding.code = #N72
 * code.coding.display = "Inflammatory disease of cervix uteri"
-* code.text = "Ginekologik kasalligi — bachadon bo'yni yallig'lanishi"
+* code.text = "Ginekologik kasalligi - bachadon bo'yni yallig'lanishi"
 * subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
 * onsetDateTime = "2021-06-15"
 * abatementDateTime = "2021-08-01"
@@ -1292,7 +1292,7 @@ Usage: #inline
 * valueDateTime = "2026-01-05"
 
 // 5. AVVALGI HOMILADORLIKLARNING YAKUNI
-// 1-homiladorlik (2019) — muddatidan oldin tug'ruq
+// 1-homiladorlik (2019) - muddatidan oldin tug'ruq
 Instance: encounter-111-previous-pregnancy-1
 InstanceOf: UZCoreEncounter
 Usage: #inline
@@ -1355,7 +1355,7 @@ Usage: #inline
 * effectiveDateTime = "2019-06-02"
 * valueCodeableConcept = $sct#281050002 "Livebirth"
 
-// 2-homiladorlik (2022) — asoratsiz, vaqtida tug'ruq
+// 2-homiladorlik (2022) - asoratsiz, vaqtida tug'ruq
 Instance: encounter-111-previous-pregnancy
 InstanceOf: UZCoreEncounter
 Usage: #inline
@@ -1444,7 +1444,7 @@ Usage: #inline
 * effectiveDateTime = "2025-10-20"
 * valueString = "Tirik, sog'lom (4 yoshda)"
 
-// 3-homiladorlik (2024) — o'z-o'zidan tushish
+// 3-homiladorlik (2024) - o'z-o'zidan tushish
 Instance: observation-111-previous-pregnancy-year-3
 InstanceOf: UZCoreObservation
 Usage: #inline
@@ -1480,7 +1480,7 @@ Usage: #inline
 * encounter = Reference(urn:uuid:11100003-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:11100007-1111-2222-3333-444444444444)
 * effectiveDateTime = "2025-10-20"
-* valueString = "1-homiladorlik (2019) — muddatidan oldin tug'ruq. 2-homiladorlik (2022) — asoratsiz, vaqtida tug'ruq. 3-homiladorlik (2024) — 9-haftada o'z-o'zidan tushish."
+* valueString = "1-homiladorlik (2019) - muddatidan oldin tug'ruq. 2-homiladorlik (2022) - asoratsiz, vaqtida tug'ruq. 3-homiladorlik (2024) - 9-haftada o'z-o'zidan tushish."
 
 // 6. HOMILADORNI BIRINCHI KO'RIGI
 Instance: observation-111-body-height
@@ -1829,7 +1829,7 @@ Usage: #inline
 * signature.sigFormat = #application/pdf
 * signature.data = "JVBERi0xLjQKMSAwIG9iago8PAovVHlwZSAvQ2F0YWxvZwo+PgplbmRvYmoKdHJhaWxlcgo8PAovUm9vdCAxIDAgUgo+PgolJUVPRg=="
 
-// 10. HOMILADORLIKNING KECHISHI — TAKRORIY TASHRIF (2026-01-15, 21 hafta)
+// 10. HOMILADORLIKNING KECHISHI - TAKRORIY TASHRIF (2026-01-15, 21 hafta)
 Instance: encounter-111-antenatal-visit
 InstanceOf: UZCoreEncounter
 Usage: #inline
@@ -2036,7 +2036,7 @@ Usage: #inline
 * effectiveDateTime = "2026-01-14"
 * valueQuantity = 104 'g/L' "g/L"
 
-// Homiladorlik muddati (hafta) — bu tashxis emas, alohida Observation
+// Homiladorlik muddati (hafta) - bu tashxis emas, alohida Observation
 Instance: observation-111-visit-gestational-age
 InstanceOf: UZCoreObservation
 Usage: #inline
@@ -2050,7 +2050,7 @@ Usage: #inline
 * effectiveDateTime = "2026-01-15"
 * valueQuantity = 21 'wk' "hafta"
 
-// Tashxis — form111-icd10-diagnosis-vs
+// Tashxis - form111-icd10-diagnosis-vs
 Instance: condition-111-pregnancy-diagnosis
 InstanceOf: UZCoreCondition
 Usage: #inline

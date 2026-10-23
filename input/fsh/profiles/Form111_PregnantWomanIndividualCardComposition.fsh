@@ -172,7 +172,7 @@ Description: "Composition profile for Form 111 (Homilador va tuqqan ayolning ind
 * section[birthPreparation].title ^short = "11. Preparation for childbirth"
 * section[birthPreparation].code 1..1
 * section[birthPreparation].code = $sct#386235000 "Childbirth preparation"
-* section[birthPreparation].code ^short = "Jismoniy tarbiya, ultrabinafsha nurlari bilan nurlanish, onalar maktabi, psixoprofilaktik tayyorlov — sanalari va o'sha vaqtdagi homiladorlik muddati"
+* section[birthPreparation].code ^short = "Jismoniy tarbiya, ultrabinafsha nurlari bilan nurlanish, onalar maktabi, psixoprofilaktik tayyorlov - sanalari va o'sha vaqtdagi homiladorlik muddati"
 * section[birthPreparation].entry 1..*
 * section[birthPreparation].entry only Reference(UZCoreProcedure or UZCoreEncounter or UZCoreObservation)
 
@@ -217,6 +217,6 @@ Description: "Composition profile for Form 111 (Homilador va tuqqan ayolning ind
 * section[postpartumFollowUp].title ^short = "16. Postpartum period follow-up"
 * section[postpartumFollowUp].code 1..1
 * section[postpartumFollowUp].code = $sct#133906008 "Postpartum care"
-* section[postpartumFollowUp].code ^short = "7-8 va 35-40 kunlik ko'riklar — sana, shikoyati, tekshiruv-muolajalari, maslahat/ko'rsatmalar, shifokor va bo'lim boshlig'i imzosi, kontratsepsiya turi"
+* section[postpartumFollowUp].code ^short = "7-8 va 35-40 kunlik ko'riklar - sana, shikoyati, tekshiruv-muolajalari, maslahat/ko'rsatmalar, shifokor va bo'lim boshlig'i imzosi, kontratsepsiya turi"
 * section[postpartumFollowUp].entry 1..*
 * section[postpartumFollowUp].entry only Reference(UZCoreEncounter or UZCoreObservation or UZCoreProcedure or CarePlan or Provenance)
