@@ -88,3 +88,9 @@ Description: "Uzbek and Russian displays for the LOINC codes used by Form 111"
   * ^designation[=].value = "Место работы"
   * ^designation[+].language = #uz
   * ^designation[=].value = "Ish joyi"
+
+* #8659-5 "Birth control method - Reported"
+  * ^designation[0].language = #ru
+  * ^designation[=].value = "Метод контрацепции"
+  * ^designation[+].language = #uz
+  * ^designation[=].value = "Kontratseptsiya usuli"

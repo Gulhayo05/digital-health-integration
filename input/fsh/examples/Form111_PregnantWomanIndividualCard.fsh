@@ -325,6 +325,8 @@ Description: "Example of an individual antenatal/postpartum card (Form 111) as a
 * entry[=].resource = careplan-111-postpartum-35-40
 * entry[+].fullUrl = "urn:uuid:11100143-1111-2222-3333-444444444444"
 * entry[=].resource = observation-111-contraception-type
+* entry[+].fullUrl = "urn:uuid:11100166-1111-2222-3333-444444444444"
+* entry[=].resource = observation-111-contraception-method
 * entry[+].fullUrl = "urn:uuid:11100144-1111-2222-3333-444444444444"
 * entry[=].resource = provenance-111-postpartum-doctor-signature
 * entry[+].fullUrl = "urn:uuid:11100145-1111-2222-3333-444444444444"
@@ -572,6 +574,7 @@ Usage: #inline
 * section[=].entry[+] = Reference(urn:uuid:11100141-1111-2222-3333-444444444444) //procedure-111-postpartum-35-40-exam
 * section[=].entry[+] = Reference(urn:uuid:11100142-1111-2222-3333-444444444444) //careplan-111-postpartum-35-40
 * section[=].entry[+] = Reference(urn:uuid:11100143-1111-2222-3333-444444444444) //observation-111-contraception-type
+* section[=].entry[+] = Reference(urn:uuid:11100166-1111-2222-3333-444444444444) //observation-111-contraception-method
 * section[=].entry[+] = Reference(urn:uuid:11100144-1111-2222-3333-444444444444) //provenance-111-postpartum-doctor-signature
 * section[=].entry[+] = Reference(urn:uuid:11100145-1111-2222-3333-444444444444) //provenance-111-postpartum-head-signature
 
@@ -2734,6 +2737,20 @@ Usage: #inline
 * performer = Reference(urn:uuid:11100009-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-07-03"
 * valueCodeableConcept = $form111-contraception-type-cs#chr-0008-00001 "Jarrohliksiz kontratseptsiya"
+
+Instance: observation-111-contraception-method
+InstanceOf: UZCoreObservation
+Usage: #inline
+* language = #uz
+* status = #final
+* code = $loinc#8659-5 "Birth control method - Reported"
+* code.text = "Kontratseptsiya usuli"
+* subject = Reference(urn:uuid:11100002-1111-2222-3333-444444444444)
+* encounter = Reference(urn:uuid:11100139-1111-2222-3333-444444444444)
+* performer = Reference(urn:uuid:11100009-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-07-03"
+* valueCodeableConcept = $sct#312081001 "Uses IUD (intrauterine device) contraception"
+* valueCodeableConcept.text = "Bachadon ichi vositasi"
 
 Instance: provenance-111-postpartum-doctor-signature
 InstanceOf: Provenance

@@ -393,6 +393,7 @@ Bo'lim kodi: SNOMED `133906008` "Postpartum care".
 | Shifokor imzosi | Подпись врача | Provenance.signature | [Provenance](https://hl7.org/fhir/R5/provenance.html) | Yusupova S.T. |
 | Bo'lim boshlig'i imzosi | Подпись заведующего отделением | Provenance.signature | [Provenance](https://hl7.org/fhir/R5/provenance.html) | Abdullayeva G.N. |
 | Kontratsepsiya turi | Вид контрацепции | Observation.valueCodeableConcept | `code` [Contraception Observation Code](CodeSystem-form111-contraception-observation-code-cs.html) `chr-0007-00001` "Kontratseptsiya turi"<br>`value` [Contraception Type](CodeSystem-form111-contraception-type-cs.html) | Jarrohliksiz kontratseptsiya (`chr-0008-00001`) |
+| Kontratsepsiya usuli (DMED) | Метод контрацепции (DMED) | Observation.valueCodeableConcept | `code` LOINC `8659-5` "Birth control method - Reported"<br>`value` [Contraception Method](ValueSet-form111-contraception-method-vs.html) per [contraception details ConceptMap](ConceptMap-dmed-form-111-contraception-details-cm.html) | Bachadon ichi vositasi (`312081001`) |
 
 ---
 
