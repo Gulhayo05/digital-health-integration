@@ -194,7 +194,7 @@ The example has three previous pregnancies: 1st (2019, preterm birth), 2nd (2022
 
 Section code: LOINC `29545-1` "Physical findings note".
 
-Blood pressure follows the FHIR [vital-signs pattern](https://hl7.org/fhir/R5/bp.html): LOINC `85354-9` with systolic `8480-6` and diastolic `8462-4` components in `mm[Hg]`, one Observation per arm with `bodySite`. Split the DMED "115/70" string into the two components.
+Blood pressure follows the FHIR [vital-signs pattern](https://hl7.org/fhir/R5/bp.html): LOINC `85354-9` with systolic `8480-6` and diastolic `8462-4` components in `mm[Hg]`, one Observation per arm with `bodySite`.
 
 | UZ | RU | FHIR Path | Code | Example Value |
 |----|----|------------|------|---------------|

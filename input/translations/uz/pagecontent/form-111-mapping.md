@@ -196,7 +196,7 @@ Namunada uchta avvalgi homiladorlik keltirilgan: 1-homiladorlik (2019, muddatida
 
 Bo'lim kodi: LOINC `29545-1` "Physical findings note".
 
-Arterial qon bosimi FHIR [vital-signs namunasi](https://hl7.org/fhir/R5/bp.html) bo'yicha uzatiladi: LOINC `85354-9`, sistolik `8480-6` va diastolik `8462-4` komponentlari `mm[Hg]` da, har bir qo'l uchun `bodySite` bilan alohida Observation. DMED dagi "115/70" satri ikki komponentga ajratiladi.
+Arterial qon bosimi FHIR [vital-signs namunasi](https://hl7.org/fhir/R5/bp.html) bo'yicha uzatiladi: LOINC `85354-9`, sistolik `8480-6` va diastolik `8462-4` komponentlari `mm[Hg]` da, har bir qo'l uchun `bodySite` bilan alohida Observation.
 
 | UZ | RU | FHIR yo'li | Kod | Misol qiymati |
 |----|----|------------|------|---------------|
