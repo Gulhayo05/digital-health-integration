@@ -365,23 +365,23 @@ Bo'lim kodi: SNOMED `133906008` "Postpartum care".
 
 ### Terminologiya haqida izohlar
 
-- **Arterial qon bosimi** FHIR [vital-signs namunasi](https://hl7.org/fhir/R5/bp.html) bo'yicha uzatiladi: LOINC `85354-9`, sistolik `8480-6` va diastolik `8462-4` komponentlari `mm[Hg]` da, har bir qo'l uchun `bodySite` bilan alohida Observation. DMED dagi "115/70" satri ikki komponentga ajratiladi.
-- **Tahlil natijalari** (WR I/II, HBsAg I/II, OIV, gonoreya, toksoplazmoz) `Observation.valueCodeableConcept` da SNOMED `260385009` "Negative" yoki `10828004` "Positive" sifatida kodlanadi. Tahlillarning o'zi LOINC kodlari bilan beriladi; gonokokk lokal tahlil kodi `chr-0001-00001` ni saqlab qoladi.
-- **Oldingi homiladorlik yakuni** faqat to'xtatish yoki tug'ruq; abort turi va bosqichi kodlanmaydi.
-- **Tug'ruq ta'tili** - sabab `emdoc-0001-0005` va varaqa raqami `identifier` da bo'lgan ikkita [SickLeaveCarePlan](StructureDefinition-sick-leave-careplan.html) (tug'ruqdan oldingi va keyingi); alohida Observation yoki DocumentReference yo'q.
-- **Perinatal xavf darajasi va ballari** `chr-0027-00005`/`chr-0027-00006` bilan kodlanadi; `chr-0035-00022`/`chr-0035-00023` eskirgan (deprecated).
-- **Chaqaloqning chiqarilish holati** `valueCodeableConcept` li Observation, chunki chaqaloq alohida Patient sifatida modellashtirilmaydi; onaning chiqarilish holati `Encounter.admission.dischargeDisposition` da uzatiladi.
-- **Ish joyi** `Observation.valueString` da uzatiladi; `Organization` ga havola faqat tashkilot kodi ma'lum bo'lganda qo'shiladi.
-- **Ta'lim darajasi** - uchta lug'at bilan tavsiflangan bitta javob: UZ Core `education-cs` majburiy, lekin DMED ro'yxatidan dag'alroq, shuning uchun aks holda yo'qoladigan asl DMED qiymati saqlanadi. Bitta javobning uchtagacha kodlanishi bo'lgan bitta `valueCodeableConcept` yuboriladi; `text` da shakldagi yozuv.
+- Arterial qon bosimi FHIR [vital-signs namunasi](https://hl7.org/fhir/R5/bp.html) bo'yicha uzatiladi: LOINC `85354-9`, sistolik `8480-6` va diastolik `8462-4` komponentlari `mm[Hg]` da, har bir qo'l uchun `bodySite` bilan alohida Observation. DMED dagi "115/70" satri ikki komponentga ajratiladi.
+- Tahlil natijalari (WR I/II, HBsAg I/II, OIV, gonoreya, toksoplazmoz) `Observation.valueCodeableConcept` da SNOMED `260385009` "Negative" yoki `10828004` "Positive" sifatida kodlanadi. Tahlillarning o'zi LOINC kodlari bilan beriladi; gonokokk lokal tahlil kodi `chr-0001-00001` ni saqlab qoladi.
+- Oldingi homiladorlik yakuni faqat to'xtatish yoki tug'ruq; abort turi va bosqichi kodlanmaydi.
+- Tug'ruq ta'tili - sabab `emdoc-0001-0005` va varaqa raqami `identifier` da bo'lgan ikkita [SickLeaveCarePlan](StructureDefinition-sick-leave-careplan.html) (tug'ruqdan oldingi va keyingi); alohida Observation yoki DocumentReference yo'q.
+- Perinatal xavf darajasi va ballari `chr-0027-00005`/`chr-0027-00006` bilan kodlanadi; `chr-0035-00022`/`chr-0035-00023` eskirgan (deprecated).
+- Chaqaloqning chiqarilish holati `valueCodeableConcept` li Observation, chunki chaqaloq alohida Patient sifatida modellashtirilmaydi; onaning chiqarilish holati `Encounter.admission.dischargeDisposition` da uzatiladi.
+- Ish joyi `Observation.valueString` da uzatiladi; `Organization` ga havola faqat tashkilot kodi ma'lum bo'lganda qo'shiladi.
+- Ta'lim darajasi - uchta lug'at bilan tavsiflangan bitta javob: UZ Core `education-cs` majburiy, lekin DMED ro'yxatidan dag'alroq, shuning uchun aks holda yo'qoladigan asl DMED qiymati saqlanadi. Bitta javobning uchtagacha kodlanishi bo'lgan bitta `valueCodeableConcept` yuboriladi; `text` da shakldagi yozuv.
   1. UZ Core `education-cs` - har doim, uni asosiy profil talab qiladi. DMED `education_type` qiymatlari [ushbu ConceptMap](ConceptMap-dmed-form-111-education-type-core-cm.html) bo'yicha moslashtiriladi.
   2. 111-shakl `chr-0010-*` kodi - agar [ushbu ConceptMap](ConceptMap-dmed-form-111-education-type-cm.html) da maqsadli kod bo'lsa (boshlang'ich, o'rta umumiy, bakalavriat).
   3. DMED `education_type` qiymati [dmed-form-111-education-type-cs](CodeSystem-dmed-form-111-education-type-cs.html) dan - agar UZ Core kodi DMED qiymatidan kengroq bo'lsa, masalan ordinatura → "Oliy ma'lumot", boshlang'ich → "Boshqa".
 
   Misol: DMED `residency` `education-cs` `regis0005.00008` "Oliy ma'lumot" + `dmed-form-111-education-type-cs` `residency` sifatida yuboriladi, 111-shakl kodisiz, chunki `chr-0010-*` da ordinatura darajasi yo'q.
-- **Epizod va tashriflar**: homiladorlik - karta raqamini o'z ichiga olgan va tug'ruqdan keyingi 35-40 kunlik ko'rik bilan tugaydigan bitta `EpisodeOfCare`; har bir tashrif, tug'ruq ham, `episodeOfCare` ko'rsatilgan `Encounter`. Karta har bir tashrifdan keyin o'sha Composition ning yangi versiyasi (bir xil `identifier`) sifatida qayta yuboriladi.
-- **Gestoz** `chr-0022-00005` har qanday alohida SNOMED tushunchasidan kengroq, shuning uchun lokal kod sifatida qoladi; [uning ConceptMap](ConceptMap-dmed-form-111-pregnancy-progress-pregnancy-complications-cm.html) da SNOMED `398254007` "Preeklampsiya" torroq standart kod sifatida ham berilgan.
-- **Ko'p tanlovli maydonlar** (zararli odatlar, ijtimoiy-biologik, akusherlik va ekstragenital xavf omillari, homiladorlik asoratlari): DMED da belgilangan har bir qiymat uchun bitta Observation yuboriladi. Belgilanmagan qiymat "yo'q" emas, "noma'lum" degani.
-- **Misolda ko'rsatilmagan**: dopplerografiya `chr-0013-00001`, [kontratseptsiya usuli tafsiloti](ConceptMap-dmed-form-111-contraception-details-cm.html), ona/bola o'limi natijalari `chr-0024-00001`/`chr-0024-00002`, LOINC `18776-5` "Plan of care note"/`chr-0005-00004` va [form111-analysis-test-code-vs](ValueSet-form111-analysis-test-code-vs.html) ning qolgan kodlari.
+- Epizod va tashriflar: homiladorlik - karta raqamini o'z ichiga olgan va tug'ruqdan keyingi 35-40 kunlik ko'rik bilan tugaydigan bitta `EpisodeOfCare`; har bir tashrif, tug'ruq ham, `episodeOfCare` ko'rsatilgan `Encounter`. Karta har bir tashrifdan keyin o'sha Composition ning yangi versiyasi (bir xil `identifier`) sifatida qayta yuboriladi.
+- Gestoz `chr-0022-00005` har qanday alohida SNOMED tushunchasidan kengroq, shuning uchun lokal kod sifatida qoladi; [uning ConceptMap](ConceptMap-dmed-form-111-pregnancy-progress-pregnancy-complications-cm.html) da SNOMED `398254007` "Preeklampsiya" torroq standart kod sifatida ham berilgan.
+- Ko'p tanlovli maydonlar (zararli odatlar, ijtimoiy-biologik, akusherlik va ekstragenital xavf omillari, homiladorlik asoratlari): DMED da belgilangan har bir qiymat uchun bitta Observation yuboriladi. Belgilanmagan qiymat "yo'q" emas, "noma'lum" degani.
+- Misolda ko'rsatilmagan: dopplerografiya `chr-0013-00001`, [kontratseptsiya usuli tafsiloti](ConceptMap-dmed-form-111-contraception-details-cm.html), ona/bola o'limi natijalari `chr-0024-00001`/`chr-0024-00002`, LOINC `18776-5` "Plan of care note"/`chr-0005-00004` va [form111-analysis-test-code-vs](ValueSet-form111-analysis-test-code-vs.html) ning qolgan kodlari.
 
 ---
 

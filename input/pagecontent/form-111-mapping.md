@@ -363,23 +363,23 @@ Section code: SNOMED `133906008` "Postpartum care".
 
 ### Terminology notes
 
-- **Blood pressure** follows the FHIR [vital-signs pattern](https://hl7.org/fhir/R5/bp.html): LOINC `85354-9` with systolic `8480-6` and diastolic `8462-4` components in `mm[Hg]`, one Observation per arm with `bodySite`. Split the DMED "115/70" string into the two components.
-- **Test results** (WR I/II, HBsAg I/II, HIV, gonorrhoea, toxoplasmosis) are coded in `Observation.valueCodeableConcept` as SNOMED `260385009` "Negative" or `10828004` "Positive". The tests themselves are LOINC codes; gonococcus keeps the local test code `chr-0001-00001`.
-- **Previous pregnancy outcome** is only termination or birth; abortion type and stage are not coded.
-- **Maternity leave** is two [SickLeaveCarePlan](StructureDefinition-sick-leave-careplan.html)s (prenatal and postpartum) with reason `emdoc-0001-0005` and the certificate number in `identifier`; there is no separate Observation or DocumentReference.
-- **Perinatal risk level and score** use `chr-0027-00005`/`chr-0027-00006`; `chr-0035-00022`/`chr-0035-00023` are deprecated.
-- **Newborn discharge status** is an Observation with `valueCodeableConcept`, because the newborn is not a separate Patient; the mother's discharge status uses `Encounter.admission.dischargeDisposition`.
-- **Workplace** is sent in `Observation.valueString`; an `Organization` is referenced only when its organization code is known.
-- **Education level** is one answer described by three vocabularies: UZ Core `education-cs` is mandatory but coarser than the DMED list, so the original DMED value is kept when it would otherwise be lost. Send one `valueCodeableConcept` with up to three codings of the same answer; `text` carries the wording from the form.
+- Blood pressure follows the FHIR [vital-signs pattern](https://hl7.org/fhir/R5/bp.html): LOINC `85354-9` with systolic `8480-6` and diastolic `8462-4` components in `mm[Hg]`, one Observation per arm with `bodySite`. Split the DMED "115/70" string into the two components.
+- Test results (WR I/II, HBsAg I/II, HIV, gonorrhoea, toxoplasmosis) are coded in `Observation.valueCodeableConcept` as SNOMED `260385009` "Negative" or `10828004` "Positive". The tests themselves are LOINC codes; gonococcus keeps the local test code `chr-0001-00001`.
+- Previous pregnancy outcome is only termination or birth; abortion type and stage are not coded.
+- Maternity leave is two [SickLeaveCarePlan](StructureDefinition-sick-leave-careplan.html)s (prenatal and postpartum) with reason `emdoc-0001-0005` and the certificate number in `identifier`; there is no separate Observation or DocumentReference.
+- Perinatal risk level and score use `chr-0027-00005`/`chr-0027-00006`; `chr-0035-00022`/`chr-0035-00023` are deprecated.
+- Newborn discharge status is an Observation with `valueCodeableConcept`, because the newborn is not a separate Patient; the mother's discharge status uses `Encounter.admission.dischargeDisposition`.
+- Workplace is sent in `Observation.valueString`; an `Organization` is referenced only when its organization code is known.
+- Education level is one answer described by three vocabularies: UZ Core `education-cs` is mandatory but coarser than the DMED list, so the original DMED value is kept when it would otherwise be lost. Send one `valueCodeableConcept` with up to three codings of the same answer; `text` carries the wording from the form.
   1. UZ Core `education-cs` - always, the core profile requires it. DMED `education_type` values map with [this ConceptMap](ConceptMap-dmed-form-111-education-type-core-cm.html).
   2. Form 111 `chr-0010-*` - when [this ConceptMap](ConceptMap-dmed-form-111-education-type-cm.html) has a target (primary, secondary general, bachelor).
   3. DMED `education_type` from [dmed-form-111-education-type-cs](CodeSystem-dmed-form-111-education-type-cs.html) - when the UZ Core code is broader than the DMED value, e.g. residency → "Higher education", primary → "Other".
 
   Example: DMED `residency` becomes `education-cs` `regis0005.00008` "Higher education" + `dmed-form-111-education-type-cs` `residency`, with no Form 111 coding, since `chr-0010-*` has no residency level.
-- **Episode and visits**: the pregnancy is one `EpisodeOfCare` that carries the card number and ends at the 35-40 day postpartum visit; every visit, delivery included, is an `Encounter` with `episodeOfCare`. The card is re-sent as a new version of the same Composition (same `identifier`) after each visit.
-- **Gestoz** `chr-0022-00005` is broader than any single SNOMED concept, so it stays local; [its ConceptMap](ConceptMap-dmed-form-111-pregnancy-progress-pregnancy-complications-cm.html) also gives SNOMED `398254007` "Pre-eclampsia" as the narrower standard target.
-- **Multi-select fields** (bad habits, socio-biological, obstetric and extragenital risk factors, pregnancy complications): send one Observation per value DMED marks as present. An unmarked value is unknown, not "no".
-- **Not shown in the example**: Doppler ultrasound `chr-0013-00001`, [contraception method detail](ConceptMap-dmed-form-111-contraception-details-cm.html), mother/child death outcomes `chr-0024-00001`/`chr-0024-00002`, LOINC `18776-5` "Plan of care note"/`chr-0005-00004`, and the remaining codes of [form111-analysis-test-code-vs](ValueSet-form111-analysis-test-code-vs.html).
+- Episode and visits: the pregnancy is one `EpisodeOfCare` that carries the card number and ends at the 35-40 day postpartum visit; every visit, delivery included, is an `Encounter` with `episodeOfCare`. The card is re-sent as a new version of the same Composition (same `identifier`) after each visit.
+- Gestoz `chr-0022-00005` is broader than any single SNOMED concept, so it stays local; [its ConceptMap](ConceptMap-dmed-form-111-pregnancy-progress-pregnancy-complications-cm.html) also gives SNOMED `398254007` "Pre-eclampsia" as the narrower standard target.
+- Multi-select fields (bad habits, socio-biological, obstetric and extragenital risk factors, pregnancy complications): send one Observation per value DMED marks as present. An unmarked value is unknown, not "no".
+- Not shown in the example: Doppler ultrasound `chr-0013-00001`, [contraception method detail](ConceptMap-dmed-form-111-contraception-details-cm.html), mother/child death outcomes `chr-0024-00001`/`chr-0024-00002`, LOINC `18776-5` "Plan of care note"/`chr-0005-00004`, and the remaining codes of [form111-analysis-test-code-vs](ValueSet-form111-analysis-test-code-vs.html).
 
 ---
 
