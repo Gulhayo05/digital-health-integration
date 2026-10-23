@@ -418,5 +418,3 @@ Bundle (document)
 ### Example
 
 See [Form 111 pregnant woman individual card example](Bundle-example-form-111-pregnant-woman-individual-card.html) for a complete FHIR document example.
-
-Not shown in the example: Doppler ultrasound `chr-0013-00001`, [contraception method detail](ConceptMap-dmed-form-111-contraception-details-cm.html), mother/child death outcomes `chr-0024-00001`/`chr-0024-00002`, LOINC `18776-5` "Plan of care note"/`chr-0005-00004`, and the remaining codes of [form111-analysis-test-code-vs](ValueSet-form111-analysis-test-code-vs.html).

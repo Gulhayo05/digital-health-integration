@@ -420,5 +420,3 @@ Bundle (document)
 ### Пример
 
 Полный пример FHIR-документа см. в разделе [Пример индивидуальной карты беременной по Форме 111](Bundle-example-form-111-pregnant-woman-individual-card.html).
-
-Не показаны в примере: допплерография `chr-0013-00001`, [детализация метода контрацепции](ConceptMap-dmed-form-111-contraception-details-cm.html), исходы «смерть матери/ребёнка» `chr-0024-00001`/`chr-0024-00002`, LOINC `18776-5` "Plan of care note"/`chr-0005-00004` и остальные коды [form111-analysis-test-code-vs](ValueSet-form111-analysis-test-code-vs.html).

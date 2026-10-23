@@ -420,5 +420,3 @@ Bundle (document)
 ### Misol
 
 To'liq FHIR hujjat misoli uchun [111-shakl homilador ayolning individual kartasi misoli](Bundle-example-form-111-pregnant-woman-individual-card.html)ga qarang.
-
-Misolda ko'rsatilmagan: dopplerografiya `chr-0013-00001`, [kontratseptsiya usuli tafsiloti](ConceptMap-dmed-form-111-contraception-details-cm.html), ona/bola o'limi natijalari `chr-0024-00001`/`chr-0024-00002`, LOINC `18776-5` "Plan of care note"/`chr-0005-00004` va [form111-analysis-test-code-vs](ValueSet-form111-analysis-test-code-vs.html) ning qolgan kodlari.
