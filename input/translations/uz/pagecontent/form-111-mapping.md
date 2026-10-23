@@ -61,13 +61,13 @@ Epizod va tashriflar: homiladorlik - karta raqamini o'z ichiga olgan va tug'ruqd
 
 Bo'lim kodi: LOINC `45970-1` "Demographic information section".
 
-Ta'lim darajasi - uchta lug'at bilan tavsiflangan bitta javob: UZ Core `education-cs` majburiy, lekin DMED ro'yxatidan dag'alroq, shuning uchun aks holda yo'qoladigan asl DMED qiymati saqlanadi. Bitta javobning uchtagacha kodlanishi bo'lgan bitta `valueCodeableConcept` yuboriladi; `text` da shakldagi yozuv.
+Ta'lim darajasi - bitta `valueCodeableConcept` bilan yuboriladigan bitta javob: `text` da shakldagi yozuv, `coding` da esa shu javobning uchtagacha kodi.
 
-1. UZ Core `education-cs` - har doim, uni asosiy profil talab qiladi. DMED `education_type` qiymatlari [ushbu ConceptMap](ConceptMap-dmed-form-111-education-type-core-cm.html) bo'yicha moslashtiriladi.
-2. 111-shakl `chr-0010-*` kodi - agar [ushbu ConceptMap](ConceptMap-dmed-form-111-education-type-cm.html) da maqsadli kod bo'lsa (boshlang'ich, o'rta umumiy, bakalavriat).
-3. DMED `education_type` qiymati [dmed-form-111-education-type-cs](CodeSystem-dmed-form-111-education-type-cs.html) dan - agar UZ Core kodi DMED qiymatidan kengroq bo'lsa, masalan ordinatura → "Oliy ma'lumot", boshlang'ich → "Boshqa".
+1. UZ Core `education-cs`, har doim: uni asosiy profil talab qiladi. [Ushbu ConceptMap](ConceptMap-dmed-form-111-education-type-core-cm.html) har bir DMED `education_type` qiymati uchun UZ Core kodini beradi.
+2. 111-shakl `chr-0010-*` kodi, agar DMED qiymati uchun mavjud bo'lsa (boshlang'ich, o'rta umumiy, bakalavriat), [ushbu ConceptMap](ConceptMap-dmed-form-111-education-type-cm.html) bo'yicha.
+3. DMED `education_type` qiymatining o'zi, [dmed-form-111-education-type-cs](CodeSystem-dmed-form-111-education-type-cs.html) dan, agar UZ Core kodi DMED qiymatidan kamroq aniq bo'lsa. UZ Core ro'yxatida ordinatura yo'q, faqat "Oliy ma'lumot", boshlang'ich yo'q, faqat "Boshqa", shuning uchun bu qiymatlar uchun DMED kodi UZ Core kodi bilan birga yuboriladi va hech narsa yo'qolmaydi.
 
-Misol: DMED `residency` `education-cs` `regis0005.00008` "Oliy ma'lumot" + `dmed-form-111-education-type-cs` `residency` sifatida yuboriladi, 111-shakl kodisiz, chunki `chr-0010-*` da ordinatura darajasi yo'q.
+Misol: DMED `residency` `education-cs` `regis0005.00008` "Oliy ma'lumot" va `dmed-form-111-education-type-cs` `residency` sifatida yuboriladi, 111-shakl kodisiz, chunki `chr-0010-*` da ordinatura darajasi yo'q.
 
 | UZ | RU | FHIR yo'li | Kod | Misol qiymati |
 |----|----|------------|------|---------------|

@@ -61,13 +61,13 @@
 
 Код раздела: LOINC `45970-1` "Demographic information section".
 
-Уровень образования - один ответ, описанный тремя словарями: UZ Core `education-cs` обязателен, но грубее списка DMED, поэтому исходное значение DMED сохраняется там, где оно иначе потерялось бы. Передаётся один `valueCodeableConcept`, в котором до трёх кодировок одного ответа; в `text` - формулировка с формы.
+Уровень образования - один ответ, передаваемый одним `valueCodeableConcept`: в `text` - формулировка с формы, в `coding` - до трёх кодов этого же ответа.
 
-1. UZ Core `education-cs` - всегда, его требует базовый профиль. Значения DMED `education_type` сопоставляются по [этой ConceptMap](ConceptMap-dmed-form-111-education-type-core-cm.html).
-2. Код Формы 111 `chr-0010-*` - если в [этой ConceptMap](ConceptMap-dmed-form-111-education-type-cm.html) есть целевой код (начальное, среднее общее, бакалавриат).
-3. Значение DMED `education_type` из [dmed-form-111-education-type-cs](CodeSystem-dmed-form-111-education-type-cs.html) - если код UZ Core шире значения DMED, например ординатура → "Высшее образование", начальное → "Другое".
+1. UZ Core `education-cs`, всегда: его требует базовый профиль. [Эта ConceptMap](ConceptMap-dmed-form-111-education-type-core-cm.html) даёт код UZ Core для каждого значения DMED `education_type`.
+2. Код Формы 111 `chr-0010-*`, если он есть для значения DMED (начальное, среднее общее, бакалавриат), по [этой ConceptMap](ConceptMap-dmed-form-111-education-type-cm.html).
+3. Само значение DMED `education_type` из [dmed-form-111-education-type-cs](CodeSystem-dmed-form-111-education-type-cs.html), если код UZ Core менее точен, чем значение DMED. В списке UZ Core нет ординатуры, только "Высшее образование", и нет начального, только "Другое", поэтому для этих значений код DMED передаётся рядом с кодом UZ Core, и ничего не теряется.
 
-Пример: DMED `residency` передаётся как `education-cs` `regis0005.00008` "Высшее образование" + `dmed-form-111-education-type-cs` `residency`, без кода Формы 111, так как в `chr-0010-*` нет уровня "ординатура".
+Пример: DMED `residency` передаётся как `education-cs` `regis0005.00008` "Высшее образование" плюс `dmed-form-111-education-type-cs` `residency`, без кода Формы 111, так как в `chr-0010-*` нет уровня "ординатура".
 
 | UZ | RU | Путь FHIR | Код | Пример значения |
 |----|----|------------|------|---------------|

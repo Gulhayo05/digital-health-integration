@@ -59,13 +59,13 @@ Episode and visits: the pregnancy is one `EpisodeOfCare` that carries the card n
 
 Section code: LOINC `45970-1` "Demographic information section".
 
-Education level is one answer described by three vocabularies: UZ Core `education-cs` is mandatory but coarser than the DMED list, so the original DMED value is kept when it would otherwise be lost. Send one `valueCodeableConcept` with up to three codings of the same answer; `text` carries the wording from the form.
+Education level is one answer, sent as one `valueCodeableConcept`: `text` carries the wording from the form and `coding` carries up to three codes for that same answer.
 
-1. UZ Core `education-cs` - always, the core profile requires it. DMED `education_type` values map with [this ConceptMap](ConceptMap-dmed-form-111-education-type-core-cm.html).
-2. Form 111 `chr-0010-*` - when [this ConceptMap](ConceptMap-dmed-form-111-education-type-cm.html) has a target (primary, secondary general, bachelor).
-3. DMED `education_type` from [dmed-form-111-education-type-cs](CodeSystem-dmed-form-111-education-type-cs.html) - when the UZ Core code is broader than the DMED value, e.g. residency → "Higher education", primary → "Other".
+1. UZ Core `education-cs`, always: the core profile requires it. [This ConceptMap](ConceptMap-dmed-form-111-education-type-core-cm.html) gives the core code for each DMED `education_type` value.
+2. Form 111 `chr-0010-*`, when the DMED value has one (primary, secondary general, bachelor), per [this ConceptMap](ConceptMap-dmed-form-111-education-type-cm.html).
+3. The DMED `education_type` value itself, from [dmed-form-111-education-type-cs](CodeSystem-dmed-form-111-education-type-cs.html), when the core code is less specific than the DMED value. The core list has no residency, only "Higher education", and no primary, only "Other", so for those values the DMED code travels alongside the core code and nothing is lost.
 
-Example: DMED `residency` becomes `education-cs` `regis0005.00008` "Higher education" + `dmed-form-111-education-type-cs` `residency`, with no Form 111 coding, since `chr-0010-*` has no residency level.
+Example: DMED `residency` is sent as `education-cs` `regis0005.00008` "Higher education" plus `dmed-form-111-education-type-cs` `residency`, with no Form 111 code, since `chr-0010-*` has no residency level.
 
 | UZ | RU | FHIR Path | Code | Example Value |
 |----|----|------------|------|---------------|
