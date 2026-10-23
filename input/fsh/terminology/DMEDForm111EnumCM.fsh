@@ -919,25 +919,21 @@ Description: "Maps DMED `blood_group` values to SNOMED CT."
 * group[=].element[=].target[+].code = #"58460004"
 * group[=].element[=].target[=].display = "Blood group O"
 * group[=].element[=].target[=].relationship = #equivalent
-* group[=].element[=].target[=].comment = "Corrected invalid/misassigned SCT code in the source workbook; verified against HL7 IPS blood group ValueSet."
 * group[=].element[+].code = #"a"
 * group[=].element[=].display = "A(II)"
 * group[=].element[=].target[+].code = #"112144000"
 * group[=].element[=].target[=].display = "Blood group A"
 * group[=].element[=].target[=].relationship = #equivalent
-* group[=].element[=].target[=].comment = "Corrected invalid/misassigned SCT code in the source workbook; verified against HL7 IPS blood group ValueSet."
 * group[=].element[+].code = #"b"
 * group[=].element[=].display = "B(III)"
 * group[=].element[=].target[+].code = #"112149005"
 * group[=].element[=].target[=].display = "Blood group B"
 * group[=].element[=].target[=].relationship = #equivalent
-* group[=].element[=].target[=].comment = "Corrected invalid/misassigned SCT code in the source workbook; verified against HL7 IPS blood group ValueSet."
 * group[=].element[+].code = #"ab"
 * group[=].element[=].display = "AB(IV)"
 * group[=].element[=].target[+].code = #"165743006"
 * group[=].element[=].target[=].display = "Blood group AB"
 * group[=].element[=].target[=].relationship = #equivalent
-* group[=].element[=].target[=].comment = "Corrected invalid/misassigned SCT code in the source workbook; verified against HL7 IPS blood group ValueSet."
 
 Instance: dmed-form-111-rhesus-factor-cm
 InstanceOf: ConceptMap
@@ -956,13 +952,11 @@ Description: "Maps DMED `rhesus_factor` values to SNOMED CT."
 * group[=].element[=].target[+].code = #"165746003"
 * group[=].element[=].target[=].display = "RhD negative"
 * group[=].element[=].target[=].relationship = #equivalent
-* group[=].element[=].target[=].comment = "Corrected SCT code against HL7 IPS blood group ValueSet."
 * group[=].element[+].code = #"positive"
 * group[=].element[=].display = "Rh"
 * group[=].element[=].target[+].code = #"165747007"
 * group[=].element[=].target[=].display = "RhD positive"
 * group[=].element[=].target[=].relationship = #equivalent
-* group[=].element[=].target[=].comment = "Corrected SCT code against HL7 IPS blood group ValueSet."
 
 Instance: dmed-form-111-birth-type-cm
 InstanceOf: ConceptMap
