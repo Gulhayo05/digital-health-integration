@@ -79,3 +79,8 @@ The Target Code System http://snomed.info/sct is not fully defined and populated
 # IG Publisher 3.0.0 generates the narrative of a canonical resource example once per IG language
 # (en, ru, uz) and gives each copy the same "metadata" anchor, then flags its own output.
 The XHTML  the resource contains more than one node for each of the following node ids and anchor names: metadata (3x)
+
+# form111-general-observation-code-vs excludes the deprecated perinatal risk duplicates on purpose:
+# they keep their meanings for existing senders, new data uses chr-0027-00005/00006.
+The concept 'chr-0035-00022' is deprecated and its use should be reviewed
+The concept 'chr-0035-00023' is deprecated and its use should be reviewed
