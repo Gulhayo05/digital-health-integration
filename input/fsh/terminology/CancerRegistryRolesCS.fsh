@@ -1,9 +1,9 @@
-CodeSystem: CancerIDRolesCS
-Id: cancer-id-roles-cs
-Title: "Cancer ID Roles CodeSystem"
+CodeSystem: CancerRegistryRolesCS
+Id: cancer-registry-roles-cs
+Title: "Cancer Registry Roles CodeSystem"
 Description: "Role classification for users within cancer information system."
-* insert OriginalCodeSystemDraft(cancer-id-roles-cs)
-* #1 "Katta ma'mur"
+* insert OriginalCodeSystemDraft(cancer-registry-roles-cs)
+* #1 "Tizim administratori"
   * ^designation[0].language = #ru
   * ^designation[=].value = "Системный администратор"
   * ^designation[+].language = #en
@@ -18,7 +18,7 @@ Description: "Role classification for users within cancer information system."
   * ^designation[=].value = "исследователь"
   * ^designation[+].language = #en
   * ^designation[=].value = "researcher"
-* #7 "Ma'mur"
+* #7 "Muassasa administratori"
   * ^designation[0].language = #ru
   * ^designation[=].value = "Администратор учреждения"
   * ^designation[+].language = #en
