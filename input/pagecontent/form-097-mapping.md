@@ -49,11 +49,11 @@ For a complete reference instance, see the [Form 097 newborn development example
 | Tug'ilgan bo'yi | Рост при рождении | Observation.valueQuantity | LOINC `89269-5` "Body height Measured --at birth" | 51 cm |
 | Tug'ruq o'z vaqtidami | Своевременность родов | Observation.valueCodeableConcept | Local code | Timely delivery |
 | Chaqaloqning muddat holati | Срок рождения новорождённого | Observation.valueCodeableConcept | Local code | Term |
-| Hayotiylik natijasi | Исход плода | Observation.valueCodeableConcept | value bound to `newborn-vital-status-vs` (SNOMED CT `281050002` / `276506001`) | Alive |
+| Hayotiylik natijasi | Исход плода | Observation.valueCodeableConcept | value bound to `newborn-vital-status-vs` (SNOMED CT `281050002` / `237364002`) | Livebirth |
 | Chaqaloq qon guruhi | Группа крови новорождённого | Observation.code `883-9` + valueCodeableConcept | LOINC `883-9`; value bound to `abo-blood-group-vs` (SNOMED CT) | Group II (A) |
 | Chaqaloq rezus-omili | Резус-фактор новорождённого | Observation.code `14908-8` + valueCodeableConcept | LOINC `14908-8`; value bound to `rh-factor-vs` (SNOMED CT) | Rh positive |
 | Bosh aylanasi | Окружность головы | Observation.valueQuantity | LOINC `9843-4` "Head Occipital-frontal circumference" | 34 cm |
-| Ko'krak aylanasi | Окружность груди | Observation.valueQuantity | Local code `chr-0122-0005` "Chest circumference" (no exact active LOINC/SNOMED concept) | 33 cm |
+| Ko'krak aylanasi | Окружность груди | Observation.valueQuantity | SNOMED CT `248366000` "Chest circumference" | 33 cm |
 | Nafas olish belgisi | Признак дыхания | Observation.valueBoolean | Local code `chr-0127-0001` (no active SNOMED CT concept) | true |
 | Yurak urishi belgisi | Признак сердцебиения | Observation.valueBoolean | Local code `chr-0127-0002` (no active SNOMED CT concept) | true |
 | Kindik tomirlari pulsatsiyasi | Пульсация пуповины | Observation.valueBoolean | Local code `chr-0127-0003` (no active SNOMED CT concept) | true |
@@ -75,7 +75,7 @@ For a complete reference instance, see the [Form 097 newborn development example
 | UZ | RU | FHIR Path | Code | Example |
 |----|----|------------|------|---------|
 | Umumiy ko'rinishi | Общий вид новорождённого | Observation.valueCodeableConcept | Local code `chr-0123-0001` | Satisfactory |
-| Teri rangi | Цвет кожных покровов | Observation.valueCodeableConcept | Local code `chr-0123-0003` | Pink |
+| Teri rangi | Цвет кожных покровов | Observation.valueCodeableConcept | LOINC `39107-8` "Color of Skin" | Pink |
 | Sianoz mavjudligi | Наличие цианоза | Observation.valueBoolean | SNOMED CT `3415004` "Cyanosis" | false |
 | Kindik qoldig'i holati | Состояние остатка пуповины | Observation.valueCodeableConcept | Local code `chr-0123-0004` | Satisfactory |
 | Nevrologik holat | Неврологический статус | Observation.valueCodeableConcept | Local code `chr-0123-0014` | Normal |
@@ -121,7 +121,7 @@ For a complete reference instance, see the [Form 097 newborn development example
 | Faollik darajasi | Уровень активности | Observation.component.valueCodeableConcept | Local code `chr-0125-0013` | Moderate |
 | Reflekslar holati | Состояние рефлексов | Observation.component.valueCodeableConcept | Local code `chr-0125-0004` | Sucking reflex |
 | Mushak tonusi | Мышечный тонус | Observation.component.valueCodeableConcept | Local code `chr-0125-0005` | Normal |
-| Teri rangi | Цвет кожи | Observation.component.valueCodeableConcept | Local code `chr-0125-0011` | Normal color |
+| Teri rangi | Цвет кожи | Observation.component.valueCodeableConcept | LOINC `39107-8` "Color of Skin" | Normal color |
 | Nafas olish holati | Состояние дыхания | Observation.component.valueCodeableConcept | Local code `chr-0125-0012` | Normal |
 | Yurak-qon tomir tizimi holati | Состояние сердечно-сосудистой системы | Observation.component.valueCodeableConcept | Local code `chr-0125-0010` | Normal |
 | Qorin bo'shlig'i a'zolari holati | Состояние органов брюшной полости | Observation.component.valueCodeableConcept | Local code `chr-0125-0002` | Normal |
@@ -197,3 +197,16 @@ Bundle (document)
 ### Example
 
 See [Form 097 newborn development example](Bundle-example-form-097-newborn-development.html) for a complete FHIR document example.
+### Confirmed coding and source limits
+
+All clinical sections are optional (0..1); omit sections and resources whose source facts are absent.
+Do not synthesize zeroes, negative assertions, Apgar components, or a five-minute score. Incoming DMED Apgar is the one-minute total (LOINC 9272-6).
+Composition.author and the mandatory FHIR/Core document metadata remain required. A missing clinical section does not remove author requirements.
+Use exact, documented canonical Coding.system URIs. A CodeSystem defined in an open PR is not automatically approved or deployed.
+Missing machine codes can retain trustworthy source text where the profile permits it; do not substitute a merely similar international concept.
+Birth outcome uses LOINC 63893-2 with SNOMED CT 281050002 Livebirth or 237364002 Stillbirth. Death after livebirth is a separate fact.
+When the period of fetal death is known, add a Condition for the same child: 237361005 for antepartum or 237362003 for intrapartum death.
+Use Patient.deceasedBoolean=true when death is known without an exact date; use deceasedDateTime only when available.
+Historical pregnancy totals must not be computed from the current delivery. Omit unavailable historical counts.
+Preserve the mother and maternal encounter on common delivery facts shared between 096 and 097; use stable source-derived business identifiers.
+The snapshot inside each document is historical. Posting a document alone does not establish an upsert of a standalone master Encounter.

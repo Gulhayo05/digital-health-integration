@@ -11,12 +11,6 @@ Description: "Local codes for newborn skin color detailed, Form097 newborn devel
   * ^designation[+].language = #en
   * ^designation[=].value = "Normal color"
 
-* #chr-0117-0002 "Pushti"
-  * ^designation[0].language = #ru
-  * ^designation[=].value = "Розовый"
-  * ^designation[+].language = #en
-  * ^designation[=].value = "Pink"
-
 * #chr-0117-0003 "Och pushti"
   * ^designation[0].language = #ru
   * ^designation[=].value = "Светло-розовый"

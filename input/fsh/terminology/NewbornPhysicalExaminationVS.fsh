@@ -6,3 +6,5 @@ Description: "ValueSet for newborn physical examination, Form097 newborn develop
 * ^experimental = true
 
 * include codes from system newborn-physical-examination-cs
+* include $loinc#39107-8 "Color of Skin"
+* include $loinc#44971-0 "Capillary refill [Time]"

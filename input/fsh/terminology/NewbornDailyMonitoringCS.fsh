@@ -65,12 +65,6 @@ Description: "Local codes for newborn daily monitoring, Form097 newborn developm
   * ^designation[+].language = #en
   * ^designation[=].value = "Cardiovascular system condition"
 
-* #chr-0125-0011 "Teri rangi"
-  * ^designation[0].language = #ru
-  * ^designation[=].value = "Цвет кожи"
-  * ^designation[+].language = #en
-  * ^designation[=].value = "Skin color"
-
 * #chr-0125-0012 "Nafas olish holati"
   * ^designation[0].language = #ru
   * ^designation[=].value = "Состояние дыхания"

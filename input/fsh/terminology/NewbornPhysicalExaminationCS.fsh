@@ -17,12 +17,6 @@ Description: "Local codes for newborn physical examination, Form097 newborn deve
   * ^designation[+].language = #en
   * ^designation[=].value = "Pupillary reaction to light"
 
-* #chr-0123-0003 "Teri rangi"
-  * ^designation[0].language = #ru
-  * ^designation[=].value = "Цвет кожных покровов"
-  * ^designation[+].language = #en
-  * ^designation[=].value = "Skin color"
-
 * #chr-0123-0004 "Kindik qoldig'i holati"
   * ^designation[0].language = #ru
   * ^designation[=].value = "Состояние остатка пуповины"
@@ -154,12 +148,6 @@ Description: "Local codes for newborn physical examination, Form097 newborn deve
   * ^designation[=].value = "Состояние тазобедренных суставов"
   * ^designation[+].language = #en
   * ^designation[=].value = "Hip joint condition"
-
-* #chr-0123-0026 "Kapillyar to'lish vaqti"
-  * ^designation[0].language = #ru
-  * ^designation[=].value = "Время наполнения капилляров"
-  * ^designation[+].language = #en
-  * ^designation[=].value = "Capillary refill time"
 
 * #chr-0123-0027 "Mekoniy ajralishi"
   * ^designation[0].language = #ru
