@@ -3,6 +3,7 @@ Parent: UZCoreComposition
 Id: form-097-newborn-development-composition
 Title: "Form 097 - Newborn Development Medical Record Composition"
 Description: "Composition profile for Form 097 (Yangi tug'ilgan chaqaloq rivojlanishining tibbiy kartasi). The document records a newborn's stay in the maternity hospital from birth to discharge, transfer or death."
+* ^experimental = true
 
 * identifier 1..*
 * identifier ^short = "Document instance UUID and form number (097)"
