@@ -12,6 +12,10 @@ Onkologiya registri saraton tashxislari, davolash epizodlari, tashriflar, o'sma 
 
 Asosiy resurs — `CancerCondition`. `CancerEpisodeOfCare` davolash kursini birlashtiradi, `CancerEncounter` esa shu kurs doirasidagi tashrifni qayd etadi. `focus` orqali tashxisga bog'langan kuzatuvlar morfologiya, xulq, daraja, rivojlanish va bosqichlashni tavsiflaydi. Barcha resurslar bir bemorga havola qiladi.
 
+Bu tuzilma registr ma'lumotlari imkon bergan joyda [mCODE](https://hl7.org/fhir/us/mcode/STU4/) ga amal qiladi: tashxis Condition da, morfologiya, xulq va kasallik rivojlanishi `focus` orqali bog'langan Observation larda, TNM toifalari esa `hasMember` orqali bosqich ostida to'planadi. Registr boshqacha bo'lgan joyda farq bor: tashxislar SNOMED CT emas, ICD-10 bilan kodlanadi, registrga xos tushunchalar esa mahalliy kod tizimlarida qoladi.
+
+<div>{% include cancer-model-uz.svg %}</div><br clear="all"/>
+
 Mavjud bo'lsa, standart ICD-10, ICD-O-3, SNOMED CT va LOINC kodlari ishlatiladi. Registrga xos tushunchalar mahalliy Cancer CodeSystem larida saqlanadi. ConceptMap lar registrning raqamli identifikatorlarini DHP terminologiyasiga o'giradi.
 
 ### Saraton tashxisini qayd etish (CancerCondition)
@@ -171,6 +175,7 @@ Kiruvchi ma'lumotlarda DHP terminologiya kodlari o'rniga Onkologiya registrining
 | Registr holati va tegishli mahalliy identifikatorlar | [Onkologiya registri holatidan DHP holatiga](ConceptMap-cancer-registry-dictionary-to-dhp-status-cm.html) | DHP va Cancer CodeSystem lari |
 | Registr ICD-10 identifikatori | [Onkologiya registri ICD-10 dan DHP ICD-10 ga](ConceptMap-cancer-registry-dictionary-icd10-to-dhp-icd10-cm.html) | ICD-10 |
 | Registr ICD-O-3 topografiya identifikatori | [Onkologiya registri ICD-O-3 topografiyasidan DHP ICD-O-3 topografiyasiga](ConceptMap-cancer-registry-dict-icdo3-topography-to-dhp-icdo3-cm.html) | ICD-O-3 |
+| Onkologiya registri foydalanuvchi roli | [Onkologiya registri rolidan DHP lavozimiga](ConceptMap-cancer-registry-role-to-dhp-position-cm.html) | DHP lavozimlari va kasblari |
 
 ### Yordamchi resurslar
 
