@@ -28,6 +28,11 @@
         "type": {
           "coding": [
             {
+              "system": "https://terminology.dhp.uz/fhir/core/CodeSystem/composition-type-cs",
+              "code": "emdoc-0010-0017",
+              "display": "Newborn development medical record"
+            },
+            {
               "system": "http://loinc.org",
               "code": "18842-5",
               "display": "Discharge summary"
@@ -35,6 +40,15 @@
           ]
         },
         "category": [
+          {
+            "coding": [
+              {
+                "system": "https://terminology.dhp.uz/fhir/core/CodeSystem/composition-category-cs",
+                "code": "Comp-001-0001",
+                "display": "Medical record"
+              }
+            ]
+          },
           {
             "coding": [
               {

@@ -42,8 +42,8 @@
 | Hujjat instansiyasi UUID | Идентификатор документа | Composition.identifier | `urn:ietf:rfc:3986` | urn:uuid:997f9511-f30c-52e5-b827-557766550097 |
 | Shakl raqami | Номер формы | Composition.identifier | `https://dhp.uz/fhir/core/sid/doc/uz/form-number` | 097 |
 | Hujjat holati | Статус документа | Composition.status | `preliminary`, пока новорождённый находится в родильном доме, `final` при выписке, переводе или смерти | final |
-| Hujjat turi | Тип документа | Composition.type | LOINC `18842-5` "Discharge summary" | - |
-| Hujjat kategoriyasi | Категория документа | Composition.category | [Document Category](ValueSet-document-category-vs.html) `form-097` "Newborn development medical record" | - |
+| Hujjat turi | Тип документа | Composition.type | [Composition Type](https://terminology.dhp.uz/fhir/core/ValueSet/composition-type-vs) `emdoc-0010-0017` "Newborn development medical record", а также LOINC `18842-5` "Discharge summary" | - |
+| Hujjat kategoriyasi | Категория документа | Composition.category | [Composition Category](https://terminology.dhp.uz/fhir/core/ValueSet/composition-category-vs) `Comp-001-0001` "Medical record" и [Document Category](ValueSet-document-category-vs.html) `form-097` "Newborn development medical record" | - |
 | Yangi tug'ilgan chaqaloq | Новорождённый | Composition.subject | [Patient](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-patient.html) | Karimov Aziz Shavkatovich |
 | Tug'ruqxonada bo'lish davri | Пребывание в родильном доме | Composition.encounter | [Encounter](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-encounter.html) | 2026-06-01 - 2026-06-07 |
 | Davolovchi shifokor | Лечащий врач | Encounter.participant.actor | [PractitionerRole](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-practitioner-role.html) | Лечащий неонатолог |

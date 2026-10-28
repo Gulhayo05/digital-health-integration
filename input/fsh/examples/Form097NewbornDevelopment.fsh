@@ -326,8 +326,10 @@ Usage: #inline
 * identifier[+].system = "https://dhp.uz/fhir/core/sid/doc/uz/form-number"
 * identifier[=].value = "097"
 * status = #final
-* type = $loinc#18842-5 "Discharge summary"
-* category = $document-category-cs#form-097 "Newborn development medical record"
+* type.coding[0] = $composition-type-cs#emdoc-0010-0017 "Newborn development medical record"
+* type.coding[+] = $loinc#18842-5 "Discharge summary"
+* category[dhpCategory] = $composition-category-cs#Comp-001-0001 "Medical record"
+* category[formCategory] = $document-category-cs#form-097 "Newborn development medical record"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * date = "2026-06-01T09:00:00+05:00"

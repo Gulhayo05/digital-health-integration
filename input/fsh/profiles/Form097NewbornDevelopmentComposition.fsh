@@ -1,5 +1,5 @@
 Profile: Form097NewbornDevelopmentComposition
-Parent: Composition
+Parent: UZCoreComposition
 Id: form-097-newborn-development-composition
 Title: "Form 097 - Newborn Development Medical Record Composition"
 Description: "Composition profile for Form 097 (Yangi tug'ilgan chaqaloq rivojlanishining tibbiy kartasi). The document records a newborn's stay in the maternity hospital from birth to discharge, transfer or death."
@@ -9,12 +9,16 @@ Description: "Composition profile for Form 097 (Yangi tug'ilgan chaqaloq rivojla
 
 * status ^short = "Document status: preliminary while the newborn is in the maternity hospital, final at discharge, transfer or death"
 
-* type = $loinc#18842-5 "Discharge summary"
-* type ^short = "Form 097 document type (discharge summary for the newborn's stay)"
+* type = $composition-type-cs#emdoc-0010-0017 "Newborn development medical record"
+* type ^short = "Form 097 document type (newborn development medical record); LOINC 18842-5 \"Discharge summary\" may be sent as an additional coding"
 
-* category 1..1
-* category = $document-category-cs#form-097
-* category ^short = "Form 097 document category"
+* category 1..*
+* category ^short = "Document category: medical record, and the Form 097 category"
+* category[dhpCategory] 1..1
+* category[dhpCategory] = $composition-category-cs#Comp-001-0001 "Medical record"
+* category contains formCategory 1..1
+* category[formCategory] = $document-category-cs#form-097
+* category[formCategory] ^short = "Form 097 document category"
 
 * subject 1..1
 * subject only Reference(UZCorePatient)
