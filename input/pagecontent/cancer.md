@@ -12,6 +12,10 @@ The Cancer Registry records cancer diagnoses, treatment episodes, encounters, tu
 
 The central resource is `CancerCondition`. `CancerEpisodeOfCare` groups the treatment course, and `CancerEncounter` records a visit within that course. Observations linked through `focus` describe morphology, behavior, grade, progression and staging. All resources refer to the same patient.
 
+That shape follows [mCODE](https://hl7.org/fhir/us/mcode/STU4/) where the registry's data allows: the diagnosis on a Condition, morphology, behavior and disease progression as Observations linked by `focus`, and the TNM categories gathered under a stage group through `hasMember`. It departs from mCODE where the registry differs, coding diagnoses with ICD-10 rather than SNOMED CT and keeping registry-specific concepts in local code systems.
+
+<div>{% include cancer-model-en.svg %}</div><br clear="all"/>
+
 Standard ICD-10, ICD-O-3, SNOMED CT and LOINC codes are used where available. Registry-specific concepts remain in local Cancer CodeSystems. ConceptMaps translate the registry's numeric identifiers into the terminology used by DHP.
 
 ### Recording a cancer diagnosis (CancerCondition)
@@ -171,6 +175,7 @@ Use these ConceptMaps when incoming registry data contains numeric Cancer Regist
 | Registry status and related local identifiers | [Cancer Registry Status to DHP Status](ConceptMap-cancer-registry-dictionary-to-dhp-status-cm.html) | DHP and Cancer CodeSystems |
 | Registry ICD-10 identifier | [Cancer Registry ICD-10 to DHP ICD-10](ConceptMap-cancer-registry-dictionary-icd10-to-dhp-icd10-cm.html) | ICD-10 |
 | Registry ICD-O-3 topography identifier | [Cancer Registry ICD-O-3 Topography to DHP ICD-O-3 Topography](ConceptMap-cancer-registry-dict-icdo3-topography-to-dhp-icdo3-cm.html) | ICD-O-3 |
+| Cancer Registry user role | [Cancer Registry Role to DHP Position](ConceptMap-cancer-registry-role-to-dhp-position-cm.html) | DHP Position and Professions |
 
 ### Supporting resources
 
