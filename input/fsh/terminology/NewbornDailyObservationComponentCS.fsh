@@ -11,24 +11,6 @@ Description: "Local codes identifying the daily newborn observation panel and it
   * ^designation[+].language = #en
   * ^designation[=].value = "Daily newborn observation panel"
 
-* #skin "Teri"
-  * ^designation[0].language = #ru
-  * ^designation[=].value = "Кожа"
-  * ^designation[+].language = #en
-  * ^designation[=].value = "Skin"
-
-* #eyes-mucosa "Ko'zlar, shilliq qavatlar"
-  * ^designation[0].language = #ru
-  * ^designation[=].value = "Глаза, слизистые оболочки"
-  * ^designation[+].language = #en
-  * ^designation[=].value = "Eyes, mucous membranes"
-
-* #respiratory-distress "Nafas yetishmovchiligi"
-  * ^designation[0].language = #ru
-  * ^designation[=].value = "Дыхательная недостаточность"
-  * ^designation[+].language = #en
-  * ^designation[=].value = "Respiratory distress"
-
 * #umbilical-cord-separation "Kindik ajralish vaqti"
   * ^designation[0].language = #ru
   * ^designation[=].value = "Время отделения пуповины"

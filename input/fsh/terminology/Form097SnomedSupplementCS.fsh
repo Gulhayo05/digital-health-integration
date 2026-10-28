@@ -160,3 +160,21 @@ Description: "Uzbek and Russian displays for the SNOMED CT codes that replace Fo
   * ^designation[=].value = "Преждевременные роды"
   * ^designation[+].language = #uz
   * ^designation[=].value = "Muddatidan oldin tug'ruq"
+
+* #106076001 "Skin finding"
+  * ^designation[0].language = #ru
+  * ^designation[=].value = "Кожа"
+  * ^designation[+].language = #uz
+  * ^designation[=].value = "Teri"
+
+* #118235002 "Eye / vision finding"
+  * ^designation[0].language = #ru
+  * ^designation[=].value = "Глаза, слизистые оболочки"
+  * ^designation[+].language = #uz
+  * ^designation[=].value = "Ko'zlar, shilliq qavatlar"
+
+* #271825005 "Respiratory distress"
+  * ^designation[0].language = #ru
+  * ^designation[=].value = "Дыхательная недостаточность"
+  * ^designation[+].language = #uz
+  * ^designation[=].value = "Nafas yetishmovchiligi"

@@ -159,17 +159,17 @@ Har bir kun [Newborn Daily Observation Component](CodeSystem-newborn-daily-obser
 
 | UZ | RU | FHIR yo'li | Kod | Qiymat misoli |
 |----|----|------------|------|---------------|
-| Teri | Кожа | Observation.component.valueCodeableConcept | `code` `skin` | Skin finding (`106076001`) |
-| Ko'zlar, shilliq qavatlar | Глаза, слизистые оболочки | Observation.component.valueCodeableConcept | `code` `eyes-mucosa` | Eye structure (`81745001`) |
-| Nafas yetishmovchiligi | Дыхательная недостаточность | Observation.component.valueCodeableConcept | `code` `respiratory-distress` | Abnormal breathing (`386813002`) |
+| Teri | Кожа | Observation.component.valueString | `code` SNOMED CT `106076001` "Skin finding" | Pink, clean, no rash |
+| Ko'zlar, shilliq qavatlar | Глаза, слизистые оболочки | Observation.component.valueString | `code` SNOMED CT `118235002` "Eye / vision finding" | Eyes clean, mucous membranes pink and moist |
+| Nafas yetishmovchiligi | Дыхательная недостаточность | Observation.component.valueString | `code` SNOMED CT `271825005` "Respiratory distress" | No signs of respiratory distress |
 | Tana vazni | Масса тела | Observation.component.valueQuantity | `code` LOINC `3141-9` "Body weight Measured" | 3200 g |
 | Tana harorati | Температура тела | Observation.component.valueQuantity | `code` LOINC `8310-5` "Body temperature" | 36.8 °C |
 | Emizish turi | Тип вскармливания | Observation.component.valueCodeableConcept | `code` LOINC `63895-7`<br>`value` [Infant Feeding Type](ValueSet-infant-feeding-type-vs.html) (SNOMED CT; sun'iy oziqlantirish lokal kod bo'lib qoladi) | Exclusively breastfed (`1145307003`) |
 | Ovqatlanishni o'zlashtirish | Переносимость кормления | Observation.component.valueCodeableConcept | `code` [Newborn Daily Monitoring](CodeSystem-newborn-daily-monitoring-cs.html) `chr-0125-0003` | Tolerating feeds well |
 | Ich ketishi | Диарея | Observation.component.valueCodeableConcept | `code` SNOMED CT `62315008` "Diarrhea"<br>`value` v2-0532 | No (`N`) |
 | Siydik chiqarish chastotasi | Частота мочеиспускания | Observation.component.valueInteger | `code` SNOMED CT `300471006` "Finding of frequency of urination" | 6 |
-| Kindik ajralish vaqti | Время отделения пуповины | Observation.component.valueDateTime | `code` `umbilical-cord-separation` | 2026-06-01 |
-| Kindik yarasi holati | Состояние пупочной ранки | Observation.component.valueCodeableConcept | `code` `umbilical-wound`<br>`value` v2-0532 | No (`N`) |
+| Kindik ajralish vaqti | Время отделения пуповины | Observation.component.valueDateTime | `code` [Newborn Daily Observation Component](CodeSystem-newborn-daily-observation-component-cs.html) `umbilical-cord-separation` | 2026-06-01 |
+| Kindik yarasi holati | Состояние пупочной ранки | Observation.component.valueCodeableConcept | `code` [Newborn Daily Observation Component](CodeSystem-newborn-daily-observation-component-cs.html) `umbilical-wound`<br>`value` v2-0532 | No (`N`) |
 
 ---
 
@@ -181,16 +181,16 @@ Har bir kun [Newborn Daily Monitoring](CodeSystem-newborn-daily-monitoring-cs.ht
 
 | UZ | RU | FHIR yo'li | Kod | Qiymat misoli |
 |----|----|------------|------|---------------|
-| Umumiy holati | Общее состояние новорождённого | Observation.component.valueCodeableConcept | `code` `chr-0125-0009`<br>`value` SNOMED CT `162669003` "Patient's condition satisfactory" yoki `162667001` "Patient's condition poor", per the Form 111 [general condition ConceptMap](ConceptMap-dmed-form-111-general-condition-cm.html) | Patient's condition satisfactory (`162669003`) |
-| Faollik darajasi | Уровень активности | Observation.component.valueCodeableConcept | `code` `chr-0125-0013`<br>`value` [Newborn Activity Level](ValueSet-newborn-activity-level-vs.html) | `chr-0115-0002` |
-| Reflekslar holati | Состояние рефлексов | Observation.component.valueCodeableConcept | `code` `chr-0125-0004`<br>`value` [Primitive Reflex Type](ValueSet-primitive-reflex-type-vs.html) | Sucking reflex (`45596005`) |
-| Mushak tonusi | Мышечный тонус | Observation.component.valueCodeableConcept | `code` `chr-0125-0005`<br>`value` [Muscle Tone Status](ValueSet-muscle-tone-status-vs.html) (SNOMED CT) | Normal tone in skeletal muscle (`827065006`) |
+| Umumiy holati | Общее состояние новорождённого | Observation.component.valueCodeableConcept | `code` [Newborn Daily Monitoring](CodeSystem-newborn-daily-monitoring-cs.html) `chr-0125-0009`<br>`value` SNOMED CT `162669003` "Patient's condition satisfactory" yoki `162667001` "Patient's condition poor", per the Form 111 [general condition ConceptMap](ConceptMap-dmed-form-111-general-condition-cm.html) | Patient's condition satisfactory (`162669003`) |
+| Faollik darajasi | Уровень активности | Observation.component.valueCodeableConcept | `code` [Newborn Daily Monitoring](CodeSystem-newborn-daily-monitoring-cs.html) `chr-0125-0013`<br>`value` [Newborn Activity Level](ValueSet-newborn-activity-level-vs.html) | `chr-0115-0002` |
+| Reflekslar holati | Состояние рефлексов | Observation.component.valueCodeableConcept | `code` [Newborn Daily Monitoring](CodeSystem-newborn-daily-monitoring-cs.html) `chr-0125-0004`<br>`value` [Primitive Reflex Type](ValueSet-primitive-reflex-type-vs.html) | Sucking reflex (`45596005`) |
+| Mushak tonusi | Мышечный тонус | Observation.component.valueCodeableConcept | `code` [Newborn Daily Monitoring](CodeSystem-newborn-daily-monitoring-cs.html) `chr-0125-0005`<br>`value` [Muscle Tone Status](ValueSet-muscle-tone-status-vs.html) (SNOMED CT) | Normal tone in skeletal muscle (`827065006`) |
 | Teri rangi | Цвет кожи | Observation.component.valueCodeableConcept | `code` LOINC `39107-8` "Color of Skin"<br>`value` [Newborn Skin Color Detailed](ValueSet-newborn-skin-color-detailed-vs.html) | `chr-0117-0001` |
-| Nafas olish holati | Состояние дыхания | Observation.component.valueCodeableConcept | `code` `chr-0125-0012` | Normal (`17621005`) |
-| Yurak-qon tomir tizimi holati | Состояние сердечно-сосудистой системы | Observation.component.valueCodeableConcept | `code` `chr-0125-0010` | Normal (`17621005`) |
+| Nafas olish holati | Состояние дыхания | Observation.component.valueString | `code` [Newborn Daily Monitoring](CodeSystem-newborn-daily-monitoring-cs.html) `chr-0125-0012` | Breathing regular, no distress |
+| Yurak-qon tomir tizimi holati | Состояние сердечно-сосудистой системы | Observation.component.valueString | `code` [Newborn Daily Monitoring](CodeSystem-newborn-daily-monitoring-cs.html) `chr-0125-0010` | Heart sounds clear and rhythmic |
 | Tana harorati | Температура тела | Observation.component.valueQuantity | `code` LOINC `8310-5` "Body temperature" | 37.0 °C |
-| Qorin bo'shlig'i a'zolari holati | Состояние органов брюшной полости | Observation.component.valueCodeableConcept | `code` `chr-0125-0002` | Normal (`17621005`) |
-| Siydik va najas holati | Состояние мочеиспускания и стула | Observation.component.valueCodeableConcept | `code` `chr-0125-0007` | Normal (`17621005`) |
+| Qorin bo'shlig'i a'zolari holati | Состояние органов брюшной полости | Observation.component.valueString | `code` [Newborn Daily Monitoring](CodeSystem-newborn-daily-monitoring-cs.html) `chr-0125-0002` | Abdomen soft, not distended |
+| Siydik va najas holati | Состояние мочеиспускания и стула | Observation.component.valueString | `code` [Newborn Daily Monitoring](CodeSystem-newborn-daily-monitoring-cs.html) `chr-0125-0007` | Urine and stool normal |
 | Laborator tekshiruvlar | Лабораторные исследования | Observation.component.valueString | `code` LOINC `26436-6` "Laboratory studies (set)" | Complete blood count within normal limits |
 
 ---
