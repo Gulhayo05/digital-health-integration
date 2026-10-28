@@ -86,8 +86,6 @@ Bo'lim kodi: LOINC `57073-9` "Prenatal records".
 
 Bo'lim kodi: LOINC `57075-4` "Newborn delivery information".
 
-Tug'ruq natijasi tug'ilishning o'zini tavsiflaydi: tirik tug'ilgandan keyingi vafot alohida qayd etiladi. Homila nobud bo'lgan davr ma'lum bo'lsa, shu bola uchun qo'shimcha Condition yuboriladi. Chaqaloq vafot etgan, lekin aniq vaqti noma'lum bo'lsa, `Patient.deceasedBoolean` = `true` qo'yiladi; `deceasedDateTime` faqat DMED'da vaqt bo'lganda ishlatiladi.
-
 | UZ | RU | FHIR yo'li | Kod | Qiymat misoli |
 |----|----|------------|------|---------------|
 | Tug'ilgan bo'yi | Рост при рождении | Observation.valueQuantity | `code` LOINC `89269-5` "Body height Measured --at birth" | 51 cm |

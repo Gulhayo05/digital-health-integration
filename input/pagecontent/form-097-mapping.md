@@ -84,8 +84,6 @@ Section code: LOINC `57073-9` "Prenatal records".
 
 Section code: LOINC `57075-4` "Newborn delivery information".
 
-Birth outcome is a fact about the birth itself: a death after a livebirth is recorded separately. When the period of fetal death is known, also send a Condition for the same child. When the newborn has died but the exact time is unknown, set `Patient.deceasedBoolean` to `true`, and use `deceasedDateTime` only when DMED has the time.
-
 | UZ | RU | FHIR Path | Code | Example Value |
 |----|----|------------|------|---------------|
 | Tug'ilgan bo'yi | Рост при рождении | Observation.valueQuantity | `code` LOINC `89269-5` "Body height Measured --at birth" | 51 cm |
