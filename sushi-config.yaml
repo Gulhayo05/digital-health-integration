@@ -26,6 +26,8 @@ publisher:
 #
 dependencies:
   uz.dhp.core: 0.11.1
+  # Match the translation extension version required by UZ Core 0.11.1.
+  hl7.fhir.uv.extensions.r5: 5.3.0
   # R4-only package used cross-version for sdc-questionnaire-calculatedExpression (same as uz.dhp.core);
   # the resulting version-mismatch messages are suppressed in ignoreWarnings.txt
   hl7.fhir.uv.sdc: 3.0.0
@@ -278,3 +280,22 @@ instanceOptions:
   # if InstanceOf references a profile:
   #
   # setId: always # always | standalone-only
+
+# Explicit catalogue descriptions for JSON examples in input/examples.
+resources:
+  Bundle/example-form-097-antepartum-stillbirth:
+    name: Form 097 - antepartum stillbirth example
+    description: Synthetic newborn document with an antepartum stillbirth outcome and fetal-death timing.
+    exampleBoolean: true
+  Bundle/example-form-097-intrapartum-stillbirth:
+    name: Form 097 - intrapartum stillbirth example
+    description: Synthetic newborn document with an intrapartum stillbirth outcome and fetal-death timing.
+    exampleBoolean: true
+  Bundle/example-form-097-minimal:
+    name: Form 097 - minimal document example
+    description: Synthetic newborn document containing required document metadata and references without clinical sections.
+    exampleBoolean: true
+  Bundle/example-form-097-author-without-role:
+    name: Form 097 - author without a known role example
+    description: Synthetic newborn document whose author references an identified practitioner directly when no role is known.
+    exampleBoolean: true
