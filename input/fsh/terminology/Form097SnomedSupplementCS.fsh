@@ -178,3 +178,15 @@ Description: "Uzbek and Russian displays for the SNOMED CT codes that replace Fo
   * ^designation[=].value = "Дыхательная недостаточность"
   * ^designation[+].language = #uz
   * ^designation[=].value = "Nafas yetishmovchiligi"
+
+* #772131003 "Umbilical cord stump separated"
+  * ^designation[0].language = #ru
+  * ^designation[=].value = "Время отделения пуповины"
+  * ^designation[+].language = #uz
+  * ^designation[=].value = "Kindik ajralish vaqti"
+
+* #249229001 "Finding of umbilical stump"
+  * ^designation[0].language = #ru
+  * ^designation[=].value = "Состояние пупочной ранки"
+  * ^designation[+].language = #uz
+  * ^designation[=].value = "Kindik yarasi holati"
