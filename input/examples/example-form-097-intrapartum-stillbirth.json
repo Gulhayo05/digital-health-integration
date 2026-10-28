@@ -385,9 +385,9 @@
         "code": {
           "coding": [
             {
-              "system": "http://loinc.org",
-              "code": "63893-2",
-              "display": "Outcome of pregnancy"
+              "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/form111-general-observation-code-cs",
+              "code": "chr-0035-00013",
+              "display": "Live/stillbirth status"
             }
           ]
         },

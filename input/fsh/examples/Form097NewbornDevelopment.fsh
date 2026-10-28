@@ -761,7 +761,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
-* code = $loinc#11884-4 "Gestational age Estimated"
+* code = $loinc#18185-9 "Gestational age"
 * subject = Reference(urn:uuid:0970003b-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700100-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
@@ -982,12 +982,12 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
-* code = $form-097-observation-code-cs#delivery-timeliness "Delivery timeliness"
+* code = $form111-general-obs-cs#chr-0035-00015 "Type of delivery (by term)"
 * subject = Reference(urn:uuid:0970003b-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700100-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-06-01T09:00:00+05:00"
-* valueCodeableConcept = $delivery-timeliness-cs#chr-0091-0001 "Timely delivery"
+* valueCodeableConcept = $sct#21243004 "Term birth of newborn"
 
 // Stable fixture identifier; production uses the stable source record/fact identity.
 * identifier.system = "urn:ietf:rfc:3986"
@@ -1010,7 +1010,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
-* code = $loinc#63893-2 "Outcome of pregnancy"
+* code = $form111-general-obs-cs#chr-0035-00013 "Live/stillbirth status"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
@@ -1146,7 +1146,7 @@ Usage: #inline
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-06-01T09:00:00+05:00"
-* valueCodeableConcept = $satisfactory-status-cs#chr-0040-0001 "Satisfactory"
+* valueCodeableConcept = $sct#162669003 "Patient's condition satisfactory"
 
 Instance: observation-exam-skin-color-description-097
 InstanceOf: UZCoreObservation
@@ -2281,7 +2281,7 @@ Usage: #inline
 * effectiveDateTime = "2026-06-01T00:00:00+05:00"
 * performer = Reference(urn:uuid:097000d1-1111-2222-3333-444444444444)
 * component[0].code = $newborn-daily-monitoring-cs#chr-0125-0009 "General condition of newborn"
-* component[0].valueCodeableConcept = $satisfactory-status-cs#chr-0040-0001 "Satisfactory"
+* component[0].valueCodeableConcept = $sct#162669003 "Patient's condition satisfactory"
 * component[1].code = $newborn-daily-monitoring-cs#chr-0125-0013 "Activity level"
 * component[1].valueCodeableConcept = $newborn-activity-level-cs#chr-0115-0002 "Moderate"
 * component[2].code = $newborn-daily-monitoring-cs#chr-0125-0004 "Reflex status"
@@ -2315,7 +2315,7 @@ Usage: #inline
 * effectiveDateTime = "2026-06-02T00:00:00+05:00"
 * performer = Reference(urn:uuid:097000d1-1111-2222-3333-444444444444)
 * component[0].code = $newborn-daily-monitoring-cs#chr-0125-0009 "General condition of newborn"
-* component[0].valueCodeableConcept = $satisfactory-status-cs#chr-0040-0001 "Satisfactory"
+* component[0].valueCodeableConcept = $sct#162669003 "Patient's condition satisfactory"
 * component[1].code = $newborn-daily-monitoring-cs#chr-0125-0013 "Activity level"
 * component[1].valueCodeableConcept = $newborn-activity-level-cs#chr-0115-0002 "Moderate"
 * component[2].code = $newborn-daily-monitoring-cs#chr-0125-0004 "Reflex status"
@@ -2349,7 +2349,7 @@ Usage: #inline
 * effectiveDateTime = "2026-06-03T00:00:00+05:00"
 * performer = Reference(urn:uuid:097000d1-1111-2222-3333-444444444444)
 * component[0].code = $newborn-daily-monitoring-cs#chr-0125-0009 "General condition of newborn"
-* component[0].valueCodeableConcept = $satisfactory-status-cs#chr-0040-0001 "Satisfactory"
+* component[0].valueCodeableConcept = $sct#162669003 "Patient's condition satisfactory"
 * component[1].code = $newborn-daily-monitoring-cs#chr-0125-0013 "Activity level"
 * component[1].valueCodeableConcept = $newborn-activity-level-cs#chr-0115-0002 "Moderate"
 * component[2].code = $newborn-daily-monitoring-cs#chr-0125-0004 "Reflex status"
@@ -2383,7 +2383,7 @@ Usage: #inline
 * effectiveDateTime = "2026-06-04T00:00:00+05:00"
 * performer = Reference(urn:uuid:097000d1-1111-2222-3333-444444444444)
 * component[0].code = $newborn-daily-monitoring-cs#chr-0125-0009 "General condition of newborn"
-* component[0].valueCodeableConcept = $satisfactory-status-cs#chr-0040-0001 "Satisfactory"
+* component[0].valueCodeableConcept = $sct#162669003 "Patient's condition satisfactory"
 * component[1].code = $newborn-daily-monitoring-cs#chr-0125-0013 "Activity level"
 * component[1].valueCodeableConcept = $newborn-activity-level-cs#chr-0115-0002 "Moderate"
 * component[2].code = $newborn-daily-monitoring-cs#chr-0125-0004 "Reflex status"
@@ -2417,7 +2417,7 @@ Usage: #inline
 * effectiveDateTime = "2026-06-05T00:00:00+05:00"
 * performer = Reference(urn:uuid:097000d1-1111-2222-3333-444444444444)
 * component[0].code = $newborn-daily-monitoring-cs#chr-0125-0009 "General condition of newborn"
-* component[0].valueCodeableConcept = $satisfactory-status-cs#chr-0040-0001 "Satisfactory"
+* component[0].valueCodeableConcept = $sct#162669003 "Patient's condition satisfactory"
 * component[1].code = $newborn-daily-monitoring-cs#chr-0125-0013 "Activity level"
 * component[1].valueCodeableConcept = $newborn-activity-level-cs#chr-0115-0002 "Moderate"
 * component[2].code = $newborn-daily-monitoring-cs#chr-0125-0004 "Reflex status"
@@ -2451,7 +2451,7 @@ Usage: #inline
 * effectiveDateTime = "2026-06-06T00:00:00+05:00"
 * performer = Reference(urn:uuid:097000d1-1111-2222-3333-444444444444)
 * component[0].code = $newborn-daily-monitoring-cs#chr-0125-0009 "General condition of newborn"
-* component[0].valueCodeableConcept = $satisfactory-status-cs#chr-0040-0001 "Satisfactory"
+* component[0].valueCodeableConcept = $sct#162669003 "Patient's condition satisfactory"
 * component[1].code = $newborn-daily-monitoring-cs#chr-0125-0013 "Activity level"
 * component[1].valueCodeableConcept = $newborn-activity-level-cs#chr-0115-0002 "Moderate"
 * component[2].code = $newborn-daily-monitoring-cs#chr-0125-0004 "Reflex status"
@@ -2485,7 +2485,7 @@ Usage: #inline
 * effectiveDateTime = "2026-06-07T00:00:00+05:00"
 * performer = Reference(urn:uuid:097000d1-1111-2222-3333-444444444444)
 * component[0].code = $newborn-daily-monitoring-cs#chr-0125-0009 "General condition of newborn"
-* component[0].valueCodeableConcept = $satisfactory-status-cs#chr-0040-0001 "Satisfactory"
+* component[0].valueCodeableConcept = $sct#162669003 "Patient's condition satisfactory"
 * component[1].code = $newborn-daily-monitoring-cs#chr-0125-0013 "Activity level"
 * component[1].valueCodeableConcept = $newborn-activity-level-cs#chr-0115-0002 "Moderate"
 * component[2].code = $newborn-daily-monitoring-cs#chr-0125-0004 "Reflex status"
@@ -2519,7 +2519,7 @@ Usage: #inline
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-06-07T12:00:00+05:00"
-* valueCodeableConcept = $satisfactory-status-cs#chr-0040-0001 "Satisfactory"
+* valueCodeableConcept = $sct#162669003 "Patient's condition satisfactory"
 
 Instance: condition-discharge-diagnosis-097
 InstanceOf: UZCoreCondition

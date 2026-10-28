@@ -5,12 +5,6 @@ Description: "Local codes for Form 097 observations that have no suitable LOINC 
 
 * insert OriginalCodeSystemDraft(form-097-observation-code-cs)
 
-* #delivery-timeliness "Tug'ruqning o'z vaqtidaligi"
-  * ^designation[0].language = #ru
-  * ^designation[=].value = "Своевременность родов"
-  * ^designation[+].language = #en
-  * ^designation[=].value = "Delivery timeliness"
-
 * #ballard-square-window "Kvadrat oyna (bilak)"
   * ^designation[0].language = #ru
   * ^designation[=].value = "Квадратное окно (запястье)"

@@ -202,7 +202,6 @@ Alias: $profession-specialization-cs = https://terminology.dhp.uz/fhir/core/Code
 // ===================== ALIASES - Form097 Newborn Development =====================
 
 Alias: $newborn-daily-observation-component-cs = https://terminology.dhp.uz/fhir/integrations/CodeSystem/newborn-daily-observation-component-cs
-Alias: $delivery-timeliness-cs = https://terminology.dhp.uz/fhir/integrations/CodeSystem/delivery-timeliness-cs
 Alias: $newborn-term-status-cs = https://terminology.dhp.uz/fhir/integrations/CodeSystem/newborn-term-status-cs
 Alias: $infant-feeding-type-cs = https://terminology.dhp.uz/fhir/integrations/CodeSystem/infant-feeding-type-cs
 Alias: $apgar-component-score-cs = https://terminology.dhp.uz/fhir/integrations/CodeSystem/apgar-component-score-cs

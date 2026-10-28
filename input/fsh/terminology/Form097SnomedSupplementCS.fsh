@@ -148,3 +148,15 @@ Description: "Uzbek and Russian displays for the SNOMED CT codes that replace Fo
   * ^designation[=].value = "Рефлекс стояния и автоматической ходьбы"
   * ^designation[+].language = #uz
   * ^designation[=].value = "Turish va avtomatik yurish refleksi"
+
+* #21243004 "Term birth of newborn"
+  * ^designation[0].language = #ru
+  * ^designation[=].value = "Своевременные роды"
+  * ^designation[+].language = #uz
+  * ^designation[=].value = "O'z vaqtida tug'ruq"
+
+* #367494004 "Premature birth of newborn"
+  * ^designation[0].language = #ru
+  * ^designation[=].value = "Преждевременные роды"
+  * ^designation[+].language = #uz
+  * ^designation[=].value = "Muddatidan oldin tug'ruq"

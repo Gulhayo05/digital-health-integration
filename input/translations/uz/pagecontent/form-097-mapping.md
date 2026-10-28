@@ -72,7 +72,7 @@ Bo'lim kodi: LOINC `57073-9` "Prenatal records".
 | Otaning rezus-omili | Резус-фактор отца | Observation.valueCodeableConcept | `code` LOINC `10331-7` "Rh [Type] in Blood"<br>`value` [Rh Factor](ValueSet-rh-factor-vs.html) | RhD positive (`165747007`) |
 | Homiladorlik soni | Число беременностей | Observation.valueInteger | `code` LOINC `11996-6` "[#] Pregnancies" | 4 |
 | Tug'ruq soni | Число родов | Observation.valueInteger | `code` LOINC `11977-6` "[#] Parity" | 2 |
-| Homiladorlik muddati | Срок беременности | Observation.valueQuantity | `code` LOINC `11884-4` "Gestational age Estimated" | 40 wk |
+| Homiladorlik muddati | Срок беременности | Observation.valueQuantity | `code` LOINC `18185-9` "Gestational age" | 40 wk |
 | Tug'ruqning birinchi davri | Первый период родов | Observation.valueString | `code` SNOMED CT `169821004` "Duration of first stage of labor" | First stage 6 h 20 min, regular contractions, no complications |
 | Tug'ruqning ikkinchi davri | Второй период родов | Observation.valueString | `code` SNOMED CT `169822006` "Duration of second stage of labor" | Second stage 25 min, spontaneous vaginal delivery |
 | Homiladorlik asorati | Осложнение беременности | [Condition](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-condition.html).code | ICD-10 | `O24.4` "Diabetes mellitus arising in pregnancy" |
@@ -89,9 +89,9 @@ Bo'lim kodi: LOINC `57075-4` "Newborn delivery information".
 | UZ | RU | FHIR yo'li | Kod | Qiymat misoli |
 |----|----|------------|------|---------------|
 | Tug'ilgan bo'yi | Рост при рождении | Observation.valueQuantity | `code` LOINC `89269-5` "Body height Measured --at birth" | 51 cm |
-| Tug'ruq o'z vaqtidami | Своевременность родов | Observation.valueCodeableConcept | `code` [Form 097 Observation Codes](CodeSystem-form-097-observation-code-cs.html) `delivery-timeliness`<br>`value` [Delivery Timeliness](ValueSet-delivery-timeliness-vs.html) | Timely delivery (`chr-0091-0001`) |
+| Tug'ruq o'z vaqtidami | Своевременность родов | Observation.valueCodeableConcept | `code` [Form 111 General Observation Code](CodeSystem-form111-general-observation-code-cs.html) `chr-0035-00015` "Type of delivery (by term)"<br>`value` [Previous Delivery Term](ValueSet-form111-previous-delivery-term-vs.html): SNOMED CT `21243004` "Term birth of newborn" yoki `367494004` "Premature birth of newborn" | Term birth of newborn (`21243004`) |
 | Chaqaloqning muddat holati | Срок рождения новорождённого | Observation.valueCodeableConcept | `code` [Newborn Maturity Assessment](CodeSystem-newborn-maturity-assessment-cs.html) `chr-0126-0001`<br>`value` [Newborn Term Status](ValueSet-newborn-term-status-vs.html) (SNOMED CT) | Term infant (`57891003`) |
-| Hayotiylik natijasi | Исход плода | Observation.valueCodeableConcept | `code` LOINC `63893-2` "Outcome of birth"<br>`value` [Newborn Birth Condition](ValueSet-form111-newborn-birth-condition-vs.html): SNOMED CT `281050002` "Livebirth", `713202001` "Antepartum stillbirth" yoki `237362003` "Fetal intrapartum death" | Livebirth (`281050002`); o'lik tug'ilish: [antenatal](Bundle-example-form-097-antepartum-stillbirth.html) va [intranatal](Bundle-example-form-097-intrapartum-stillbirth.html) misollarga qarang |
+| Hayotiylik natijasi | Исход плода | Observation.valueCodeableConcept | `code` [Form 111 General Observation Code](CodeSystem-form111-general-observation-code-cs.html) `chr-0035-00013` "Live/stillbirth status"<br>`value` [Newborn Birth Condition](ValueSet-form111-newborn-birth-condition-vs.html): SNOMED CT `281050002` "Livebirth", `713202001` "Antepartum stillbirth" yoki `237362003` "Fetal intrapartum death" | Livebirth (`281050002`); o'lik tug'ilish: [antenatal](Bundle-example-form-097-antepartum-stillbirth.html) va [intranatal](Bundle-example-form-097-intrapartum-stillbirth.html) misollarga qarang |
 | Chaqaloq qon guruhi | Группа крови новорождённого | Observation.valueCodeableConcept | `code` LOINC `883-9` "ABO group [Type] in Blood"<br>`value` [ABO Blood Group](ValueSet-abo-blood-group-vs.html) | Blood group A (`112144000`) |
 | Chaqaloq rezus-omili | Резус-фактор новорождённого | Observation.valueCodeableConcept | `code` LOINC `14908-8` "Rh [Type] in Blood from Newborn"<br>`value` [Rh Factor](ValueSet-rh-factor-vs.html) | RhD positive (`165747007`) |
 | Bosh aylanasi | Окружность головы | Observation.valueQuantity | `code` LOINC `9843-4` "Head Occipital-frontal circumference" | 34 cm |
@@ -181,7 +181,7 @@ Har bir kun [Newborn Daily Monitoring](CodeSystem-newborn-daily-monitoring-cs.ht
 
 | UZ | RU | FHIR yo'li | Kod | Qiymat misoli |
 |----|----|------------|------|---------------|
-| Umumiy holati | Общее состояние новорождённого | Observation.component.valueCodeableConcept | `code` `chr-0125-0009`<br>`value` [Satisfactory Status](ValueSet-satisfactory-status-vs.html) | Satisfactory (`chr-0040-0001`) |
+| Umumiy holati | Общее состояние новорождённого | Observation.component.valueCodeableConcept | `code` `chr-0125-0009`<br>`value` SNOMED CT `162669003` "Patient's condition satisfactory" yoki `162667001` "Patient's condition poor", per the Form 111 [general condition ConceptMap](ConceptMap-dmed-form-111-general-condition-cm.html) | Patient's condition satisfactory (`162669003`) |
 | Faollik darajasi | Уровень активности | Observation.component.valueCodeableConcept | `code` `chr-0125-0013`<br>`value` [Newborn Activity Level](ValueSet-newborn-activity-level-vs.html) | `chr-0115-0002` |
 | Reflekslar holati | Состояние рефлексов | Observation.component.valueCodeableConcept | `code` `chr-0125-0004`<br>`value` [Primitive Reflex Type](ValueSet-primitive-reflex-type-vs.html) | Sucking reflex (`45596005`) |
 | Mushak tonusi | Мышечный тонус | Observation.component.valueCodeableConcept | `code` `chr-0125-0005`<br>`value` [Muscle Tone Status](ValueSet-muscle-tone-status-vs.html) (SNOMED CT) | Normal tone in skeletal muscle (`827065006`) |
@@ -235,7 +235,7 @@ Bo'lim kodi: LOINC `8650-4` "Hospital discharge disposition note".
 
 | UZ | RU | FHIR yo'li | Kod | Qiymat misoli |
 |----|----|------------|------|---------------|
-| Chiqarishdagi umumiy holati | Общее состояние при выписке | Observation.valueCodeableConcept | `code` [Newborn Daily Monitoring](CodeSystem-newborn-daily-monitoring-cs.html) `chr-0125-0009`<br>`value` [Satisfactory Status](ValueSet-satisfactory-status-vs.html) | Satisfactory (`chr-0040-0001`) |
+| Chiqarishdagi umumiy holati | Общее состояние при выписке | Observation.valueCodeableConcept | `code` [Newborn Daily Monitoring](CodeSystem-newborn-daily-monitoring-cs.html) `chr-0125-0009`<br>`value` SNOMED CT `162669003` "Patient's condition satisfactory" yoki `162667001` "Patient's condition poor", per the Form 111 [general condition ConceptMap](ConceptMap-dmed-form-111-general-condition-cm.html) | Patient's condition satisfactory (`162669003`) |
 | Chiqarish tashxisi | Диагноз при выписке | Condition.code | ICD-10 | `Z38.0` "Singleton, born in hospital" |
 | Tavsiyalar | Рекомендации | Observation.valueString | `code` [Form 097 Observation Codes](CodeSystem-form-097-observation-code-cs.html) `discharge-recommendations` | Routine follow-up with district pediatrician within 3 days of discharge |
 | Hamshiradan onaga topshirish | Передача от медсестры матери | [Provenance](https://hl7.org/fhir/R5/provenance.html).agent | `performer` hamshira, `custodian` ona | - |
