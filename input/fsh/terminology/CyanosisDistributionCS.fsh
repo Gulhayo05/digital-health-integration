@@ -16,9 +16,3 @@ Description: "Local codes for cyanosis distribution, Form097 newborn development
   * ^designation[=].value = "Вокруг рта"
   * ^designation[+].language = #en
   * ^designation[=].value = "Perioral"
-
-* #chr-0094-0003 "Akrosianoz"
-  * ^designation[0].language = #ru
-  * ^designation[=].value = "Акроцианоз"
-  * ^designation[+].language = #en
-  * ^designation[=].value = "Acrocyanosis"

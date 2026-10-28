@@ -6,3 +6,4 @@ Description: "ValueSet for cyanosis distribution, Form097 newborn development re
 * ^experimental = true
 
 * include codes from system cyanosis-distribution-cs
+* include $sct#25003006 "Acrocyanosis"

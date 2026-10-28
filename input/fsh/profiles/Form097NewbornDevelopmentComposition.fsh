@@ -58,7 +58,7 @@ Description: "Composition profile for Form 097 (Yangi tug'ilgan chaqaloq rivojla
 * section[motherInformation].code = $loinc#57073-9 "Prenatal records"
 * section[motherInformation].code ^short = "Mother's PINFL, full name, date of birth, marital status, address, nationality, occupation, blood group and Rh of mother and father, gravidity, parity, gestational age, pregnancy complications, amniotic fluid, family history"
 * section[motherInformation].entry 1..*
-* section[motherInformation].entry only Reference(UZCorePatient or UZCoreRelatedPerson or UZCoreLocation or UZCoreObservation or UZCoreSocioeconomicObservation or UZCoreCondition or UZCoreProcedure or FamilyMemberHistory)
+* section[motherInformation].entry only Reference(UZCorePatient or UZCoreRelatedPerson or UZCoreLocation or UZCoreObservation or UZCoreCondition or UZCoreProcedure or FamilyMemberHistory)
 * section[motherInformation].entry ^short = "Mother, father, maternal observations, pregnancy complications and family history"
 
 // 2. Tug'ruq haqida ma'lumot
@@ -115,7 +115,7 @@ Description: "Composition profile for Form 097 (Yangi tug'ilgan chaqaloq rivojla
 * section[weightDynamics].title 1..1
 * section[weightDynamics].title ^short = "7. Weight dynamics"
 * section[weightDynamics].code 1..1
-* section[weightDynamics].code = $form-097-section-cs#weight-dynamics "Tana vazni dinamikasi"
+* section[weightDynamics].code = $form-097-section-cs#weight-dynamics "Weight dynamics"
 * section[weightDynamics].code ^short = "Birth weight and daily weight (days 1-10)"
 * section[weightDynamics].entry 1..*
 * section[weightDynamics].entry only Reference(UZCoreObservation)
@@ -135,7 +135,7 @@ Description: "Composition profile for Form 097 (Yangi tug'ilgan chaqaloq rivojla
 * section[screening].title 1..1
 * section[screening].title ^short = "9. Screening"
 * section[screening].code 1..1
-* section[screening].code = $form-097-section-cs#screening "Skrining"
+* section[screening].code = $form-097-section-cs#screening "Screening"
 * section[screening].code ^short = "Audiological screening, congenital hypothyroidism screening"
 * section[screening].entry 1..*
 * section[screening].entry only Reference(UZCoreObservation)
@@ -155,7 +155,7 @@ Description: "Composition profile for Form 097 (Yangi tug'ilgan chaqaloq rivojla
 * section[responsiblePersons].title 1..1
 * section[responsiblePersons].title ^short = "11. Responsible persons"
 * section[responsiblePersons].code 1..1
-* section[responsiblePersons].code = $form-097-section-cs#responsible-persons "Mas'ul shaxslar"
+* section[responsiblePersons].code = $form-097-section-cs#responsible-persons "Responsible persons"
 * section[responsiblePersons].code ^short = "Attending physician and nurse"
 * section[responsiblePersons].entry 1..*
 * section[responsiblePersons].entry only Reference(UZCorePractitionerRole)

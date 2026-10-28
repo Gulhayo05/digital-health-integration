@@ -6,3 +6,5 @@ Description: "ValueSet for newborn term status, Form097 newborn development reco
 * ^experimental = true
 
 * include codes from system newborn-term-status-cs
+* include $sct#57891003 "Term infant"
+* include $sct#16207008 "Postmature infancy"

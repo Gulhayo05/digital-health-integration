@@ -28,3 +28,15 @@ Description: "Local codes identifying the daily newborn observation panel and it
   * ^designation[=].value = "Дыхательная недостаточность"
   * ^designation[+].language = #en
   * ^designation[=].value = "Respiratory distress"
+
+* #umbilical-cord-separation "Kindik ajralish vaqti"
+  * ^designation[0].language = #ru
+  * ^designation[=].value = "Время отделения пуповины"
+  * ^designation[+].language = #en
+  * ^designation[=].value = "Umbilical cord separation time"
+
+* #umbilical-wound "Kindik yarasi holati"
+  * ^designation[0].language = #ru
+  * ^designation[=].value = "Состояние пупочной ранки"
+  * ^designation[+].language = #en
+  * ^designation[=].value = "Umbilical wound"

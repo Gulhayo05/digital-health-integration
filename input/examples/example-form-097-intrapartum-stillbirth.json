@@ -39,7 +39,8 @@
             "coding": [
               {
                 "system": "https://terminology.dhp.uz/fhir/integrations/CodeSystem/document-category-cs",
-                "code": "form-097"
+                "code": "form-097",
+                "display": "Newborn development medical record"
               }
             ]
           }
@@ -113,7 +114,8 @@
               "coding": [
                 {
                   "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
-                  "code": "HC"
+                  "code": "HC",
+                  "display": "Health Card Number"
                 }
               ]
             },
@@ -125,7 +127,8 @@
               "coding": [
                 {
                   "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
-                  "code": "PPN"
+                  "code": "PPN",
+                  "display": "Passport number"
                 }
               ]
             },
@@ -147,6 +150,7 @@
                   "coding": [
                     {
                       "code": "44",
+                      "display": "UZBEK",
                       "system": "https://terminology.dhp.uz/fhir/core/CodeSystem/nationality-cs"
                     }
                   ]
@@ -182,6 +186,7 @@
           "coding": [
             {
               "code": "M",
+              "display": "Married",
               "system": "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus"
             }
           ]
@@ -209,7 +214,8 @@
               "coding": [
                 {
                   "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
-                  "code": "HC"
+                  "code": "HC",
+                  "display": "Health Card Number"
                 }
               ]
             },
@@ -246,6 +252,7 @@
             "coding": [
               {
                 "code": "IMP",
+                "display": "inpatient encounter",
                 "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode"
               }
             ]
@@ -256,6 +263,7 @@
             "coding": [
               {
                 "code": "mserv-0001-00004",
+                "display": "Treatment services",
                 "system": "https://terminology.dhp.uz/fhir/core/CodeSystem/encounter-type-cs"
               }
             ]
@@ -345,6 +353,7 @@
             "coding": [
               {
                 "code": "2222.1",
+                "display": "Doctor obstetrician-gynecologist (consultation/ diagnostic/ family polyclinic, clinic etc.)",
                 "system": "https://terminology.dhp.uz/fhir/core/CodeSystem/position-and-profession-cs"
               }
             ]
@@ -380,7 +389,8 @@
           "coding": [
             {
               "system": "http://loinc.org",
-              "code": "63893-2"
+              "code": "63893-2",
+              "display": "Outcome of pregnancy"
             }
           ]
         },
@@ -400,7 +410,8 @@
           "coding": [
             {
               "system": "http://snomed.info/sct",
-              "code": "237364002"
+              "code": "237364002",
+              "display": "Stillbirth"
             }
           ]
         },
@@ -427,7 +438,8 @@
           "coding": [
             {
               "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
-              "code": "active"
+              "code": "active",
+              "display": "Active"
             }
           ]
         },
@@ -435,7 +447,8 @@
           "coding": [
             {
               "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
-              "code": "confirmed"
+              "code": "confirmed",
+              "display": "Confirmed"
             }
           ]
         },
@@ -444,7 +457,8 @@
             "coding": [
               {
                 "system": "http://terminology.hl7.org/CodeSystem/condition-category",
-                "code": "encounter-diagnosis"
+                "code": "encounter-diagnosis",
+                "display": "Encounter Diagnosis"
               }
             ]
           }
@@ -453,7 +467,8 @@
           "coding": [
             {
               "system": "http://snomed.info/sct",
-              "code": "237362003"
+              "code": "237362003",
+              "display": "Fetal intrapartum death"
             }
           ]
         },
@@ -481,6 +496,7 @@
             "coding": [
               {
                 "code": "IMP",
+                "display": "inpatient encounter",
                 "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode"
               }
             ]
@@ -491,6 +507,7 @@
             "coding": [
               {
                 "code": "mserv-0001-00004",
+                "display": "Treatment services",
                 "system": "https://terminology.dhp.uz/fhir/core/CodeSystem/encounter-type-cs"
               }
             ]

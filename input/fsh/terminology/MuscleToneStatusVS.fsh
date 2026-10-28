@@ -5,4 +5,5 @@ Description: "ValueSet for muscle tone status, Form097 newborn development recor
 * insert IntegrationsValueSet(muscle-tone-status-vs)
 * ^experimental = true
 
-* include codes from system muscle-tone-status-cs
+* include $sct#827065006 "Normal tone in skeletal muscle"
+* include $sct#398151007 "Decreased muscle tone"
