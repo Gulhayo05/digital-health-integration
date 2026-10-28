@@ -57,8 +57,6 @@
 
 Код раздела: LOINC `57073-9` "Prenatal records".
 
-Число беременностей и родов берётся только из исходной записи. Не вычисляйте их по текущим родам и не передавайте, если в DMED нет значения.
-
 | UZ | RU | Путь FHIR | Код | Пример значения |
 |----|----|------------|------|---------------|
 | Onaning JShShIRi | ПИНФЛ матери | [Patient](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-patient.html).identifier[nationalId] | `system` `https://dhp.uz/fhir/core/sid/pid/uz/ni`<br>`type` `NI` | 31234567890123 |

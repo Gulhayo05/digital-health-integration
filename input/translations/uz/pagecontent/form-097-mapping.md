@@ -57,8 +57,6 @@ To'liq namunaviy nusxa uchun [097-shakl misoli](Bundle-example-form-097-newborn-
 
 Bo'lim kodi: LOINC `57073-9` "Prenatal records".
 
-Homiladorlik va tug'ruqlar soni faqat manba yozuvidan olinadi. Ularni joriy tug'ruq bo'yicha hisoblamang va DMED'da qiymat bo'lmasa yubormang.
-
 | UZ | RU | FHIR yo'li | Kod | Qiymat misoli |
 |----|----|------------|------|---------------|
 | Onaning JShShIRi | ПИНФЛ матери | [Patient](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-patient.html).identifier[nationalId] | `system` `https://dhp.uz/fhir/core/sid/pid/uz/ni`<br>`type` `NI` | 31234567890123 |

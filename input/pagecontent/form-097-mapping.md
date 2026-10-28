@@ -55,8 +55,6 @@ For a complete reference instance, see the [Form 097 newborn development example
 
 Section code: LOINC `57073-9` "Prenatal records".
 
-Gravidity and parity come from the source record only. Do not count them from the current delivery, and leave them out when DMED has no value.
-
 | UZ | RU | FHIR Path | Code | Example Value |
 |----|----|------------|------|---------------|
 | Onaning JShShIRi | ПИНФЛ матери | [Patient](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-patient.html).identifier[nationalId] | `system` `https://dhp.uz/fhir/core/sid/pid/uz/ni`<br>`type` `NI` | 31234567890123 |
