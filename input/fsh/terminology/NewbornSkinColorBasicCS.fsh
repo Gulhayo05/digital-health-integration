@@ -5,12 +5,6 @@ Description: "Local codes for newborn skin color basic, Form097 newborn developm
 
 * insert OriginalCodeSystemDraft(newborn-skin-color-basic-cs)
 
-* #chr-0093-0001 "Pushti"
-  * ^designation[0].language = #ru
-  * ^designation[=].value = "Розовый"
-  * ^designation[+].language = #en
-  * ^designation[=].value = "Pink"
-
 * #chr-0093-0002 "Sariq"
   * ^designation[0].language = #ru
   * ^designation[=].value = "Жёлтый"

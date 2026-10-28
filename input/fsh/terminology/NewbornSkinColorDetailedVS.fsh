@@ -6,3 +6,4 @@ Description: "ValueSet for newborn skin color detailed, Form097 newborn developm
 * ^experimental = true
 
 * include codes from system newborn-skin-color-detailed-cs
+* include $sct#304230005 "Pink skin"

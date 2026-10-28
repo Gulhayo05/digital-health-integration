@@ -5,4 +5,5 @@ Description: "ValueSet for normal abnormal status, Form097 newborn development r
 * insert IntegrationsValueSet(normal-abnormal-status-vs)
 * ^experimental = true
 
-* include codes from system normal-abnormal-status-cs
+* include $sct#17621005 "Normal"
+* include $sct#263654008 "Abnormal"

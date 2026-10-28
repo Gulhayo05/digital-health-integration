@@ -1,7 +1,7 @@
 CodeSystem: AmnioticFluidAppearanceCS
 Id: amniotic-fluid-appearance-cs
 Title: "Amniotic Fluid Appearance"
-Description: "Local codes for amniotic fluid appearance characteristics that have no exact active SNOMED CT concept. Governed local CodeSystem, reused across CHR forms; complements SNOMED CT 168090003 \"Amniotic fluid clear\" in amniotic-fluid-characteristic-vs."
+Description: "Local codes for amniotic fluid appearance characteristics whose exact international equivalence remains under review. Governed local CodeSystem, reused across CHR forms; complements SNOMED CT 168090003 \"Amniotic fluid clear\" in amniotic-fluid-characteristic-vs."
 
 * insert OriginalCodeSystemDraft(amniotic-fluid-appearance-cs)
 

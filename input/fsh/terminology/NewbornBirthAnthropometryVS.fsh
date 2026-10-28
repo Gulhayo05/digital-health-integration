@@ -6,3 +6,4 @@ Description: "ValueSet for newborn birth and anthropometry, Form097 newborn deve
 * ^experimental = true
 
 * include codes from system newborn-birth-anthropometry-cs
+* include $sct#248366000 "Chest circumference"

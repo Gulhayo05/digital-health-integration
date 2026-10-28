@@ -5,4 +5,5 @@ Description: "ValueSet for yes no, Form097 newborn development record."
 * insert IntegrationsValueSet(yes-no-vs)
 * ^experimental = true
 
-* include codes from system yes-no-cs
+* include $sct#373066001 "Yes"
+* include $sct#373067005 "No"

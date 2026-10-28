@@ -6,3 +6,4 @@ Description: "ValueSet for newborn daily monitoring, Form097 newborn development
 * ^experimental = true
 
 * include codes from system newborn-daily-monitoring-cs
+* include $loinc#39107-8 "Color of Skin"

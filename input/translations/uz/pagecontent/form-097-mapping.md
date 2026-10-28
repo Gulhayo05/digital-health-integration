@@ -51,11 +51,11 @@ To'liq namunaviy nusxa uchun [097-shakl yangi tug'ilgan chaqaloq rivojlanishi mi
 | Tug'ilgan bo'yi | Рост при рождении | Observation.valueQuantity | LOINC `89269-5` "Body height Measured --at birth" | 51 cm |
 | Tug'ruq o'z vaqtidami | Своевременность родов | Observation.valueCodeableConcept | Lokal kod | Timely delivery |
 | Chaqaloqning muddat holati | Срок рождения новорождённого | Observation.valueCodeableConcept | Lokal kod | Term |
-| Hayotiylik natijasi | Исход плода | Observation.valueCodeableConcept | value bound to `newborn-vital-status-vs` (SNOMED CT `281050002` / `276506001`) | Alive |
+| Hayotiylik natijasi | Исход плода | Observation.valueCodeableConcept | value bound to `newborn-vital-status-vs` (SNOMED CT `281050002` / `237364002`) | Livebirth |
 | Chaqaloq qon guruhi | Группа крови новорождённого | Observation.code `883-9` + valueCodeableConcept | LOINC `883-9`; value bound to `abo-blood-group-vs` (SNOMED CT) | Group II (A) |
 | Chaqaloq rezus-omili | Резус-фактор новорождённого | Observation.code `14908-8` + valueCodeableConcept | LOINC `14908-8`; value bound to `rh-factor-vs` (SNOMED CT) | Rh positive |
 | Bosh aylanasi | Окружность головы | Observation.valueQuantity | LOINC `9843-4` "Head Occipital-frontal circumference" | 34 cm |
-| Ko'krak aylanasi | Окружность груди | Observation.valueQuantity | Local code `chr-0122-0005` "Chest circumference" (no exact active LOINC/SNOMED concept) | 33 cm |
+| Ko'krak aylanasi | Окружность груди | Observation.valueQuantity | SNOMED CT `248366000` "Chest circumference" | 33 cm |
 | Nafas olish belgisi | Признак дыхания | Observation.valueBoolean | Lokal kod `chr-0127-0001` (faol SNOMED CT tushunchasi yo'q) | true |
 | Yurak urishi belgisi | Признак сердцебиения | Observation.valueBoolean | Lokal kod `chr-0127-0002` (faol SNOMED CT tushunchasi yo'q) | true |
 | Kindik tomirlari pulsatsiyasi | Пульсация пуповины | Observation.valueBoolean | Lokal kod `chr-0127-0003` (faol SNOMED CT tushunchasi yo'q) | true |
@@ -199,3 +199,16 @@ Bundle (hujjat)
 ### Misol
 
 To'liq FHIR hujjati misoli uchun [097-shakl yangi tug'ilgan chaqaloq rivojlanishi misoli](Bundle-example-form-097-newborn-development.html)ga qarang.
+### Confirmed coding and source limits
+
+All clinical sections are optional (0..1); omit sections and resources whose source facts are absent.
+Do not synthesize zeroes, negative assertions, Apgar components, or a five-minute score. Incoming DMED Apgar is the one-minute total (LOINC 9272-6).
+Composition.author and the mandatory FHIR/Core document metadata remain required. A missing clinical section does not remove author requirements.
+Use exact, documented canonical Coding.system URIs. A CodeSystem defined in an open PR is not automatically approved or deployed.
+Missing machine codes can retain trustworthy source text where the profile permits it; do not substitute a merely similar international concept.
+Birth outcome uses LOINC 63893-2 with SNOMED CT 281050002 Livebirth or 237364002 Stillbirth. Death after livebirth is a separate fact.
+When the period of fetal death is known, add a Condition for the same child: 237361005 for antepartum or 237362003 for intrapartum death.
+Use Patient.deceasedBoolean=true when death is known without an exact date; use deceasedDateTime only when available.
+Historical pregnancy totals must not be computed from the current delivery. Omit unavailable historical counts.
+Preserve the mother and maternal encounter on common delivery facts shared between 096 and 097; use stable source-derived business identifiers.
+The snapshot inside each document is historical. Posting a document alone does not establish an upsert of a standalone master Encounter.
