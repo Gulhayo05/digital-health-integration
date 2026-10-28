@@ -104,6 +104,8 @@ pages:
     title: Form 066 Mapping
   form-066-1-mapping.md:
     title: Form 066 1 Mapping
+  form-097-mapping.md:
+    title: Form 097 Mapping
   form-130-mapping.md:
     title: Form 130 Mapping
   cervical-breast-cancer-screening.md:
@@ -133,6 +135,7 @@ menu:
     Form 011 Mapping: form-011-mapping.html
     Form 066 Mapping: form-066-mapping.html
     Form 066-1 Mapping: form-066-1-mapping.html
+    Form 097 Mapping: form-097-mapping.html
     Form 130 Mapping: form-130-mapping.html
   Integrations:
     Cervical and Breast Cancer Screening: cervical-breast-cancer-screening.html
