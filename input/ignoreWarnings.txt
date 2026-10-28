@@ -71,23 +71,13 @@ The XHTML  the resource contains more than one node for each of the following no
 The concept 'chr-0035-00022' is deprecated and its use should be reviewed
 The concept 'chr-0035-00023' is deprecated and its use should be reviewed
 
-# UZ Core 0.11.1 explicitly depends on extensions.r5 5.3.0. Keep the same version
-# here so translation extensions do not resolve against two different releases.
-# Review this exact version advisory when upgrading UZ Core; do not suppress other
-# dependency warnings or move independently to 5.4.0 just to clear this advisory.
+# UZ Core 0.11.1 explicitly depends on extensions.r5 5.3.0 (pinned in sushi-config.yaml).
+# Keep the same version so translation extensions do not resolve against two releases.
+# Review this exact advisory when upgrading UZ Core; do not suppress other dependency warnings.
 The ImplementationGuide uses package hl7.fhir.uv.extensions.r5#5.3.0 released on 2026-05-16, but the most recent appropriate version is 5.4.0. This reference is getting old and the more recent version should be considered
 
-# Publisher/terminology lookup limitation: the R5 5.0.0 core package contains both
-# ValueSet/concept-property-type (version 5.0.0) and its complete CodeSystem; #code
-# used by form111-general-observation-code-cs is one of its seven valid values.
-# Ignore only this missing-ValueSet lookup, not invalid property type/code messages.
-ValueSet 'http://hl7.org/fhir/ValueSet/concept-property-type|5.0.0' not found
-
-# Same external-terminology coverage limitation as the SNOMED warning above:
-# the cancer-registry ConceptMaps target ICD-10 and LOINC, whose complete code
-# systems are not loaded by this build. These messages document that target code
-# checking is unavailable, not that the mapped codes passed validation. Keep the
-# existing mappings and do not invent a targetScope merely to silence the warning.
-# Only these coverage advisories are suppressed; invalid-code warnings stay active.
+# The cancer-registry ICD-10 ConceptMap targets the whole ICD-10 code system, which this build
+# cannot load. Declaring targetScope = ValueSet/icd-10 does not help: the Publisher then reports
+# every target code (12,000+ lines) as "cannot be checked due to special rules". Only this
+# coverage advisory is suppressed; it does not mean the mapped codes passed validation.
 The Target Code System http://hl7.org/fhir/sid/icd-10 is not fully defined and populated, and no targetScope is specified, so the target code checking will not be performed
-The Target Code System http://loinc.org is not fully defined and populated, and no targetScope is specified, so the target code checking will not be performed
