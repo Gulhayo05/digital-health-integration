@@ -711,7 +711,9 @@ Usage: #inline
 * status = #completed
 * patient = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * relationship = $v3-RoleCode#MTH "mother"
-* condition.code = $sct#73211009 "Diabetes mellitus"
+* condition.code.coding.system = $icd10
+* condition.code.coding.code = #E14.9
+* condition.code.coding.display = "Unspecified diabetes mellitus : Without complications"
 * note.text = "Наследственность по матери: сахарный диабет"
 
 Instance: familymemberhistory-father-097
@@ -721,7 +723,9 @@ Usage: #inline
 * status = #completed
 * patient = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * relationship = $v3-RoleCode#FTH "father"
-* condition.code = $sct#195967001 "Asthma"
+* condition.code.coding.system = $icd10
+* condition.code.coding.code = #J45.9
+* condition.code.coding.display = "Asthma, unspecified"
 * note.text = "Наследственность по отцу: бронхиальная астма"
 
 Instance: observation-gravida-097
