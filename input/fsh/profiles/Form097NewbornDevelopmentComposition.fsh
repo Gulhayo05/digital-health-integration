@@ -69,7 +69,7 @@ Description: "Composition profile for Form 097 (Yangi tug'ilgan chaqaloq rivojla
 * section[birthEvent].code ^short = "Birth length, timeliness of delivery, term status, birth outcome, blood group and Rh, head and chest circumference, signs of life, skin-to-skin contact, first breastfeeding, eye prophylaxis, Apgar score, Ballard maturity"
 * section[birthEvent].entry 1..*
 * section[birthEvent].entry only Reference(UZCoreObservation or UZCoreCondition or UZCoreProcedure or MedicationAdministration or Medication)
-* section[birthEvent].entry ^short = "Birth observations, fetal death timing and eye prophylaxis"
+* section[birthEvent].entry ^short = "Birth observations and eye prophylaxis"
 
 // 3. Yangi tug'ilgan chaqaloqning birlamchi ko'rigi
 * section[firstNewbornExam].title 1..1

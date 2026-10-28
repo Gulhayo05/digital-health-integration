@@ -91,8 +91,7 @@ Bo'lim kodi: LOINC `57075-4` "Newborn delivery information".
 | Tug'ilgan bo'yi | Рост при рождении | Observation.valueQuantity | `code` LOINC `89269-5` "Body height Measured --at birth" | 51 cm |
 | Tug'ruq o'z vaqtidami | Своевременность родов | Observation.valueCodeableConcept | `code` [Form 097 Observation Codes](CodeSystem-form-097-observation-code-cs.html) `delivery-timeliness`<br>`value` [Delivery Timeliness](ValueSet-delivery-timeliness-vs.html) | Timely delivery (`chr-0091-0001`) |
 | Chaqaloqning muddat holati | Срок рождения новорождённого | Observation.valueCodeableConcept | `code` [Newborn Maturity Assessment](CodeSystem-newborn-maturity-assessment-cs.html) `chr-0126-0001`<br>`value` [Newborn Term Status](ValueSet-newborn-term-status-vs.html) (SNOMED CT) | Term infant (`57891003`) |
-| Hayotiylik natijasi | Исход плода | Observation.valueCodeableConcept | `code` LOINC `63893-2` "Outcome of birth"<br>`value` [Newborn Vital Status](ValueSet-newborn-vital-status-vs.html): SNOMED CT `281050002` "Livebirth" yoki `237364002` "Stillbirth" | Livebirth (`281050002`) |
-| O'lik tug'ilish davri | Период внутриутробной гибели | Condition.code | SNOMED CT `237361005` "Antepartum fetal death" yoki `237362003` "Fetal intrapartum death" | [Antenatal](Bundle-example-form-097-antepartum-stillbirth.html) va [intranatal](Bundle-example-form-097-intrapartum-stillbirth.html) misollarga qarang |
+| Hayotiylik natijasi | Исход плода | Observation.valueCodeableConcept | `code` LOINC `63893-2` "Outcome of birth"<br>`value` [Newborn Birth Condition](ValueSet-form111-newborn-birth-condition-vs.html): SNOMED CT `281050002` "Livebirth", `713202001` "Antepartum stillbirth" yoki `237362003` "Fetal intrapartum death" | Livebirth (`281050002`); o'lik tug'ilish: [antenatal](Bundle-example-form-097-antepartum-stillbirth.html) va [intranatal](Bundle-example-form-097-intrapartum-stillbirth.html) misollarga qarang |
 | Chaqaloq qon guruhi | Группа крови новорождённого | Observation.valueCodeableConcept | `code` LOINC `883-9` "ABO group [Type] in Blood"<br>`value` [ABO Blood Group](ValueSet-abo-blood-group-vs.html) | Blood group A (`112144000`) |
 | Chaqaloq rezus-omili | Резус-фактор новорождённого | Observation.valueCodeableConcept | `code` LOINC `14908-8` "Rh [Type] in Blood from Newborn"<br>`value` [Rh Factor](ValueSet-rh-factor-vs.html) | RhD positive (`165747007`) |
 | Bosh aylanasi | Окружность головы | Observation.valueQuantity | `code` LOINC `9843-4` "Head Occipital-frontal circumference" | 34 cm |
@@ -270,7 +269,7 @@ Bundle (document)
 ├── Location (palata)
 ├── Encounter (chaqaloqning tug'ilishdan chiqarilishgacha bo'lishi; onaning tug'rug'i)
 ├── Practitioner[] / PractitionerRole[] (shifokor, hamshira)
-├── Condition[] (homiladorlik asorati, homila nobud bo'lgan davr, tug'ruq jarohati, taxminiy va yakuniy tashxis)
+├── Condition[] (homiladorlik asorati, tug'ruq jarohati, taxminiy va yakuniy tashxis)
 ├── Observation[] (antenatal anamnez, tug'ruq, Apgar, Ballard bo'yicha yetuklik, birlamchi ko'rik, oziqlantirish, kundalik kuzatuv, kundalik ko'rik, vazn dinamikasi, skrining, chiqarish)
 ├── Procedure[] (tug'ruq bilan bog'liq muolajalar)
 ├── Medication[] / MedicationAdministration[] (gemorragik sindrom profilaktikasi, gonoblennoreya profilaktikasi)

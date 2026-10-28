@@ -331,11 +331,11 @@ instanceOptions:
 resources:
   Bundle/example-form-097-antepartum-stillbirth:
     name: Form 097 - antepartum stillbirth example
-    description: Synthetic newborn document with an antepartum stillbirth outcome and fetal-death timing.
+    description: Synthetic newborn document with an antepartum stillbirth outcome.
     exampleBoolean: true
   Bundle/example-form-097-intrapartum-stillbirth:
     name: Form 097 - intrapartum stillbirth example
-    description: Synthetic newborn document with an intrapartum stillbirth outcome and fetal-death timing.
+    description: Synthetic newborn document with an intrapartum stillbirth outcome.
     exampleBoolean: true
   Bundle/example-form-097-minimal:
     name: Form 097 - minimal document example
