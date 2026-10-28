@@ -19,7 +19,7 @@ This page documents the mapping between Form 097 (Yangi tug'ilgan chaqaloq rivoj
 
 Form 097 records a newborn's stay in the maternity hospital from birth to discharge, transfer or death: the mother's antenatal history, the birth event, the first newborn examination, feeding, daily observation and physician review, weight dynamics, prophylaxis and immunization, screening, and discharge. The form data maps to multiple FHIR resources bundled together as a FHIR Document, conforming to the [Form 097 Newborn Development Composition](StructureDefinition-form-097-newborn-development-composition.html) profile. Where available, resources conform to [UZ Core](https://dhp.uz/fhir/core/en/artifacts.html) profiles.
 
-Each of the 11 sections of the Composition carries its own `section.code` (LOINC where a suitable concept exists, otherwise a local [Form 097 section codes](ValueSet-form-097-section-vs.html) code) and lists the resources belonging to that part of the form. Every section is optional: send a section only when DMED has facts for it, and leave out fields whose source value is missing rather than sending zeroes or negative findings.
+Each of the 11 sections of the Composition carries its own `section.code` (LOINC where a suitable concept exists, otherwise a local [Form 097 section codes](ValueSet-form-097-section-vs.html) code) and lists the resources belonging to that part of the form.
 
 Delivery facts that Form 096 and Form 097 share keep the mother as their subject and the mother's delivery encounter, so the two documents describe the same delivery with the same business identifiers.
 

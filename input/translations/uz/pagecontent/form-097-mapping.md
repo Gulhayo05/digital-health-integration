@@ -21,7 +21,7 @@ Ushbu sahifada 097-shakl (Yangi tug'ilgan chaqaloq rivojlanishining tibbiy karta
 
 097-shakl yangi tug'ilgan chaqaloqning tug'ruqxonada tug'ilishidan chiqarilishi, o'tkazilishi yoki vafotigacha bo'lgan davrini qayd etadi: onaning antenatal anamnezi, tug'ruq, yangi tug'ilgan chaqaloqning birlamchi ko'rigi, oziqlantirish, kundalik kuzatuv va shifokor ko'rigi, tana vazni dinamikasi, profilaktika va immunizatsiya, skrining hamda chiqarish. Shakl ma'lumotlari [Form 097 Newborn Development Composition](StructureDefinition-form-097-newborn-development-composition.html) profiliga mos keluvchi FHIR hujjatiga birlashtirilgan bir nechta FHIR resurslari bilan moslashtiriladi. Imkoni bo'lgan joyda resurslar [UZ Core](https://dhp.uz/fhir/core/en/artifacts.html) profillariga mos keladi.
 
-Composition'ning 11 ta bo'limining har biri o'z `section.code` qiymatiga ega (mos tushuncha mavjud bo'lsa LOINC, aks holda [Form 097 section codes](ValueSet-form-097-section-vs.html) lokal kodi) va shaklning shu qismiga tegishli resurslarni sanab o'tadi. Barcha bo'limlar ixtiyoriy: bo'lim faqat DMED'da u uchun ma'lumot bo'lganda yuboriladi, manba qiymati yo'q maydonlar esa nol yoki salbiy topilma bilan to'ldirilmasdan tashlab ketiladi.
+Composition'ning 11 ta bo'limining har biri o'z `section.code` qiymatiga ega (mos tushuncha mavjud bo'lsa LOINC, aks holda [Form 097 section codes](ValueSet-form-097-section-vs.html) lokal kodi) va shaklning shu qismiga tegishli resurslarni sanab o'tadi.
 
 096 va 097-shakllar uchun umumiy bo'lgan tug'ruq ma'lumotlari subyekt sifatida onani va onaning tug'ruq Encounter'ini saqlaydi, shu sababli ikkala hujjat bir xil tug'ruqni bir xil biznes identifikatorlari bilan tavsiflaydi.
 
