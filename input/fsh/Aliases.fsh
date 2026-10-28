@@ -204,7 +204,6 @@ Alias: $newborn-daily-observation-component-cs = https://terminology.dhp.uz/fhir
 Alias: $newborn-term-status-cs = https://terminology.dhp.uz/fhir/integrations/CodeSystem/newborn-term-status-cs
 Alias: $infant-feeding-type-cs = https://terminology.dhp.uz/fhir/integrations/CodeSystem/infant-feeding-type-cs
 Alias: $apgar-component-score-cs = https://terminology.dhp.uz/fhir/integrations/CodeSystem/apgar-component-score-cs
-Alias: $satisfactory-status-cs = https://terminology.dhp.uz/fhir/integrations/CodeSystem/satisfactory-status-cs
 
 Alias: $ballard-skin-maturity-cs = https://terminology.dhp.uz/fhir/integrations/CodeSystem/ballard-skin-maturity-cs
 Alias: $ballard-lanugo-maturity-cs = https://terminology.dhp.uz/fhir/integrations/CodeSystem/ballard-lanugo-maturity-cs

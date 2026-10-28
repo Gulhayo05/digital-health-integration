@@ -1241,7 +1241,7 @@ Usage: #inline
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-06-01T09:00:00+05:00"
-* valueCodeableConcept = $satisfactory-status-cs#chr-0040-0001 "Satisfactory"
+* valueCodeableConcept = $sct#162669003 "Patient's condition satisfactory"
 
 Instance: observation-exam-skin-color-097
 InstanceOf: UZCoreObservation
@@ -1327,7 +1327,7 @@ Usage: #inline
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-06-01T09:00:00+05:00"
-* valueCodeableConcept = $satisfactory-status-cs#chr-0040-0001 "Satisfactory"
+* valueCodeableConcept = $sct#162669003 "Patient's condition satisfactory"
 
 Instance: observation-exam-neurological-status-097
 InstanceOf: UZCoreObservation
