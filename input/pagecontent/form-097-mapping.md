@@ -14,7 +14,7 @@ For a complete reference instance, see the [Form 097 newborn development example
 
 ### Field Mapping
 
-# UZ-097 Newborn Development Medical Record - FHIR Mapping
+### UZ-097 Newborn Development Medical Record - FHIR Mapping
 
 ---
 

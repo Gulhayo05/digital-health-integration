@@ -16,7 +16,7 @@ To'liq namunaviy nusxa uchun [097-shakl yangi tug'ilgan chaqaloq rivojlanishi mi
 
 ### Maydonlarni moslashtirish
 
-# UZ-097 Yangi tug'ilgan chaqaloq rivojlanishining tibbiy kartasi - FHIR bilan moslashtirish
+### UZ-097 Yangi tug'ilgan chaqaloq rivojlanishining tibbiy kartasi - FHIR bilan moslashtirish
 
 ---
 
