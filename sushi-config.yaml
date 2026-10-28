@@ -250,19 +250,6 @@ menu:
 #     exampleBoolean: true
 #   Patient/bad-example: omit
 #
-resources:
-  Bundle/example-form-097-minimal:
-    name: Form 097 minimal document
-    description: Form 097 document with none of the optional clinical sections
-  Bundle/example-form-097-antepartum-stillbirth:
-    name: Form 097 antepartum stillbirth
-    description: Form 097 document for an antepartum stillbirth
-  Bundle/example-form-097-intrapartum-stillbirth:
-    name: Form 097 intrapartum stillbirth
-    description: Form 097 document for an intrapartum stillbirth
-  Bundle/example-form-097-author-without-role:
-    name: Form 097 author without a position
-    description: Form 097 document whose author is an identified practitioner with no position code
 #
 # Groups can control certain aspects of the IG generation.  The IG
 # documentation recommends that authors use the default groups that
