@@ -46,7 +46,7 @@ For a complete reference instance, see the [Form 097 newborn development example
 | Tug'ruqxonada bo'lish davri | Пребывание в родильном доме | Composition.encounter | [Encounter](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-encounter.html) | 2026-06-01 - 2026-06-07 |
 | Davolovchi shifokor | Лечащий врач | Encounter.participant.actor | [PractitionerRole](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-practitioner-role.html) | Attending neonatologist |
 | Hujjat shakllantirilgan sana | Дата составления документа | Composition.date | - | 2026-06-01T09:00:00+05:00 |
-| Hujjatni saqlagan foydalanuvchi | Пользователь, сохранивший документ | Composition.author | [PractitionerRole](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-practitioner-role.html) | Nurse |
+| Hujjatni saqlagan foydalanuvchi | Пользователь, сохранивший документ | Composition.author | [PractitionerRole](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-practitioner-role.html), or [Practitioner](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-practitioner.html) when the role is not known | Nurse |
 | Hujjat sarlavhasi | Заголовок документа | Composition.title | - | Form 097 - Newborn Development Medical Record |
 
 ---
@@ -64,15 +64,15 @@ Section code: LOINC `57073-9` "Prenatal records".
 | Manzil | Адрес | Patient.address | - | 12 Amir Temur ko'chasi |
 | Millati | Национальность | Patient.extension[nationality] | `value` [UZ Core Nationality](https://dhp.uz/fhir/core/en/ValueSet-nationality-vs.html) | `44` |
 | Ish joyi/kasbi | Место работы/профессия | [UZCoreSocioeconomicObservation](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-socioeconomic-observation.html).valueCodeableConcept | `code` SNOMED CT `14679004` "Occupation"<br>`value` [UZ Core Position and Profession](https://dhp.uz/fhir/core/en/ValueSet-position-and-profession-vs.html) | O'qituvchi (`2310.8`) |
-| Onaning qon guruhi | Группа крови матери | Observation.valueCodeableConcept | `code` LOINC `883-9` "ABO group [Type] in Blood"<br>`value` [ABO Blood Group](ValueSet-abo-blood-group-vs.html) | Blood group A (`112144000`) |
-| Onaning rezus-omili | Резус-фактор матери | Observation.valueCodeableConcept | `code` LOINC `10331-7` "Rh [Type] in Blood"<br>`value` [Rh Factor](ValueSet-rh-factor-vs.html) | RhD negative (`165746003`) |
-| Otaning qon guruhi | Группа крови отца | Observation.valueCodeableConcept | `code` LOINC `883-9` "ABO group [Type] in Blood"<br>`value` [ABO Blood Group](ValueSet-abo-blood-group-vs.html) | Blood group A (`112144000`) |
-| Otaning rezus-omili | Резус-фактор отца | Observation.valueCodeableConcept | `code` LOINC `10331-7` "Rh [Type] in Blood"<br>`value` [Rh Factor](ValueSet-rh-factor-vs.html) | RhD positive (`165747007`) |
+| Onaning qon guruhi | Группа крови матери | Observation.valueCodeableConcept | `code` LOINC `883-9` "ABO group [Type] in Blood"<br>`value` [Blood Group](https://terminology.dhp.uz/fhir/core/ValueSet/blood-group-vs) | Blood group A (`112144000`) |
+| Onaning rezus-omili | Резус-фактор матери | Observation.valueCodeableConcept | `code` LOINC `10331-7` "Rh [Type] in Blood"<br>`value` [Blood Rh](https://terminology.dhp.uz/fhir/core/ValueSet/blood-rh-vs) | RhD negative (`165746003`) |
+| Otaning qon guruhi | Группа крови отца | Observation.valueCodeableConcept | `code` LOINC `883-9` "ABO group [Type] in Blood"<br>`value` [Blood Group](https://terminology.dhp.uz/fhir/core/ValueSet/blood-group-vs) | Blood group A (`112144000`) |
+| Otaning rezus-omili | Резус-фактор отца | Observation.valueCodeableConcept | `code` LOINC `10331-7` "Rh [Type] in Blood"<br>`value` [Blood Rh](https://terminology.dhp.uz/fhir/core/ValueSet/blood-rh-vs) | RhD positive (`165747007`) |
 | Homiladorlik soni | Число беременностей | Observation.valueInteger | `code` LOINC `11996-6` "[#] Pregnancies" | 4 |
 | Tug'ruq soni | Число родов | Observation.valueInteger | `code` LOINC `11977-6` "[#] Parity" | 2 |
 | Homiladorlik muddati | Срок беременности | Observation.valueQuantity | `code` LOINC `18185-9` "Gestational age" | 40 wk |
-| Tug'ruqning birinchi davri | Первый период родов | Observation.valueString | `code` SNOMED CT `169821004` "Duration of first stage of labor" | First stage 6 h 20 min, regular contractions, no complications |
-| Tug'ruqning ikkinchi davri | Второй период родов | Observation.valueString | `code` SNOMED CT `169822006` "Duration of second stage of labor" | Second stage 25 min, spontaneous vaginal delivery |
+| Tug'ruqning birinchi davri | Первый период родов | Observation.valueString | `code` SNOMED CT `364329005` "Characteristic of first stage of labor" | First stage 6 h 20 min, regular contractions, no complications |
+| Tug'ruqning ikkinchi davri | Второй период родов | Observation.valueString | `code` SNOMED CT `364337002` "Characteristic of second stage of labor" | Second stage 25 min, spontaneous vaginal delivery |
 | Homiladorlik asorati | Осложнение беременности | [Condition](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-condition.html).code | ICD-10 | `O24.4` "Diabetes mellitus arising in pregnancy" |
 | Amniotik suyuqlik ko'rinishi | Вид околоплодных вод | Observation.valueCodeableConcept | `code` LOINC `1887-9` "Appearance of amniotic fluid"<br>`value` [Amniotic Fluid Characteristic](ValueSet-amniotic-fluid-characteristic-vs.html) | Amniotic fluid clear (`168090003`) |
 | Naslli anamnez (ona) | Наследственный анамнез (мать) | FamilyMemberHistory.condition.code | `relationship` v3-RoleCode `MTH` "mother"<br>`code` ICD-10 | `E14.9` "Unspecified diabetes mellitus : Without complications" |
@@ -90,15 +90,15 @@ Section code: LOINC `57075-4` "Newborn delivery information".
 | Tug'ruq o'z vaqtidami | Своевременность родов | Observation.valueCodeableConcept | `code` [Form 111 General Observation Code](ValueSet-form111-general-observation-code-vs.html) `chr-0035-00015` "Type of delivery (by term)"<br>`value` [Previous Delivery Term](ValueSet-form111-previous-delivery-term-vs.html): SNOMED CT `21243004` "Term birth of newborn" or `367494004` "Premature birth of newborn" | Term birth of newborn (`21243004`) |
 | Chaqaloqning muddat holati | Срок рождения новорождённого | Observation.valueCodeableConcept | `code` [Newborn Maturity Assessment](ValueSet-newborn-maturity-assessment-code-vs.html) `chr-0126-0001` "Newborn term status assessment"<br>`value` [Newborn Term Status](ValueSet-newborn-term-status-vs.html) (SNOMED CT) | Term infant (`57891003`) |
 | Hayotiylik natijasi | Исход плода | Observation.valueCodeableConcept | `code` [Form 111 General Observation Code](ValueSet-form111-general-observation-code-vs.html) `chr-0035-00013` "Live/stillbirth status"<br>`value` [Newborn Birth Condition](ValueSet-form111-newborn-birth-condition-vs.html): SNOMED CT `281050002` "Livebirth", `713202001` "Antepartum stillbirth" or `237362003` "Fetal intrapartum death" | Livebirth (`281050002`); stillbirths: see the [antepartum](Bundle-example-form-097-antepartum-stillbirth.html) and [intrapartum](Bundle-example-form-097-intrapartum-stillbirth.html) examples |
-| Chaqaloq qon guruhi | Группа крови новорождённого | Observation.valueCodeableConcept | `code` LOINC `883-9` "ABO group [Type] in Blood"<br>`value` [ABO Blood Group](ValueSet-abo-blood-group-vs.html) | Blood group A (`112144000`) |
-| Chaqaloq rezus-omili | Резус-фактор новорождённого | Observation.valueCodeableConcept | `code` LOINC `14908-8` "Rh [Type] in Blood from Newborn"<br>`value` [Rh Factor](ValueSet-rh-factor-vs.html) | RhD positive (`165747007`) |
+| Chaqaloq qon guruhi | Группа крови новорождённого | Observation.valueCodeableConcept | `code` LOINC `883-9` "ABO group [Type] in Blood"<br>`value` [Blood Group](https://terminology.dhp.uz/fhir/core/ValueSet/blood-group-vs) | Blood group A (`112144000`) |
+| Chaqaloq rezus-omili | Резус-фактор новорождённого | Observation.valueCodeableConcept | `code` LOINC `14908-8` "Rh [Type] in Blood from Newborn"<br>`value` [Blood Rh](https://terminology.dhp.uz/fhir/core/ValueSet/blood-rh-vs) | RhD positive (`165747007`) |
 | Bosh aylanasi | Окружность головы | Observation.valueQuantity | `code` LOINC `9843-4` "Head Occipital-frontal circumference" | 34 cm |
 | Ko'krak aylanasi | Окружность груди | Observation.valueQuantity | `code` SNOMED CT `248366000` "Chest circumference" | 33 cm |
 | Nafas olish belgisi | Признак дыхания | Observation.valueBoolean | `code` [Newborn Signs of Life](ValueSet-newborn-signs-of-life-vs.html) `chr-0127-0001` "Presence of respiration" | true |
 | Yurak urishi belgisi | Признак сердцебиения | Observation.valueBoolean | `code` [Newborn Signs of Life](ValueSet-newborn-signs-of-life-vs.html) `chr-0127-0002` "Presence of heartbeat" | true |
 | Kindik tomirlari pulsatsiyasi | Пульсация пуповины | Observation.valueBoolean | `code` [Newborn Signs of Life](ValueSet-newborn-signs-of-life-vs.html) `chr-0127-0003` "Presence of umbilical cord pulsation" | true |
 | Ixtiyorsiz mushak qisqarishi | Непроизвольное сокращение мышц | Observation.valueBoolean | `code` [Newborn Signs of Life](ValueSet-newborn-signs-of-life-vs.html) `chr-0127-0004` "Presence of involuntary muscle movement" | true |
-| Gonoblennoreya profilaktikasi | Профилактика гонобленореи | MedicationAdministration.medication → Medication.code | SNOMED CT `30427009` "Erythromycin-containing product" | Erythromycin eye ointment |
+| Gonoblennoreya profilaktikasi | Профилактика гонобленореи | Procedure.code; occurrenceDateTime; note | [Newborn Eye Prophylaxis Code](ValueSet-newborn-eye-prophylaxis-code-vs.html) `chr-0085-0001` "Neonatal ocular prophylaxis against gonococcal ophthalmia" | 2026-06-01T14:40:00+05:00 |
 | Apgar bali (1-daqiqa) | Оценка по Апгар (1 мин) | Observation.valueInteger | `code` LOINC `9272-6` "1 minute Apgar Score" | 8 |
 | Apgar bali (5-daqiqa) | Оценка по Апгар (5 мин) | Not sent | DMED sends only the 1-minute total. Do not send a 5-minute score or Apgar components it does not have | - |
 | Jismoniy yetuklik (Ballard) | Физическая зрелость (Баллард) | Observation.component.valueCodeableConcept | `code` [Newborn Maturity Assessment](ValueSet-newborn-maturity-assessment-code-vs.html) `chr-0126-0007` "Newborn physical maturity assessment"<br>`value` the Ballard ValueSets, such as [Skin](ValueSet-ballard-skin-maturity-vs.html) and [Lanugo](ValueSet-ballard-lanugo-maturity-vs.html) | 1: smooth pink, visible veins |
@@ -269,8 +269,8 @@ Bundle (document)
 ├── Practitioner[] / PractitionerRole[] (physician, nurse)
 ├── Condition[] (pregnancy complication, birth trauma, provisional and discharge diagnosis)
 ├── Observation[] (antenatal history, birth event, Apgar, Ballard maturity, first exam, feeding, daily observation, daily review, weight dynamics, screening, discharge)
-├── Procedure[] (labour-related procedures)
-├── Medication[] / MedicationAdministration[] (haemorrhagic disease prophylaxis, eye prophylaxis)
+├── Procedure[] (labour-related procedures, eye prophylaxis)
+├── Medication[] / MedicationAdministration[] (haemorrhagic disease prophylaxis)
 ├── Immunization[] (hepatitis B, BCG)
 ├── FamilyMemberHistory[] (mother's and father's hereditary history)
 └── Provenance[] (nurse-to-mother handover, physician signature, transfer between facilities, birth certificate)

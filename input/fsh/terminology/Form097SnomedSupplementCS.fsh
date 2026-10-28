@@ -1,7 +1,7 @@
 CodeSystem: Form097SnomedSupplementCS
 Id: form-097-snomed-supplement-cs
 Title: "Form 097 SNOMED CT Displays"
-Description: "Uzbek and Russian displays for the SNOMED CT codes that replace Form 097 local codes"
+Description: "Uzbek and Russian displays for the SNOMED CT codes used in Form 097"
 
 * insert SupplementCodeSystemDraft(form-097-snomed-supplement-cs, $sct, 0.11.1)
 
@@ -190,3 +190,15 @@ Description: "Uzbek and Russian displays for the SNOMED CT codes that replace Fo
   * ^designation[=].value = "Состояние пупочной ранки"
   * ^designation[+].language = #uz
   * ^designation[=].value = "Kindik yarasi holati"
+
+* #364329005 "Characteristic of first stage of labor"
+  * ^designation[0].language = #ru
+  * ^designation[=].value = "Особенности течения первого периода родов"
+  * ^designation[+].language = #uz
+  * ^designation[=].value = "Tug'ruq I davri kechishining o'ziga xosligi"
+
+* #364337002 "Characteristic of second stage of labor"
+  * ^designation[0].language = #ru
+  * ^designation[=].value = "Особенности течения второго периода родов"
+  * ^designation[+].language = #uz
+  * ^designation[=].value = "Tug'ruq II davri kechishining o'ziga xosligi"

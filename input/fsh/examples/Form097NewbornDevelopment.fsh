@@ -72,10 +72,8 @@ Description: "Example of Form 097 newborn development medical record"
 * entry[=].resource = observation-skin-to-skin-duration-097
 * entry[+].fullUrl = "urn:uuid:09700037-1111-2222-3333-444444444444"
 * entry[=].resource = observation-breastfeeding-initiation-time-097
-* entry[+].fullUrl = "urn:uuid:09700032-1111-2222-3333-444444444444"
-* entry[=].resource = medication-eye-prophylaxis-097
 * entry[+].fullUrl = "urn:uuid:097000f6-1111-2222-3333-444444444444"
-* entry[=].resource = medicationadministration-eye-prophylaxis-097
+* entry[=].resource = procedure-eye-prophylaxis-097
 * entry[+].fullUrl = "urn:uuid:09700033-1111-2222-3333-444444444444"
 * entry[=].resource = observation-ballard-physical-maturity-097
 * entry[+].fullUrl = "urn:uuid:09700034-1111-2222-3333-444444444444"
@@ -365,7 +363,6 @@ Usage: #inline
 * section[birthEvent].entry[+] = Reference(urn:uuid:09700022-1111-2222-3333-444444444444)
 * section[birthEvent].entry[+] = Reference(urn:uuid:09700023-1111-2222-3333-444444444444)
 * section[birthEvent].entry[+] = Reference(urn:uuid:097000f6-1111-2222-3333-444444444444)
-* section[birthEvent].entry[+] = Reference(urn:uuid:09700032-1111-2222-3333-444444444444)
 * section[birthEvent].entry[+] = Reference(urn:uuid:09700033-1111-2222-3333-444444444444)
 * section[birthEvent].entry[+] = Reference(urn:uuid:09700034-1111-2222-3333-444444444444)
 * section[birthEvent].entry[+] = Reference(urn:uuid:09700035-1111-2222-3333-444444444444)
@@ -799,7 +796,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
-* code = $sct#169821004 "Duration of first stage of labor"
+* code = $sct#364329005 "Characteristic of first stage of labor"
 * subject = Reference(urn:uuid:0970003b-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700100-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
@@ -815,7 +812,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
-* code = $sct#169822006 "Duration of second stage of labor"
+* code = $sct#364337002 "Characteristic of second stage of labor"
 * subject = Reference(urn:uuid:0970003b-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700100-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
@@ -1097,24 +1094,17 @@ Usage: #inline
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 
-Instance: medication-eye-prophylaxis-097
-InstanceOf: Medication
-Usage: #inline
-* language = #en
-* code = $sct#30427009 "Erythromycin-containing product"
-* batch.lotNumber = "ERY-2026-0417"
-* batch.expirationDate = "2027-06-01"
-
-Instance: medicationadministration-eye-prophylaxis-097
-InstanceOf: MedicationAdministration
+Instance: procedure-eye-prophylaxis-097
+InstanceOf: UZCoreProcedure
 Usage: #inline
 * language = #en
 * status = #completed
-* medication = Reference(urn:uuid:097000f6-1111-2222-3333-444444444444)
+* code = $form096-newborn-eye-prophylaxis-cs#chr-0085-0001 "Neonatal ocular prophylaxis against gonococcal ophthalmia"
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
-* occurenceDateTime = "2026-06-01T14:40:00+05:00"
+* encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
+* occurrenceDateTime = "2026-06-01T14:40:00+05:00"
 * performer.actor = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
-* note.text = "Prophylaxis against gonococcal ophthalmia neonatorum"
+* note.text = "Erythromycin eye ointment applied."
 
 Instance: observation-temperature-reading1-097
 InstanceOf: UZCoreObservation

@@ -31,7 +31,7 @@ Description: "Composition profile for Form 097 (Yangi tug'ilgan chaqaloq rivojla
 * date 1..1
 * date ^short = "Date the document was generated"
 
-* author only Reference(UZCorePractitionerRole)
+* author only Reference(UZCorePractitionerRole or UZCorePractitioner)
 * author ^short = "User who saved this revision of the document"
 
 * title 1..1
@@ -72,7 +72,7 @@ Description: "Composition profile for Form 097 (Yangi tug'ilgan chaqaloq rivojla
 * section[birthEvent].code = $loinc#57075-4 "Newborn delivery information"
 * section[birthEvent].code ^short = "Birth length, timeliness of delivery, term status, birth outcome, blood group and Rh, head and chest circumference, signs of life, skin-to-skin contact, first breastfeeding, eye prophylaxis, Apgar score, Ballard maturity"
 * section[birthEvent].entry 1..*
-* section[birthEvent].entry only Reference(UZCoreObservation or UZCoreCondition or UZCoreProcedure or MedicationAdministration or Medication)
+* section[birthEvent].entry only Reference(UZCoreObservation or UZCoreCondition or UZCoreProcedure)
 * section[birthEvent].entry ^short = "Birth observations and eye prophylaxis"
 
 // 3. Yangi tug'ilgan chaqaloqning birlamchi ko'rigi

@@ -106,7 +106,7 @@ Misoldagi ikki avvalgi homiladorlikning har biri uchun natija, tug'ruq muddati v
 | Turmush o'rtog'i | Супруг | [RelatedPerson](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-relatedperson.html).name; identifier[nationalId] | - | Karimov Jamshid Anvarovich |
 | Turmush o'rtog'ining sog'lig'i | Здоровье супруга | Observation.valueString (`focus` = RelatedPerson) | [Medical and Obstetric History Codes](ValueSet-pregnancy-obstetric-history-code-vs.html) SNOMED `720372000` "Health status of spouse" | Healthy; no relevant hereditary disease reported. |
 | Ish joyi | Место работы | Observation.valueString | LOINC `80427-8` "Employer name [Identifier]", 111-shakldagi kabi | Tashkent City School No. 42 |
-| Kasbi va lavozimi | Профессия и должность | [UZCoreSocioeconomicObservation](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-socioeconomic-observation.html).valueCodeableConcept | `code` SNOMED `14679004` "Occupation", 111-shakldagi kabi<br>`value` [UZ Core Position and Profession](https://dhp.uz/fhir/core/en/CodeSystem-position-and-profession-cs.html) | O'qituvchi (`2330.9`) |
+| Kasbi va lavozimi | Профессия и должность | [UZCoreSocioeconomicObservation](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-socioeconomic-observation.html).valueCodeableConcept | `code` SNOMED `14679004` "Occupation", 111-shakldagi kabi<br>`value` [UZ Core Position and Profession](https://dhp.uz/fhir/core/en/ValueSet-position-and-profession-vs.html) | O'qituvchi (`2330.9`) |
 | Xayz ko'rish necha yoshdan boshlangan | Возраст начала менструаций | Observation.valueQuantity | LOINC `42798-9` "Age at menarche" | 13 a |
 | Jinsiy hayoti necha yoshdan boshlangan | Возраст начала половой жизни | Observation.valueQuantity | SNOMED `228456002` "Age became sexually active", 111-shakldagi kabi | 20 a |
 | Avvalgi homiladorliklar soni | Количество предыдущих беременностей | Observation.valueInteger | SNOMED `246211005` "Number of previous pregnancies" | 2 |
@@ -314,8 +314,8 @@ Bo'lim kodi: LOINC `51899-3` "Details Document".
 
 | UZ | RU | FHIR yo'li | Kod | Misol qiymati |
 |----|----|------------|------|---------------|
-| Shifokor | Врач | [PractitionerRole](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-practitioner-role.html).practitioner; code | [UZ Core Position and Profession](https://dhp.uz/fhir/core/en/CodeSystem-position-and-profession-cs.html) | Rasulova Malika Bahodirovna (`2222.1`) |
-| Akusherka | Акушерка | PractitionerRole.practitioner; code | [UZ Core Position and Profession](https://dhp.uz/fhir/core/en/CodeSystem-position-and-profession-cs.html) | Tursunova Nodira Saidovna (`3222.1`) |
+| Shifokor | Врач | [PractitionerRole](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-practitioner-role.html).practitioner; code | [UZ Core Position and Profession](https://dhp.uz/fhir/core/en/ValueSet-position-and-profession-vs.html) | Rasulova Malika Bahodirovna (`2222.1`) |
+| Akusherka | Акушерка | PractitionerRole.practitioner; code | [UZ Core Position and Profession](https://dhp.uz/fhir/core/en/ValueSet-position-and-profession-vs.html) | Tursunova Nodira Saidovna (`3222.1`) |
 | Imzo | Подпись | [Provenance](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-provenance.html).signature | `type` [UZ Core Signature Type](https://dhp.uz/fhir/core/en/CodeSystem-signature-type-cs.html) | soliqAuth, 2026-08-18T15:30:00+05:00 |
 
 ---
