@@ -29,7 +29,8 @@
           "coding": [
             {
               "system": "http://loinc.org",
-              "code": "18842-5"
+              "code": "18842-5",
+              "display": "Discharge summary"
             }
           ]
         },
@@ -60,11 +61,13 @@
         "title": "Synthetic Form 097: intrapartum stillbirth",
         "section": [
           {
+            "title": "2. Birth event",
             "code": {
               "coding": [
                 {
                   "system": "http://loinc.org",
-                  "code": "57075-4"
+                  "code": "57075-4",
+                  "display": "Newborn delivery information"
                 }
               ]
             },

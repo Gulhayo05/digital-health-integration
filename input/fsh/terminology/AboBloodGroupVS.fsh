@@ -1,7 +1,7 @@
 ValueSet: AboBloodGroupVS
 Id: abo-blood-group-vs
 Title: "ABO Blood Group ValueSet"
-Description: "ABO blood group for Form097 newborn development record. Source terminology (SNOMED CT) reused directly."
+Description: "ABO blood group, coded with SNOMED CT."
 * insert IntegrationsValueSet(abo-blood-group-vs)
 * ^experimental = true
 

@@ -5,11 +5,11 @@ Description: "Local codes for ballard skin maturity, Form097 newborn development
 
 * insert OriginalCodeSystemDraft(ballard-skin-maturity-cs)
 
-* #chr-0107-0001 "−1: yopishqoq, shaffof, oson yirtiladi"
+* #chr-0107-0001 "-1: yopishqoq, shaffof, oson yirtiladi"
   * ^designation[0].language = #ru
-  * ^designation[=].value = "−1: липкая, прозрачная, легко рвётся"
+  * ^designation[=].value = "-1: липкая, прозрачная, легко рвётся"
   * ^designation[+].language = #en
-  * ^designation[=].value = "−1: sticky, friable, transparent"
+  * ^designation[=].value = "-1: sticky, friable, transparent"
 
 * #chr-0107-0002 "0: jelatinsimon, qizil, yarim shaffof"
   * ^designation[0].language = #ru

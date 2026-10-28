@@ -199,17 +199,14 @@ Alias: $flag-status-cs = http://hl7.org/fhir/flag-status
 Alias: $profession-specialization-cs = https://terminology.dhp.uz/fhir/core/CodeSystem/profession-specialization-cs
 
 
-// ===================== ALIASES — Form097 Newborn Development =====================
+// ===================== ALIASES - Form097 Newborn Development =====================
 
-Alias: $document-category-cs = https://terminology.dhp.uz/fhir/integrations/CodeSystem/document-category-cs
-Alias: $loinc = http://loinc.org
 Alias: $newborn-daily-observation-component-cs = https://terminology.dhp.uz/fhir/integrations/CodeSystem/newborn-daily-observation-component-cs
 Alias: $delivery-timeliness-cs = https://terminology.dhp.uz/fhir/integrations/CodeSystem/delivery-timeliness-cs
 Alias: $newborn-term-status-cs = https://terminology.dhp.uz/fhir/integrations/CodeSystem/newborn-term-status-cs
 Alias: $infant-feeding-type-cs = https://terminology.dhp.uz/fhir/integrations/CodeSystem/infant-feeding-type-cs
 Alias: $apgar-component-score-cs = https://terminology.dhp.uz/fhir/integrations/CodeSystem/apgar-component-score-cs
 Alias: $satisfactory-status-cs = https://terminology.dhp.uz/fhir/integrations/CodeSystem/satisfactory-status-cs
-Alias: $yes-no-cs = https://terminology.dhp.uz/fhir/integrations/CodeSystem/yes-no-cs
 
 Alias: $ballard-skin-maturity-cs = https://terminology.dhp.uz/fhir/integrations/CodeSystem/ballard-skin-maturity-cs
 Alias: $ballard-lanugo-maturity-cs = https://terminology.dhp.uz/fhir/integrations/CodeSystem/ballard-lanugo-maturity-cs

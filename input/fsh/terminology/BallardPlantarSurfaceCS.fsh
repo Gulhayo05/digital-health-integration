@@ -5,17 +5,17 @@ Description: "Local codes for ballard plantar surface, Form097 newborn developme
 
 * insert OriginalCodeSystemDraft(ballard-plantar-surface-cs)
 
-* #chr-0109-0001 "−2: tovon-barmoq uzunligi <40 mm"
+* #chr-0109-0001 "-2: tovon-barmoq uzunligi <40 mm"
   * ^designation[0].language = #ru
-  * ^designation[=].value = "−2: длина стопы <40 мм"
+  * ^designation[=].value = "-2: длина стопы <40 мм"
   * ^designation[+].language = #en
-  * ^designation[=].value = "−2: heel-to-toe <40 mm"
+  * ^designation[=].value = "-2: heel-to-toe <40 mm"
 
-* #chr-0109-0002 "−1: tovon-barmoq uzunligi 40–50 mm"
+* #chr-0109-0002 "-1: tovon-barmoq uzunligi 40-50 mm"
   * ^designation[0].language = #ru
-  * ^designation[=].value = "−1: длина стопы 40–50 мм"
+  * ^designation[=].value = "-1: длина стопы 40-50 мм"
   * ^designation[+].language = #en
-  * ^designation[=].value = "−1: heel-to-toe 40–50 mm"
+  * ^designation[=].value = "-1: heel-to-toe 40-50 mm"
 
 * #chr-0109-0003 "0: >50 mm, burmalar yo'q"
   * ^designation[0].language = #ru

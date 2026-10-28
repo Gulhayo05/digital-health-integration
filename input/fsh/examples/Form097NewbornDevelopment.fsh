@@ -249,7 +249,7 @@ Description: "Example of Form 097 newborn development medical record"
 * entry[+].fullUrl = "urn:uuid:097000a1-1111-2222-3333-444444444444"
 * entry[=].resource = observation-screening-hypothyroidism-097
 
-// daily observation (Day 0-6) — nurse's checklist
+// daily observation (Day 0-6) - nurse's checklist
 * entry[+].fullUrl = "urn:uuid:09700006-1111-2222-3333-444444444444"
 * entry[=].resource = observation-daily-day0-097
 * entry[+].fullUrl = "urn:uuid:09700007-1111-2222-3333-444444444444"
@@ -265,7 +265,7 @@ Description: "Example of Form 097 newborn development medical record"
 * entry[+].fullUrl = "urn:uuid:0970000c-1111-2222-3333-444444444444"
 * entry[=].resource = observation-daily-day6-097
 
-// newborn observation sheet (Day 0-6) — physicians narative review
+// newborn observation sheet (Day 0-6) - physicians narative review
 * entry[+].fullUrl = "urn:uuid:097000b0-1111-2222-3333-444444444444"
 * entry[=].resource = observation-newborn-daily-review-day0-097
 * entry[+].fullUrl = "urn:uuid:097000b1-1111-2222-3333-444444444444"
@@ -326,17 +326,17 @@ Usage: #inline
 * identifier[+].system = "https://dhp.uz/fhir/core/sid/doc/uz/form-number"
 * identifier[=].value = "097"
 * status = #final
-* type = $loinc#18842-5
+* type = $loinc#18842-5 "Discharge summary"
 * category = $document-category-cs#form-097
 * subject = Reference(urn:uuid:09700002-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * date = "2026-06-01T09:00:00+05:00"
-// Synthetic example: this practitioner saved the current revision.
+// Synthetic example: the nurse (PractitionerRole) saved the current revision.
 * author[0] = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 * title = "Form 097 - Newborn Development Medical Record"
 
-* section[motherInformation].title = "Mother Information and Antenatal History"
-* section[motherInformation].code = $form-097-section-cs#mother-information
+* section[motherInformation].title = "1. Mother information and antenatal history"
+* section[motherInformation].code = $loinc#57073-9 "Prenatal records"
 * section[motherInformation].entry[0] = Reference(urn:uuid:09700003-1111-2222-3333-444444444444)
 * section[motherInformation].entry[+] = Reference(urn:uuid:0970003b-1111-2222-3333-444444444444)
 * section[motherInformation].entry[+] = Reference(urn:uuid:09700010-1111-2222-3333-444444444444)
@@ -356,13 +356,12 @@ Usage: #inline
 * section[motherInformation].entry[+] = Reference(urn:uuid:097000f5-1111-2222-3333-444444444444)
 * section[motherInformation].entry[+] = Reference(urn:uuid:097000f7-1111-2222-3333-444444444444)
 
-* section[birthEvent].title = "Birth Event"
-* section[birthEvent].code = $loinc#57075-4
+* section[birthEvent].title = "2. Birth event"
+* section[birthEvent].code = $loinc#57075-4 "Newborn delivery information"
 * section[birthEvent].entry[0] = Reference(urn:uuid:09700020-1111-2222-3333-444444444444)
 * section[birthEvent].entry[+] = Reference(urn:uuid:09700021-1111-2222-3333-444444444444)
 * section[birthEvent].entry[+] = Reference(urn:uuid:09700022-1111-2222-3333-444444444444)
 * section[birthEvent].entry[+] = Reference(urn:uuid:09700023-1111-2222-3333-444444444444)
-* section[birthEvent].entry[+] = Reference(urn:uuid:097000f6-1111-2222-3333-444444444444)
 * section[birthEvent].entry[+] = Reference(urn:uuid:097000f6-1111-2222-3333-444444444444)
 * section[birthEvent].entry[+] = Reference(urn:uuid:09700032-1111-2222-3333-444444444444)
 * section[birthEvent].entry[+] = Reference(urn:uuid:09700033-1111-2222-3333-444444444444)
@@ -385,8 +384,8 @@ Usage: #inline
 * section[birthEvent].entry[+] = Reference(urn:uuid:097000f1-1111-2222-3333-444444444444)
 * section[birthEvent].entry[+] = Reference(urn:uuid:097000f2-1111-2222-3333-444444444444)
 
-* section[firstNewbornExam].title = "First Newborn Examination"
-* section[firstNewbornExam].code = $form-097-section-cs#first-newborn-exam
+* section[firstNewbornExam].title = "3. First newborn examination"
+* section[firstNewbornExam].code = $loinc#29545-1 "Physical findings note"
 * section[firstNewbornExam].entry[0] = Reference(urn:uuid:09700050-1111-2222-3333-444444444444)
 * section[firstNewbornExam].entry[+] = Reference(urn:uuid:09700051-1111-2222-3333-444444444444)
 * section[firstNewbornExam].entry[+] = Reference(urn:uuid:09700052-1111-2222-3333-444444444444)
@@ -434,14 +433,14 @@ Usage: #inline
 * section[firstNewbornExam].entry[+] = Reference(urn:uuid:0970007e-1111-2222-3333-444444444444)
 * section[firstNewbornExam].entry[+] = Reference(urn:uuid:0970007f-1111-2222-3333-444444444444)
 
-* section[feeding].title = "Feeding and Skin-to-Skin Contact"
-* section[feeding].code = $form-097-section-cs#feeding
+* section[feeding].title = "4. Feeding and skin-to-skin contact"
+* section[feeding].code = $loinc#61144-2 "Diet and nutrition Narrative"
 * section[feeding].entry[0] = Reference(urn:uuid:09700030-1111-2222-3333-444444444444)
 * section[feeding].entry[+] = Reference(urn:uuid:09700031-1111-2222-3333-444444444444)
 * section[feeding].entry[+] = Reference(urn:uuid:09700037-1111-2222-3333-444444444444)
 
-* section[dailyObservation].title = "Daily Newborn Observation (Day 0-6)"
-* section[dailyObservation].code = $newborn-daily-observation-component-cs#daily-observation-panel
+* section[dailyObservation].title = "5. Daily newborn observation (days 0-6)"
+* section[dailyObservation].code = $loinc#8716-3 "Vital signs note"
 * section[dailyObservation].entry[0] = Reference(urn:uuid:09700006-1111-2222-3333-444444444444)
 * section[dailyObservation].entry[+] = Reference(urn:uuid:09700007-1111-2222-3333-444444444444)
 * section[dailyObservation].entry[+] = Reference(urn:uuid:09700008-1111-2222-3333-444444444444)
@@ -450,8 +449,8 @@ Usage: #inline
 * section[dailyObservation].entry[+] = Reference(urn:uuid:0970000b-1111-2222-3333-444444444444)
 * section[dailyObservation].entry[+] = Reference(urn:uuid:0970000c-1111-2222-3333-444444444444)
 
-* section[dailyReview].title = "Newborn Observation Sheet (Day 0-6)"
-* section[dailyReview].code = $form-097-section-cs#daily-review
+* section[dailyReview].title = "6. Physician's daily review (days 0-6)"
+* section[dailyReview].code = $loinc#8648-8 "Hospital course note"
 * section[dailyReview].entry[0] = Reference(urn:uuid:097000b0-1111-2222-3333-444444444444)
 * section[dailyReview].entry[+] = Reference(urn:uuid:097000b1-1111-2222-3333-444444444444)
 * section[dailyReview].entry[+] = Reference(urn:uuid:097000b2-1111-2222-3333-444444444444)
@@ -460,8 +459,8 @@ Usage: #inline
 * section[dailyReview].entry[+] = Reference(urn:uuid:097000b5-1111-2222-3333-444444444444)
 * section[dailyReview].entry[+] = Reference(urn:uuid:097000b6-1111-2222-3333-444444444444)
 
-* section[weightDynamics].title = "Weight Dynamics"
-* section[weightDynamics].code = $form-097-section-cs#weight-dynamics
+* section[weightDynamics].title = "7. Weight dynamics"
+* section[weightDynamics].code = $form-097-section-cs#weight-dynamics "Tana vazni dinamikasi"
 * section[weightDynamics].entry[0] = Reference(urn:uuid:09700080-1111-2222-3333-444444444444)
 * section[weightDynamics].entry[+] = Reference(urn:uuid:09700081-1111-2222-3333-444444444444)
 * section[weightDynamics].entry[+] = Reference(urn:uuid:09700082-1111-2222-3333-444444444444)
@@ -474,19 +473,19 @@ Usage: #inline
 * section[weightDynamics].entry[+] = Reference(urn:uuid:09700089-1111-2222-3333-444444444444)
 * section[weightDynamics].entry[+] = Reference(urn:uuid:0970008a-1111-2222-3333-444444444444)
 
-* section[prophylaxisImmunization].title = "Prophylaxis and Immunization"
-* section[prophylaxisImmunization].code = $form-097-section-cs#prophylaxis-immunization
+* section[prophylaxisImmunization].title = "8. Prophylaxis and immunization"
+* section[prophylaxisImmunization].code = $loinc#11369-6 "History of Immunization note"
 * section[prophylaxisImmunization].entry[0] = Reference(urn:uuid:09700091-1111-2222-3333-444444444444)
 * section[prophylaxisImmunization].entry[+] = Reference(urn:uuid:09700092-1111-2222-3333-444444444444)
 * section[prophylaxisImmunization].entry[+] = Reference(urn:uuid:09700093-1111-2222-3333-444444444444)
 
-* section[screening].title = "Screening"
-* section[screening].code = $form-097-section-cs#screening
+* section[screening].title = "9. Screening"
+* section[screening].code = $form-097-section-cs#screening "Skrining"
 * section[screening].entry[0] = Reference(urn:uuid:097000a0-1111-2222-3333-444444444444)
 * section[screening].entry[+] = Reference(urn:uuid:097000a1-1111-2222-3333-444444444444)
 
-* section[dischargeTransfer].title = "Discharge, Transfer, or Death"
-* section[dischargeTransfer].code = $form-097-section-cs#discharge-transfer
+* section[dischargeTransfer].title = "10. Discharge, transfer or death"
+* section[dischargeTransfer].code = $loinc#8650-4 "Hospital discharge disposition note"
 * section[dischargeTransfer].entry[0] = Reference(urn:uuid:09700040-1111-2222-3333-444444444444)
 * section[dischargeTransfer].entry[+] = Reference(urn:uuid:09700041-1111-2222-3333-444444444444)
 * section[dischargeTransfer].entry[+] = Reference(urn:uuid:09700042-1111-2222-3333-444444444444)
@@ -495,8 +494,8 @@ Usage: #inline
 * section[dischargeTransfer].entry[+] = Reference(urn:uuid:097000c1-1111-2222-3333-444444444444)
 * section[dischargeTransfer].entry[+] = Reference(urn:uuid:097000c2-1111-2222-3333-444444444444)
 
-* section[responsiblePersons].title = "Responsible Persons"
-* section[responsiblePersons].code = $form-097-section-cs#responsible-persons
+* section[responsiblePersons].title = "11. Responsible persons"
+* section[responsiblePersons].code = $form-097-section-cs#responsible-persons "Mas'ul shaxslar"
 * section[responsiblePersons].entry[0] = Reference(urn:uuid:097000d1-1111-2222-3333-444444444444)
 * section[responsiblePersons].entry[+] = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 
@@ -774,16 +773,16 @@ Usage: #inline
 * identifier.value = "urn:uuid:99d76b28-fa92-59d0-9caf-4212481ccae6"
 
 Instance: observation-mother-workplace-097
-InstanceOf: UZCoreObservation
+InstanceOf: UZCoreSocioeconomicObservation
 Usage: #inline
 * language = #en
 * status = #final
-* code = $sct#224406003
+* code.coding[socioeconomicType] = $sct#14679004 "Occupation"
 * subject = Reference(urn:uuid:0970003b-1111-2222-3333-444444444444)
 * encounter = Reference(urn:uuid:09700100-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-05-15T10:00:00+05:00"
-* valueCodeableConcept = $position-and-profession-cs#2310.8
+* valueCodeableConcept = $position-and-profession-cs#2310.8 "O'qituvchi"
 
 // Stable fixture identifier; production uses the stable source record/fact identity.
 * identifier.system = "urn:ietf:rfc:3986"
@@ -1401,7 +1400,7 @@ Usage: #inline
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-06-01T09:00:00+05:00"
-* valueCodeableConcept = $sct#373067005
+* valueCodeableConcept = $v2-0532#N "No"
 
 Instance: observation-exam-joint-reflexes-097
 InstanceOf: UZCoreObservation
@@ -1413,7 +1412,7 @@ Usage: #inline
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-06-01T09:00:00+05:00"
-* valueCodeableConcept = $sct#373066001
+* valueCodeableConcept = $v2-0532#Y "Yes"
 
 Instance: observation-exam-primitive-reflexes-097
 InstanceOf: UZCoreObservation
@@ -1425,7 +1424,7 @@ Usage: #inline
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-06-01T09:00:00+05:00"
-* valueCodeableConcept = $sct#373066001
+* valueCodeableConcept = $v2-0532#Y "Yes"
 
 Instance: observation-exam-spine-097
 InstanceOf: UZCoreObservation
@@ -1475,7 +1474,7 @@ Usage: #inline
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-06-01T09:00:00+05:00"
-* valueCodeableConcept = $sct#373066001
+* valueCodeableConcept = $v2-0532#Y "Yes"
 
 Instance: observation-exam-ear-shape-097
 InstanceOf: UZCoreObservation
@@ -1680,7 +1679,7 @@ Usage: #inline
 * encounter = Reference(urn:uuid:09700005-1111-2222-3333-444444444444)
 * performer = Reference(urn:uuid:097000d3-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-06-01T09:00:00+05:00"
-* valueCodeableConcept = $sct#373066001
+* valueCodeableConcept = $v2-0532#Y "Yes"
 * note.text = "Latching well"
 
 Instance: observation-exam-liver-size-097
@@ -2062,13 +2061,13 @@ Usage: #inline
 * component[6].code = $newborn-daily-monitoring-cs#chr-0125-0003
 * component[6].valueCodeableConcept.text = "Tolerating feeds well, no vomiting or abdominal distension"
 * component[7].code = $sct#62315008
-* component[7].valueCodeableConcept = $sct#373067005
+* component[7].valueCodeableConcept = $v2-0532#N "No"
 * component[8].code = $sct#300471006
 * component[8].valueInteger = 6
 * component[9].code = $sct#114961000119106
 * component[9].valueDateTime = "2026-06-01T00:00:00+05:00"
 * component[10].code.text = "Umbilical wound finding"
-* component[10].valueCodeableConcept = $sct#373067005
+* component[10].valueCodeableConcept = $v2-0532#N "No"
 
 Instance: observation-daily-day1-097
 InstanceOf: UZCoreObservation
@@ -2095,13 +2094,13 @@ Usage: #inline
 * component[6].code = $newborn-daily-monitoring-cs#chr-0125-0003
 * component[6].valueCodeableConcept.text = "Tolerating feeds well, no vomiting or abdominal distension"
 * component[7].code = $sct#62315008
-* component[7].valueCodeableConcept = $sct#373067005
+* component[7].valueCodeableConcept = $v2-0532#N "No"
 * component[8].code = $sct#300471006
 * component[8].valueInteger = 6
 * component[9].code = $sct#114961000119106
 * component[9].valueDateTime = "2026-06-02T00:00:00+05:00"
 * component[10].code.text = "Umbilical wound finding"
-* component[10].valueCodeableConcept = $sct#373067005
+* component[10].valueCodeableConcept = $v2-0532#N "No"
 
 Instance: observation-daily-day2-097
 InstanceOf: UZCoreObservation
@@ -2128,13 +2127,13 @@ Usage: #inline
 * component[6].code = $newborn-daily-monitoring-cs#chr-0125-0003
 * component[6].valueCodeableConcept.text = "Tolerating feeds well, no vomiting or abdominal distension"
 * component[7].code = $sct#62315008
-* component[7].valueCodeableConcept = $sct#373067005
+* component[7].valueCodeableConcept = $v2-0532#N "No"
 * component[8].code = $sct#300471006
 * component[8].valueInteger = 6
 * component[9].code = $sct#114961000119106
 * component[9].valueDateTime = "2026-06-03T00:00:00+05:00"
 * component[10].code.text = "Umbilical wound finding"
-* component[10].valueCodeableConcept = $sct#373067005
+* component[10].valueCodeableConcept = $v2-0532#N "No"
 
 Instance: observation-daily-day3-097
 InstanceOf: UZCoreObservation
@@ -2161,13 +2160,13 @@ Usage: #inline
 * component[6].code = $newborn-daily-monitoring-cs#chr-0125-0003
 * component[6].valueCodeableConcept.text = "Tolerating feeds well, no vomiting or abdominal distension"
 * component[7].code = $sct#62315008
-* component[7].valueCodeableConcept = $sct#373067005
+* component[7].valueCodeableConcept = $v2-0532#N "No"
 * component[8].code = $sct#300471006
 * component[8].valueInteger = 6
 * component[9].code = $sct#114961000119106
 * component[9].valueDateTime = "2026-06-04T00:00:00+05:00"
 * component[10].code.text = "Umbilical wound finding"
-* component[10].valueCodeableConcept = $sct#373067005
+* component[10].valueCodeableConcept = $v2-0532#N "No"
 
 Instance: observation-daily-day4-097
 InstanceOf: UZCoreObservation
@@ -2194,13 +2193,13 @@ Usage: #inline
 * component[6].code = $newborn-daily-monitoring-cs#chr-0125-0003
 * component[6].valueCodeableConcept.text = "Tolerating feeds well, no vomiting or abdominal distension"
 * component[7].code = $sct#62315008
-* component[7].valueCodeableConcept = $sct#373067005
+* component[7].valueCodeableConcept = $v2-0532#N "No"
 * component[8].code = $sct#300471006
 * component[8].valueInteger = 6
 * component[9].code = $sct#114961000119106
 * component[9].valueDateTime = "2026-06-05T00:00:00+05:00"
 * component[10].code.text = "Umbilical wound finding"
-* component[10].valueCodeableConcept = $sct#373067005
+* component[10].valueCodeableConcept = $v2-0532#N "No"
 
 Instance: observation-daily-day5-097
 InstanceOf: UZCoreObservation
@@ -2227,13 +2226,13 @@ Usage: #inline
 * component[6].code = $newborn-daily-monitoring-cs#chr-0125-0003
 * component[6].valueCodeableConcept.text = "Tolerating feeds well, no vomiting or abdominal distension"
 * component[7].code = $sct#62315008
-* component[7].valueCodeableConcept = $sct#373067005
+* component[7].valueCodeableConcept = $v2-0532#N "No"
 * component[8].code = $sct#300471006
 * component[8].valueInteger = 6
 * component[9].code = $sct#114961000119106
 * component[9].valueDateTime = "2026-06-06T00:00:00+05:00"
 * component[10].code.text = "Umbilical wound finding"
-* component[10].valueCodeableConcept = $sct#373067005
+* component[10].valueCodeableConcept = $v2-0532#N "No"
 
 Instance: observation-daily-day6-097
 InstanceOf: UZCoreObservation
@@ -2260,13 +2259,13 @@ Usage: #inline
 * component[6].code = $newborn-daily-monitoring-cs#chr-0125-0003
 * component[6].valueCodeableConcept.text = "Tolerating feeds well, no vomiting or abdominal distension"
 * component[7].code = $sct#62315008
-* component[7].valueCodeableConcept = $sct#373067005
+* component[7].valueCodeableConcept = $v2-0532#N "No"
 * component[8].code = $sct#300471006
 * component[8].valueInteger = 6
 * component[9].code = $sct#114961000119106
 * component[9].valueDateTime = "2026-06-07T00:00:00+05:00"
 * component[10].code.text = "Umbilical wound finding"
-* component[10].valueCodeableConcept = $sct#373067005
+* component[10].valueCodeableConcept = $v2-0532#N "No"
 
 
 Instance: observation-newborn-daily-review-day0-097
@@ -2300,7 +2299,7 @@ Usage: #inline
 * component[9].code = $newborn-daily-monitoring-cs#chr-0125-0007
 * component[9].valueCodeableConcept = $sct#17621005
 * component[10].code = $loinc#26436-6
-* component[10].valueString = "test test test"
+* component[10].valueString = "Complete blood count within normal limits"
 * note.text = "No active problems; routine newborn care and exclusive breastfeeding continued"
 
 Instance: observation-newborn-daily-review-day1-097
@@ -2334,7 +2333,7 @@ Usage: #inline
 * component[9].code = $newborn-daily-monitoring-cs#chr-0125-0007
 * component[9].valueCodeableConcept = $sct#17621005
 * component[10].code = $loinc#26436-6
-* component[10].valueString = "test test test"
+* component[10].valueString = "Complete blood count within normal limits"
 * note.text = "No active problems; routine newborn care and exclusive breastfeeding continued"
 
 Instance: observation-newborn-daily-review-day2-097
@@ -2368,7 +2367,7 @@ Usage: #inline
 * component[9].code = $newborn-daily-monitoring-cs#chr-0125-0007
 * component[9].valueCodeableConcept = $sct#17621005
 * component[10].code = $loinc#26436-6
-* component[10].valueString = "test test test"
+* component[10].valueString = "Complete blood count within normal limits"
 * note.text = "No active problems; routine newborn care and exclusive breastfeeding continued"
 
 Instance: observation-newborn-daily-review-day3-097
@@ -2402,7 +2401,7 @@ Usage: #inline
 * component[9].code = $newborn-daily-monitoring-cs#chr-0125-0007
 * component[9].valueCodeableConcept = $sct#17621005
 * component[10].code = $loinc#26436-6
-* component[10].valueString = "test test test"
+* component[10].valueString = "Complete blood count within normal limits"
 * note.text = "No active problems; routine newborn care and exclusive breastfeeding continued"
 
 Instance: observation-newborn-daily-review-day4-097
@@ -2436,7 +2435,7 @@ Usage: #inline
 * component[9].code = $newborn-daily-monitoring-cs#chr-0125-0007
 * component[9].valueCodeableConcept = $sct#17621005
 * component[10].code = $loinc#26436-6
-* component[10].valueString = "test test test"
+* component[10].valueString = "Complete blood count within normal limits"
 * note.text = "No active problems; routine newborn care and exclusive breastfeeding continued"
 
 Instance: observation-newborn-daily-review-day5-097
@@ -2470,7 +2469,7 @@ Usage: #inline
 * component[9].code = $newborn-daily-monitoring-cs#chr-0125-0007
 * component[9].valueCodeableConcept = $sct#17621005
 * component[10].code = $loinc#26436-6
-* component[10].valueString = "test test test"
+* component[10].valueString = "Complete blood count within normal limits"
 * note.text = "No active problems; routine newborn care and exclusive breastfeeding continued"
 
 Instance: observation-newborn-daily-review-day6-097
@@ -2504,7 +2503,7 @@ Usage: #inline
 * component[9].code = $newborn-daily-monitoring-cs#chr-0125-0007
 * component[9].valueCodeableConcept = $sct#17621005
 * component[10].code = $loinc#26436-6
-* component[10].valueString = "test test test"
+* component[10].valueString = "Complete blood count within normal limits"
 * note.text = "No active problems; routine newborn care and exclusive breastfeeding continued"
 
 

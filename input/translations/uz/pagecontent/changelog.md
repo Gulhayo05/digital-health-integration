@@ -4,6 +4,10 @@
 
 #### Qo'shildi
 
+[Yangi tug'ilgan chaqaloq rivojlanishining tibbiy kartasi, 097-shakl](StructureDefinition-form-097-newborn-development-composition.html), FHIR hujjati sifatida profillandi: ona haqida ma'lumot va antenatal anamnez, tug'ruq, chaqaloqning birlamchi ko'rigi, oziqlantirish, kundalik kuzatuv va shifokor ko'rigi, tana vazni, profilaktika va immunizatsiya, skrining, chiqarish, o'tkazish yoki o'lim - Composition'ning 11 bo'limida. Hujjat namunalari, jumladan tirik va o'lik tug'ilish natijalari bilan, va [maydonlar moslashtirish sahifasi](form-097-mapping.html) qo'shildi.
+
+#### Qo'shildi
+
 Skrining sahifasidagi [Skrining rejalari va takliflari](cervical-breast-cancer-screening.html#screening-plans) bo'limi skrining dasturi bemorni qanday taklif qilishi va uning rejasini yangi profillarsiz, mavjud UZ Core profillarida qanday yuritishini tavsiflaydi. UZ Core ActivityDefinition taklif shabloni bo'ladi (`kind` = `ServiceRequest`, `intent` = `plan`), UZ Core PlanDefinition uni versiyasi bilan biriktiradi, bemorning rejasi esa `intent` = `plan`, skriningga taklif toifasi va bitta dastur identifikatoriga ega UZ Core ServiceRequest dir. Reja holatini MIS boshqaradi: DMED so'rovnoma saqlangach o'z rejasini yakunlaydi, OPV esa rejani skrining bosqichlari davomida faol saqlaydi. DHP natijalarga qarab rejani yakunlangan deb hisoblamaydi.
 
 #### Qo'shildi
@@ -207,17 +211,3 @@ Torroq ro'yxat bilan cheklanmagan tashxislar [to'liq XKT-10 qiymatlar to'plamiga
 #### Namunalar
 
 Har bir bo'limda real namunalar mavjud: to'rtta hujjat-Bundle, shuningdek ular murojaat qiladigan bemorlar, mutaxassislar, tashkilotlar, tashriflar, kuzatuvlar, yo'llanmalar, namunalar va xulosalar. Ikkita namunaviy so'rovnoma kiritilgan: ginekologlar uchun [shikoyatlarni yig'ish shabloni](Questionnaire-screening-intake-template.html) namunaviy javobi bilan va [B va C gepatitlarini davolash so'rovnomasi](Questionnaire-hepatitis-questionnaire.html).
-
-### 2026-10-27 — Form 097 terminology and optionality
-
-Barcha klinik bo‘limlar ixtiyoriy (0..1); manbada fakt bo‘lmasa, bo‘lim yoki resurs yuborilmaydi.
-Nol, salbiy xulosa, Apgar qismlari yoki beshinchi daqiqa bahosi o‘ylab topilmaydi. DMED Apgar qiymati birinchi daqiqadagi umumiy bahodir (LOINC 9272-6).
-Composition.author va majburiy FHIR/Core metama’lumotlari saqlanadi. Klinik bo‘lim ixtiyoriyligi muallifni bekor qilmaydi.
-Faqat ta’rifi tasdiqlangan aniq kanonik Coding.system URI ishlatiladi. Ochiq PR ta’rifi kelishish yoki serverga joylashni tasdiqlamaydi.
-Mashina kodi bo‘lmasa, profil ruxsat bergan maydonda manbaning ishonchli matni saqlanadi; o‘xshash xalqaro kod taxmin bilan tanlanmaydi.
-Tug‘ilish natijasi: LOINC 63893-2 va SNOMED CT 281050002 Livebirth yoki 237364002 Stillbirth. Tirik tug‘ilgandan keyingi o‘lim alohida faktdir.
-Homila o‘limi davri ma’lum bo‘lsa, ayni bola uchun Condition qo‘shiladi: antenatal 237361005 yoki intranatal 237362003.
-O‘lim ma’lum, aniq sana yo‘q bo‘lsa Patient.deceasedBoolean=true; deceasedDateTime faqat sana ma’lum bo‘lganda ishlatiladi.
-Oldingi homiladorliklar soni joriy tug‘ruqdan hisoblanmaydi; DMED bermagan anamnestik ko‘rsatkichlar yuborilmaydi.
-096 va 097 dagi umumiy tug‘ruq faktlarining subyekti ona va uning gospitalizatsiyasi bo‘lib qoladi; manbaga asoslangan barqaror identifikatorlar ishlatiladi.
-Hujjatdagi holat tarixiy nusxadir. Hujjatni POST qilish mustaqil asosiy Encounter yangilanishini o‘zi ta’minlamaydi.

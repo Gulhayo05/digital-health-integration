@@ -1,7 +1,7 @@
 ValueSet: AmnioticFluidCharacteristicVS
 Id: amniotic-fluid-characteristic-vs
 Title: "Amniotic Fluid Characteristic ValueSet"
-Description: "Appearance of amniotic fluid for Form097 newborn development record: SNOMED CT for clear fluid, local codes for characteristics with no exact active SNOMED CT concept."
+Description: "Appearance of amniotic fluid: SNOMED CT for clear fluid, local codes for characteristics with no exact active SNOMED CT concept."
 * insert IntegrationsValueSet(amniotic-fluid-characteristic-vs)
 * ^experimental = true
 

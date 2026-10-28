@@ -1,12 +1,27 @@
+<style>
+/* Per-form mapping-table column widths (097: long local-code paths across 11 sections). */
+.col-12 table { table-layout: fixed; width: 100%; }
+.col-12 th, .col-12 td { overflow-wrap: anywhere; word-break: break-word; vertical-align: top; }
+.col-12 th:nth-child(1), .col-12 td:nth-child(1) { width: 18%; }
+.col-12 th:nth-child(2), .col-12 td:nth-child(2) { width: 18%; }
+.col-12 th:nth-child(3), .col-12 td:nth-child(3) { width: 22%; }
+.col-12 th:nth-child(4), .col-12 td:nth-child(4) { width: 26%; }
+.col-12 th:nth-child(5), .col-12 td:nth-child(5) { width: 16%; }
+</style>
+
 ### Form 097 - Newborn Development Medical Record
 
-This page documents the mapping between Form 097 (Newborn Development Medical Record) fields and FHIR resources.
+This page documents the mapping between Form 097 (Yangi tug'ilgan chaqaloq rivojlanishining tibbiy kartasi) fields and FHIR resources.
 
 ---
 
 ### Overview
 
-Form 097 captures the full clinical record of a newborn from birth through discharge, including maternal/antenatal history, the birth event, first newborn examination, daily observation and physician review, weight dynamics, prophylaxis and immunization, screening, and discharge. The form data maps to multiple FHIR resources bundled together as a FHIR Document, conforming to the [Form 097 Newborn Development Composition](StructureDefinition-form-097-newborn-development-composition.html) profile. Where available, resources conform to [UZ Core](https://dhp.uz/fhir/core/en/artifacts.html) profiles. Newborn maturity scoring (Apgar, Dubowitz-Ballard) and daily observation fields not covered by LOINC/SNOMED use local CodeSystems, pending publication of the official CHR (Common Health Registry) terminology.
+Form 097 records a newborn's stay in the maternity hospital from birth to discharge, transfer or death: the mother's antenatal history, the birth event, the first newborn examination, feeding, daily observation and physician review, weight dynamics, prophylaxis and immunization, screening, and discharge. The form data maps to multiple FHIR resources bundled together as a FHIR Document, conforming to the [Form 097 Newborn Development Composition](StructureDefinition-form-097-newborn-development-composition.html) profile. Where available, resources conform to [UZ Core](https://dhp.uz/fhir/core/en/artifacts.html) profiles.
+
+Each of the 11 sections of the Composition carries its own `section.code` (LOINC where a suitable concept exists, otherwise a local [Form 097 section codes](ValueSet-form-097-section-vs.html) code) and lists the resources belonging to that part of the form. Every section is optional: send a section only when DMED has facts for it, and leave out fields whose source value is missing rather than sending zeroes or negative findings.
+
+Delivery facts that Form 096 and Form 097 share keep the mother as their subject and the mother's delivery encounter, so the two documents describe the same delivery with the same business identifiers.
 
 For a complete reference instance, see the [Form 097 newborn development example](Bundle-example-form-097-newborn-development.html).
 
@@ -14,160 +29,229 @@ For a complete reference instance, see the [Form 097 newborn development example
 
 ### Field Mapping
 
-### UZ-097 Newborn Development Medical Record - FHIR Mapping
+### Form 097 Newborn Development Medical Record - FHIR Mapping
 
 ---
 
-### Mother Information and Antenatal History
+### Document Information
 
-| UZ | RU | FHIR Path | Code | Example |
-|----|----|------------|------|---------|
-| Onaning JShShIRi | ПИНФЛ матери | [Patient](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-patient.html).identifier[nationalId].value | NI | 31234567890123 |
+| UZ | RU | FHIR Path | Code | Example Value |
+|----|----|------------|------|---------------|
+| Hujjat instansiyasi UUID | Идентификатор документа | Composition.identifier | `urn:ietf:rfc:3986` | urn:uuid:997f9511-f30c-52e5-b827-557766550097 |
+| Shakl raqami | Номер формы | Composition.identifier | `https://dhp.uz/fhir/core/sid/doc/uz/form-number` | 097 |
+| Hujjat holati | Статус документа | Composition.status | `preliminary` while the newborn is in the maternity hospital, `final` at discharge, transfer or death | final |
+| Hujjat turi | Тип документа | Composition.type | LOINC `18842-5` "Discharge summary" | - |
+| Hujjat kategoriyasi | Категория документа | Composition.category | [Document Category](CodeSystem-document-category-cs.html) `form-097` | - |
+| Yangi tug'ilgan chaqaloq | Новорождённый | Composition.subject | [Patient](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-patient.html) | Karimov Aziz Shavkatovich |
+| Tug'ruqxonada bo'lish davri | Пребывание в родильном доме | Composition.encounter | [Encounter](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-encounter.html) | 2026-06-01 - 2026-06-07 |
+| Davolovchi shifokor | Лечащий врач | Encounter.participant.actor | [PractitionerRole](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-practitioner-role.html) | Attending neonatologist |
+| Hujjat shakllantirilgan sana | Дата составления документа | Composition.date | - | 2026-06-01T09:00:00+05:00 |
+| Hujjatni saqlagan foydalanuvchi | Пользователь, сохранивший документ | Composition.author | [PractitionerRole](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-practitioner-role.html) | Nurse |
+| Hujjat sarlavhasi | Заголовок документа | Composition.title | - | Form 097 - Newborn Development Medical Record |
+
+---
+
+### 1. Mother information and antenatal history
+
+Section code: LOINC `57073-9` "Prenatal records".
+
+Gravidity and parity come from the source record only. Do not count them from the current delivery, and leave them out when DMED has no value.
+
+| UZ | RU | FHIR Path | Code | Example Value |
+|----|----|------------|------|---------------|
+| Onaning JShShIRi | ПИНФЛ матери | [Patient](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-patient.html).identifier[nationalId] | `system` `https://dhp.uz/fhir/core/sid/pid/uz/ni`<br>`type` `NI` | 31234567890123 |
 | Onaning F.I.Sh. | Ф.И.О. матери | Patient.name.text | - | Karimova Dilnoza Farkhodovna |
 | Onaning tug'ilgan sanasi | Дата рождения матери | Patient.birthDate | - | 1992-03-12 |
-| Oilaviy holati | Семейное положение | Patient.maritalStatus | v3-MaritalStatus | Married |
-| Manzil | Адрес | Patient.address | - | 12 Amir Temur ko'chasi, Toshkent |
-| Millati | Национальность | Patient.extension[nationality] | Local code | UZBEK |
-| Ish joyi/kasbi | Место работы/профессия | Observation.valueCodeableConcept | SNOMED CT `224406003` "Details relating to place of work and employer" + Local profession code | Lecturer |
-| Onaning qon guruhi | Группа крови матери | Observation.code `90905-1` + valueCodeableConcept | LOINC `90905-1`; value bound to `abo-blood-group-vs` (SNOMED CT) | Blood group A Rh(D) negative |
-| Onaning rezus-omili | Резус-фактор матери | Observation.code `54416-3` + valueCodeableConcept | LOINC `54416-3`; value bound to `rh-factor-vs` (SNOMED CT) | Rh negative |
-| Otaning qon guruhi | Группа крови отца | Observation.code `90906-9` + valueCodeableConcept | LOINC `90906-9`; value bound to `abo-blood-group-vs` (SNOMED CT) | Blood group A |
-| Homiladorlik soni | Число беременностей | Observation.valueInteger | LOINC `11996-6` "Pregnancies" | 4 |
-| Tug'ruq soni | Число родов | Observation.valueInteger | LOINC `11977-6` "Parity" | 2 |
-| Homiladorlik muddati | Срок беременности | Observation.valueQuantity | LOINC `11884-4` "Gestational age Estimated" | 40 weeks |
-| Homiladorlik asorati | Осложнение беременности | [Condition](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-condition.html).code | ICD-10 | O24.4 |
-| Amniotik suyuqlik ko'rinishi | Вид околоплодных вод | Observation.code `1887-9` + valueCodeableConcept | LOINC `1887-9` "Appearance of amniotic fluid"; value bound to `amniotic-fluid-characteristic-vs` (SNOMED CT `168090003` + local `chr-0084-*`) | Transparent |
-| Naslli anamnez (ona) | Наследственный анамнез (мать) | FamilyMemberHistory.condition.code | - | Diabetes mellitus |
-| Naslli anamnez (ota) | Наследственный анамнез (отец) | FamilyMemberHistory.condition.code | SNOMED CT | Bronchospasm |
+| Oilaviy holati | Семейное положение | Patient.maritalStatus | `value` [UZ Core Marital Status](https://dhp.uz/fhir/core/en/ValueSet-marital-status-vs.html) | Married (`M`) |
+| Manzil | Адрес | Patient.address | - | 12 Amir Temur ko'chasi |
+| Millati | Национальность | Patient.extension[nationality] | `value` [UZ Core Nationality](https://dhp.uz/fhir/core/en/CodeSystem-nationality-cs.html) | `44` |
+| Ish joyi/kasbi | Место работы/профессия | [UZCoreSocioeconomicObservation](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-socioeconomic-observation.html).valueCodeableConcept | `code` SNOMED CT `14679004` "Occupation"<br>`value` [UZ Core Position and Profession](https://dhp.uz/fhir/core/en/CodeSystem-position-and-profession-cs.html) | O'qituvchi (`2310.8`) |
+| Onaning qon guruhi | Группа крови матери | Observation.valueCodeableConcept | `code` LOINC `90905-1`<br>`value` SNOMED CT, see [ABO Blood Group](ValueSet-abo-blood-group-vs.html) | Blood group A Rh(D) negative (`278152006`) |
+| Onaning rezus-omili | Резус-фактор матери | Observation.valueCodeableConcept | `code` LOINC `54416-3`<br>`value` [Rh Factor](ValueSet-rh-factor-vs.html) | Rh negative (`165746003`) |
+| Otaning qon guruhi | Группа крови отца | Observation.valueCodeableConcept | `code` LOINC `90906-9`<br>`value` [ABO Blood Group](ValueSet-abo-blood-group-vs.html) | Blood group A (`112144000`) |
+| Otaning rezus-omili | Резус-фактор отца | Observation.valueCodeableConcept | `code` LOINC `52792-9`<br>`value` [Rh Factor](ValueSet-rh-factor-vs.html) | Rh positive (`165747007`) |
+| Homiladorlik soni | Число беременностей | Observation.valueInteger | `code` LOINC `11996-6` "[#] Pregnancies" | 4 |
+| Tug'ruq soni | Число родов | Observation.valueInteger | `code` LOINC `11977-6` "[#] Parity" | 2 |
+| Homiladorlik muddati | Срок беременности | Observation.valueQuantity | `code` LOINC `11884-4` "Gestational age Estimated" | 40 wk |
+| Homiladorlik asorati | Осложнение беременности | [Condition](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-condition.html).code | ICD-10 | `O24.4` "Diabetes mellitus arising in pregnancy" |
+| Amniotik suyuqlik ko'rinishi | Вид околоплодных вод | Observation.valueCodeableConcept | `code` LOINC `1887-9` "Appearance of amniotic fluid"<br>`value` [Amniotic Fluid Characteristic](ValueSet-amniotic-fluid-characteristic-vs.html) | Amniotic fluid clear (`168090003`) |
+| Naslli anamnez (ona) | Наследственный анамнез (мать) | FamilyMemberHistory.condition.code | `relationship` `MTH`<br>`code` SNOMED CT | Diabetes mellitus |
+| Naslli anamnez (ota) | Наследственный анамнез (отец) | FamilyMemberHistory.condition.code | `relationship` `FTH`<br>`code` SNOMED CT | Bronchial asthma |
 
 ---
 
-### Birth Event
+### 2. Birth event
 
-| UZ | RU | FHIR Path | Code | Example |
-|----|----|------------|------|---------|
-| Tug'ilgan bo'yi | Рост при рождении | Observation.valueQuantity | LOINC `89269-5` "Body height Measured --at birth" | 51 cm |
-| Tug'ruq o'z vaqtidami | Своевременность родов | Observation.valueCodeableConcept | Local code | Timely delivery |
-| Chaqaloqning muddat holati | Срок рождения новорождённого | Observation.valueCodeableConcept | Local code | Term |
-| Hayotiylik natijasi | Исход плода | Observation.valueCodeableConcept | value bound to `newborn-vital-status-vs` (SNOMED CT `281050002` / `237364002`) | Livebirth |
-| Chaqaloq qon guruhi | Группа крови новорождённого | Observation.code `883-9` + valueCodeableConcept | LOINC `883-9`; value bound to `abo-blood-group-vs` (SNOMED CT) | Group II (A) |
-| Chaqaloq rezus-omili | Резус-фактор новорождённого | Observation.code `14908-8` + valueCodeableConcept | LOINC `14908-8`; value bound to `rh-factor-vs` (SNOMED CT) | Rh positive |
-| Bosh aylanasi | Окружность головы | Observation.valueQuantity | LOINC `9843-4` "Head Occipital-frontal circumference" | 34 cm |
-| Ko'krak aylanasi | Окружность груди | Observation.valueQuantity | SNOMED CT `248366000` "Chest circumference" | 33 cm |
-| Nafas olish belgisi | Признак дыхания | Observation.valueBoolean | Local code `chr-0127-0001` (no active SNOMED CT concept) | true |
-| Yurak urishi belgisi | Признак сердцебиения | Observation.valueBoolean | Local code `chr-0127-0002` (no active SNOMED CT concept) | true |
-| Kindik tomirlari pulsatsiyasi | Пульсация пуповины | Observation.valueBoolean | Local code `chr-0127-0003` (no active SNOMED CT concept) | true |
-| Ixtiyorsiz mushak qisqarishi | Непроизвольное сокращение мышц | Observation.valueBoolean | Local code `chr-0127-0004` (no active SNOMED CT concept) | true |
-| Teri-teriga kontakt vaqti | Время контакта кожа к коже | Observation.valueQuantity | Local code | 5 min |
-| Teri-teriga kontakt davomiyligi | Продолжительность контакта кожа к коже | Observation.valueQuantity | Local code | 40 min |
-| Ko'krakka berilgan vaqt | Время первого прикладывания к груди | Observation.valueCodeableConcept | Local code `chr-0122-0001`, bound to `breastfeeding-initiation-time-vs` | Within 30–60 minutes |
-| Gonoblennoreya profilaktikasi | Профилактика гонобленореи | [Medication](http://hl7.org/fhir/StructureDefinition/Medication).code | ATC `S01AA17` | Erythromycin ophthalmic ointment |
-| Apgar bali (1-daqiqa) | Оценка по Апгар (1 мин) | Observation.valueInteger + component[] | LOINC `9272-6` "1 minute Apgar Score" + 5 components | 8 |
-| Apgar bali (5-daqiqa) | Оценка по Апгар (5 мин) | Observation.valueInteger + component[] | LOINC `9274-2` "5 minute Apgar Score" + 5 components | 9 |
-| Terining yetukligi (Ballard) | Зрелость кожи (Баллард) | Observation.component.valueCodeableConcept | Local code | 1: smooth pink, visible veins |
-| Lanugo yetukligi (Ballard) | Зрелость лануго (Баллард) | Observation.component.valueCodeableConcept | Local code | 1: abundant |
-| Neyromushak yetukligi (Ballard) | Нейромышечная зрелость (Баллард) | Observation.valueCodeableConcept + component[] | Local code | 1 points |
+Section code: LOINC `57075-4` "Newborn delivery information".
 
----
+Birth outcome is a fact about the birth itself: a death after a livebirth is recorded separately. When the period of fetal death is known, also send a Condition for the same child. When the newborn has died but the exact time is unknown, set `Patient.deceasedBoolean` to `true`, and use `deceasedDateTime` only when DMED has the time.
 
-### First Newborn Examination
-
-| UZ | RU | FHIR Path | Code | Example |
-|----|----|------------|------|---------|
-| Umumiy ko'rinishi | Общий вид новорождённого | Observation.valueCodeableConcept | Local code `chr-0123-0001` | Satisfactory |
-| Teri rangi | Цвет кожных покровов | Observation.valueCodeableConcept | LOINC `39107-8` "Color of Skin" | Pink |
-| Sianoz mavjudligi | Наличие цианоза | Observation.valueBoolean | SNOMED CT `3415004` "Cyanosis" | false |
-| Kindik qoldig'i holati | Состояние остатка пуповины | Observation.valueCodeableConcept | Local code `chr-0123-0004` | Satisfactory |
-| Nevrologik holat | Неврологический статус | Observation.valueCodeableConcept | Local code `chr-0123-0014` | Normal |
-| Bosh fontanellari o'lchami (kichik) | Размер малого родничка | Observation.valueQuantity | Local code `chr-0123-0019` "Fontanelle size" | 1 cm |
-| Bosh fontanellari o'lchami (katta) | Размер большого родничка | Observation.valueQuantity | Local code `chr-0123-0019` "Fontanelle size" | 2.5 cm |
-| Ko'z shakli | Форма глаз | Observation.valueCodeableConcept | Local code | Almond-shaped |
-| Nafas olish sur'ati | Частота дыхания | Observation.valueQuantity | LOINC `9279-1` "Respiratory rate" | 40/min |
-| Yurak urish sur'ati | Частота сердечных сокращений | Observation.valueQuantity | LOINC `8867-4` "Heart rate" | 140/min |
-| Sильверман shkalasi | Шкала Сильвермана | Observation.valueInteger + interpretation | Local code `chr-0123-0034` | 0 points |
-| Yurak chegaralari / shovqinlar / ritmi | Границы/шумы/ритм сердца | One Observation, 3 components: component.code -> `cardiac-examination-aspect-vs`, component.value -> `normal-abnormal-status-vs` | Normal |
-| Qorin holati | Состояние живота | Observation.valueCodeableConcept | Local code `chr-0123-0028` | Normal |
-| Jigar/taloq o'lchami | Размер печени/селезёнки | Observation.valueCodeableConcept | Local code | Normal |
-| Tashqi jinsiy a'zolar holati | Состояние наружных половых органов | Observation.valueCodeableConcept | Local code / SNOMED CT | Male pattern |
-| Chanoq-son bo'g'imlari holati | Состояние тазобедренных суставов | Observation.valueCodeableConcept | Local code `chr-0123-0025` | Normal |
-| Ko'rik xulosasi | Заключение осмотра | Observation.valueString | Local code `chr-0123-0006` | - |
-| Taxminiy tashxis | Предварительный диагноз | Condition.code | ICD-10 | P59.9 |
+| UZ | RU | FHIR Path | Code | Example Value |
+|----|----|------------|------|---------------|
+| Tug'ilgan bo'yi | Рост при рождении | Observation.valueQuantity | `code` LOINC `89269-5` "Body height Measured --at birth" | 51 cm |
+| Tug'ruq o'z vaqtidami | Своевременность родов | Observation.valueCodeableConcept | `value` [Delivery Timeliness](ValueSet-delivery-timeliness-vs.html) | Timely delivery (`chr-0091-0001`) |
+| Chaqaloqning muddat holati | Срок рождения новорождённого | Observation.valueCodeableConcept | `code` [Newborn Maturity Assessment](CodeSystem-newborn-maturity-assessment-cs.html) `chr-0126-0001`<br>`value` [Newborn Term Status](ValueSet-newborn-term-status-vs.html) | Term (`chr-0114-0002`) |
+| Hayotiylik natijasi | Исход плода | Observation.valueCodeableConcept | `code` LOINC `63893-2` "Outcome of birth"<br>`value` [Newborn Vital Status](ValueSet-newborn-vital-status-vs.html): SNOMED CT `281050002` "Livebirth" or `237364002` "Stillbirth" | Livebirth (`281050002`) |
+| O'lik tug'ilish davri | Период внутриутробной гибели | Condition.code | SNOMED CT `237361005` "Antepartum fetal death" or `237362003` "Fetal intrapartum death" | See the [antepartum](Bundle-example-form-097-antepartum-stillbirth.html) and [intrapartum](Bundle-example-form-097-intrapartum-stillbirth.html) examples |
+| Chaqaloq qon guruhi | Группа крови новорождённого | Observation.valueCodeableConcept | `code` LOINC `883-9`<br>`value` [ABO Blood Group](ValueSet-abo-blood-group-vs.html) | Blood group A (`112144000`) |
+| Chaqaloq rezus-omili | Резус-фактор новорождённого | Observation.valueCodeableConcept | `code` LOINC `14908-8`<br>`value` [Rh Factor](ValueSet-rh-factor-vs.html) | Rh positive (`165747007`) |
+| Bosh aylanasi | Окружность головы | Observation.valueQuantity | `code` LOINC `9843-4` "Head Occipital-frontal circumference" | 34 cm |
+| Ko'krak aylanasi | Окружность груди | Observation.valueQuantity | `code` SNOMED CT `248366000` "Chest circumference" | 33 cm |
+| Nafas olish belgisi | Признак дыхания | Observation.valueBoolean | `code` [Newborn Signs of Life](CodeSystem-newborn-signs-of-life-cs.html) `chr-0127-0001` | true |
+| Yurak urishi belgisi | Признак сердцебиения | Observation.valueBoolean | `code` [Newborn Signs of Life](CodeSystem-newborn-signs-of-life-cs.html) `chr-0127-0002` | true |
+| Kindik tomirlari pulsatsiyasi | Пульсация пуповины | Observation.valueBoolean | `code` [Newborn Signs of Life](CodeSystem-newborn-signs-of-life-cs.html) `chr-0127-0003` | true |
+| Ixtiyorsiz mushak qisqarishi | Непроизвольное сокращение мышц | Observation.valueBoolean | `code` [Newborn Signs of Life](CodeSystem-newborn-signs-of-life-cs.html) `chr-0127-0004` | true |
+| Gonoblennoreya profilaktikasi | Профилактика гонобленореи | MedicationAdministration.medication → Medication.code | SNOMED CT `30427009` "Erythromycin-containing product" | Erythromycin eye ointment |
+| Apgar bali (1-daqiqa) | Оценка по Апгар (1 мин) | Observation.valueInteger | `code` LOINC `9272-6` "1 minute Apgar Score" | 8 |
+| Apgar bali (5-daqiqa) | Оценка по Апгар (5 мин) | Not sent | DMED sends only the 1-minute total. Do not send a 5-minute score or Apgar components it does not have | - |
+| Jismoniy yetuklik (Ballard) | Физическая зрелость (Баллард) | Observation.component.valueCodeableConcept | `code` [Newborn Maturity Assessment](CodeSystem-newborn-maturity-assessment-cs.html) `chr-0126-0007`<br>`value` the Ballard ValueSets, such as [Skin](ValueSet-ballard-skin-maturity-vs.html) and [Lanugo](ValueSet-ballard-lanugo-maturity-vs.html) | 1: smooth pink, visible veins |
+| Neyromushak yetuklik (Ballard) | Нейромышечная зрелость (Баллард) | Observation.valueCodeableConcept + component | `code` [Newborn Maturity Assessment](CodeSystem-newborn-maturity-assessment-cs.html) `chr-0126-0010`<br>`value` [Ballard Neuromuscular Score](ValueSet-ballard-neuromuscular-score-vs.html) | `chr-0118-0003` |
 
 ---
 
-### Daily Observation (Day 0-6)
+### 3. First newborn examination
 
-| UZ | RU | FHIR Path | Code | Example |
-|----|----|------------|------|---------|
-| Teri | Кожа | Observation.component.valueCodeableConcept | Local code / SNOMED CT | Skin finding |
-| Ko'zlar, shilliq qavatlar | Глаза, слизистые оболочки | Observation.component.valueCodeableConcept | SNOMED CT | Eye |
-| Nafas yetishmovchiligi | Дыхательная недостаточность | Observation.component.valueCodeableConcept | SNOMED CT | Abnormal breathing |
-| Tana vazni | Масса тела | Observation.component.valueQuantity | LOINC `3141-9` "Body weight Measured" | 3200 g |
-| Tana harorati | Температура тела | Observation.component.valueQuantity | LOINC `8310-5` "Body temperature" | 36.8 °C |
-| Emizish turi | Тип вскармливания | Observation.component.valueCodeableConcept | LOINC `63895-7` + Local code | Exclusive breastfeeding |
-| Ovqatlanishni o'zlashtirish | Переносимость кормления | Observation.component.valueCodeableConcept | SNOMED CT `274540003` "Feeding difficulties and mismanagement" | - |
-| Ich ketishi | Диарея | Observation.component.valueCodeableConcept | SNOMED CT `62315008` "Diarrhea" | No |
-| Siydik chiqarish chastotasi | Частота мочеиспускания | Observation.component.valueInteger | SNOMED CT `300471006` | 6 |
-| Kindik ajralish vaqti | Время отделения пуповины | Observation.component.valueDateTime | SNOMED CT `114961000119106` | - |
-| Kindik yarasi holati | Состояние пупочной ранки | Observation.component.valueCodeableConcept | SNOMED CT `210458004` | No |
+Section code: LOINC `29545-1` "Physical findings note".
 
----
+Yes/no findings use HL7 [v2-0532](https://terminology.hl7.org/CodeSystem-v2-0532.html) `Y` "Yes" or `N` "No".
 
-### Newborn Observation Sheet (Physician Daily Review, Day 0-6)
-
-| UZ | RU | FHIR Path | Code | Example |
-|----|----|------------|------|---------|
-| Umumiy holati | Общее состояние новорождённого | Observation.component.valueCodeableConcept | Local code `chr-0125-0009` | Satisfactory |
-| Faollik darajasi | Уровень активности | Observation.component.valueCodeableConcept | Local code `chr-0125-0013` | Moderate |
-| Reflekslar holati | Состояние рефлексов | Observation.component.valueCodeableConcept | Local code `chr-0125-0004` | Sucking reflex |
-| Mushak tonusi | Мышечный тонус | Observation.component.valueCodeableConcept | Local code `chr-0125-0005` | Normal |
-| Teri rangi | Цвет кожи | Observation.component.valueCodeableConcept | LOINC `39107-8` "Color of Skin" | Normal color |
-| Nafas olish holati | Состояние дыхания | Observation.component.valueCodeableConcept | Local code `chr-0125-0012` | Normal |
-| Yurak-qon tomir tizimi holati | Состояние сердечно-сосудистой системы | Observation.component.valueCodeableConcept | Local code `chr-0125-0010` | Normal |
-| Qorin bo'shlig'i a'zolari holati | Состояние органов брюшной полости | Observation.component.valueCodeableConcept | Local code `chr-0125-0002` | Normal |
-| Siydik va najas holati | Состояние мочеиспускания и стула | Observation.component.valueCodeableConcept | Local code `chr-0125-0007` | Normal |
-| Laborator tekshiruvlar | Лабораторные исследования | Observation.component.valueString | LOINC `26436-6` "Laboratory studies (set)" | - |
+| UZ | RU | FHIR Path | Code | Example Value |
+|----|----|------------|------|---------------|
+| Umumiy ko'rinishi | Общий вид новорождённого | Observation.valueCodeableConcept | `code` [Newborn Physical Examination](CodeSystem-newborn-physical-examination-cs.html) `chr-0123-0001`<br>`value` [Satisfactory Status](ValueSet-satisfactory-status-vs.html) | Satisfactory (`chr-0040-0001`) |
+| Teri rangi | Цвет кожных покровов | Observation.valueCodeableConcept | `code` LOINC `39107-8` "Color of Skin" | Pink skin (`304230005`) |
+| Sianoz mavjudligi | Наличие цианоза | Observation.valueBoolean | `code` SNOMED CT `3415004` "Cyanosis" | false |
+| Kindik qoldig'i holati | Состояние остатка пуповины | Observation.valueCodeableConcept | `code` [Newborn Physical Examination](CodeSystem-newborn-physical-examination-cs.html) `chr-0123-0004`<br>`value` [Satisfactory Status](ValueSet-satisfactory-status-vs.html) | Satisfactory (`chr-0040-0001`) |
+| Nevrologik holat | Неврологический статус | Observation.valueCodeableConcept | `code` [Newborn Physical Examination](CodeSystem-newborn-physical-examination-cs.html) `chr-0123-0014` | Normal (`17621005`) |
+| Kichik liqildoq o'lchami | Размер малого родничка | Observation.valueQuantity | `code` [Newborn Physical Examination](CodeSystem-newborn-physical-examination-cs.html) `chr-0123-0019` | 1 cm |
+| Katta liqildoq o'lchami | Размер большого родничка | Observation.valueQuantity | `code` [Newborn Physical Examination](CodeSystem-newborn-physical-examination-cs.html) `chr-0123-0019` | 2.5 cm |
+| Ko'z shakli | Форма глаз | Observation.valueCodeableConcept | `code` [Newborn Physical Examination](CodeSystem-newborn-physical-examination-cs.html) `chr-0123-0013`<br>`value` [Eyelid Shape](ValueSet-eyelid-shape-vs.html) | `chr-0097-0001` |
+| Nafas olish sur'ati | Частота дыхания | Observation.valueQuantity | `code` LOINC `9279-1` "Respiratory rate" | 40 /min |
+| Yurak urish sur'ati | Частота сердечных сокращений | Observation.valueQuantity | `code` LOINC `8867-4` "Heart rate" | 140 /min |
+| Silverman shkalasi | Шкала Сильвермана | Observation.valueInteger + component | `code` [Newborn Physical Examination](CodeSystem-newborn-physical-examination-cs.html) `chr-0123-0034`<br>`value` [Silverman Respiratory Severity](ValueSet-silverman-respiratory-severity-vs.html) | 0 (`chr-0100-0001`) |
+| Yurak chegaralari, shovqinlar, ritmi | Границы, шумы, ритм сердца | Observation.component | `code` [Cardiac Examination Aspect](ValueSet-cardiac-examination-aspect-vs.html)<br>`value` [Normal/Abnormal Status](ValueSet-normal-abnormal-status-vs.html) | Normal (`17621005`) |
+| Qorin holati | Состояние живота | Observation.valueCodeableConcept | `code` [Newborn Physical Examination](CodeSystem-newborn-physical-examination-cs.html) `chr-0123-0028` | Normal (`17621005`) |
+| Jigar o'lchami | Размер печени | Observation.valueCodeableConcept | `code` [Newborn Physical Examination](CodeSystem-newborn-physical-examination-cs.html) `chr-0123-0023` | Normal (`17621005`) |
+| Taloq o'lchami | Размер селезёнки | Observation.valueCodeableConcept | `code` [Newborn Physical Examination](CodeSystem-newborn-physical-examination-cs.html) `chr-0123-0024` | Normal (`17621005`) |
+| Tashqi jinsiy a'zolar holati | Состояние наружных половых органов | Observation.valueCodeableConcept | `code` [Newborn Physical Examination](CodeSystem-newborn-physical-examination-cs.html) `chr-0123-0015`<br>`value` [External Genital Pattern](ValueSet-external-genital-pattern-vs.html) | `chr-0103-0001` |
+| Chanoq-son bo'g'imlari holati | Состояние тазобедренных суставов | Observation.valueCodeableConcept | `code` [Newborn Physical Examination](CodeSystem-newborn-physical-examination-cs.html) `chr-0123-0025` | Normal (`17621005`) |
+| Ko'rik xulosasi | Заключение осмотра | Observation.valueString | `code` [Newborn Physical Examination](CodeSystem-newborn-physical-examination-cs.html) `chr-0123-0006` | Healthy term newborn; no abnormalities detected on initial examination |
+| Taxminiy tashxis | Предварительный диагноз | Condition.code | ICD-10 | `P59.9` "Neonatal jaundice, unspecified" |
 
 ---
 
-### Weight Dynamics
+### 4. Feeding and skin-to-skin contact
 
-| UZ | RU | FHIR Path | Code | Example |
-|----|----|------------|------|---------|
-| Tug'ilishdagi vazn | Вес при рождении | Observation.valueQuantity | LOINC `8339-4` "Birth weight" | 3200 g |
-| Kunlik vazn (1-10 kun) | Ежедневный вес (день 1-10) | Observation.valueQuantity | LOINC `3141-9` "Body weight Measured" | 3100-3320 g |
+Section code: LOINC `61144-2` "Diet and nutrition Narrative".
 
----
-
-### Prophylaxis and Immunization
-
-| UZ | RU | FHIR Path | Code | Example |
-|----|----|------------|------|---------|
-| Gemorragik sindrom profilaktikasi | Профилактика геморрагического синдрома | MedicationAdministration.medication[x] | ATC `B02BA01` "phytomenadione" | 1 mg |
-| Gepatit B emlash | Вакцинация против гепатита B | Immunization.vaccineCode | CVX `08` | 0.5 mL |
-| Sil (BCG) emlash | Вакцинация БЦЖ | Immunization.vaccineCode | CVX `19` | 0.05 mL |
+| UZ | RU | FHIR Path | Code | Example Value |
+|----|----|------------|------|---------------|
+| Teri-teriga kontakt vaqti | Время контакта кожа к коже | Observation.valueQuantity | `code` [Newborn Birth and Anthropometry](CodeSystem-newborn-birth-anthropometry-cs.html) | 5 min |
+| Teri-teriga kontakt davomiyligi | Продолжительность контакта кожа к коже | Observation.valueQuantity | `code` [Newborn Birth and Anthropometry](CodeSystem-newborn-birth-anthropometry-cs.html) `chr-0122-0003` | 40 min |
+| Ko'krakka berilgan vaqt | Время первого прикладывания к груди | Observation.valueCodeableConcept | `code` [Newborn Birth and Anthropometry](CodeSystem-newborn-birth-anthropometry-cs.html) `chr-0122-0001`<br>`value` [Breastfeeding Initiation Time](ValueSet-breastfeeding-initiation-time-vs.html) | Within 30-60 minutes (`chr-0105-0001`) |
 
 ---
 
-### Screening
+### 5. Daily newborn observation (days 0-6)
 
-| UZ | RU | FHIR Path | Code | Example |
-|----|----|------------|------|---------|
-| Audiologik skrining | Аудиологический скрининг | Observation.valueString | Local code `chr-0124-0003` | Pass |
-| Tug'ma gipotireoz skriningi | Скрининг на врождённый гипотиреоз | Observation.valueString | Local code `chr-0124-0004` | Normal (negative) |
+Section code: LOINC `8716-3` "Vital signs note".
+
+Each day is one Observation coded [Newborn Daily Observation Component](CodeSystem-newborn-daily-observation-component-cs.html) `daily-observation-panel`, with one component per field.
+
+| UZ | RU | FHIR Path | Code | Example Value |
+|----|----|------------|------|---------------|
+| Teri | Кожа | Observation.component.valueCodeableConcept | `code` `skin` | Skin finding (`106076001`) |
+| Ko'zlar, shilliq qavatlar | Глаза, слизистые оболочки | Observation.component.valueCodeableConcept | `code` `eyes-mucosa` | Eye structure (`81745001`) |
+| Nafas yetishmovchiligi | Дыхательная недостаточность | Observation.component.valueCodeableConcept | `code` `respiratory-distress` | Abnormal breathing (`386813002`) |
+| Tana vazni | Масса тела | Observation.component.valueQuantity | `code` LOINC `3141-9` "Body weight Measured" | 3200 g |
+| Tana harorati | Температура тела | Observation.component.valueQuantity | `code` LOINC `8310-5` "Body temperature" | 36.8 °C |
+| Emizish turi | Тип вскармливания | Observation.component.valueCodeableConcept | `code` LOINC `63895-7`<br>`value` [Infant Feeding Type](ValueSet-infant-feeding-type-vs.html) | Exclusive breastfeeding (`chr-0106-0001`) |
+| Ovqatlanishni o'zlashtirish | Переносимость кормления | Observation.component.valueCodeableConcept | `code` [Newborn Daily Monitoring](CodeSystem-newborn-daily-monitoring-cs.html) `chr-0125-0003` | Tolerating feeds well |
+| Ich ketishi | Диарея | Observation.component.valueCodeableConcept | `code` SNOMED CT `62315008` "Diarrhea"<br>`value` v2-0532 | No (`N`) |
+| Siydik chiqarish chastotasi | Частота мочеиспускания | Observation.component.valueInteger | `code` SNOMED CT `300471006` "Finding of frequency of urination" | 6 |
+| Kindik ajralish vaqti | Время отделения пуповины | Observation.component.valueDateTime | `code` SNOMED CT `114961000119106` "Delayed separation of umbilical cord" | 2026-06-01 |
+| Kindik yarasi holati | Состояние пупочной ранки | Observation.component.valueCodeableConcept | `code.text` "Umbilical wound finding"<br>`value` v2-0532 | No (`N`) |
 
 ---
 
-### Discharge, Transfer, or Death
+### 6. Physician's daily review (days 0-6)
 
-| UZ | RU | FHIR Path | Code | Example |
-|----|----|------------|------|---------|
-| Chiqarishdagi umumiy holati | Общее состояние при выписке | Observation.valueCodeableConcept | Local code | Satisfactory |
-| Chiqarish tashxisi | Диагноз при выписке | Condition.code | ICD-10 | Z38.0 |
-| Tavsiyalar | Рекомендации | Observation.valueString | - | Routine follow-up with district pediatrician |
-| Hamshiradan onaga topshirish | Передача от медсестры матери | Provenance.agent | - | - |
+Section code: LOINC `8648-8` "Hospital course note".
+
+Each day is one Observation coded [Newborn Daily Monitoring](CodeSystem-newborn-daily-monitoring-cs.html) `chr-0125-0014`, with one component per field.
+
+| UZ | RU | FHIR Path | Code | Example Value |
+|----|----|------------|------|---------------|
+| Umumiy holati | Общее состояние новорождённого | Observation.component.valueCodeableConcept | `code` `chr-0125-0009`<br>`value` [Satisfactory Status](ValueSet-satisfactory-status-vs.html) | Satisfactory (`chr-0040-0001`) |
+| Faollik darajasi | Уровень активности | Observation.component.valueCodeableConcept | `code` `chr-0125-0013`<br>`value` [Newborn Activity Level](ValueSet-newborn-activity-level-vs.html) | `chr-0115-0002` |
+| Reflekslar holati | Состояние рефлексов | Observation.component.valueCodeableConcept | `code` `chr-0125-0004`<br>`value` [Primitive Reflex Type](ValueSet-primitive-reflex-type-vs.html) | `chr-0116-0002` |
+| Mushak tonusi | Мышечный тонус | Observation.component.valueCodeableConcept | `code` `chr-0125-0005`<br>`value` [Muscle Tone Status](ValueSet-muscle-tone-status-vs.html) | `chr-0095-0001` |
+| Teri rangi | Цвет кожи | Observation.component.valueCodeableConcept | `code` LOINC `39107-8` "Color of Skin"<br>`value` [Newborn Skin Color Detailed](ValueSet-newborn-skin-color-detailed-vs.html) | `chr-0117-0001` |
+| Nafas olish holati | Состояние дыхания | Observation.component.valueCodeableConcept | `code` `chr-0125-0012` | Normal (`17621005`) |
+| Yurak-qon tomir tizimi holati | Состояние сердечно-сосудистой системы | Observation.component.valueCodeableConcept | `code` `chr-0125-0010` | Normal (`17621005`) |
+| Tana harorati | Температура тела | Observation.component.valueQuantity | `code` LOINC `8310-5` "Body temperature" | 37.0 °C |
+| Qorin bo'shlig'i a'zolari holati | Состояние органов брюшной полости | Observation.component.valueCodeableConcept | `code` `chr-0125-0002` | Normal (`17621005`) |
+| Siydik va najas holati | Состояние мочеиспускания и стула | Observation.component.valueCodeableConcept | `code` `chr-0125-0007` | Normal (`17621005`) |
+| Laborator tekshiruvlar | Лабораторные исследования | Observation.component.valueString | `code` LOINC `26436-6` "Laboratory studies (set)" | Complete blood count within normal limits |
+
+---
+
+### 7. Weight dynamics
+
+Section code: local [Form 097 section codes](ValueSet-form-097-section-vs.html) `weight-dynamics`.
+
+| UZ | RU | FHIR Path | Code | Example Value |
+|----|----|------------|------|---------------|
+| Tug'ilishdagi vazn | Вес при рождении | Observation.valueQuantity | `code` LOINC `8339-4` "Birth weight Measured" | 3200 g |
+| Kunlik vazn (1-10 kun) | Ежедневный вес (день 1-10) | Observation.valueQuantity | `code` LOINC `3141-9` "Body weight Measured" + `29463-7` "Body weight" | 3100-3320 g |
+
+---
+
+### 8. Prophylaxis and immunization
+
+Section code: LOINC `11369-6` "History of Immunization note".
+
+| UZ | RU | FHIR Path | Code | Example Value |
+|----|----|------------|------|---------------|
+| Gemorragik sindrom profilaktikasi | Профилактика геморрагического синдрома | MedicationAdministration.medication → Medication.code | SNOMED CT `74226000` "Vitamin K and/or vitamin K derivative-containing product" | 1 mg |
+| Gepatit B emlash | Вакцинация против гепатита B | Immunization.vaccineCode | CVX `08` "Hep B, adolescent or pediatric" | 0.5 mL |
+| Sil (BCG) emlash | Вакцинация БЦЖ | Immunization.vaccineCode | CVX `19` "BCG" | 0.05 mL |
+
+---
+
+### 9. Screening
+
+Section code: local [Form 097 section codes](ValueSet-form-097-section-vs.html) `screening`.
+
+| UZ | RU | FHIR Path | Code | Example Value |
+|----|----|------------|------|---------------|
+| Audiologik skrining | Аудиологический скрининг | Observation.valueString | `code` [Newborn Care and Feeding](CodeSystem-newborn-care-feeding-cs.html) `chr-0124-0003` | Pass |
+| Tug'ma gipotireoz skriningi | Скрининг на врождённый гипотиреоз | Observation.valueString | `code` [Newborn Care and Feeding](CodeSystem-newborn-care-feeding-cs.html) `chr-0124-0004` | Normal (negative) |
+
+---
+
+### 10. Discharge, transfer or death
+
+Section code: LOINC `8650-4` "Hospital discharge disposition note".
+
+| UZ | RU | FHIR Path | Code | Example Value |
+|----|----|------------|------|---------------|
+| Chiqarishdagi umumiy holati | Общее состояние при выписке | Observation.valueCodeableConcept | `value` [Satisfactory Status](ValueSet-satisfactory-status-vs.html) | Satisfactory (`chr-0040-0001`) |
+| Chiqarish tashxisi | Диагноз при выписке | Condition.code | ICD-10 | `Z38.0` "Singleton, born in hospital" |
+| Tavsiyalar | Рекомендации | Observation.valueString | - | Routine follow-up with district pediatrician within 3 days of discharge |
+| Hamshiradan onaga topshirish | Передача от медсестры матери | [Provenance](https://hl7.org/fhir/R5/provenance.html).agent | `performer` nurse, `custodian` mother | - |
 | Shifokor imzosi | Подпись врача | Provenance.signature | - | - |
-| Muassasalar orasida o'tkazish | Перевод между учреждениями | Provenance.agent | - | - |
+| Muassasalar orasida o'tkazish | Перевод между учреждениями | Provenance.agent | `informant` nurse, `custodian` receiving organization | - |
+
+---
+
+### 11. Responsible persons
+
+Section code: local [Form 097 section codes](ValueSet-form-097-section-vs.html) `responsible-persons`.
+
+| UZ | RU | FHIR Path | Code | Example Value |
+|----|----|------------|------|---------------|
+| Davolovchi shifokor | Лечащий врач | [PractitionerRole](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-practitioner-role.html) | `code` [Position and Profession](https://dhp.uz/fhir/core/en/CodeSystem-position-and-profession-cs.html) | `2221.2` |
+| Hamshira | Медсестра | PractitionerRole | `code` [Position and Profession](https://dhp.uz/fhir/core/en/CodeSystem-position-and-profession-cs.html) | `3221.1` |
 
 ---
 
@@ -183,30 +267,13 @@ Bundle (document)
 ├── RelatedPerson[] (mother, father - as legal relations to newborn)
 ├── Organization (maternity hospital)
 ├── Location (ward)
-├── Encounter (inpatient stay, birth to discharge)
+├── Encounter (newborn's stay, birth to discharge; mother's delivery encounter)
 ├── Practitioner[] / PractitionerRole[] (physician, nurse)
-├── Condition[] (pregnancy complication, birth trauma, provisional/discharge diagnosis)
-├── Observation[] (antenatal history, birth event, Apgar, Ballard maturity, first exam, daily observation, daily review, weight dynamics, screening, discharge)
-├── Procedure[] (labor-related procedures)
-├── Medication[] / MedicationAdministration[] (hemorrhagic prophylaxis, eye prophylaxis)
-├── Immunization[] (Hepatitis B, BCG)
+├── Condition[] (pregnancy complication, fetal death timing, birth trauma, provisional and discharge diagnosis)
+├── Observation[] (antenatal history, birth event, Apgar, Ballard maturity, first exam, feeding, daily observation, daily review, weight dynamics, screening, discharge)
+├── Procedure[] (labour-related procedures)
+├── Medication[] / MedicationAdministration[] (haemorrhagic disease prophylaxis, eye prophylaxis)
+├── Immunization[] (hepatitis B, BCG)
 ├── FamilyMemberHistory[] (mother's and father's hereditary history)
-└── Provenance[] (record authorship, nurse-to-mother handoff, institution transfer, birth certificate)
+└── Provenance[] (nurse-to-mother handover, physician signature, transfer between facilities, birth certificate)
 ```
-
-### Example
-
-See [Form 097 newborn development example](Bundle-example-form-097-newborn-development.html) for a complete FHIR document example.
-### Confirmed coding and source limits
-
-All clinical sections are optional (0..1); omit sections and resources whose source facts are absent.
-Do not synthesize zeroes, negative assertions, Apgar components, or a five-minute score. Incoming DMED Apgar is the one-minute total (LOINC 9272-6).
-Composition.author and the mandatory FHIR/Core document metadata remain required. A missing clinical section does not remove author requirements.
-Use exact, documented canonical Coding.system URIs. A CodeSystem defined in an open PR is not automatically approved or deployed.
-Missing machine codes can retain trustworthy source text where the profile permits it; do not substitute a merely similar international concept.
-Birth outcome uses LOINC 63893-2 with SNOMED CT 281050002 Livebirth or 237364002 Stillbirth. Death after livebirth is a separate fact.
-When the period of fetal death is known, add a Condition for the same child: 237361005 for antepartum or 237362003 for intrapartum death.
-Use Patient.deceasedBoolean=true when death is known without an exact date; use deceasedDateTime only when available.
-Historical pregnancy totals must not be computed from the current delivery. Omit unavailable historical counts.
-Preserve the mother and maternal encounter on common delivery facts shared between 096 and 097; use stable source-derived business identifiers.
-The snapshot inside each document is historical. Posting a document alone does not establish an upsert of a standalone master Encounter.

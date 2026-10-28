@@ -5,11 +5,11 @@ Description: "Local codes for ballard male genital maturity, Form097 newborn dev
 
 * insert OriginalCodeSystemDraft(ballard-male-genital-maturity-cs)
 
-* #chr-0112-0001 "−1: yorg'oq yassi va silliq"
+* #chr-0112-0001 "-1: yorg'oq yassi va silliq"
   * ^designation[0].language = #ru
-  * ^designation[=].value = "−1: мошонка плоская и гладкая"
+  * ^designation[=].value = "-1: мошонка плоская и гладкая"
   * ^designation[+].language = #en
-  * ^designation[=].value = "−1: scrotum flat and smooth"
+  * ^designation[=].value = "-1: scrotum flat and smooth"
 
 * #chr-0112-0002 "0: yorg'oq bo'sh, burmalar xira"
   * ^designation[0].language = #ru

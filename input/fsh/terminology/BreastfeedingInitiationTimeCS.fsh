@@ -7,9 +7,9 @@ Description: "Local codes for the time of the first breastfeeding after birth, F
 
 * #chr-0105-0001 "Dastlabki 30-60 daqiqada"
   * ^designation[0].language = #ru
-  * ^designation[=].value = "В первые 30–60 минут"
+  * ^designation[=].value = "В первые 30-60 минут"
   * ^designation[+].language = #en
-  * ^designation[=].value = "Within 30–60 minutes"
+  * ^designation[=].value = "Within 30-60 minutes"
 
 * #chr-0105-0002 "2 soatdan keyin"
   * ^designation[0].language = #ru

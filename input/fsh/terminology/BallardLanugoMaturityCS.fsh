@@ -5,11 +5,11 @@ Description: "Local codes for ballard lanugo maturity, Form097 newborn developme
 
 * insert OriginalCodeSystemDraft(ballard-lanugo-maturity-cs)
 
-* #chr-0108-0001 "−1: yo'q"
+* #chr-0108-0001 "-1: yo'q"
   * ^designation[0].language = #ru
-  * ^designation[=].value = "−1: отсутствуют"
+  * ^designation[=].value = "-1: отсутствуют"
   * ^designation[+].language = #en
-  * ^designation[=].value = "−1: none"
+  * ^designation[=].value = "-1: none"
 
 * #chr-0108-0002 "0: siyrak"
   * ^designation[0].language = #ru

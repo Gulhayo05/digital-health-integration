@@ -1,7 +1,7 @@
 ValueSet: NewbornVitalStatusVS
 Id: newborn-vital-status-vs
 Title: "Newborn Vital Status ValueSet"
-Description: "Birth outcome of the newborn for Form097 newborn development record. Source terminology (SNOMED CT) reused directly."
+Description: "Birth outcome of the newborn (livebirth or stillbirth), coded with SNOMED CT."
 * insert IntegrationsValueSet(newborn-vital-status-vs)
 * ^experimental = true
 

@@ -1,7 +1,7 @@
 ValueSet: RhFactorVS
 Id: rh-factor-vs
 Title: "Rh Factor ValueSet"
-Description: "Rh (rhesus) factor for Form097 newborn development record. Source terminology (SNOMED CT) reused directly."
+Description: "Rh (rhesus) factor, coded with SNOMED CT."
 * insert IntegrationsValueSet(rh-factor-vs)
 * ^experimental = true
 

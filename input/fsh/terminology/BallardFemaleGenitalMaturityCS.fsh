@@ -5,11 +5,11 @@ Description: "Local codes for ballard female genital maturity, Form097 newborn d
 
 * insert OriginalCodeSystemDraft(ballard-female-genital-maturity-cs)
 
-* #chr-0113-0001 "−1: klitor bo'rtib turadi, jinsiy lablar yassi"
+* #chr-0113-0001 "-1: klitor bo'rtib turadi, jinsiy lablar yassi"
   * ^designation[0].language = #ru
-  * ^designation[=].value = "−1: клитор выступает, губы плоские"
+  * ^designation[=].value = "-1: клитор выступает, губы плоские"
   * ^designation[+].language = #en
-  * ^designation[=].value = "−1: clitoris prominent, labia flat"
+  * ^designation[=].value = "-1: clitoris prominent, labia flat"
 
 * #chr-0113-0002 "0: klitor bo'rtib turadi, kichik jinsiy lablar kichik"
   * ^designation[0].language = #ru

@@ -5,17 +5,17 @@ Description: "Local codes for ballard eye ear maturity, Form097 newborn developm
 
 * insert OriginalCodeSystemDraft(ballard-eye-ear-maturity-cs)
 
-* #chr-0111-0001 "−2: qovoqlar mahkam yopishgan"
+* #chr-0111-0001 "-2: qovoqlar mahkam yopishgan"
   * ^designation[0].language = #ru
-  * ^designation[=].value = "−2: веки плотно закрыты"
+  * ^designation[=].value = "-2: веки плотно закрыты"
   * ^designation[+].language = #en
-  * ^designation[=].value = "−2: lids fused tightly"
+  * ^designation[=].value = "-2: lids fused tightly"
 
-* #chr-0111-0002 "−1: qovoqlar bo'shroq yopishgan"
+* #chr-0111-0002 "-1: qovoqlar bo'shroq yopishgan"
   * ^designation[0].language = #ru
-  * ^designation[=].value = "−1: веки закрыты неплотно"
+  * ^designation[=].value = "-1: веки закрыты неплотно"
   * ^designation[+].language = #en
-  * ^designation[=].value = "−1: lids fused loosely"
+  * ^designation[=].value = "-1: lids fused loosely"
 
 * #chr-0111-0003 "0: qovoqlar ochiq, quloq suprasi yassi"
   * ^designation[0].language = #ru

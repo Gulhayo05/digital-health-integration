@@ -29,7 +29,8 @@
           "coding": [
             {
               "system": "http://loinc.org",
-              "code": "18842-5"
+              "code": "18842-5",
+              "display": "Discharge summary"
             }
           ]
         },

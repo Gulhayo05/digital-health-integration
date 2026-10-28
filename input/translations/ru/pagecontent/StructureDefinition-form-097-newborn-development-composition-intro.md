@@ -1,17 +1,5 @@
 > Machine-translated supporting documentation; clinical coding and canonical URIs are unchanged.
 
-Все клинические разделы необязательны (0..1); при отсутствии факта в источнике раздел или ресурс пропускается.
-Не подставлять нули, отрицательные утверждения, компоненты Апгар или оценку на пятой минуте. Апгар DMED — сумма на первой минуте (LOINC 9272-6).
-Composition.author и обязательные метаданные FHIR/Core сохраняются. Необязательность клинической секции не отменяет авторство.
-Использовать точные канонические Coding.system с подтверждённым определением. Наличие CodeSystem в открытом PR не заменяет согласование и развёртывание.
-При отсутствии машинного кода допустим достоверный исходный текст в разрешённом поле; похожий международный код не подставляется по догадке.
-Исход рождения: LOINC 63893-2 со SNOMED CT 281050002 Livebirth или 237364002 Stillbirth. Смерть после живорождения — отдельный факт.
-Если период гибели известен, добавить Condition того же ребёнка: 237361005 до родов либо 237362003 во время родов.
-При известной смерти без точной даты использовать Patient.deceasedBoolean=true; deceasedDateTime — только при наличии даты.
-Анамнестические количества не рассчитываются из текущих родов; отсутствующие в DMED анамнестические показатели пропускаются.
-Общие факты родов в 096 и 097 сохраняют субъектом мать и её госпитализацию и используют стабильные идентификаторы исходных фактов.
-Снимок в документе исторический. Сам POST документа не обеспечивает обновление самостоятельного мастер-Encounter.
+Как заполнять эту Composition, описано в [руководстве по сопоставлению формы 097](form-097-mapping.html): пополевое сопоставление формы 097 (медицинская карта развития новорождённого) с FHIR, с примерами значений и профилями UZ Core каждого ресурса в пакете. Эта Composition - точка входа документа FHIR (Bundle); полный пример см. в [примере формы 097](Bundle-example-form-097-newborn-development.html).
 
-The document author is the user who saved the revision; the attending physician of the child hospitalization is an Encounter participant. Clinical sections birthEvent, firstNewbornExam and responsiblePersons are all optional.
-
-If a source author is identified but the position or role is unavailable, Composition.author may reference UZCorePractitioner directly. Do not invent a PractitionerRole or profession.
+Все клинические разделы необязательны: раздел и его ресурсы передаются, только если в DMED есть соответствующие факты. Автор - пользователь, сохранивший эту редакцию документа; лечащий врач новорождённого указывается как участник Encounter.

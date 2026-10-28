@@ -341,7 +341,3 @@ resources:
     name: Form 097 - minimal document example
     description: Synthetic newborn document containing required document metadata and references without clinical sections.
     exampleBoolean: true
-  Bundle/example-form-097-author-without-role:
-    name: Form 097 - author without a known role example
-    description: Synthetic newborn document whose author references an identified practitioner directly when no role is known.
-    exampleBoolean: true

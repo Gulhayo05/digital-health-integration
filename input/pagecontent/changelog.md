@@ -4,6 +4,10 @@ Form 111 preserves existing local code meanings, adds verified standard targets 
 
 #### Added
 
+[Form 097 newborn development medical record](StructureDefinition-form-097-newborn-development-composition.html) is profiled as a FHIR Document, covering the mother and antenatal history, the birth, the first newborn examination, feeding, daily observation and physician review, weight, prophylaxis and immunization, screening, and discharge, transfer or death across 11 Composition sections. It ships example document Bundles, including live birth and stillbirth outcomes, and a [field-by-field mapping page](form-097-mapping.html).
+
+#### Added
+
 The [screening plans and invitations](cervical-breast-cancer-screening.html#screening-plans) section of the screening page sets out how a screening program invites a patient and tracks the patient's plan with existing UZ Core profiles, without new profiles of its own. A UZ Core ActivityDefinition is the invitation template (`kind` = `ServiceRequest`, `intent` = `plan`), a UZ Core PlanDefinition pins it by version, and the patient's plan is a UZ Core ServiceRequest with `intent` = `plan`, the screening invitation category and one program identifier. The MIS owns the plan status: DMED completes its plan once the questionnaire is saved, while HPV keeps its plan active across screening rounds. DHP does not infer completion from results.
 
 #### Added
@@ -207,17 +211,3 @@ Diagnoses that are not constrained to a narrower list are bound to the [full ICD
 #### Examples
 
 Every area ships realistic examples: the four document Bundles, and the patients, practitioners, organizations, encounters, observations, service requests, specimens and reports they reference. Two example questionnaires are included, a [complaints intake template](Questionnaire-screening-intake-template.html) for gynecologists with an example response, and a [hepatitis B and C treatment questionnaire](Questionnaire-hepatitis-questionnaire.html).
-
-### 2026-10-27 — Form 097 terminology and optionality
-
-All clinical sections are optional (0..1); omit sections and resources whose source facts are absent.
-Do not synthesize zeroes, negative assertions, Apgar components, or a five-minute score. Incoming DMED Apgar is the one-minute total (LOINC 9272-6).
-Composition.author and the mandatory FHIR/Core document metadata remain required. A missing clinical section does not remove author requirements.
-Use exact, documented canonical Coding.system URIs. A CodeSystem defined in an open PR is not automatically approved or deployed.
-Missing machine codes can retain trustworthy source text where the profile permits it; do not substitute a merely similar international concept.
-Birth outcome uses LOINC 63893-2 with SNOMED CT 281050002 Livebirth or 237364002 Stillbirth. Death after livebirth is a separate fact.
-When the period of fetal death is known, add a Condition for the same child: 237361005 for antepartum or 237362003 for intrapartum death.
-Use Patient.deceasedBoolean=true when death is known without an exact date; use deceasedDateTime only when available.
-Historical pregnancy totals must not be computed from the current delivery. Omit unavailable historical counts.
-Preserve the mother and maternal encounter on common delivery facts shared between 096 and 097; use stable source-derived business identifiers.
-The snapshot inside each document is historical. Posting a document alone does not establish an upsert of a standalone master Encounter.
