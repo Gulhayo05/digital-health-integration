@@ -136,8 +136,6 @@ Usage: #inline
 * identifier[=].value = "urn:uuid:861f9511-f30c-52e5-b827-557766550003"
 * identifier[+].system = "https://dhp.uz/fhir/core/sid/doc/uz/form-number"
 * identifier[=].value = "003"
-* identifier[+].system = "https://dhp.uz/fhir/core/sid/doc/uz/medical-record-number"
-* identifier[=].value = "MRN-003-2026-0042"
 * status = #final
 * type = $composition-type-cs#emdoc-0010-0003 "Patient Medical Record №"
 * category = $document-category-cs#form-003 "Patient medical record"
