@@ -95,7 +95,7 @@
 | UZ | RU | Путь FHIR | Код | Пример |
 |----|----|------------|------|---------|
 | Ish joyi | Место работы | Observation.valueString | LOINC `80427-8` "Employer name [Identifier]" | Yunusobod avtoservis |
-| Kasbi yoki lavozimi | Профессия или должность | [UZCoreSocioeconomicObservation](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-socioeconomic-observation.html).valueCodeableConcept | [Position and Profession](https://dhp.uz/fhir/core/en/ValueSet-position-and-profession-vs.html) | Car mechanic |
+| Kasbi yoki lavozimi | Профессия или должность | [UZCoreSocioeconomicObservation](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-socioeconomic-observation.html).valueCodeableConcept | `code` SNOMED `14679004` "Occupation", as in Form 111<br>`value` [Position and Profession](https://dhp.uz/fhir/core/en/ValueSet-position-and-profession-vs.html) | Car mechanic (`7231.1`) |
 | O'qish joyi | Место учёбы | Observation.valueString | LOINC `66280-9` "School Name" | - |
 | Bolalar muassasasi | Детское учреждение | Observation.valueString | [CHR-003 Observation Code](CodeSystem-form-003-observation-code-cs.html) `children-institution` "Children's institution" | - |
 | Nogironlik turi | Вид инвалидности | UZCoreSocioeconomicObservation.valueCodeableConcept | [Benefits](https://dhp.uz/fhir/core/en/ValueSet-benefits-vs.html) | - |

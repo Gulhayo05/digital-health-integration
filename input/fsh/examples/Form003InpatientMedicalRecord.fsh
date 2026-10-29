@@ -507,9 +507,11 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * status = #final
 * code = $loinc#80427-8 "Employer name [Identifier]"
+* code.text = "Ish joyi"
 * subject = Reference(urn:uuid:00300002-0000-0000-0000-000000000000)
 * encounter = Reference(urn:uuid:00300003-0000-0000-0000-000000000000)
 * effectiveDateTime = "2026-02-08T10:10:00+05:00"
+* performer = Reference(urn:uuid:00300011-0000-0000-0000-000000000000)
 * valueString = "Yunusobod avtoservis"
 
 Instance: obs-003-socioeconomic-occupation
@@ -520,6 +522,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:00300002-0000-0000-0000-000000000000)
 * encounter = Reference(urn:uuid:00300003-0000-0000-0000-000000000000)
 * effectiveDateTime = "2026-02-08T10:10:00+05:00"
+* performer = Reference(urn:uuid:00300011-0000-0000-0000-000000000000)
 * valueCodeableConcept = https://terminology.dhp.uz/fhir/core/CodeSystem/position-and-profession-cs#7231.1 "Car mechanic"
 
 Instance: obs-003-war-disability
