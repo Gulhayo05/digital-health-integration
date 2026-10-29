@@ -27,7 +27,7 @@ For a complete reference instance, see the [Form 003 inpatient medical record ex
 
 ### Field Mapping
 
-# UZ-003 Inpatient Medical Record Card - FHIR Mapping
+### UZ-003 Inpatient Medical Record Card - FHIR Mapping
 
 ---
 

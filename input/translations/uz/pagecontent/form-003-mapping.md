@@ -29,7 +29,7 @@ To'liq namunaviy nusxa uchun [003-shakl statsionar bemorning tibbiy kartasi miso
 
 ### Maydonlarni moslashtirish
 
-# UZ-003 Statsionar bemorning tibbiy kartasi - FHIR bilan moslashtirish
+### UZ-003 Statsionar bemorning tibbiy kartasi - FHIR bilan moslashtirish
 
 ---
 
