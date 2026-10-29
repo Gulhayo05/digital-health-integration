@@ -91,7 +91,7 @@ Section code: LOINC `56799-0` "Address".
 
 | UZ | RU | FHIR Path | Code | Example Value |
 |----|----|------------|------|---------------|
-| Yo'llanayotganning yashash joyi | Место жительства направляемого | Patient.address | - | 8-mavze, 22-uy |
+| Yo'llanayotganning yashash joyi | Место жительства выезжающего | Patient.address | - | 8-mavze, 22-uy |
 
 ---
 

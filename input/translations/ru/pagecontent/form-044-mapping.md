@@ -93,7 +93,7 @@
 
 | UZ | RU | Путь FHIR | Код | Пример значения |
 |----|----|------------|------|---------------|
-| Yo'llanayotganning yashash joyi | Место жительства направляемого | Patient.address | - | 8-mavze, 22-uy |
+| Yo'llanayotganning yashash joyi | Место жительства выезжающего | Patient.address | - | 8-mavze, 22-uy |
 
 ---
 

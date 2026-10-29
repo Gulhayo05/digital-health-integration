@@ -93,7 +93,7 @@ Bo'lim kodi: LOINC `56799-0` "Address".
 
 | UZ | RU | FHIR yo'li | Kod | Qiymat misoli |
 |----|----|------------|------|---------------|
-| Yo'llanayotganning yashash joyi | Место жительства направляемого | Patient.address | - | 8-mavze, 22-uy |
+| Yo'llanayotganning yashash joyi | Место жительства выезжающего | Patient.address | - | 8-mavze, 22-uy |
 
 ---
 
