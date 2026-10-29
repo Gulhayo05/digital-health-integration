@@ -1,3 +1,9 @@
+### Ishlab chiqish jarayonida
+
+#### Qo'shildi
+
+[044-shakl, xorijga ketayotganlar uchun tibbiy ma'lumotnoma](StructureDefinition-form-044-travel-clearance-composition.html) FHIR hujjati sifatida profillandi: shaxsiy ma'lumotlar, kechirgan yuqumli kasalliklar, komissiyaning borish mamlakati va xizmat safari muddati bilan chet elga chiqishga ruxsati, yashash joyi va komissiya raisi - 5 ta Composition bo'limida. Hujjat namunasi (Bundle) va [maydonma-maydon moslashtirish sahifasi](form-044-mapping.html) bilan birga.
+
 ### Versiya 0.12.1
 
 #### O'zgartirildi

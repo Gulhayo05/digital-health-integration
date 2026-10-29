@@ -13,83 +13,111 @@
 
 ### Форма 044 - Справка об отсутствии медицинских противопоказаний для выезда за границу
 
-На этой странице описано сопоставление полей Формы 044 (Справка об отсутствии медицинских противопоказаний для выезда за границу) с ресурсами FHIR.
+На этой странице описано сопоставление полей Формы 044 (Xorijga ketayotganlar uchun tibbiy ma'lumotnoma) с ресурсами FHIR.
 
 ---
 
 ### Обзор
 
-Форма 044 представляет собой самостоятельную справку, выдаваемую медицинской комиссией и подтверждающую отсутствие у пациента медицинских противопоказаний для выезда за границу в служебную командировку. В отличие от Формы 066, она не привязана к стационарному или амбулаторному случаю обслуживания - `Composition.encounter` зафиксирован как `0..0`. Данные формы сопоставляются с несколькими ресурсами FHIR, объединёнными в FHIR-документ, который соответствует профилю [Form 044 Travel Clearance Certificate Composition](StructureDefinition-form-044-travel-clearance-composition.html). Где это возможно, ресурсы соответствуют профилям [UZ Core](https://dhp.uz/fhir/core/en/artifacts.html).
+[Форма 044](forms-volume-02-ambulatory.html) - самостоятельная справка, которую выдаёт медицинская комиссия поликлиники и которая подтверждает отсутствие у человека медицинских противопоказаний для выезда за границу в служебную командировку. Она не привязана к стационарному или амбулаторному случаю обслуживания, поэтому `Composition.encounter` не используется. Данные формы сопоставляются с несколькими ресурсами FHIR, объединёнными в FHIR-документ, который соответствует профилю [Form 044 Travel Clearance Certificate Composition](StructureDefinition-form-044-travel-clearance-composition.html). Где это возможно, ресурсы соответствуют профилям [UZ Core](https://dhp.uz/fhir/core/en/artifacts.html).
 
-Полный пример экземпляра см. в разделе [Пример справки по Форме 044](Bundle-example-form-044-travel-clearance.html).
+Полный пример экземпляра см. в [примере справки по Форме 044](Bundle-example-form-044-travel-clearance.html).
 
 ---
 
 ### Сопоставление полей
 
-# UZ-044 Справка о допуске к выезду - сопоставление с FHIR
+### Форма 044 - Медицинская справка для выезжающих за границу - сопоставление с FHIR
 
 ---
 
-### Личная информация
+### Информация о документе
 
-| UZ-044 | RU-044 | Путь FHIR | Код | Пример значения |
-|--------|--------|-----------|------|---------------|
-| Muassasa nomi | Наименование учреждения (шапка бланка) | [Organization](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-organization.html).name | - | Toshkent shahar 5-son poliklinikasi |
-| Malumotnoma raqami | Номер справки | Composition.identifier | - | 044-2026-001 |
-| Med ID raqami | Номер мед карты | [Patient](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-patient.html).identifier[healthCardId] | HC | HC-2026-00044 |
-| JShShR | ПИНФЛ | Patient.identifier[nationalId] | NI | 31234567890044 |
-| FISH | ФИО | Patient.name (text/family/given) | - | Yusupova Nodira Sharifovna |
-| Yoshi (tug'ilgan sanasi) | Возраст (лет) | Patient.birthDate | - | 1988-07-22 |
-| Malumotnoma berilgan sana | Дата выдачи справки | Composition.date | - | 2026-02-10T09:15:00+05:00 |
-
----
-
-### Адрес проживания
-
-| UZ | RU | Путь FHIR | Код | Пример |
-|----|----|------------|------|---------|
-| Yo'llanayotganning yashash joyi | Адрес пациента | Patient.address | - | 8-mavze, 22-uy |
-
----
-
-### Перенесённые инфекционные заболевания
-
-| UZ | RU | Путь FHIR | Код | Пример |
-|----|----|------------|------|---------|
-| Kechirgan yuqumli kasalliklar | Перенесённые инфекционные заболевания | [Condition](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-condition.html).code | ICD-10 | B05 (Корь), A38 (Скарлатина), A37 (Коклюш) |
+| UZ | RU | Путь FHIR | Код | Пример значения |
+|----|----|------------|------|---------------|
+| Hujjat instansiyasi UUID | Идентификатор документа | Composition.identifier | `urn:ietf:rfc:3986` | urn:uuid:944f9511-f30c-52e5-b827-557766550044 |
+| Shakl raqami | Номер формы | Composition.identifier | `https://dhp.uz/fhir/core/sid/doc/uz/form-number` | 044 |
+| Hujjat versiyasi UUID | Идентификатор версии документа | Bundle.identifier | `urn:ietf:rfc:3986` | urn:uuid:044e8400-e29b-41d4-a716-446655440044 |
+| Ma'lumotnoma raqami | Номер справки | Composition.identifier | - | 044-2026-001 |
+| Hujjat holati | Статус документа | Composition.status | [Статусы документов](document-statuses.html): `final`, когда комиссия выдала справку, `amended` при последующих исправлениях, `entered-in-error`, если справка отозвана как ошибочная | final |
+| Hujjat turi | Тип документа | Composition.type | [Composition Type](https://terminology.dhp.uz/fhir/core/ValueSet/composition-type-vs) `emdoc-0010-0042` "Medical certificate for travelers abroad", а также LOINC `104988-1` "Medical Fitness Certificate" | - |
+| Hujjat kategoriyasi | Категория документа | Composition.category | [Document Category](ValueSet-document-category-vs.html) `form-044` "Certificate on absence of medical contraindications for travel abroad" | - |
+| Chet elga ketayotgan shaxs | Лицо, выезжающее за границу | Composition.subject | [Patient](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-patient.html) | Yusupova Nodira Sharifovna |
+| Ma'lumotnoma berilgan sana | Дата выдачи справки | Composition.date | - | 2026-02-10T09:15:00+05:00 |
+| Komissiya raisi | Председатель комиссии | Composition.author | [PractitionerRole](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-practitioner-role.html) | Nazarov T.T. |
+| Muassasa nomi | Наименование учреждения | Composition.custodian | [Organization](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-organization.html) | Toshkent shahar 5-son poliklinikasi |
+| Muassasa kodi | Код учреждения | Organization.identifier[taxId] | `system` `https://dhp.uz/fhir/core/sid/org/uz/soliq`<br>`type` `TAX` | 200017001 |
+| Hujjat sarlavhasi | Заголовок документа | Composition.title | - | Form 044 - Certificate of Absence of Medical Contraindications for Travel Abroad |
+| Komissiya raisi imzosi | Подпись председателя комиссии | Provenance.signature | [Provenance](https://hl7.org/fhir/R5/provenance.html) | Author |
 
 ---
 
-### Допуск к выезду
+### 1. Личная информация
 
-| UZ | RU | Путь FHIR | Код | Пример |
-|----|----|------------|------|---------|
-| Tashxis va chet elga borish uchun qarshiliklar yoʻqligi borasida tibbiy yakun | Медицинское заключение об отсутствии противопоказаний к выезду | Observation.code / Observation.valueCodeableConcept | [Form Sections](CodeSystem-form-sections-cs.html) `travel-clearance` → `allowed` \| `denied` | Разрешено |
-| Mamlakat nomi | Наименование страны назначения | Observation.code / Observation.valueCodeableConcept | [Form Sections](CodeSystem-form-sections-cs.html) `destination-country`; значение: ISO-3166-1 | Германия |
-| Xizmat safarining muddati | На срок (период) | Observation.code / Observation.effectivePeriod | [Form Sections](CodeSystem-form-sections-cs.html) `trip-period` | 2026-02-20 – 2026-03-05 |
+Код раздела: LOINC `LP36348-8` "Patient information".
+
+| UZ | RU | Путь FHIR | Код | Пример значения |
+|----|----|------------|------|---------------|
+| Med ID raqami | Номер Med ID | Patient.identifier[healthCardId] | `system` `https://dhp.uz/fhir/core/sid/pid/uz/hc`<br>`type` `HC` | HC-2026-00044 |
+| JShShIR | ПИНФЛ | Patient.identifier[nationalId] | `system` `https://dhp.uz/fhir/core/sid/pid/uz/ni`<br>`type` `NI` | 31234567890044 |
+| Familiya, ismi, otasining ismi | ФИО | Patient.name (text/family/given) | - | Yusupova Nodira Sharifovna |
+| Yoshi | Возраст | Patient.birthDate | - | 1988-07-22 |
 
 ---
 
-### Ответственные лица
+### 2. Перенесённые инфекционные заболевания
 
-| UZ | RU | Путь FHIR | Код | Пример |
-|----|----|------------|------|---------|
-| Komissiya raisi F.I.SH | Председатель комиссии (ФИО/подпись) | [PractitionerRole](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-practitioner-role.html).practitioner / [Provenance](https://hl7.org/fhir/R5/provenance.html).signature | Occupation `1342.18` "Заведующий отделением (медицинское учреждение)" | Nazarov T.T. |
+Код раздела: LOINC `11348-0` "History of Past illness note".
+
+| UZ | RU | Путь FHIR | Код | Пример значения |
+|----|----|------------|------|---------------|
+| Kechirgan yuqumli kasalliklar | Перенесённые инфекционные заболевания | [Condition](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-condition.html).code | МКБ-10 | B05 "Measles", A38 "Scarlet fever", A37 "Whooping cough" |
+
+---
+
+### 3. Допуск к выезду
+
+Код раздела: LOINC `104988-1` "Medical Fitness Certificate".
+
+| UZ | RU | Путь FHIR | Код | Пример значения |
+|----|----|------------|------|---------------|
+| Tashxis va chet elga borish uchun qarshiliklar yo'qligi borasida tibbiy yakun | Медицинское заключение об отсутствии противопоказаний к выезду | [Observation](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-observation.html).valueBoolean | `code` [Form Sections](CodeSystem-form-sections-cs.html) `travel-clearance` "Travel clearance" | true |
+| Mamlakat nomi | Наименование страны | Observation.valueCodeableConcept | `code` [Form Sections](CodeSystem-form-sections-cs.html) `destination-country` "Destination country"; значение из [ISO 3166 part 1 2-letter codes, sans Uzbekistan](https://terminology.dhp.uz/fhir/core/ValueSet/iso-3166-2-vs-sans-uz) | DE "Germany" |
+| Xizmat safarining muddati | Срок командировки | Observation.valuePeriod | `code` [Form Sections](CodeSystem-form-sections-cs.html) `trip-period` "Business trip period" | 2026-02-20 - 2026-03-05 |
+
+---
+
+### 4. Место жительства
+
+Код раздела: LOINC `56799-0` "Address".
+
+| UZ | RU | Путь FHIR | Код | Пример значения |
+|----|----|------------|------|---------------|
+| Yo'llanayotganning yashash joyi | Место жительства направляемого | Patient.address | - | 8-mavze, 22-uy |
+
+---
+
+### 5. Ответственные лица
+
+Код раздела: LOINC `LP35157-4` "Responsible party".
+
+| UZ | RU | Путь FHIR | Код | Пример значения |
+|----|----|------------|------|---------------|
+| Komissiya raisi F.I.Sh. | ФИО председателя комиссии | PractitionerRole.practitioner | `code` [Position and profession](https://terminology.dhp.uz/fhir/core/ValueSet/position-and-profession-vs) `1342.18` "Head of department (health institution)" | Nazarov T.T. |
 
 ---
 
 ### Структура Bundle
 
-Документ Формы 044 структурирован как FHIR Bundle, содержащий Composition [Form044TravelClearanceCertificateComposition](StructureDefinition-form-044-travel-clearance-composition.html):
+Документ Формы 044 - это FHIR Bundle с Composition [Form044TravelClearanceCertificateComposition](StructureDefinition-form-044-travel-clearance-composition.html):
 
 ```
-Bundle (документ)
+Bundle (document)
 ├── Composition (Form044TravelClearanceCertificateComposition)
-├── Patient (демографические данные пациента)
-├── Organization (выдающее учреждение)
+├── Patient (лицо, выезжающее за границу)
+├── Organization (поликлиника, выдавшая справку)
 ├── Practitioner (председатель комиссии)
-├── PractitionerRole (роль председателя комиссии)
+├── PractitionerRole (должность председателя комиссии)
 ├── Condition[] (перенесённые инфекционные заболевания)
 ├── Observation[] (допуск к выезду, страна назначения, срок командировки)
 └── Provenance (подпись председателя комиссии)
@@ -97,4 +125,4 @@ Bundle (документ)
 
 ### Пример
 
-Полный пример FHIR-документа см. в разделе [Пример справки по Форме 044](Bundle-example-form-044-travel-clearance.html).
+Полный пример FHIR-документа - [пример справки по Форме 044](Bundle-example-form-044-travel-clearance.html).

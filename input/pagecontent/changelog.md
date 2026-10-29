@@ -1,3 +1,9 @@
+### In development
+
+#### Added
+
+[Form 044 medical certificate for travelers abroad](StructureDefinition-form-044-travel-clearance-composition.html) is profiled as a FHIR Document, covering personal information, past infectious diseases, the commission's travel clearance with destination country and business trip period, place of residence and the commission chair across 5 Composition sections. It ships an example document Bundle and a [field-by-field mapping page](form-044-mapping.html).
+
 ### Version 0.12.1
 
 #### Changed

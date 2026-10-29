@@ -11,15 +11,15 @@
 
 > **Mashina tarjimasi, inson tomonidan tekshirilishi zarur.** Ushbu sahifa ingliz tilidan sun'iy intellekt yordamida avtomatik tarjima qilingan va hali muharrir tomonidan tekshirilmagan. Har qanday nomuvofiqlikda asl inglizcha versiya ustuvor hisoblanadi.
 
-### 044-shakl - Chet elga chiqishga tibbiy qarshiliklar yo'qligi haqida ma'lumotnoma
+### 044-shakl - Xorijga ketayotganlar uchun tibbiy ma'lumotnoma
 
-Ushbu sahifada 044-shakl (Chet elga chiqishga tibbiy qarshiliklar yo'qligi haqida ma'lumotnoma) maydonlarining FHIR resurslari bilan moslashtirilishi tavsiflanadi.
+Ushbu sahifada 044-shakl (Xorijga ketayotganlar uchun tibbiy ma'lumotnoma) maydonlarining FHIR resurslari bilan moslashtirilishi tavsiflanadi.
 
 ---
 
 ### Umumiy ma'lumot
 
-044-shakl — tibbiy komissiya tomonidan beriladigan, bemorda xizmat safari doirasida chet elga chiqishga tibbiy qarshiliklar yo'qligini tasdiqlovchi mustaqil ma'lumotnomadir. 066-shakldan farqli o'laroq, u statsionar yoki ambulator uchrashuvga bog'lanmagan — `Composition.encounter` `0..0` sifatida belgilangan. Shakl ma'lumotlari [Form 044 Travel Clearance Certificate Composition](StructureDefinition-form-044-travel-clearance-composition.html) profiliga mos keluvchi FHIR hujjatiga birlashtirilgan bir nechta FHIR resurslari bilan moslashtiriladi. Imkoni bo'lgan joyda resurslar [UZ Core](https://dhp.uz/fhir/core/en/artifacts.html) profillariga mos keladi.
+[044-shakl](forms-volume-02-ambulatory.html) - poliklinika tibbiy komissiyasi beradigan, shaxsda xizmat safari bilan chet elga chiqishga tibbiy qarshiliklar yo'qligini tasdiqlovchi mustaqil ma'lumotnoma. U statsionar yoki ambulator tashrifga bog'lanmagan, shuning uchun `Composition.encounter` ishlatilmaydi. Shakl ma'lumotlari [Form 044 Travel Clearance Certificate Composition](StructureDefinition-form-044-travel-clearance-composition.html) profiliga mos keluvchi FHIR hujjatiga birlashtirilgan bir nechta FHIR resurslari bilan moslashtiriladi. Imkoni bo'lgan joyda resurslar [UZ Core](https://dhp.uz/fhir/core/en/artifacts.html) profillariga mos keladi.
 
 To'liq namunaviy nusxa uchun [044-shakl ma'lumotnoma misoli](Bundle-example-form-044-travel-clearance.html)ga qarang.
 
@@ -27,74 +27,102 @@ To'liq namunaviy nusxa uchun [044-shakl ma'lumotnoma misoli](Bundle-example-form
 
 ### Maydonlarni moslashtirish
 
-# UZ-044 Chet elga chiqish ma'lumotnomasi - FHIR bilan moslashtirish
+### 044-shakl - Xorijga ketayotganlar uchun tibbiy ma'lumotnoma - FHIR bilan moslashtirish
 
 ---
 
-### Shaxsiy ma'lumotlar
+### Hujjat haqida ma'lumot
 
-| UZ-044 | RU-044 | FHIR yo'li | Kod | Misol qiymati |
-|--------|--------|-----------|------|---------------|
-| Muassasa nomi | Наименование учреждения (шапка бланка) | [Organization](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-organization.html).name | - | Toshkent shahar 5-son poliklinikasi |
-| Malumotnoma raqami | Номер справки | Composition.identifier | - | 044-2026-001 |
-| Med ID raqami | Номер мед карты | [Patient](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-patient.html).identifier[healthCardId] | HC | HC-2026-00044 |
-| JShShR | ПИНФЛ | Patient.identifier[nationalId] | NI | 31234567890044 |
-| FISH | ФИО | Patient.name (text/family/given) | - | Yusupova Nodira Sharifovna |
-| Yoshi (tug'ilgan sanasi) | Возраст (лет) | Patient.birthDate | - | 1988-07-22 |
-| Malumotnoma berilgan sana | Дата выдачи справки | Composition.date | - | 2026-02-10T09:15:00+05:00 |
-
----
-
-### Yashash joyi
-
-| UZ | RU | FHIR yo'li | Kod | Misol |
-|----|----|------------|------|---------|
-| Yo'llanayotganning yashash joyi | Адрес пациента | Patient.address | - | 8-mavze, 22-uy |
-
----
-
-### Kechirgan yuqumli kasalliklar
-
-| UZ | RU | FHIR yo'li | Kod | Misol |
-|----|----|------------|------|---------|
-| Kechirgan yuqumli kasalliklar | Перенесённые инфекционные заболевания | [Condition](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-condition.html).code | ICD-10 | B05 (Qizamiq), A38 (Skarlatina), A37 (Ko'k yo'tal) |
+| UZ | RU | FHIR yo'li | Kod | Qiymat misoli |
+|----|----|------------|------|---------------|
+| Hujjat instansiyasi UUID | Идентификатор документа | Composition.identifier | `urn:ietf:rfc:3986` | urn:uuid:944f9511-f30c-52e5-b827-557766550044 |
+| Shakl raqami | Номер формы | Composition.identifier | `https://dhp.uz/fhir/core/sid/doc/uz/form-number` | 044 |
+| Hujjat versiyasi UUID | Идентификатор версии документа | Bundle.identifier | `urn:ietf:rfc:3986` | urn:uuid:044e8400-e29b-41d4-a716-446655440044 |
+| Ma'lumotnoma raqami | Номер справки | Composition.identifier | - | 044-2026-001 |
+| Hujjat holati | Статус документа | Composition.status | [Hujjat holatlari](document-statuses.html): komissiya ma'lumotnomani berganda `final`, keyingi tuzatishlarda `amended`, ma'lumotnoma xato deb bekor qilinsa `entered-in-error` | final |
+| Hujjat turi | Тип документа | Composition.type | [Composition Type](https://terminology.dhp.uz/fhir/core/ValueSet/composition-type-vs) `emdoc-0010-0042` "Medical certificate for travelers abroad", hamda LOINC `104988-1` "Medical Fitness Certificate" | - |
+| Hujjat kategoriyasi | Категория документа | Composition.category | [Document Category](ValueSet-document-category-vs.html) `form-044` "Certificate on absence of medical contraindications for travel abroad" | - |
+| Chet elga ketayotgan shaxs | Лицо, выезжающее за границу | Composition.subject | [Patient](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-patient.html) | Yusupova Nodira Sharifovna |
+| Ma'lumotnoma berilgan sana | Дата выдачи справки | Composition.date | - | 2026-02-10T09:15:00+05:00 |
+| Komissiya raisi | Председатель комиссии | Composition.author | [PractitionerRole](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-practitioner-role.html) | Nazarov T.T. |
+| Muassasa nomi | Наименование учреждения | Composition.custodian | [Organization](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-organization.html) | Toshkent shahar 5-son poliklinikasi |
+| Muassasa kodi | Код учреждения | Organization.identifier[taxId] | `system` `https://dhp.uz/fhir/core/sid/org/uz/soliq`<br>`type` `TAX` | 200017001 |
+| Hujjat sarlavhasi | Заголовок документа | Composition.title | - | Form 044 - Certificate of Absence of Medical Contraindications for Travel Abroad |
+| Komissiya raisi imzosi | Подпись председателя комиссии | Provenance.signature | [Provenance](https://hl7.org/fhir/R5/provenance.html) | Author |
 
 ---
 
-### Chet elga chiqishga ruxsat
+### 1. Shaxsiy ma'lumotlar
 
-| UZ | RU | FHIR yo'li | Kod | Misol |
-|----|----|------------|------|---------|
-| Tashxis va chet elga borish uchun qarshiliklar yoʻqligi borasida tibbiy yakun | Медицинское заключение об отсутствии противопоказаний к выезду | Observation.code / Observation.valueCodeableConcept | [Form Sections](CodeSystem-form-sections-cs.html) `travel-clearance` → `allowed` \| `denied` | Mumkin |
-| Mamlakat nomi | Наименование страны назначения | Observation.code / Observation.valueCodeableConcept | [Form Sections](CodeSystem-form-sections-cs.html) `destination-country`; qiymat: ISO-3166-1 | Germaniya |
-| Xizmat safarining muddati | На срок (период) | Observation.code / Observation.effectivePeriod | [Form Sections](CodeSystem-form-sections-cs.html) `trip-period` | 2026-02-20 – 2026-03-05 |
+Bo'lim kodi: LOINC `LP36348-8` "Patient information".
 
----
-
-### Mas'ul shaxslar
-
-| UZ | RU | FHIR yo'li | Kod | Misol |
-|----|----|------------|------|---------|
-| Komissiya raisi F.I.SH | Председатель комиссии (ФИО/подпись) | [PractitionerRole](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-practitioner-role.html).practitioner / [Provenance](https://hl7.org/fhir/R5/provenance.html).signature | Occupation `1342.18` "Bo'linma (sog'liqni saqlash muassasalari) mudiri" | Nazarov T.T. |
+| UZ | RU | FHIR yo'li | Kod | Qiymat misoli |
+|----|----|------------|------|---------------|
+| Med ID raqami | Номер Med ID | Patient.identifier[healthCardId] | `system` `https://dhp.uz/fhir/core/sid/pid/uz/hc`<br>`type` `HC` | HC-2026-00044 |
+| JShShIR | ПИНФЛ | Patient.identifier[nationalId] | `system` `https://dhp.uz/fhir/core/sid/pid/uz/ni`<br>`type` `NI` | 31234567890044 |
+| Familiya, ismi, otasining ismi | ФИО | Patient.name (text/family/given) | - | Yusupova Nodira Sharifovna |
+| Yoshi | Возраст | Patient.birthDate | - | 1988-07-22 |
 
 ---
 
-### Bundle tuzilishi
+### 2. Kechirgan yuqumli kasalliklar
 
-044-shakl hujjati [Form044TravelClearanceCertificateComposition](StructureDefinition-form-044-travel-clearance-composition.html) Composition'ini o'z ichiga olgan FHIR Bundle sifatida tuzilgan:
+Bo'lim kodi: LOINC `11348-0` "History of Past illness note".
+
+| UZ | RU | FHIR yo'li | Kod | Qiymat misoli |
+|----|----|------------|------|---------------|
+| Kechirgan yuqumli kasalliklar | Перенесённые инфекционные заболевания | [Condition](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-condition.html).code | XKT-10 | B05 "Measles", A38 "Scarlet fever", A37 "Whooping cough" |
+
+---
+
+### 3. Chet elga chiqishga ruxsat
+
+Bo'lim kodi: LOINC `104988-1` "Medical Fitness Certificate".
+
+| UZ | RU | FHIR yo'li | Kod | Qiymat misoli |
+|----|----|------------|------|---------------|
+| Tashxis va chet elga borish uchun qarshiliklar yo'qligi borasida tibbiy yakun | Медицинское заключение об отсутствии противопоказаний к выезду | [Observation](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-observation.html).valueBoolean | `code` [Form Sections](CodeSystem-form-sections-cs.html) `travel-clearance` "Travel clearance" | true |
+| Mamlakat nomi | Наименование страны | Observation.valueCodeableConcept | `code` [Form Sections](CodeSystem-form-sections-cs.html) `destination-country` "Destination country"; qiymat [ISO 3166 part 1 2-letter codes, sans Uzbekistan](https://terminology.dhp.uz/fhir/core/ValueSet/iso-3166-2-vs-sans-uz) dan | DE "Germany" |
+| Xizmat safarining muddati | Срок командировки | Observation.valuePeriod | `code` [Form Sections](CodeSystem-form-sections-cs.html) `trip-period` "Business trip period" | 2026-02-20 - 2026-03-05 |
+
+---
+
+### 4. Yashash joyi
+
+Bo'lim kodi: LOINC `56799-0` "Address".
+
+| UZ | RU | FHIR yo'li | Kod | Qiymat misoli |
+|----|----|------------|------|---------------|
+| Yo'llanayotganning yashash joyi | Место жительства направляемого | Patient.address | - | 8-mavze, 22-uy |
+
+---
+
+### 5. Mas'ul shaxslar
+
+Bo'lim kodi: LOINC `LP35157-4` "Responsible party".
+
+| UZ | RU | FHIR yo'li | Kod | Qiymat misoli |
+|----|----|------------|------|---------------|
+| Komissiya raisi F.I.Sh. | ФИО председателя комиссии | PractitionerRole.practitioner | `code` [Position and profession](https://terminology.dhp.uz/fhir/core/ValueSet/position-and-profession-vs) `1342.18` "Head of department (health institution)" | Nazarov T.T. |
+
+---
+
+### Bundle tuzilmasi
+
+044-shakl hujjati [Form044TravelClearanceCertificateComposition](StructureDefinition-form-044-travel-clearance-composition.html) Composition'ini o'z ichiga olgan FHIR Bundle:
 
 ```
-Bundle (hujjat)
+Bundle (document)
 ├── Composition (Form044TravelClearanceCertificateComposition)
-├── Patient (bemorning demografik ma'lumotlari)
-├── Organization (ma'lumotnoma beruvchi muassasa)
+├── Patient (chet elga ketayotgan shaxs)
+├── Organization (ma'lumotnomani bergan poliklinika)
 ├── Practitioner (komissiya raisi)
 ├── PractitionerRole (komissiya raisining lavozimi)
 ├── Condition[] (kechirgan yuqumli kasalliklar)
-├── Observation[] (chet elga chiqishga ruxsat, borish mo'ljallangan mamlakat, xizmat safari muddati)
+├── Observation[] (chet elga chiqishga ruxsat, borish mamlakati, xizmat safari muddati)
 └── Provenance (komissiya raisining imzosi)
 ```
 
 ### Misol
 
-To'liq FHIR hujjati misoli uchun [044-shakl ma'lumotnoma misoli](Bundle-example-form-044-travel-clearance.html)ga qarang.
+To'liq FHIR hujjati misoli - [044-shakl ma'lumotnoma misoli](Bundle-example-form-044-travel-clearance.html).
