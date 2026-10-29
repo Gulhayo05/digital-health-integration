@@ -220,7 +220,7 @@ Each diagnosis is one Condition. Its role goes in `Condition.category` as a [Dia
 | Muolajani bajarish sanasi | Дата исполнения лечения | [MedicationAdministration](https://hl7.org/fhir/R5/medicationadministration.html).occurenceDateTime | - | 2026-02-08T12:00:00+05:00 |
 | Natija (shifokor / hamshira) | Результат (врач / медсестра) | MedicationAdministration.note.text + note.authorReference | - | First dose tolerated well |
 | Dori-darmon va tibbiy buyum manbasi | Источник лекарств и медицинских изделий | MedicationRequest.insurance → [Coverage](https://hl7.org/fhir/R5/coverage.html) | [Coverage Type](https://dhp.uz/fhir/core/en/ValueSet-coverage-type-vs.html) | State Health Insurance treated case |
-| Parhez stoli raqami | Назначение диетического стола № | [NutritionOrder](https://hl7.org/fhir/R5/nutritionorder.html).oralDiet.type | [Hospital Diet Type](CodeSystem-hospital-diet-type-cs.html) | `chr-0042-0024` "Diet table No. 15 (general table, no special restriction)" |
+| Parhez stoli raqami | Назначение диетического стола № | Observation.valueCodeableConcept | `code` LOINC `81663-7` "Diet [Type]"<br>`value` [Hospital Diet Type](ValueSet-hospital-diet-type-vs.html) | `chr-0042-0024` "Diet table No. 15 (general table, no special restriction)" |
 
 ---
 
@@ -335,14 +335,13 @@ Bundle (document)
 ├── Practitioner[] (attending doctor, department head, deputy chief physician)
 ├── PractitionerRole[] (responsible persons)
 ├── Condition[] (referral, admission, preliminary and final diagnoses)
-├── Observation[] (vital signs, blood group, socioeconomic, screening, temperature chart, work capacity)
+├── Observation[] (vital signs, blood group, socioeconomic, screening, temperature chart, diet, work capacity)
 ├── AllergyIntolerance (drug reaction)
 ├── RelatedPerson (next of kin)
 ├── DiagnosticReport[] (laboratory and imaging investigations)
 ├── ServiceRequest[] (ordered investigations and procedures)
 ├── Procedure[] (surgery, anaesthesia, other treatments)
 ├── MedicationRequest[] / MedicationAdministration[] (medication sheet)
-├── NutritionOrder (diet table)
 ├── Coverage (source of medicines / funding)
 ├── CarePlan[] (doctor recommendations, referenced sick leave)
 └── Provenance[] (signatures, record authorship)

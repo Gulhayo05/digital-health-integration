@@ -249,7 +249,7 @@ Description: "Composition profile for Form 003 (Statsionar bemorning tibbiy kart
 // ---------------------------------------------------------------------
 // Medication sheet - source rows 92-100, 104-121
 // MedicationRequest (prescription: drug, dose, route, timing),
-// MedicationAdministration (execution), NutritionOrder (diet table),
+// MedicationAdministration (execution), Observation (diet table),
 // Coverage (source of medicines / devices), Provenance (signatures)
 // ---------------------------------------------------------------------
 * section[medicationSheet] ^short = "Prescriptions, administrations, diet table and source of medicines"
@@ -257,7 +257,7 @@ Description: "Composition profile for Form 003 (Statsionar bemorning tibbiy kart
 * section[medicationSheet].code 1..1
 * section[medicationSheet].code = $loinc#29549-3 "Medication administered Narrative"
 * section[medicationSheet].entry 1..*
-* section[medicationSheet].entry only Reference(UZCoreMedicationRequest or MedicationAdministration or NutritionOrder or UZCoreObservation or Coverage or UZCoreProvenance)
+* section[medicationSheet].entry only Reference(UZCoreMedicationRequest or MedicationAdministration or UZCoreObservation or Coverage or UZCoreProvenance)
 
 // ---------------------------------------------------------------------
 // Procedure sheet - source rows 122-132

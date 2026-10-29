@@ -101,7 +101,7 @@ Title: "Form 003 - Inpatient medical record card"
 * entry[+].fullUrl  = "urn:uuid:00300044-0000-0000-0000-000000000000"
 * entry[=].resource = medicationadministration-003-001
 * entry[+].fullUrl  = "urn:uuid:00300045-0000-0000-0000-000000000000"
-* entry[=].resource = nutritionorder-003-diet
+* entry[=].resource = obs-003-diet
 * entry[+].fullUrl  = "urn:uuid:00300046-0000-0000-0000-000000000000"
 * entry[=].resource = coverage-003-001
 * entry[+].fullUrl  = "urn:uuid:00300047-0000-0000-0000-000000000000"
@@ -794,17 +794,16 @@ Usage: #inline
 * note.text = "First dose tolerated well, no infusion reaction."   // rows 97-98
 * note.authorReference = Reference(urn:uuid:00300011-0000-0000-0000-000000000000)
 
-Instance: nutritionorder-003-diet
-InstanceOf: NutritionOrder
+Instance: obs-003-diet
+InstanceOf: UZCoreObservation
 Usage: #inline
-// row 116 - diet table No.
-* status = #active
-* intent = #order
+* status = #final
+* code = $loinc#81663-7 "Diet [Type]"
 * subject = Reference(urn:uuid:00300002-0000-0000-0000-000000000000)
 * encounter = Reference(urn:uuid:00300003-0000-0000-0000-000000000000)
-* dateTime = "2026-02-08T11:00:00+05:00"
-* orderer = Reference(urn:uuid:00300011-0000-0000-0000-000000000000)
-* oralDiet.type = https://terminology.dhp.uz/fhir/integrations/CodeSystem/hospital-diet-type-cs#chr-0042-0024 "Diet table No. 15 (general table, no special restriction)"
+* effectiveDateTime = "2026-02-08T11:00:00+05:00"
+* performer = Reference(urn:uuid:00300011-0000-0000-0000-000000000000)
+* valueCodeableConcept = https://terminology.dhp.uz/fhir/integrations/CodeSystem/hospital-diet-type-cs#chr-0042-0024 "Diet table No. 15 (general table, no special restriction)"
 
 Instance: coverage-003-001
 InstanceOf: Coverage

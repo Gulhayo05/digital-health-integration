@@ -222,7 +222,7 @@
 | Muolajani bajarish sanasi | Дата исполнения лечения | [MedicationAdministration](https://hl7.org/fhir/R5/medicationadministration.html).occurenceDateTime | - | 2026-02-08T12:00:00+05:00 |
 | Natija (shifokor / hamshira) | Результат (врач / медсестра) | MedicationAdministration.note.text + note.authorReference | - | First dose tolerated well |
 | Dori-darmon va tibbiy buyum manbasi | Источник лекарств и медицинских изделий | MedicationRequest.insurance → [Coverage](https://hl7.org/fhir/R5/coverage.html) | [Coverage Type](https://dhp.uz/fhir/core/en/ValueSet-coverage-type-vs.html) | State Health Insurance treated case |
-| Parhez stoli raqami | Назначение диетического стола № | [NutritionOrder](https://hl7.org/fhir/R5/nutritionorder.html).oralDiet.type | [Hospital Diet Type](CodeSystem-hospital-diet-type-cs.html) | `chr-0042-0024` "Diet table No. 15 (general table, no special restriction)" |
+| Parhez stoli raqami | Назначение диетического стола № | Observation.valueCodeableConcept | `code` LOINC `81663-7` "Diet [Type]"<br>`value` [Hospital Diet Type](ValueSet-hospital-diet-type-vs.html) | `chr-0042-0024` "Diet table No. 15 (general table, no special restriction)" |
 
 ---
 
@@ -337,14 +337,13 @@ Bundle (документ)
 ├── Practitioner[] (лечащий врач, заведующий отделением, заместитель главного врача)
 ├── PractitionerRole[] (ответственные лица)
 ├── Condition[] (диагнозы направления, поступления, предварительный и заключительные)
-├── Observation[] (витальные показатели, группа крови, соц.-экон., осмотр при поступлении, температурный лист, трудоспособность)
+├── Observation[] (витальные показатели, группа крови, соц.-экон., осмотр при поступлении, температурный лист, диетический стол, трудоспособность)
 ├── AllergyIntolerance (лекарственная реакция)
 ├── RelatedPerson (близкий родственник)
 ├── DiagnosticReport[] (лабораторные и инструментальные исследования)
 ├── ServiceRequest[] (назначенные исследования и процедуры)
 ├── Procedure[] (операция, анестезия, другие виды лечения)
 ├── MedicationRequest[] / MedicationAdministration[] (лист назначений)
-├── NutritionOrder (диетический стол)
 ├── Coverage (источник лекарств / финансирования)
 ├── CarePlan[] (рекомендации врача, ссылка на больничный лист)
 └── Provenance[] (подписи, авторство записи)

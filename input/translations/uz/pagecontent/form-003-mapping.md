@@ -222,7 +222,7 @@ Har bir tashxis - bitta Condition. Uning roli `Condition.category`da [Diagnosis 
 | Muolajani bajarish sanasi | Дата исполнения лечения | [MedicationAdministration](https://hl7.org/fhir/R5/medicationadministration.html).occurenceDateTime | - | 2026-02-08T12:00:00+05:00 |
 | Natija (shifokor / hamshira) | Результат (врач / медсестра) | MedicationAdministration.note.text + note.authorReference | - | First dose tolerated well |
 | Dori-darmon va tibbiy buyum manbasi | Источник лекарств и медицинских изделий | MedicationRequest.insurance → [Coverage](https://hl7.org/fhir/R5/coverage.html) | [Coverage Type](https://dhp.uz/fhir/core/en/ValueSet-coverage-type-vs.html) | State Health Insurance treated case |
-| Parhez stoli raqami | Назначение диетического стола № | [NutritionOrder](https://hl7.org/fhir/R5/nutritionorder.html).oralDiet.type | [Hospital Diet Type](CodeSystem-hospital-diet-type-cs.html) | `chr-0042-0024` "Diet table No. 15 (general table, no special restriction)" |
+| Parhez stoli raqami | Назначение диетического стола № | Observation.valueCodeableConcept | `code` LOINC `81663-7` "Diet [Type]"<br>`value` [Hospital Diet Type](ValueSet-hospital-diet-type-vs.html) | `chr-0042-0024` "Diet table No. 15 (general table, no special restriction)" |
 
 ---
 
@@ -337,14 +337,13 @@ Bundle (hujjat)
 ├── Practitioner[] (davolovchi shifokor, bo'lim boshlig'i, bosh shifokor muovini)
 ├── PractitionerRole[] (mas'ul shaxslar)
 ├── Condition[] (yo'llanma, qabul, tahminiy va yakuniy tashxislar)
-├── Observation[] (hayotiy ko'rsatkichlar, qon guruhi, ijtimoiy-iqtisodiy, qabulda tekshiruv, harorat jadvali, mehnat qobiliyati)
+├── Observation[] (hayotiy ko'rsatkichlar, qon guruhi, ijtimoiy-iqtisodiy, qabulda tekshiruv, harorat jadvali, parhez stoli, mehnat qobiliyati)
 ├── AllergyIntolerance (dori reaksiyasi)
 ├── RelatedPerson (yaqin qarindosh)
 ├── DiagnosticReport[] (laboratoriya va instrumental tekshiruvlar)
 ├── ServiceRequest[] (buyurilgan tekshiruv va muolajalar)
 ├── Procedure[] (operatsiya, anesteziya, boshqa davolash turlari)
 ├── MedicationRequest[] / MedicationAdministration[] (buyuruvlar varaqasi)
-├── NutritionOrder (parhez stoli)
 ├── Coverage (dori / moliyalashtirish manbai)
 ├── CarePlan[] (shifokor tavsiyalari, mehnatga layoqatsizlik varog'iga havola)
 └── Provenance[] (imzolar, yozuv muallifligi)
