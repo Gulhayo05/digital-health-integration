@@ -140,9 +140,9 @@ Birlashtirilgan «qabulda tekshiruv» bloki har bir tekshiruv uchun alohida resu
 | Bemorni tekshirish sanasi va vaqti | Дата и время осмотра пациента | Composition.date | - | 2026-02-08T10:15:00+05:00 |
 | Bemorning yoshi | Возраст пациента | derived from Patient.birthDate and Composition.date | - | 35 |
 | Shikoyatlar / Boshqa shikoyatlar | Жалобы / Другие жалобы | Observation.valueString | LOINC `8661-1` "Chief complaint - Reported" | Cough, fever, dyspnoea |
-| Joylashuvi | Локализация | Observation.bodySite | SNOMED CT `266005` "Structure of lower lobe of right lung" | Right lower lobe |
-| Xususiyati | Характер | Observation.note.text | free text | Acute onset, productive cough |
-| Og'riqli xuruj boshlanishi | Начало приступа | Observation.effectivePeriod.start | - | 2026-02-04T20:00:00+05:00 |
+| Joylashuvi | Локализация | *(same Observation).bodySite* | [Body Site](https://dhp.uz/fhir/core/en/ValueSet-body-site-vs.html) | `266005` "Structure of lower lobe of right lung" |
+| Xususiyati | Характер | *(same Observation).note.text* | free text | Acute onset, productive cough |
+| Og'riqli xuruj boshlanishi | Начало приступа | *(same Observation).effectivePeriod.start* | - | 2026-02-04T20:00:00+05:00 |
 | Anamnez | Анамнез | section[anamnesis].text | LOINC `11329-0` "History general Narrative - Reported" | narrative |
 | Umumiy hozirgi holat | Общее текущее состояние | section[statusPraesens].text | LOINC `10210-3` "Physical findings of General status Narrative" | narrative |
 | Mahalliy holat | Местное состояние | section[statusLocalis].text | [CHR-003 Section](CodeSystem-form-003-section-cs.html) `status-localis` "Status localis" | narrative |
