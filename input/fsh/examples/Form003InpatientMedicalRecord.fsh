@@ -898,11 +898,11 @@ Usage: #inline
 Instance: careplan-003-recommendations
 InstanceOf: CarePlan
 Usage: #inline
-* status = #completed
+* status = #active
 * intent = #plan
 * subject = Reference(urn:uuid:00300002-0000-0000-0000-000000000000)
 * encounter = Reference(urn:uuid:00300003-0000-0000-0000-000000000000)
-* note.text = "Oral levofloxacin 500 mg once daily x5 days (penicillin allergy). Chest X-ray in 6 weeks. GP review in 3 days."   // row 100
+* description = "Oral levofloxacin 500 mg once daily x5 days (penicillin allergy). Chest X-ray in 6 weeks. GP review in 3 days."
 
 // Rows 52-54: Form 003 references an existing sick-leave record, it does not
 // author one. This is a minimal stand-in the Composition points at; in
