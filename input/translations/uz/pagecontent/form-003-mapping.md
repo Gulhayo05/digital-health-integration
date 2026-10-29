@@ -71,7 +71,7 @@ To'liq namunaviy nusxa uchun [003-shakl statsionar bemorning tibbiy kartasi miso
 |----|----|------------|------|---------|
 | Bemorning F.I.Sh. | ФИО пациента | Patient.name:official | - | Tursunov Alisher Valiyevich |
 | Bemorning tug'ilgan sanasi | Дата рождения пациента | Patient.birthDate | - | 1990-04-12 |
-| Bemorning jinsi | Пол пациента | Patient.gender | AdministrativeGender | male |
+| Bemorning jinsi | Пол пациента | Patient.gender | [Administrative Gender](https://dhp.uz/fhir/core/en/ValueSet-administrative-gender-vs.html) | male |
 | Bemorning tibbiy karta raqami | Номер медицинской карты | Patient.identifier[healthCardId].value | - | HC-2026-00042 |
 | Bemorning yashash joyi | Место жительства пациента | Patient.address:uzAddress (use = home) | - | Toshkent, Yunusobod, 12-mavze, 15-uy |
 | Qon guruhi | Группа крови | [Observation](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-observation.html).valueCodeableConcept where code = LOINC `883-9` | LOINC answers, e.g. `LA19710-5` "Group A" | Group A |
@@ -95,11 +95,11 @@ Qog'oz shaklning 27-32-qatorlari bitta tanlov maydonidir. Har bir to'ldirilgan v
 
 | UZ | RU | FHIR yo'li | Kod | Misol |
 |----|----|------------|------|---------|
-| Kasbi yoki lavozimi | Профессия или должность | [UZCoreSocioeconomicObservation](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-socioeconomic-observation.html).valueCodeableConcept | Position and Profession VS | Car mechanic |
+| Kasbi yoki lavozimi | Профессия или должность | [UZCoreSocioeconomicObservation](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-socioeconomic-observation.html).valueCodeableConcept | [Position and Profession](https://dhp.uz/fhir/core/en/ValueSet-position-and-profession-vs.html) | Car mechanic |
 | O'qish joyi | Место учёбы | UZCoreSocioeconomicObservation.valueString | - | - |
 | Bolalar muassasasi | Детское учреждение | UZCoreSocioeconomicObservation.valueString | - | - |
-| Nogironlik turi | Вид инвалидности | UZCoreSocioeconomicObservation.valueCodeableConcept | Benefits VS | - |
-| Nogironlik guruhi | Группа инвалидности | UZCoreSocioeconomicObservation.valueCodeableConcept | Disability Levels VS | - |
+| Nogironlik turi | Вид инвалидности | UZCoreSocioeconomicObservation.valueCodeableConcept | [Benefits](https://dhp.uz/fhir/core/en/ValueSet-benefits-vs.html) | - |
+| Nogironlik guruhi | Группа инвалидности | UZCoreSocioeconomicObservation.valueCodeableConcept | [Disability Levels](https://dhp.uz/fhir/core/en/ValueSet-disability-vs.html) | - |
 | Urush nogironi | Инвалид войны | UZCoreSocioeconomicObservation.valueCodeableConcept | [Benefits](https://dhp.uz/fhir/core/en/CodeSystem-benefits-cs.html) `regis0004.00004` | Disabled persons and war participants of 1941-1945 |
 
 ---
@@ -109,7 +109,7 @@ Qog'oz shaklning 27-32-qatorlari bitta tanlov maydonidir. Har bir to'ldirilgan v
 | UZ | RU | FHIR yo'li | Kod | Misol |
 |----|----|------------|------|---------|
 | Bemor yuborilgan shifoxona nomi | Кем направлен больной | Encounter.admission.origin → Organization | - | Yunusobod tuman oilaviy poliklinikasi |
-| Kasalxonaga shoshilinch tarzda keltirilgan | Пациент доставлен экстренно | Encounter.priority | HL7 v3 ActPriority `EM` / `R` | Emergency |
+| Kasalxonaga shoshilinch tarzda keltirilgan | Пациент доставлен экстренно | Encounter.priority | [ActPriority](https://terminology.hl7.org/ValueSet-v3-ActPriority.html) `EM` / `R` | Emergency |
 | Tez tibbiy yordam transportida keldi | Доставлен транспортом скорой помощи | Observation.valueBoolean | LOINC `LP97912-7` "Ambulance transport" | true |
 | Kasallik/jarohatdan keyin yotqizishgacha o'tgan vaqt | Время от начала заболевания/травмы до госпитализации | Observation.valueCodeableConcept | [Disease/Injury Delay](CodeSystem-disease-injury-delay-cs.html) `delay0001_00003` | After 24 hours |
 | Bemorni kelish usuli | Метод прибытия пациента | Encounter.admission.admitSource | [Admit Source Local](https://dhp.uz/fhir/core/en/CodeSystem-admit-source-local-cs.html) `mserv-0006-00004` | Emergency medical service |
@@ -162,10 +162,10 @@ Birlashtirilgan «qabulda tekshiruv» bloki har bir tekshiruv uchun alohida resu
 
 | UZ | RU | FHIR yo'li | Kod | Misol |
 |----|----|------------|------|---------|
-| Qonning umumiy tahlili | Общий анализ крови | DiagnosticReport.code | Lab Report Types `lab-rep-01` "CBC panel" | - |
-| Umumiy peshob tahlili | Общий анализ мочи | DiagnosticReport.code | Lab Report Types `lab-rep-05` "Urinalysis macro (dipstick) panel" | - |
-| Biokimyoviy tahlil | Биохимический анализ | DiagnosticReport.code | Lab Report Types `lab-rep-07` "Comprehensive metabolic panel" | - |
-| Koagulogramma | Коагулограмма | DiagnosticReport.code | Lab Report Types `lab-rep-02` "Coagulation panel" | - |
+| Qonning umumiy tahlili | Общий анализ крови | DiagnosticReport.code | [Lab Report Types](https://dhp.uz/fhir/core/en/CodeSystem-lab-report-types-cs.html) `lab-rep-01` "CBC panel" | - |
+| Umumiy peshob tahlili | Общий анализ мочи | DiagnosticReport.code | [Lab Report Types](https://dhp.uz/fhir/core/en/CodeSystem-lab-report-types-cs.html) `lab-rep-05` "Urinalysis macro (dipstick) panel" | - |
+| Biokimyoviy tahlil | Биохимический анализ | DiagnosticReport.code | [Lab Report Types](https://dhp.uz/fhir/core/en/CodeSystem-lab-report-types-cs.html) `lab-rep-07` "Comprehensive metabolic panel" | - |
+| Koagulogramma | Коагулограмма | DiagnosticReport.code | [Lab Report Types](https://dhp.uz/fhir/core/en/CodeSystem-lab-report-types-cs.html) `lab-rep-02` "Coagulation panel" | - |
 | EKG | ЭКГ | DiagnosticReport.code + conclusion | LOINC `11524-6` "EKG study" | Sinus tachycardia |
 | Rentgenologik tekshiruv | Рентгенологическое исследование | DiagnosticReport.code | LOINC `18782-3` "Radiology Study observation (narrative)" | Right lower-lobe consolidation |
 | UZI | УЗИ | DiagnosticReport.code | LOINC `25061-3` "US unspecified body region" | - |
@@ -204,7 +204,7 @@ Har bir tashxis [Diagnosis Role](CodeSystem-diagnosis-role-integration.html) kod
 | Og'riqsizlantirish usullari | Метод анестезии | separate Procedure.code (coding XOR text) | SNOMED CT `27372005` / `386761002` / `18946005` / `231249005` / `78432000` / `50697003` / `266802007` / `288185006`; local [Anesthesia Method](CodeSystem-anesthesia-method-cs.html) `chr-0041-0001` "Combined anesthesia" | Local anaesthesia |
 | Operatsiyadan keyingi asoratlar | Послеоперационные осложнения | Procedure.complication / Condition | SNOMED CT / ICD-10 | - |
 | Shifokor F.I.Sh. | ФИО врача-хирурга | Procedure.performer.actor → PractitionerRole | - | Rasulov B.B. |
-| Boshqa davolash turlari nomi | Наименование других видов лечения | Procedure.code | Procedure Code VS | - |
+| Boshqa davolash turlari nomi | Наименование других видов лечения | Procedure.code | [Procedure Code](https://dhp.uz/fhir/core/en/ValueSet-procedure-code-vs.html) | - |
 
 ---
 
@@ -219,7 +219,7 @@ Har bir tashxis [Diagnosis Role](CodeSystem-diagnosis-role-integration.html) kod
 | Muolajani bajarish vaqti | Время выполнения лечения | MedicationRequest.dosageInstruction.timing | - | 1x/24h |
 | Muolajani bajarish sanasi | Дата исполнения лечения | [MedicationAdministration](https://hl7.org/fhir/R5/medicationadministration.html).occurenceDateTime | - | 2026-02-08T12:00:00+05:00 |
 | Natija (shifokor / hamshira) | Результат (врач / медсестра) | MedicationAdministration.note.text + note.authorReference | - | First dose tolerated well |
-| Dori-darmon va tibbiy buyum manbasi | Источник лекарств и медицинских изделий | MedicationRequest.insurance → [Coverage](https://hl7.org/fhir/R5/coverage.html) | Coverage Type VS | State Health Insurance treated case |
+| Dori-darmon va tibbiy buyum manbasi | Источник лекарств и медицинских изделий | MedicationRequest.insurance → [Coverage](https://hl7.org/fhir/R5/coverage.html) | [Coverage Type](https://dhp.uz/fhir/core/en/ValueSet-coverage-type-vs.html) | State Health Insurance treated case |
 | Parhez stoli raqami | Назначение диетического стола № | [NutritionOrder](https://hl7.org/fhir/R5/nutritionorder.html).oralDiet.type | [Hospital Diet Type](CodeSystem-hospital-diet-type-cs.html) `chr-0042-0024` | Diet table No. 15 |
 
 ---
@@ -228,9 +228,9 @@ Har bir tashxis [Diagnosis Role](CodeSystem-diagnosis-role-integration.html) kod
 
 | UZ | RU | FHIR yo'li | Kod | Misol |
 |----|----|------------|------|---------|
-| Tayinlangan / buyurilgan tekshiruv | Назначенное исследование | Composition.section[procedureSheet].entry → ServiceRequest / DiagnosticReport | Service Request Code VS | - |
+| Tayinlangan / buyurilgan tekshiruv | Назначенное исследование | Composition.section[procedureSheet].entry → ServiceRequest / DiagnosticReport | [Service Request Code](https://dhp.uz/fhir/core/en/ValueSet-service-request-code-vs.html) | - |
 | O'tkazilgan tekshiruv sanasi | Дата проведённого исследования | DiagnosticReport.effectiveDateTime | - | - |
-| Buyurilgan muolajalar | Назначенные процедуры | ServiceRequest.code | Service Request Code VS | - |
+| Buyurilgan muolajalar | Назначенные процедуры | ServiceRequest.code | [Service Request Code](https://dhp.uz/fhir/core/en/ValueSet-service-request-code-vs.html) | - |
 | Bajarilgan muolajalar sanasi | Дата проведённой процедуры | Procedure.occurrenceDateTime | - | - |
 | Ishlatiladigan materiallar | Используемые материалы | Procedure.used.concept / .reference | SNOMED CT / registry reference | - |
 
@@ -314,10 +314,10 @@ Faqat o'lim yuz berganda mavjud bo'ladi. O'lim sabablari xuddi shu tarzda (`Cond
 | UZ | RU | FHIR yo'li | Kod | Misol |
 |----|----|------------|------|---------|
 | Davolovchi shifokor | Лечащий врач | PractitionerRole.practitioner | [Position and Profession](https://dhp.uz/fhir/core/en/CodeSystem-position-and-profession-cs.html) | Rasulov B.B. |
-| Bo'lim boshlig'i | Заведующий отделением | PractitionerRole.practitioner | `1342.18` "Head of department (health institution)" | Qodirov A.A. |
-| Bosh shifokor muovini | Заместитель главного врача | PractitionerRole.practitioner | `1120.185` "Deputy chief physician" | Yusupova N.N. |
+| Bo'lim boshlig'i | Заведующий отделением | PractitionerRole.practitioner | [Position and Profession](https://dhp.uz/fhir/core/en/CodeSystem-position-and-profession-cs.html) `1342.18` "Head of department (health institution)" | Qodirov A.A. |
+| Bosh shifokor muovini | Заместитель главного врача | PractitionerRole.practitioner | [Position and Profession](https://dhp.uz/fhir/core/en/CodeSystem-position-and-profession-cs.html) `1120.185` "Deputy chief physician" | Yusupova N.N. |
 | Kompleks uchun mas'ul shaxs | Ответственное лицо за комплекс | [EpisodeOfCare](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-episodeofcare.html).careManager | - | - |
-| Shifokor imzosi | Подпись врача | [Provenance](https://hl7.org/fhir/R5/provenance.html).signature | UZ Core Signature Type VS | - |
+| Shifokor imzosi | Подпись врача | [Provenance](https://hl7.org/fhir/R5/provenance.html).signature | [Signature Type](https://dhp.uz/fhir/core/en/ValueSet-signature-type-vs.html) | - |
 
 ---
 
