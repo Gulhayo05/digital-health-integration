@@ -74,7 +74,7 @@
 | Bemorning jinsi | Пол пациента | Patient.gender | [Administrative Gender](https://dhp.uz/fhir/core/en/ValueSet-administrative-gender-vs.html) | male |
 | Bemorning tibbiy karta raqami | Номер медицинской карты | Patient.identifier[healthCardId].value | - | HC-2026-00042 |
 | Bemorning yashash joyi | Место жительства пациента | Patient.address:uzAddress (use = home) | - | Toshkent, Yunusobod, 12-mavze, 15-uy |
-| Qon guruhi | Группа крови | [Observation](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-observation.html).valueCodeableConcept where code = LOINC `883-9` | LOINC answers, e.g. `LA19710-5` "Group A" | Group A |
+| Qon guruhi | Группа крови | [Observation](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-observation.html).valueCodeableConcept where code = LOINC `883-9` | LOINC answers | `LA19710-5` "Group A" |
 | Rezus mansubligi | Резус-фактор | Observation.valueCodeableConcept where code = LOINC `10331-7` | LOINC answers `LA6576-8` "Positive" / `LA6577-6` "Negative" | Positive |
 | Bemorning bo'yi | Рост пациента | Observation.valueQuantity | LOINC `8302-2` "Body height" | 178 cm |
 | Bemorning vazni | Вес пациента | Observation.valueQuantity | LOINC `29463-7` "Body weight" | 82 kg |
@@ -111,8 +111,8 @@
 | Bemor yuborilgan shifoxona nomi | Кем направлен больной | Encounter.admission.origin → Organization | - | Yunusobod tuman oilaviy poliklinikasi |
 | Kasalxonaga shoshilinch tarzda keltirilgan | Пациент доставлен экстренно | Encounter.priority | [ActPriority](https://terminology.hl7.org/ValueSet-v3-ActPriority.html) `EM` "emergency" / `R` "routine" | Emergency |
 | Tez tibbiy yordam transportida keldi | Доставлен транспортом скорой помощи | Observation.valueBoolean | LOINC `LP97912-7` "Ambulance transport" | true |
-| Kasallik/jarohatdan keyin yotqizishgacha o'tgan vaqt | Время от начала заболевания/травмы до госпитализации | Observation.valueCodeableConcept | [Disease/Injury Delay](CodeSystem-disease-injury-delay-cs.html) `delay0001_00003` "After 24 hours" | After 24 hours |
-| Bemorni kelish usuli | Метод прибытия пациента | Encounter.admission.admitSource | [Admit Source Local](https://dhp.uz/fhir/core/en/CodeSystem-admit-source-local-cs.html) `mserv-0006-00004` "Emergency medical service" | Emergency medical service |
+| Kasallik/jarohatdan keyin yotqizishgacha o'tgan vaqt | Время от начала заболевания/травмы до госпитализации | Observation.valueCodeableConcept | [Disease/Injury Delay](CodeSystem-disease-injury-delay-cs.html) | `delay0001_00003` "After 24 hours" |
+| Bemorni kelish usuli | Метод прибытия пациента | Encounter.admission.admitSource | [Admit Source Local](https://dhp.uz/fhir/core/en/CodeSystem-admit-source-local-cs.html) | `mserv-0006-00004` "Emergency medical service" |
 | Bemor yo'llanmasidagi tashxis | Диагноз в направлении | [Condition](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-condition.html).code + Encounter.diagnosis.use | ICD-10; use = [Diagnosis Type](https://dhp.uz/fhir/core/en/CodeSystem-diagnosis-type-cs.html) `gencl-0001-00001` "Diagnosis of the referring institution" | `J18.9` "Pneumonia, unspecified" |
 | Qabulxonada qo'yilgan tashxis | Диагноз в приёмном отделении | Condition.code + Encounter.diagnosis.use | ICD-10; use `gencl-0001-00002` "Diagnosis of the admission department" | `J18.9` "Pneumonia, unspecified" |
 | Tashxis qo'yilgan sana | Дата установления диагноза | Condition.recordedDate | - | 2026-02-08 |
@@ -199,7 +199,7 @@
 
 | UZ | RU | Путь FHIR | Код | Пример |
 |----|----|------------|------|---------|
-| Jarrohlik operatsiyasi nomi | Наименование хирургической операции | [Procedure](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-procedure.html).code | SNOMED CT `91602002` "Thoracentesis" | - |
+| Jarrohlik operatsiyasi nomi | Наименование хирургической операции | [Procedure](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-procedure.html).code | [Procedure Code](https://dhp.uz/fhir/core/en/ValueSet-procedure-code-vs.html) | `91602002` "Thoracentesis" |
 | Jarrohlik operatsiyasi sanasi va vaqti | Дата и время хирургической операции | Procedure.occurrenceDateTime | - | 2026-02-10T11:30:00+05:00 |
 | Og'riqsizlantirish usullari | Метод анестезии | separate Procedure.code (coding XOR text) | SNOMED CT `27372005` "Regional anesthesia"<br>`386761002` "Local anesthesia"<br>`18946005` "Epidural anesthesia"<br>`231249005` "Spinal anesthesia"<br>`78432000` "Intravenous anesthesia"<br>`50697003` "Administration of general anesthetic"<br>`266802007` "Endotracheal anesthesia"<br>`288185006` "Inhalation general anesthesia"<br> local [Anesthesia Method](CodeSystem-anesthesia-method-cs.html) `chr-0041-0001` "Combined anesthesia" | Local anaesthesia |
 | Operatsiyadan keyingi asoratlar | Послеоперационные осложнения | Procedure.complication / Condition | SNOMED CT / ICD-10 | - |
@@ -213,14 +213,14 @@
 | UZ | RU | Путь FHIR | Код | Пример |
 |----|----|------------|------|---------|
 | Dori-darmonlarni buyurish sanasi | Дата назначения лекарства | [MedicationRequest](https://hl7.org/fhir/R5/medicationrequest.html).authoredOn | - | 2026-02-08T11:00:00+05:00 |
-| Buyurilgan dori vositalari nomi | Название назначенного препарата | MedicationRequest.medication.concept | SNOMED CT `372670001` "Ceftriaxone" / ATC / INN | Ceftriaxone |
+| Buyurilgan dori vositalari nomi | Название назначенного препарата | MedicationRequest.medication.concept | SNOMED CT / ATC / INN | `372670001` "Ceftriaxone" |
 | Buyurilgan dori vositalari miqdori | Количество назначенного препарата | MedicationRequest.dosageInstruction.doseAndRate.doseQuantity | UCUM | 2 g |
-| Buyurilgan dori vositalari yuborish uslubi | Способ введения | MedicationRequest.dosageInstruction.route | SNOMED CT `47625008` "Intravenous route" | Intravenous |
+| Buyurilgan dori vositalari yuborish uslubi | Способ введения | MedicationRequest.dosageInstruction.route | [Route Code](https://dhp.uz/fhir/core/en/ValueSet-route-code-vs.html) | `47625008` "Intravenous route" |
 | Muolajani bajarish vaqti | Время выполнения лечения | MedicationRequest.dosageInstruction.timing | - | 1x/24h |
 | Muolajani bajarish sanasi | Дата исполнения лечения | [MedicationAdministration](https://hl7.org/fhir/R5/medicationadministration.html).occurenceDateTime | - | 2026-02-08T12:00:00+05:00 |
 | Natija (shifokor / hamshira) | Результат (врач / медсестра) | MedicationAdministration.note.text + note.authorReference | - | First dose tolerated well |
 | Dori-darmon va tibbiy buyum manbasi | Источник лекарств и медицинских изделий | MedicationRequest.insurance → [Coverage](https://hl7.org/fhir/R5/coverage.html) | [Coverage Type](https://dhp.uz/fhir/core/en/ValueSet-coverage-type-vs.html) | State Health Insurance treated case |
-| Parhez stoli raqami | Назначение диетического стола № | [NutritionOrder](https://hl7.org/fhir/R5/nutritionorder.html).oralDiet.type | [Hospital Diet Type](CodeSystem-hospital-diet-type-cs.html) `chr-0042-0024` "Diet table No. 15 (general table, no special restriction)" | Diet table No. 15 |
+| Parhez stoli raqami | Назначение диетического стола № | [NutritionOrder](https://hl7.org/fhir/R5/nutritionorder.html).oralDiet.type | [Hospital Diet Type](CodeSystem-hospital-diet-type-cs.html) | `chr-0042-0024` "Diet table No. 15 (general table, no special restriction)" |
 
 ---
 
@@ -277,11 +277,11 @@
 
 | UZ | RU | Путь FHIR | Код | Пример |
 |----|----|------------|------|---------|
-| Davolash natijasi (chiqarish) | Результат лечения (выписка) | Encounter.admission.dischargeDisposition | [Discharge Disposition Home](https://dhp.uz/fhir/core/en/CodeSystem-encounter-discharge-disposition-home-cs.html) `mserv-0004-00004` "Discharged" | Discharged |
+| Davolash natijasi (chiqarish) | Результат лечения (выписка) | Encounter.admission.dischargeDisposition | [Discharge Disposition Home](https://dhp.uz/fhir/core/en/CodeSystem-encounter-discharge-disposition-home-cs.html) | `mserv-0004-00004` "Discharged" |
 | Davolash natijasi (klinik holat) | Результат лечения (клинический исход) | Observation.valueCodeableConcept | SNOMED CT `370996005` "Patient condition resolved" / `268910001` "Patient's condition improved" / `359748005` "Patient condition unchanged" / `275723000` "Patient's condition deteriorating" | Patient's condition improved |
 | Vafot etish holati | Контекст смерти | Observation.valueCodeableConcept | [Death Context](CodeSystem-death-context-cs.html) `chr-0035-0001..0005` | - |
 | Boshqa muassasaga o'tkazilgan | Переведён в другое учреждение | Encounter.admission.destination → Organization | - | - |
-| Ish qobiliyatining holati | Состояние трудоспособности | Observation.valueCodeableConcept | [Work Capacity Status](CodeSystem-work-capacity-status-cs.html) `chr-0036-0001` "Work capacity fully restored" | Work capacity fully restored |
+| Ish qobiliyatining holati | Состояние трудоспособности | Observation.valueCodeableConcept | [Work Capacity Status](CodeSystem-work-capacity-status-cs.html) | `chr-0036-0001` "Work capacity fully restored" |
 | Ekspertizaga yuborish uchun xulosa | Заключение для направления на экспертизу | section[expertiseReferralConclusion].text | [CHR-003 Section](CodeSystem-form-003-section-cs.html) `expertise-referral-conclusion` "Conclusion for referral to medical expertise" | narrative |
 | Alohida belgilar | Особые признаки | section[specialMarks].text | [CHR-003 Section](CodeSystem-form-003-section-cs.html) `special-marks` "Special marks" | narrative |
 
