@@ -21,7 +21,7 @@ Ushbu sahifada [003-shakl](forms-volume-01-inpatient.html) (Statsionar bemorning
 
 003-shakl - butun statsionarda yotish davomida yuritiladigan to'liq tibbiy karta: yotqizish, birlamchi ko'rik, tashxislar, dori va muolaja varaqalari, harorat jadvali, kundalik hamda chiqarishdagi natija. Shakl ma'lumotlari [Form 003 Inpatient Medical Record Card Composition](StructureDefinition-form-003-inpatient-medical-record-composition.html) profiliga mos keluvchi FHIR hujjatiga birlashtirilgan bir nechta FHIR resurslari bilan moslashtiriladi. Imkoni bo'lgan joyda resurslar [UZ Core](https://dhp.uz/fhir/core/en/artifacts.html) profillariga mos keladi.
 
-Qog'oz shaklda qiymat sana maydoni va vaqt maydoniga ajratilgan joylarda ular bitta FHIR [`dateTime`](https://hl7.org/fhir/R5/datatypes.html#dateTime) ga birlashtiriladi. Imzolar [Provenance](https://hl7.org/fhir/R5/provenance.html) resurslari bilan ifodalanadi; imzolovchi mas'ul shaxslar «Mas'ul shaxslar» bo'limida PractitionerRole havolalari sifatida keltiriladi.
+Qog'oz shaklda qiymat sana maydoni va vaqt maydoniga ajratilgan joylarda ular bitta FHIR [`dateTime`](https://hl7.org/fhir/R5/datatypes.html#dateTime) ga birlashtiriladi. Imzolar [Provenance](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-provenance.html) resurslari bilan ifodalanadi; imzolovchi mas'ul shaxslar «Mas'ul shaxslar» bo'limida PractitionerRole havolalari sifatida keltiriladi.
 
 To'liq namunaviy nusxa uchun [003-shakl statsionar bemorning tibbiy kartasi misoli](Bundle-example-form-003-inpatient-medical-record.html)ga qarang.
 
@@ -40,12 +40,15 @@ To'liq namunaviy nusxa uchun [003-shakl statsionar bemorning tibbiy kartasi miso
 | Hujjat instansiyasi UUID | Идентификатор документа | Composition.identifier | `urn:ietf:rfc:3986` | urn:uuid:861f9511-f30c-52e5-b827-557766550003 |
 | Shakl raqami | Номер формы | Composition.identifier | `https://dhp.uz/fhir/core/sid/doc/uz/form-number` | 003 |
 | Hujjat versiyasi UUID | Идентификатор версии документа | Bundle.identifier | `urn:ietf:rfc:3986` | urn:uuid:760e8400-e29b-41d4-a716-446655440003 |
-| Hujjat holati | Статус документа | Composition.status | [Hujjat holatlari](document-statuses.html) `final` | final |
+| Hujjat holati | Статус документа | Composition.status | [Hujjat holatlari](document-statuses.html): `preliminary` statsionarda bo'lgan paytda, `final` karta yopilgach | final |
 | Hujjat turi | Тип документа | Composition.type | [Composition Type](https://terminology.dhp.uz/fhir/core/ValueSet/composition-type-vs) `emdoc-0010-0003` "Patient Medical Record №" | - |
-| Hujjat kategoriyasi | Категория документа | Composition.category | [Document Category](CodeSystem-document-category-cs.html) `form-003` "Statsionar bemorning tibbiy kartasi" | - |
+| Hujjat kategoriyasi | Категория документа | Composition.category | [Composition Category](https://terminology.dhp.uz/fhir/core/ValueSet/composition-category-vs) `Comp-001-0001` "Medical record" va [Document Category](CodeSystem-document-category-cs.html) `form-003` "Statsionar bemorning tibbiy kartasi" | - |
 | Bemor | Пациент | Composition.subject | [Patient](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-patient.html) | Tursunov Alisher Valiyevich |
 | Statsionarda yotish | Пребывание в стационаре | Composition.encounter | [Encounter](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-encounter.html) | Statsionarda yotish |
 | Davolovchi shifokor | Лечащий врач | Composition.author | [PractitionerRole](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-practitioner-role.html) | Rasulov B.B. |
+| Hujjat sanasi | Дата документа | Composition.date | - | 2026-02-18T09:00:00+05:00 |
+| Hujjat egasi | Организация-хранитель документа | Composition.custodian | [Organization](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-organization.html) | Toshkent shahar klinik shifoxonasi |
+| Muassasa STIR | ИНН учреждения | Organization.identifier[taxId] | `https://dhp.uz/fhir/core/sid/org/uz/soliq`, type `TAX` | 202345678 |
 | Hujjat sarlavhasi | Заголовок документа | Composition.title | - | Form 003 - Inpatient Medical Record Card |
 
 ---
@@ -54,12 +57,12 @@ To'liq namunaviy nusxa uchun [003-shakl statsionar bemorning tibbiy kartasi miso
 
 | UZ | RU | FHIR yo'li | Kod | Misol |
 |----|----|------------|------|---------|
-| Muassasa nomi | Наименование учреждения | [Organization](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-organization.html).name | - | Toshkent shahar klinik shifoxonasi |
+| Muassasa nomi | Наименование учреждения | Organization.name | - | Toshkent shahar klinik shifoxonasi |
 | Statsionar bemorning tibbiy karta raqami | Медицинская карта стационарного больного | Encounter.identifier | `system` `https://dhp.uz/fhir/core/sid/doc/uz/medical-record-number` | MRN-003-2026-0042 |
 | Kasalxonaga yotqizilgan kun va vaqti | Дата и время поступления в стационар | Encounter.actualPeriod.start | - | 2026-02-08T10:00:00+05:00 |
 | Kasalxonadan chiqarilgan kun va vaqti | Дата и время выписки из стационара | Encounter.actualPeriod.end | - | 2026-02-18T09:00:00+05:00 |
 | Statsionar bo'limi | Отделение стационара | Encounter.location.location → [Location](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-location.html) | - | Therapeutic department |
-| Statsionar xona raqami | Номер палаты | Location.name / Location.identifier (form = room) | - | Room 214 |
+| Statsionar xona raqami | Номер палаты | Location.identifier[unit].value | `type` [Location Kinds](https://dhp.uz/fhir/core/en/CodeSystem-location-kinds-cs.html) `Ward` "Palata" | 214 |
 | Ko'chirilgan bo'lim | Переведён в отделение | Encounter.location (repeat) + Encounter.location.period | - | - |
 | Yotib davolangan kunlar soni | Количество проведённых койко-дней | Encounter.length | UCUM `d` "day" | 10 days |
 
@@ -74,8 +77,8 @@ To'liq namunaviy nusxa uchun [003-shakl statsionar bemorning tibbiy kartasi miso
 | Bemorning jinsi | Пол пациента | Patient.gender | [Administrative Gender](https://dhp.uz/fhir/core/en/ValueSet-administrative-gender-vs.html) | male |
 | Bemorning tibbiy karta raqami | Номер медицинской карты | Patient.identifier[healthCardId].value | - | HC-2026-00042 |
 | Bemorning yashash joyi | Место жительства пациента | Patient.address:uzAddress (use = home) | - | Toshkent, Yunusobod, 12-mavze, 15-uy |
-| Qon guruhi | Группа крови | [Observation](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-observation.html).valueCodeableConcept where code = LOINC `883-9` | LOINC answers | `LA19710-5` "Group A" |
-| Rezus mansubligi | Резус-фактор | Observation.valueCodeableConcept where code = LOINC `10331-7` | LOINC answers `LA6576-8` "Positive" / `LA6577-6` "Negative" | Positive |
+| Qon guruhi | Группа крови | [Observation](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-observation.html).valueCodeableConcept | `code` LOINC `883-9` "ABO group [Type] in Blood"<br>`value` [Blood Group](https://terminology.dhp.uz/fhir/core/ValueSet/blood-group-vs) | A (II) (`112144000`) |
+| Rezus mansubligi | Резус-фактор | Observation.valueCodeableConcept | `code` LOINC `10331-7` "Rh [Type] in Blood"<br>`value` [Blood Rh](https://terminology.dhp.uz/fhir/core/ValueSet/blood-rh-vs) | Rh positive (`165747007`) |
 | Bemorning bo'yi | Рост пациента | Observation.valueQuantity | LOINC `8302-2` "Body height" | 178 cm |
 | Bemorning vazni | Вес пациента | Observation.valueQuantity | LOINC `29463-7` "Body weight" | 82 kg |
 | Bemorning harorati | Температура пациента | Observation.valueQuantity | LOINC `8310-5` "Body temperature" | 38.4 Cel |
@@ -84,7 +87,6 @@ To'liq namunaviy nusxa uchun [003-shakl statsionar bemorning tibbiy kartasi miso
 | Yaqin qarindoshning yashash joyi | Место жительства близких родственников | [RelatedPerson](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-relatedperson.html).address | - | Toshkent, Yunusobod |
 | Yaqin qarindoshning telefon raqami | Номер телефона близких родственников | RelatedPerson.telecom[phone].value | - | +998901112233 |
 
-> Rasmiy qog'oz shaklda ro'yxatga olingan manzil (Ro'yxatga olingan manzil / Адрес по прописке) uchun alohida maydon yo'q, shuning uchun u profildan chiqarilgan.
 
 ---
 
@@ -97,10 +99,10 @@ Qog'oz shaklning 27-32-qatorlari bitta tanlov maydonidir. Har bir to'ldirilgan v
 | Ish joyi | Место работы | Observation.valueString | LOINC `80427-8` "Employer name [Identifier]" | Yunusobod avtoservis |
 | Kasbi yoki lavozimi | Профессия или должность | [UZCoreSocioeconomicObservation](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-socioeconomic-observation.html).valueCodeableConcept | `code` SNOMED `14679004` "Occupation", as in Form 111<br>`value` [Position and Profession](https://dhp.uz/fhir/core/en/ValueSet-position-and-profession-vs.html) | Car mechanic (`7231.1`) |
 | O'qish joyi | Место учёбы | Observation.valueString | LOINC `66280-9` "School Name" | - |
-| Bolalar muassasasi | Детское учреждение | Observation.valueString | [CHR-003 Observation Code](CodeSystem-form-003-observation-code-cs.html) `children-institution` "Children's institution" | - |
+| Bolalar muassasasi | Детское учреждение | Observation.valueString | [Form 003 Observation Code](CodeSystem-form-003-observation-code-cs.html) `children-institution` "Children's institution" | - |
 | Nogironlik turi | Вид инвалидности | UZCoreSocioeconomicObservation.valueCodeableConcept | [Benefits](https://dhp.uz/fhir/core/en/ValueSet-benefits-vs.html) | - |
 | Nogironlik guruhi | Группа инвалидности | UZCoreSocioeconomicObservation.valueCodeableConcept | [Disability Levels](https://dhp.uz/fhir/core/en/ValueSet-disability-vs.html) | - |
-| Urush nogironi | Инвалид войны | UZCoreSocioeconomicObservation.valueCodeableConcept | [Benefits](https://dhp.uz/fhir/core/en/CodeSystem-benefits-cs.html) `regis0004.00004` "Disabled persons and war participants of 1941-1945, as well as persons treated as such" | Disabled persons and war participants of 1941-1945 |
+| Urush nogironi | Инвалид войны | UZCoreSocioeconomicObservation.valueCodeableConcept | [Benefits](https://dhp.uz/fhir/core/en/CodeSystem-benefits-cs.html) `regis0004.00004` "Disabled persons and war participants of 1941-1945, as well as persons treated as such" | - |
 
 ---
 
@@ -127,9 +129,9 @@ Birlashtirilgan «qabulda tekshiruv» bloki har bir tekshiruv uchun alohida resu
 |----|----|------------|------|---------|
 | Qon RW | RW (VDRL) | [DiagnosticReport](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-diagnostic-report.html).code | LOINC `5292-8` "Reagin Ab [Presence] in Serum by VDRL" | Non-reactive |
 | OITS | ВИЧ 1/2 Ab + p24 Ag | DiagnosticReport.code | LOINC `56888-1` "HIV 1+2 Ab+HIV1 p24 Ag [Presence] in Serum or Plasma by Immunoassay" | Non-reactive |
-| Axlat poshevi | Посев кала | DiagnosticReport.code | [Lab Report Types](https://dhp.uz/fhir/core/en/CodeSystem-lab-report-types-cs.html) `lab-rep-03` "Macroscopic examination of feces" | - |
+| Axlat poshevi | Посев кала | DiagnosticReport.code | LOINC `625-4` "Bacteria identified in Stool by Culture" | - |
 | Pedikulyoz | Педикулёз | Observation.valueCodeableConcept | SNOMED CT `20848007` "Pediculosis" | Negative |
-| Mavhum kasalliklar | Прочие заболевания | Observation.valueString | [CHR-003 Observation Code](CodeSystem-form-003-observation-code-cs.html) | - |
+| Mavhum kasalliklar | Прочие заболевания | Observation.valueString | [Form 003 Observation Code](CodeSystem-form-003-observation-code-cs.html) `other-diseases` "Other diseases" | - |
 
 ---
 
@@ -137,15 +139,15 @@ Birlashtirilgan «qabulda tekshiruv» bloki har bir tekshiruv uchun alohida resu
 
 | UZ | RU | FHIR yo'li | Kod | Misol |
 |----|----|------------|------|---------|
-| Bemorni tekshirish sanasi va vaqti | Дата и время осмотра пациента | Composition.date | - | 2026-02-08T10:15:00+05:00 |
-| Bemorning yoshi | Возраст пациента | derived from Patient.birthDate and Composition.date | - | 35 |
+| Bemorni tekshirish sanasi va vaqti | Дата и время осмотра пациента | Condition.recordedDate of the provisional diagnosis | - | 2026-02-08T10:15:00+05:00 |
+| Bemorning yoshi | Возраст пациента | derived from Patient.birthDate and the examination date | - | 35 |
 | Shikoyatlar / Boshqa shikoyatlar | Жалобы / Другие жалобы | Observation.valueString | LOINC `8661-1` "Chief complaint - Reported" | Cough, fever, dyspnoea |
 | Joylashuvi | Локализация | *(same Observation).bodySite* | [Body Site](https://dhp.uz/fhir/core/en/ValueSet-body-site-vs.html) | `266005` "Structure of lower lobe of right lung" |
 | Xususiyati | Характер | *(same Observation).note.text* | free text | Acute onset, productive cough |
 | Og'riqli xuruj boshlanishi | Начало приступа | *(same Observation).effectivePeriod.start* | - | 2026-02-04T20:00:00+05:00 |
 | Anamnez | Анамнез | section[anamnesis].text | LOINC `11329-0` "History general Narrative - Reported" | narrative |
 | Umumiy hozirgi holat | Общее текущее состояние | section[statusPraesens].text | LOINC `10210-3` "Physical findings of General status Narrative" | narrative |
-| Mahalliy holat | Местное состояние | section[statusLocalis].text | [CHR-003 Section](CodeSystem-form-003-section-cs.html) `status-localis` "Status localis" | narrative |
+| Mahalliy holat | Местное состояние | section[statusLocalis].text | [Form 003 Composition Section Codes](CodeSystem-form-003-section-cs.html) `status-localis` "Status localis" | narrative |
 | Tahminiy tashxis | Предварительный диагноз | Condition.code + Encounter.diagnosis.use | ICD-10; use `gencl-0001-00003` "Main diagnosis" | `J18.9` "Pneumonia, unspecified" |
 
 ---
@@ -179,7 +181,7 @@ Birlashtirilgan «qabulda tekshiruv» bloki har bir tekshiruv uchun alohida resu
 
 | UZ | RU | FHIR yo'li | Kod | Misol |
 |----|----|------------|------|---------|
-| Bo'lim shifokori ko'rigi (tekshiruv va davolash rejasi) | Осмотр врача отделения (план обследования и лечения) | Composition.section[departmentExamination].text (+ entry) | [CHR-003 Section](CodeSystem-form-003-section-cs.html) `department-examination` "Department doctor examination" | narrative |
+| Bo'lim shifokori ko'rigi (tekshiruv va davolash rejasi) | Осмотр врача отделения (план обследования и лечения) | Composition.section[departmentExamination].text (+ entry) | [Form 003 Composition Section Codes](CodeSystem-form-003-section-cs.html) `department-examination` "Department doctor examination" | narrative |
 
 ---
 
@@ -212,7 +214,7 @@ Har bir tashxis - bitta Condition. Uning roli `Condition.category`da [Diagnosis 
 
 | UZ | RU | FHIR yo'li | Kod | Misol |
 |----|----|------------|------|---------|
-| Dori-darmonlarni buyurish sanasi | Дата назначения лекарства | [MedicationRequest](https://hl7.org/fhir/R5/medicationrequest.html).authoredOn | - | 2026-02-08T11:00:00+05:00 |
+| Dori-darmonlarni buyurish sanasi | Дата назначения лекарства | [MedicationRequest](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-medicationrequest.html).authoredOn | - | 2026-02-08T11:00:00+05:00 |
 | Buyurilgan dori vositalari nomi | Название назначенного препарата | MedicationRequest.medication.concept | SNOMED CT / ATC / INN | `372670001` "Ceftriaxone" |
 | Buyurilgan dori vositalari miqdori | Количество назначенного препарата | MedicationRequest.dosageInstruction.doseAndRate.doseQuantity | UCUM | 2 g |
 | Buyurilgan dori vositalari yuborish uslubi | Способ введения | MedicationRequest.dosageInstruction.route | [Route Code](https://dhp.uz/fhir/core/en/ValueSet-route-code-vs.html) | `47625008` "Intravenous route" |
@@ -242,14 +244,14 @@ Ertalabki va kechqurungi o'lchovlar bir xil LOINC kuzatuvi bo'lib, `Observation.
 
 | UZ | RU | FHIR yo'li | Kod | Misol |
 |----|----|------------|------|---------|
-| Bemorning kasallik kuni | День болезни пациента | Observation.valueInteger | [CHR-003 Observation Code](CodeSystem-form-003-observation-code-cs.html) `day-of-illness` "Day of illness" | 4 |
+| Bemorning kasallik kuni | День болезни пациента | Observation.valueInteger | [Form 003 Observation Code](CodeSystem-form-003-observation-code-cs.html) `day-of-illness` "Day of illness" | 6 |
 | Bemorning kasalxonada bo'lgan kunlari | Дни пребывания в стационаре | derived from Encounter.actualPeriod.start | - | 1..31 |
 | Yurak urishi (ertalab / kechqurun) | Пульс (утро / вечер) | Observation.valueQuantity | LOINC `8867-4` "Heart rate" | 96 /min |
 | Qon bosimi (ertalab / kechqurun) | Артериальное давление (утро / вечер) | Observation.component.valueQuantity | LOINC `85354-9` "Blood pressure panel" + `component` LOINC `8480-6` "Systolic blood pressure" / `8462-4` "Diastolic blood pressure" in `mm[Hg]` | 134 / 84 |
 | Harorat (ertalab / kechqurun) | Температура (утро / вечер) | Observation.valueQuantity | LOINC `8310-5` "Body temperature" | 37.6 Cel |
 | Nafas olish tezligi (ertalab / kechqurun) | Частота дыхания (утро / вечер) | Observation.valueQuantity | LOINC `9279-1` "Respiratory rate" | 20 /min |
 | Og'irligi (ertalab / kechqurun) | Вес (утро / вечер) | Observation.valueQuantity | LOINC `29463-7` "Body weight" | 82 kg |
-| Qabul qilingan suyuqlik (ertalab / kechqurun) | Выпито жидкости (утро / вечер) | Observation.valueQuantity | [CHR-003 Observation Code](CodeSystem-form-003-observation-code-cs.html) `fluid-intake-part-of-day` "Fluid intake for part of the day" | 600 mL |
+| Qabul qilingan suyuqlik (ertalab / kechqurun) | Выпито жидкости (утро / вечер) | Observation.valueQuantity, one per half-day | LOINC `9107-4` "Fluid intake total 12 hour" | 600 mL |
 | Bir kunlik siydik miqdori | Суточное количество мочи | Observation.valueQuantity | LOINC `9192-6` "Urine output 24 hour" | 1650 mL/(24.h) |
 
 ---
@@ -258,9 +260,9 @@ Ertalabki va kechqurungi o'lchovlar bir xil LOINC kuzatuvi bo'lib, `Observation.
 
 | UZ | RU | FHIR yo'li | Kod | Misol |
 |----|----|------------|------|---------|
-| Dinamikadagi ahvoli | Состояние в динамике | Observation.valueString | [CHR-003 Observation Code](CodeSystem-form-003-observation-code-cs.html) `clinical-course` "Clinical course" | Afebrile from day 5, resolving |
+| Dinamikadagi ahvoli | Состояние в динамике | Observation.valueString | LOINC `8648-8` "Hospital course note" | Afebrile from day 5, resolving |
 | Shifokor tavsiyalari | Рекомендации врача | [CarePlan](https://hl7.org/fhir/R5/careplan.html).note / .activity | - | Oral antibiotics, GP review in 3 days |
-| Kundalik / Shifokor yozuvlari | Дневник / Записи врача | section[diary].text | [CHR-003 Section](CodeSystem-form-003-section-cs.html) `diary` "Diary" | narrative |
+| Kundalik / Shifokor yozuvlari | Дневник / Записи врача | section[diary].text | LOINC `11506-3` "Progress note" | narrative |
 
 ---
 
@@ -269,7 +271,7 @@ Ertalabki va kechqurungi o'lchovlar bir xil LOINC kuzatuvi bo'lib, `Observation.
 | UZ | RU | FHIR yo'li | Kod | Misol |
 |----|----|------------|------|---------|
 | Mazkur yil davomida shu kasallik bo'yicha kasalxonaga yotishi | Госпитализация по данному заболеванию в текущем году | Encounter.admission.reAdmission | [Re-admission Local](https://dhp.uz/fhir/core/en/CodeSystem-re-admission-local-cs.html) `first-time` "First time" / `repeat-current-year` "Repeated within current year" | First time |
-| Yillik kasalxonaga yotqizilganlarning umumiy soni | Общее количество госпитализаций за год | Observation.valueInteger | [Local](CodeSystem-local-observation-code.html) `num-previous-hospitalizations` "Number of previous hospitalizations" | 1 |
+| Yillik kasalxonaga yotqizilganlarning umumiy soni | Общее количество госпитализаций за год | Observation.valueInteger | [Local](CodeSystem-local-observation-code.html) `num-previous-hospitalizations` "Number of previous hospitalizations" | 0 |
 
 ---
 
@@ -279,11 +281,11 @@ Ertalabki va kechqurungi o'lchovlar bir xil LOINC kuzatuvi bo'lib, `Observation.
 |----|----|------------|------|---------|
 | Davolash natijasi (chiqarish) | Результат лечения (выписка) | Encounter.admission.dischargeDisposition | [Discharge Disposition Home](https://dhp.uz/fhir/core/en/CodeSystem-encounter-discharge-disposition-home-cs.html) | `mserv-0004-00004` "Discharged" |
 | Davolash natijasi (klinik holat) | Результат лечения (клинический исход) | Observation.valueCodeableConcept | SNOMED CT `370996005` "Patient condition resolved" / `268910001` "Patient's condition improved" / `359748005` "Patient condition unchanged" / `275723000` "Patient's condition deteriorating" | Patient's condition improved |
-| Vafot etish holati | Контекст смерти | Observation.valueCodeableConcept | [Death Context](CodeSystem-death-context-cs.html) `chr-0035-0001..0005` | - |
+| Vafot etish holati | Контекст смерти | Observation.valueCodeableConcept | `code` [Form 003 Observation Code](CodeSystem-form-003-observation-code-cs.html) `death-context` "Death context"<br>`value` [Death Context](ValueSet-death-context-vs.html) | - |
 | Boshqa muassasaga o'tkazilgan | Переведён в другое учреждение | Encounter.admission.destination → Organization | - | - |
 | Ish qobiliyatining holati | Состояние трудоспособности | Observation.valueCodeableConcept | [Work Capacity Status](CodeSystem-work-capacity-status-cs.html) | `chr-0036-0001` "Work capacity fully restored" |
-| Ekspertizaga yuborish uchun xulosa | Заключение для направления на экспертизу | section[expertiseReferralConclusion].text | [CHR-003 Section](CodeSystem-form-003-section-cs.html) `expertise-referral-conclusion` "Conclusion for referral to medical expertise" | narrative |
-| Alohida belgilar | Особые признаки | section[specialMarks].text | [CHR-003 Section](CodeSystem-form-003-section-cs.html) `special-marks` "Special marks" | narrative |
+| Ekspertizaga yuborish uchun xulosa | Заключение для направления на экспертизу | section[expertiseReferralConclusion].text | [Form 003 Composition Section Codes](CodeSystem-form-003-section-cs.html) `expertise-referral-conclusion` "Conclusion for referral to medical expertise" | narrative |
+| Alohida belgilar | Особые признаки | section[specialMarks].text | [Form 003 Composition Section Codes](CodeSystem-form-003-section-cs.html) `special-marks` "Special marks" | narrative |
 
 ---
 
@@ -316,8 +318,8 @@ Faqat o'lim yuz berganda mavjud bo'ladi. Har bir o'lim sababi - bitta Condition,
 | Davolovchi shifokor | Лечащий врач | PractitionerRole.practitioner | [Position and Profession](https://dhp.uz/fhir/core/en/CodeSystem-position-and-profession-cs.html) | Rasulov B.B. |
 | Bo'lim boshlig'i | Заведующий отделением | PractitionerRole.practitioner | [Position and Profession](https://dhp.uz/fhir/core/en/CodeSystem-position-and-profession-cs.html) `1342.18` "Head of department (health institution)" | Qodirov A.A. |
 | Bosh shifokor muovini | Заместитель главного врача | PractitionerRole.practitioner | [Position and Profession](https://dhp.uz/fhir/core/en/CodeSystem-position-and-profession-cs.html) `1120.185` "Deputy chief physician" | Yusupova N.N. |
-| Kompleks uchun mas'ul shaxs | Ответственное лицо за комплекс | [EpisodeOfCare](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-episodeofcare.html).careManager | - | - |
-| Shifokor imzosi | Подпись врача | [Provenance](https://hl7.org/fhir/R5/provenance.html).signature | [Signature Type](https://dhp.uz/fhir/core/en/ValueSet-signature-type-vs.html) | - |
+| Kompleks uchun mas'ul shaxs | Ответственное лицо за комплекс | PractitionerRole (section[responsiblePersons]) | - | - |
+| Shifokor imzosi | Подпись врача | [Provenance](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-provenance.html).signature | [Signature Type](https://dhp.uz/fhir/core/en/ValueSet-signature-type-vs.html) | - |
 
 ---
 

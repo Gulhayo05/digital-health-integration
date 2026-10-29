@@ -1,3 +1,9 @@
+### In development
+
+#### Added
+
+[Form 003 inpatient medical record](StructureDefinition-form-003-inpatient-medical-record-composition.html) is profiled as a FHIR Document, covering administrative and personal information, admission, admission screening, the primary examination, the examination plan and results, diagnoses, operations, the medication and procedure sheets, the temperature chart, the clinical course, the treatment outcome, temporary disability, the post-mortem conclusion and responsible persons across 20 Composition sections. It ships an example document Bundle and a [field-by-field mapping page](form-003-mapping.html).
+
 ### Version 0.12.1
 
 #### Changed
