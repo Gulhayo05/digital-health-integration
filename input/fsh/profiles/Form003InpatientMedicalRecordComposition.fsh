@@ -11,7 +11,7 @@ Description: "Composition profile for Form 003 (Statsionar bemorning tibbiy kart
 * status ^short = "Document status: preliminary while the patient is in hospital, final once the record is closed at discharge"
 
 * type = $composition-type-cs#emdoc-0010-0003 "Patient Medical Record №"
-* type ^short = "Form 003 document type (inpatient medical record)"
+* type ^short = "Form 003 document type (inpatient medical record); LOINC 34112-3 \"Hospital Note\" may be sent as an additional coding"
 
 * category 1..*
 * category ^short = "Document category: medical record, and the Form 003 category"
@@ -164,14 +164,14 @@ Description: "Composition profile for Form 003 (Statsionar bemorning tibbiy kart
 
 // ---------------------------------------------------------------------
 // Examination plan - source row 81
-// DiagnosticReport / ServiceRequest per planned investigation
+// ServiceRequest per planned investigation
 // ---------------------------------------------------------------------
 * section[examinationPlan] ^short = "Planned investigations"
 * section[examinationPlan].title 1..1
 * section[examinationPlan].code 1..1
 * section[examinationPlan].code = $loinc#18776-5 "Plan of care note"
 * section[examinationPlan].entry 1..*
-* section[examinationPlan].entry only Reference(UZCoreDiagnosticReport or UZCoreServiceRequest)
+* section[examinationPlan].entry only Reference(UZCoreServiceRequest)
 
 // ---------------------------------------------------------------------
 // Diagnostic results - source rows 82-91

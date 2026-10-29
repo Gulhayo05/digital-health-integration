@@ -81,13 +81,17 @@ Title: "Form 003 - Inpatient medical record card"
 * entry[+].fullUrl  = "urn:uuid:00300036-0000-0000-0000-000000000000"
 * entry[=].resource = dr-003-xray
 * entry[+].fullUrl  = "urn:uuid:00300037-0000-0000-0000-000000000000"
-* entry[=].resource = dr-003-hiv
+* entry[=].resource = obs-003-hiv
 * entry[+].fullUrl  = "urn:uuid:00300038-0000-0000-0000-000000000000"
-* entry[=].resource = dr-003-rw
+* entry[=].resource = obs-003-rw
 * entry[+].fullUrl  = "urn:uuid:00300039-0000-0000-0000-000000000000"
 * entry[=].resource = obs-003-pediculosis
 * entry[+].fullUrl  = "urn:uuid:00300040-0000-0000-0000-000000000000"
 * entry[=].resource = servicerequest-003-consult
+* entry[+].fullUrl  = "urn:uuid:00300062-0000-0000-0000-000000000000"
+* entry[=].resource = servicerequest-003-cbc
+* entry[+].fullUrl  = "urn:uuid:00300063-0000-0000-0000-000000000000"
+* entry[=].resource = servicerequest-003-ecg
 * entry[+].fullUrl  = "urn:uuid:00300041-0000-0000-0000-000000000000"
 * entry[=].resource = procedure-003-surgery
 * entry[+].fullUrl  = "urn:uuid:00300042-0000-0000-0000-000000000000"
@@ -137,7 +141,8 @@ Usage: #inline
 * identifier[+].system = "https://dhp.uz/fhir/core/sid/doc/uz/form-number"
 * identifier[=].value = "003"
 * status = #final
-* type = $composition-type-cs#emdoc-0010-0003 "Patient Medical Record №"
+* type.coding[0] = $composition-type-cs#emdoc-0010-0003 "Patient Medical Record №"
+* type.coding[+] = $loinc#34112-3 "Hospital Note"
 * category[dhpCategory] = $composition-category-cs#Comp-001-0001 "Medical record"
 * category[formCategory] = $document-category-cs#form-003 "Patient medical record"
 * subject = Reference(urn:uuid:00300002-0000-0000-0000-000000000000)
@@ -203,8 +208,8 @@ Usage: #inline
 
 * section[examinationPlan].title = "Examination Plan"
 * section[=].code = $loinc#18776-5 "Plan of care note"
-* section[=].entry[0] = Reference(urn:uuid:00300032-0000-0000-0000-000000000000)
-* section[=].entry[+] = Reference(urn:uuid:00300035-0000-0000-0000-000000000000)
+* section[=].entry[0] = Reference(urn:uuid:00300062-0000-0000-0000-000000000000)
+* section[=].entry[+] = Reference(urn:uuid:00300063-0000-0000-0000-000000000000)
 
 * section[diagnosticResults].title = "Diagnostic Results"
 * section[=].code = $loinc#30954-2 "Relevant diagnostic tests/laboratory data note"
@@ -626,6 +631,7 @@ Instance: dr-003-cbc
 InstanceOf: UZCoreDiagnosticReport
 Usage: #inline
 * status = #final
+* basedOn = Reference(urn:uuid:00300062-0000-0000-0000-000000000000)
 * code = https://terminology.dhp.uz/fhir/core/CodeSystem/lab-report-types-cs#lab-rep-01 "CBC panel"      // row 82
 * subject = Reference(urn:uuid:00300002-0000-0000-0000-000000000000)
 * encounter = Reference(urn:uuid:00300003-0000-0000-0000-000000000000)
@@ -654,6 +660,7 @@ Instance: dr-003-ecg
 InstanceOf: UZCoreDiagnosticReport
 Usage: #inline
 * status = #final
+* basedOn = Reference(urn:uuid:00300063-0000-0000-0000-000000000000)
 * code = $loinc#11524-6 "EKG study"                          // row 86 (imaging/functional - LOINC via extensible binding)
 * subject = Reference(urn:uuid:00300002-0000-0000-0000-000000000000)
 * encounter = Reference(urn:uuid:00300003-0000-0000-0000-000000000000)
@@ -670,25 +677,26 @@ Usage: #inline
 * effectiveDateTime = "2026-02-08T14:30:00+05:00"
 * conclusion = "Right lower-lobe consolidation with small pleural effusion."
 
-Instance: dr-003-hiv
-InstanceOf: UZCoreDiagnosticReport
+Instance: obs-003-hiv
+InstanceOf: UZCoreObservation
 Usage: #inline
 * status = #final
-* code = $loinc#56888-1 "HIV 1+2 Ab+HIV1 p24 Ag [Presence] in Serum or Plasma by Immunoassay"   // row 60
+* code = $loinc#56888-1 "HIV 1+2 Ab+HIV1 p24 Ag [Presence] in Serum or Plasma by Immunoassay"
 * subject = Reference(urn:uuid:00300002-0000-0000-0000-000000000000)
 * encounter = Reference(urn:uuid:00300003-0000-0000-0000-000000000000)
 * effectiveDateTime = "2026-02-08T13:00:00+05:00"
-* conclusion = "Non-reactive"
+* valueCodeableConcept = $sct#260385009 "Negative"
 
-Instance: dr-003-rw
-InstanceOf: UZCoreDiagnosticReport
+Instance: obs-003-rw
+InstanceOf: UZCoreObservation
 Usage: #inline
 * status = #final
-* code = $loinc#5292-8 "Reagin Ab [Presence] in Serum by VDRL"    // row 60
+* code = $loinc#22461-8 "Reagin Ab [Presence] in Serum"
+* code.text = "Qon RW"
 * subject = Reference(urn:uuid:00300002-0000-0000-0000-000000000000)
 * encounter = Reference(urn:uuid:00300003-0000-0000-0000-000000000000)
 * effectiveDateTime = "2026-02-08T13:00:00+05:00"
-* conclusion = "Non-reactive"
+* valueCodeableConcept = $sct#260385009 "Negative"
 
 Instance: obs-003-pediculosis
 InstanceOf: UZCoreObservation
@@ -711,11 +719,35 @@ Usage: #inline
 * authoredOn = "2026-02-09T09:00:00+05:00"
 * requester = Reference(urn:uuid:00300011-0000-0000-0000-000000000000)
 
-Instance: procedure-003-surgery
-InstanceOf: UZCoreProcedure
+Instance: servicerequest-003-cbc
+InstanceOf: UZCoreServiceRequest
 Usage: #inline
 * status = #completed
-* code = $sct#91602002 "Thoracentesis"
+* intent = #order
+* code = https://terminology.dhp.uz/fhir/core/CodeSystem/lab-report-types-cs#lab-rep-01 "CBC panel"
+* subject = Reference(urn:uuid:00300002-0000-0000-0000-000000000000)
+* encounter = Reference(urn:uuid:00300003-0000-0000-0000-000000000000)
+* authoredOn = "2026-02-08T10:30:00+05:00"
+* requester = Reference(urn:uuid:00300011-0000-0000-0000-000000000000)
+
+Instance: servicerequest-003-ecg
+InstanceOf: UZCoreServiceRequest
+Usage: #inline
+* status = #completed
+* intent = #order
+* code = $loinc#11524-6 "EKG study"
+* subject = Reference(urn:uuid:00300002-0000-0000-0000-000000000000)
+* encounter = Reference(urn:uuid:00300003-0000-0000-0000-000000000000)
+* authoredOn = "2026-02-08T10:30:00+05:00"
+* requester = Reference(urn:uuid:00300011-0000-0000-0000-000000000000)
+
+Instance: procedure-003-surgery
+InstanceOf: Form066SurgicalProcedure
+Usage: #inline
+* status = #completed
+* category = $sct#387713003 "Surgical procedure (procedure)"
+* code = $ichi#JCB.JB.AE "Percutaneous drainage of pleural cavity"
+* code.text = "Thoracentesis"
 * subject = Reference(urn:uuid:00300002-0000-0000-0000-000000000000)
 * encounter = Reference(urn:uuid:00300003-0000-0000-0000-000000000000)
 * occurrenceDateTime = "2026-02-10T11:30:00+05:00"           // rows 46-47 merged
