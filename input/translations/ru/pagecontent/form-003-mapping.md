@@ -55,7 +55,7 @@
 | UZ | RU | Путь FHIR | Код | Пример |
 |----|----|------------|------|---------|
 | Muassasa nomi | Наименование учреждения | [Organization](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-organization.html).name | - | Toshkent shahar klinik shifoxonasi |
-| Statsionar bemorning tibbiy karta raqami | Медицинская карта стационарного больного | [Encounter](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-encounter.html).identifier | `system` `https://dhp.uz/fhir/core/sid/doc/uz/medical-record-number` | MRN-003-2026-0042 |
+| Statsionar bemorning tibbiy karta raqami | Медицинская карта стационарного больного | Encounter.identifier | `system` `https://dhp.uz/fhir/core/sid/doc/uz/medical-record-number` | MRN-003-2026-0042 |
 | Kasalxonaga yotqizilgan kun va vaqti | Дата и время поступления в стационар | Encounter.actualPeriod.start | - | 2026-02-08T10:00:00+05:00 |
 | Kasalxonadan chiqarilgan kun va vaqti | Дата и время выписки из стационара | Encounter.actualPeriod.end | - | 2026-02-18T09:00:00+05:00 |
 | Statsionar bo'limi | Отделение стационара | Encounter.location.location → [Location](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-location.html) | - | Therapeutic department |
@@ -69,7 +69,7 @@
 
 | UZ | RU | Путь FHIR | Код | Пример |
 |----|----|------------|------|---------|
-| Bemorning F.I.Sh. | ФИО пациента | [Patient](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-patient.html).name:official | - | Tursunov Alisher Valiyevich |
+| Bemorning F.I.Sh. | ФИО пациента | Patient.name:official | - | Tursunov Alisher Valiyevich |
 | Bemorning tug'ilgan sanasi | Дата рождения пациента | Patient.birthDate | - | 1990-04-12 |
 | Bemorning jinsi | Пол пациента | Patient.gender | AdministrativeGender | male |
 | Bemorning tibbiy karta raqami | Номер медицинской карты | Patient.identifier[healthCardId].value | - | HC-2026-00042 |
@@ -228,7 +228,7 @@
 
 | UZ | RU | Путь FHIR | Код | Пример |
 |----|----|------------|------|---------|
-| Tayinlangan / buyurilgan tekshiruv | Назначенное исследование | Composition.section[procedureSheet].entry → [ServiceRequest](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-servicerequest.html) / DiagnosticReport | Service Request Code VS | - |
+| Tayinlangan / buyurilgan tekshiruv | Назначенное исследование | Composition.section[procedureSheet].entry → ServiceRequest / DiagnosticReport | Service Request Code VS | - |
 | O'tkazilgan tekshiruv sanasi | Дата проведённого исследования | DiagnosticReport.effectiveDateTime | - | - |
 | Buyurilgan muolajalar | Назначенные процедуры | ServiceRequest.code | Service Request Code VS | - |
 | Bajarilgan muolajalar sanasi | Дата проведённой процедуры | Procedure.occurrenceDateTime | - | - |
@@ -313,7 +313,7 @@
 
 | UZ | RU | Путь FHIR | Код | Пример |
 |----|----|------------|------|---------|
-| Davolovchi shifokor | Лечащий врач | [PractitionerRole](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-practitioner-role.html).practitioner | [Position and Profession](https://dhp.uz/fhir/core/en/CodeSystem-position-and-profession-cs.html) | Rasulov B.B. |
+| Davolovchi shifokor | Лечащий врач | PractitionerRole.practitioner | [Position and Profession](https://dhp.uz/fhir/core/en/CodeSystem-position-and-profession-cs.html) | Rasulov B.B. |
 | Bo'lim boshlig'i | Заведующий отделением | PractitionerRole.practitioner | `1342.18` "Head of department (health institution)" | Qodirov A.A. |
 | Bosh shifokor muovini | Заместитель главного врача | PractitionerRole.practitioner | `1120.185` "Deputy chief physician" | Yusupova N.N. |
 | Kompleks uchun mas'ul shaxs | Ответственное лицо за комплекс | [EpisodeOfCare](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-episodeofcare.html).careManager | - | - |
