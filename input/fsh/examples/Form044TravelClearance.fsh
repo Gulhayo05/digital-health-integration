@@ -45,19 +45,16 @@ Usage: #inline
 * identifier[+].system = "https://dhp.uz/fhir/core/sid/doc/uz/form-number"
 * identifier[=].value = "044"
 * status = #final
-* type = $loinc#104988-1 "Medical fitness certificate"
-* category = $document-category-cs#form-044 "Certificate on absence of medical contraindications for travel abroad"
+* type = $composition-type-cs#emdoc-0010-0042 "Medical certificate for travelers abroad"
+* category[formCategory] = $document-category-cs#form-044 "Certificate on absence of medical contraindications for travel abroad"
 * subject = Reference(urn:uuid:04400002-1111-2222-3333-444444444444)
 * date = "2026-02-10T09:15:00+05:00"
 * author = Reference(urn:uuid:04400005-1111-2222-3333-444444444444)
+* custodian = Reference(urn:uuid:04400003-1111-2222-3333-444444444444)
 * title = "Form 044 - Certificate of Absence of Medical Contraindications for Travel Abroad"
 
 * section[personalInformation].title = "Personal Information"
-* section[=].code = $loinc#LP36348-8 "Patient Information"
-* section[=].entry = Reference(urn:uuid:04400002-1111-2222-3333-444444444444)
-
-* section[residenceInformation].title = "Residence Information"
-* section[=].code = $loinc#56799-0 "Address"
+* section[=].code = $loinc#LP36348-8 "Patient information"
 * section[=].entry = Reference(urn:uuid:04400002-1111-2222-3333-444444444444)
 
 * section[infectiousDiseaseHistory].title = "History of Infectious Diseases"
@@ -67,10 +64,14 @@ Usage: #inline
 * section[=].entry[+] = Reference(urn:uuid:04400008-1111-2222-3333-444444444444)
 
 * section[travelAuthorization].title = "Travel Authorization"
-* section[=].code = $loinc#104988-1 "Medical fitness certificate"
+* section[=].code = $loinc#104988-1 "Medical Fitness Certificate"
 * section[=].entry[0] = Reference(urn:uuid:04400009-1111-2222-3333-444444444444)
 * section[=].entry[+] = Reference(urn:uuid:04400010-1111-2222-3333-444444444444)
 * section[=].entry[+] = Reference(urn:uuid:04400011-1111-2222-3333-444444444444)
+
+* section[residenceInformation].title = "Residence Information"
+* section[=].code = $loinc#56799-0 "Address"
+* section[=].entry = Reference(urn:uuid:04400002-1111-2222-3333-444444444444)
 
 * section[responsiblePersons].title = "Responsible Persons"
 * section[=].code = $loinc#LP35157-4 "Responsible party"
@@ -102,11 +103,10 @@ Usage: #inline
 
 
 Instance: organization-044-001
-InstanceOf: Organization
+InstanceOf: UZCoreOrganization
 Usage: #inline
 * language = #en
-* identifier.system = "https://dhp.uz/fhir/core/sid/uz/organization-code"
-* identifier.value = "200017"
+* identifier[taxId].value = "200017001"
 * name = "Toshkent shahar 5-son poliklinikasi"
 
 
@@ -127,12 +127,10 @@ Usage: #inline
 Instance: practitionerrole-044-001
 InstanceOf: UZCorePractitionerRole
 Usage: #inline
+* language = #en
 * practitioner = Reference(urn:uuid:04400004-1111-2222-3333-444444444444)
 * organization = Reference(urn:uuid:04400003-1111-2222-3333-444444444444)
 * code = $occupation-cs#1342.18 "Head of department (health institution)"
-// Represents "Komissiya raisi" (Commission chair) — closest available code in
-// position-and-profession-cs; confirmed as real/valid, no more specific
-// "chief physician"/commission-chair code found. Approximation accepted.
 
 
 
@@ -187,7 +185,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:04400002-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-02-10T09:00:00+05:00"
 * performer = Reference(urn:uuid:04400004-1111-2222-3333-444444444444)
-* valueCodeableConcept = $form-sections-cs#allowed "Allowed"
+* valueBoolean = true
 
 
 
@@ -213,9 +211,10 @@ Usage: #inline
 * status = #final
 * code = $form-sections-cs#trip-period "Business trip period"
 * subject = Reference(urn:uuid:04400002-1111-2222-3333-444444444444)
+* effectiveDateTime = "2026-02-10T09:00:00+05:00"
 * performer = Reference(urn:uuid:04400004-1111-2222-3333-444444444444)
-* effectivePeriod.start = "2026-02-20"
-* effectivePeriod.end = "2026-03-05"
+* valuePeriod.start = "2026-02-20"
+* valuePeriod.end = "2026-03-05"
 
 
 
@@ -225,9 +224,9 @@ Usage: #inline
 * language = #en
 * target = Reference(Bundle/example-form-044-travel-clearance)
 * recorded = "2026-02-10T09:20:00+05:00"
-* agent.type = http://terminology.hl7.org/CodeSystem/provenance-participant-type#attester "Attester"
+* agent.type = $provenance-participant-type#author "Author"
 * agent.who = Reference(urn:uuid:04400004-1111-2222-3333-444444444444) "Nazarov T.T."
-* signature.type = urn:iso-astm:E1762-95:2013#1.2.840.10065.1.12.1.1 "Author's Signature"
+* signature.type = $signature-type#1.2.840.10065.1.12.1.1 "Author's Signature"
 * signature.when = "2026-02-10T09:20:00+05:00"
 * signature.who = Reference(urn:uuid:04400004-1111-2222-3333-444444444444) "Nazarov T.T."
 * signature.sigFormat = #application/pdf

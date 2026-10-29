@@ -22,14 +22,3 @@ Description: "Local codes for form fields and observation values that have no de
   * ^designation[+].language = #ru
   * ^designation[=].value = "Разрешение на выезд"
 
-* #allowed "Allowed"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Allowed"
-  * ^designation[+].language = #ru
-  * ^designation[=].value = "Разрешено"
-
-* #denied "Denied"
-  * ^designation[0].language = #en
-  * ^designation[=].value = "Denied"
-  * ^designation[+].language = #ru
-  * ^designation[=].value = "Не разрешено"
