@@ -183,7 +183,7 @@ The combined "осмотр при поступлении" block expands to one r
 
 ### Final Diagnosis
 
-Each diagnosis is tagged with `Condition.category` from the [Diagnosis Role](CodeSystem-diagnosis-role-integration.html) code system and placed in a matching per-role sub-section of the Composition, so the role is preserved without relying on entry order - Основное заболевание → `main`, Осложнение основного заболевания → `complication`, Выявленные сопутствующие заболевания → `concomitant`, Конкурирующее → `competing`, Фоновое → `background`.
+Each diagnosis is one Condition. Its role goes in `Condition.category` as a [Diagnosis Role](CodeSystem-diagnosis-role-integration.html) code, and the Condition goes in the Composition sub-section for that role: Main disease → `main`, Complication of the main disease → `complication`, Comorbidity → `concomitant`, Competing disease → `competing`, Background disease → `background`.
 
 | UZ | RU | FHIR Path | Code | Example |
 |----|----|------------|------|---------|
@@ -297,7 +297,7 @@ Morning and evening measurements are the same LOINC observation distinguished by
 
 ### Post-mortem Conclusion
 
-Present only when the patient died. Causes of death are tagged the same way (`Condition.category`, [Diagnosis Role](CodeSystem-diagnosis-role-integration.html)) in per-role sub-sections - Непосредственная причина смерти → `immediate-cause-of-death`, вызвавшее её заболевание → `underlying-cause-of-death`, Основное заболевание → `main-disease-death`, Другие значимые заболевания → `other-significant-death`.
+Present only when the patient died. Causes of death work the same way: Immediate cause of death → `immediate-cause-of-death`, the disease that led to it → `underlying-cause-of-death`, Main disease → `main-disease-death`, Other significant diseases → `other-significant-death`.
 
 | UZ | RU | FHIR Path | Code | Example |
 |----|----|------------|------|---------|

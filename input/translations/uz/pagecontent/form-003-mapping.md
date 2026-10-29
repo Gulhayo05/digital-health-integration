@@ -185,7 +185,7 @@ Birlashtirilgan «qabulda tekshiruv» bloki har bir tekshiruv uchun alohida resu
 
 ### Yakuniy tashxis
 
-Har bir tashxis [Diagnosis Role](CodeSystem-diagnosis-role-integration.html) kod tizimidan olingan `Condition.category` bilan belgilanadi va Composition'ning rolga mos quyi bo'limiga joylashtiriladi, shu sababli rol kiritish tartibiga bog'liq bo'lmagan holda saqlanadi - Asosiy → `main`, Asosiy kasallikning asorati → `complication`, Aniqlangan yo'ldosh kasalliklar → `concomitant`, Raqobat → `competing`, Fon → `background`.
+Har bir tashxis - bitta Condition. Uning roli `Condition.category`da [Diagnosis Role](CodeSystem-diagnosis-role-integration.html) kodi bilan ko'rsatiladi, Condition esa Composition'ning shu rolga mos quyi bo'limiga qo'yiladi: Asosiy → `main`, Asosiy kasallikning asorati → `complication`, Aniqlangan yo'ldosh kasalliklar → `concomitant`, Raqobat → `competing`, Fon → `background`.
 
 | UZ | RU | FHIR yo'li | Kod | Misol |
 |----|----|------------|------|---------|
@@ -299,7 +299,7 @@ Ertalabki va kechqurungi o'lchovlar bir xil LOINC kuzatuvi bo'lib, `Observation.
 
 ### O'limdan keyingi tibbiy xulosa
 
-Faqat o'lim yuz berganda mavjud bo'ladi. O'lim sabablari xuddi shu tarzda (`Condition.category`, [Diagnosis Role](CodeSystem-diagnosis-role-integration.html)) rollar bo'yicha quyi bo'limlarda belgilanadi - O'limning bevosita sababi → `immediate-cause-of-death`, uni keltirib chiqargan kasallik → `underlying-cause-of-death`, Asosiy kasallik → `main-disease-death`, Boshqa muhim kasalliklar → `other-significant-death`.
+Faqat o'lim yuz berganda mavjud bo'ladi. O'lim sabablari ham xuddi shunday: O'limning bevosita sababi → `immediate-cause-of-death`, uni keltirib chiqargan kasallik → `underlying-cause-of-death`, Asosiy kasallik → `main-disease-death`, Boshqa muhim kasalliklar → `other-significant-death`.
 
 | UZ | RU | FHIR yo'li | Kod | Misol |
 |----|----|------------|------|---------|
