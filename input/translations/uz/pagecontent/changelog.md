@@ -1,3 +1,17 @@
+### Versiya 0.12.1
+
+#### O'zgartirildi
+
+[097-shakl](form-097-mapping.html) va [111-shakl](form-111-mapping.html) qiymatlar to'plamlari o'zlarining SNOMED CT va LOINC qo'shimchalariga havola qiladi, shuning uchun ularning kodlari rus va o'zbek tillarida ko'rsatiladi.
+
+[097-shakl](form-097-mapping.html) namunalaridagi tashkilotlar 0.12.0 versiyasidan beri boshqa shakllar namunalaridagi kabi Soliq STIR bo'yicha identifikatsiya qilinadi. K vitamini Medication resursi XPN kodi bilan UZ Core Medication bo'ladi, hujjat esa chiqarilish sanasi bilan belgilanadi.
+
+[097-shakl](StructureDefinition-form-097-newborn-development-composition.html) profilaktika va emlash bo'limi yozuvlari istalgan Immunization emas, [UZ Core Immunization](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-immunization.html) ga havola qiladi, shuning uchun 097-shaklda yuboriladigan emlashlar UZ Core ga mos keladi.
+
+Apgar komponentlari bahosi, chaqaloq terisining asosiy rangi va chaqaloqni parvarish qilish joyi kodlar tizimlari va qiymatlar to'plamlari (`apgar-component-score-cs`, `newborn-skin-color-basic-cs`, `newborn-care-location-cs` va ularning `-vs` qiymatlar to'plamlari) olib tashlandi. Ularga hech bir profil bog'lanmagan: 097-shakl Apgar bahosini LOINC bilan, teri rangini esa [Newborn Skin Color Detailed](ValueSet-newborn-skin-color-detailed-vs.html) to'plamidan kodlaydi.
+
+[111-shakl](StructureDefinition-form-111-pregnant-woman-individual-card-composition.html) ro'yxatga olish bo'limi yozuvlari [UZ Core Socioeconomic Observation](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-socioeconomic-observation.html) ham bo'lishi mumkin. [Previous Pregnancy Outcome](ValueSet-form111-previous-pregnancy-outcome-vs.html) to'plamiga homila tushishi (SNOMED CT `17369002`) qo'shildi. [111-shakl xaritalashi](form-111-mapping.html) Composition.status hayot siklini tavsiflaydi: karta ochiq bo'lganda `preliminary`, yopilgandan keyin `final`, keyingi tuzatishlar uchun `amended` va karta xato sifatida bekor qilinsa `entered-in-error`. [Homilador ayol individual kartasi raqami](NamingSystem-antenatal-card-number-system.html) Encounter.identifier da emas, EpisodeOfCare.identifier da uzatiladi.
+
 ### Versiya 0.12.0
 
 #### Qo'shildi
