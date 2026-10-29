@@ -45,7 +45,9 @@ Usage: #inline
 * identifier[+].system = "https://dhp.uz/fhir/core/sid/doc/uz/form-number"
 * identifier[=].value = "044"
 * status = #final
-* type = $composition-type-cs#emdoc-0010-0042 "Medical certificate for travelers abroad"
+* type.coding[0] = $composition-type-cs#emdoc-0010-0042 "Medical certificate for travelers abroad"
+* type.coding[+] = $loinc#104988-1 "Medical Fitness Certificate"
+* category[dhpCategory] = $composition-category-cs#Comp-001-0001 "Medical record"
 * category[formCategory] = $document-category-cs#form-044 "Certificate on absence of medical contraindications for travel abroad"
 * subject = Reference(urn:uuid:04400002-1111-2222-3333-444444444444)
 * date = "2026-02-10T09:15:00+05:00"
@@ -53,27 +55,27 @@ Usage: #inline
 * custodian = Reference(urn:uuid:04400003-1111-2222-3333-444444444444)
 * title = "Form 044 - Certificate of Absence of Medical Contraindications for Travel Abroad"
 
-* section[personalInformation].title = "Personal Information"
+* section[personalInformation].title = "1. Personal information"
 * section[=].code = $loinc#LP36348-8 "Patient information"
 * section[=].entry = Reference(urn:uuid:04400002-1111-2222-3333-444444444444)
 
-* section[infectiousDiseaseHistory].title = "History of Infectious Diseases"
+* section[infectiousDiseaseHistory].title = "2. History of infectious diseases"
 * section[=].code = $loinc#11348-0 "History of Past illness note"
 * section[=].entry[0] = Reference(urn:uuid:04400006-1111-2222-3333-444444444444)
 * section[=].entry[+] = Reference(urn:uuid:04400007-1111-2222-3333-444444444444)
 * section[=].entry[+] = Reference(urn:uuid:04400008-1111-2222-3333-444444444444)
 
-* section[travelAuthorization].title = "Travel Authorization"
+* section[travelAuthorization].title = "3. Travel authorization"
 * section[=].code = $loinc#104988-1 "Medical Fitness Certificate"
 * section[=].entry[0] = Reference(urn:uuid:04400009-1111-2222-3333-444444444444)
 * section[=].entry[+] = Reference(urn:uuid:04400010-1111-2222-3333-444444444444)
 * section[=].entry[+] = Reference(urn:uuid:04400011-1111-2222-3333-444444444444)
 
-* section[residenceInformation].title = "Residence Information"
+* section[residenceInformation].title = "4. Residence information"
 * section[=].code = $loinc#56799-0 "Address"
 * section[=].entry = Reference(urn:uuid:04400002-1111-2222-3333-444444444444)
 
-* section[responsiblePersons].title = "Responsible Persons"
+* section[responsiblePersons].title = "5. Responsible persons"
 * section[=].code = $loinc#LP35157-4 "Responsible party"
 * section[=].entry = Reference(urn:uuid:04400005-1111-2222-3333-444444444444)
 
@@ -106,7 +108,9 @@ Instance: organization-044-001
 InstanceOf: UZCoreOrganization
 Usage: #inline
 * language = #en
-* identifier[taxId].value = "200017001"
+* identifier[taxId].type = $identifier-type#TAX "Tax ID number"
+* identifier[taxId].system = $organization-tax-id-system-dhp
+* identifier[taxId].value = "200017044"
 * name = "Toshkent shahar 5-son poliklinikasi"
 
 
@@ -130,7 +134,7 @@ Usage: #inline
 * language = #en
 * practitioner = Reference(urn:uuid:04400004-1111-2222-3333-444444444444)
 * organization = Reference(urn:uuid:04400003-1111-2222-3333-444444444444)
-* code = $occupation-cs#1342.18 "Head of department (health institution)"
+* code.coding[role] = $occupation-cs#1342.18 "Head of department (health institution)"
 
 
 
@@ -219,15 +223,15 @@ Usage: #inline
 
 
 Instance: provenance-signature-044
-InstanceOf: Provenance
+InstanceOf: UZCoreProvenance
 Usage: #inline
 * language = #en
 * target = Reference(Bundle/example-form-044-travel-clearance)
 * recorded = "2026-02-10T09:20:00+05:00"
 * agent.type = $provenance-participant-type#author "Author"
-* agent.who = Reference(urn:uuid:04400004-1111-2222-3333-444444444444) "Nazarov T.T."
-* signature.type = $signature-type#1.2.840.10065.1.12.1.1 "Author's Signature"
+* agent.who = Reference(urn:uuid:04400005-1111-2222-3333-444444444444) "Nazarov T.T."
+* signature.type[nationalType] = $signature-type-cs#soliqAuth
 * signature.when = "2026-02-10T09:20:00+05:00"
-* signature.who = Reference(urn:uuid:04400004-1111-2222-3333-444444444444) "Nazarov T.T."
+* signature.who = Reference(urn:uuid:04400005-1111-2222-3333-444444444444) "Nazarov T.T."
 * signature.sigFormat = #application/pdf
 * signature.data = "JVBERi0xLjQKMSAwIG9iago8PAovVHlwZSAvQ2F0YWxvZwovUGFnZXMgMiAwIFIKPj4KZW5kb2Jq"

@@ -33,20 +33,20 @@ For a complete reference instance, see the [Form 044 travel clearance example](B
 
 | UZ | RU | FHIR Path | Code | Example Value |
 |----|----|------------|------|---------------|
+| Hujjat versiyasi UUID | Идентификатор версии документа | Bundle.identifier | `urn:ietf:rfc:3986` | urn:uuid:044e8400-e29b-41d4-a716-446655440044 |
 | Hujjat instansiyasi UUID | Идентификатор документа | Composition.identifier | `urn:ietf:rfc:3986` | urn:uuid:944f9511-f30c-52e5-b827-557766550044 |
 | Shakl raqami | Номер формы | Composition.identifier | `https://dhp.uz/fhir/core/sid/doc/uz/form-number` | 044 |
-| Hujjat versiyasi UUID | Идентификатор версии документа | Bundle.identifier | `urn:ietf:rfc:3986` | urn:uuid:044e8400-e29b-41d4-a716-446655440044 |
 | Ma'lumotnoma raqami | Номер справки | Composition.identifier | - | 044-2026-001 |
 | Hujjat holati | Статус документа | Composition.status | [Document statuses](document-statuses.html): `final` once the commission issues the certificate, `amended` for subsequent corrections, `entered-in-error` if the certificate is withdrawn as erroneous | final |
 | Hujjat turi | Тип документа | Composition.type | [Composition Type](https://terminology.dhp.uz/fhir/core/ValueSet/composition-type-vs) `emdoc-0010-0042` "Medical certificate for travelers abroad", plus LOINC `104988-1` "Medical Fitness Certificate" | - |
-| Hujjat kategoriyasi | Категория документа | Composition.category | [Document Category](ValueSet-document-category-vs.html) `form-044` "Certificate on absence of medical contraindications for travel abroad" | - |
+| Hujjat kategoriyasi | Категория документа | Composition.category | [Composition Category](https://terminology.dhp.uz/fhir/core/ValueSet/composition-category-vs) `Comp-001-0001` "Medical record", and [Document Category](ValueSet-document-category-vs.html) `form-044` "Certificate on absence of medical contraindications for travel abroad" | - |
 | Chet elga ketayotgan shaxs | Лицо, выезжающее за границу | Composition.subject | [Patient](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-patient.html) | Yusupova Nodira Sharifovna |
 | Ma'lumotnoma berilgan sana | Дата выдачи справки | Composition.date | - | 2026-02-10T09:15:00+05:00 |
-| Komissiya raisi | Председатель комиссии | Composition.author | [PractitionerRole](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-practitioner-role.html) | Nazarov T.T. |
+| Komissiya raisi | Председатель комиссии | Composition.author | [PractitionerRole](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-practitioner-role.html), or [Practitioner](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-practitioner.html) when the role is not known | Nazarov T.T. |
 | Muassasa nomi | Наименование учреждения | Composition.custodian | [Organization](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-organization.html) | Toshkent shahar 5-son poliklinikasi |
-| Muassasa kodi | Код учреждения | Organization.identifier[taxId] | `system` `https://dhp.uz/fhir/core/sid/org/uz/soliq`<br>`type` `TAX` | 200017001 |
+| Muassasa kodi | Код учреждения | Organization.identifier[taxId] | `system` `https://dhp.uz/fhir/core/sid/org/uz/soliq`<br>`type` `TAX` | 200017044 |
 | Hujjat sarlavhasi | Заголовок документа | Composition.title | - | Form 044 - Certificate of Absence of Medical Contraindications for Travel Abroad |
-| Komissiya raisi imzosi | Подпись председателя комиссии | Provenance.signature | [Provenance](https://hl7.org/fhir/R5/provenance.html) | Author |
+| Komissiya raisi imzosi | Подпись председателя комиссии | [Provenance](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-provenance.html).signature | `signature.type[nationalType]` [UZ Core Signature Type](https://dhp.uz/fhir/core/en/CodeSystem-signature-type-cs.html) `soliqAuth` | soliqAuth |
 
 ---
 
@@ -102,6 +102,17 @@ Section code: LOINC `LP35157-4` "Responsible party".
 | UZ | RU | FHIR Path | Code | Example Value |
 |----|----|------------|------|---------------|
 | Komissiya raisi F.I.Sh. | ФИО председателя комиссии | PractitionerRole.practitioner | `code` [Position and profession](https://terminology.dhp.uz/fhir/core/ValueSet/position-and-profession-vs) `1342.18` "Head of department (health institution)" | Nazarov T.T. |
+
+---
+
+### Required fields
+
+FHIR requires these elements, but the paper form has no field for them. Set them as follows:
+
+| Resource | Element | Code | Value |
+|---|---|---|---|
+| Condition | clinicalStatus | [Clinical Status](https://dhp.uz/fhir/core/en/ValueSet-clinical-status-vs.html) | `resolved` for a past infectious disease |
+| Observation | status | [Observation Status](https://dhp.uz/fhir/core/en/ValueSet-observation-status-vs.html) | `final` once the commission has issued its conclusion |
 
 ---
 
