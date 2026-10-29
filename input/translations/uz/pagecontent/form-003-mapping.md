@@ -21,7 +21,7 @@ Ushbu sahifada [003-shakl](forms-volume-01-inpatient.html) (Statsionar bemorning
 
 003-shakl - butun statsionarda yotish davomida yuritiladigan to'liq tibbiy karta: yotqizish, birlamchi ko'rik, tashxislar, dori va muolaja varaqalari, harorat jadvali, kundalik hamda chiqarishdagi natija. Shakl ma'lumotlari [Form 003 Inpatient Medical Record Card Composition](StructureDefinition-form-003-inpatient-medical-record-composition.html) profiliga mos keluvchi FHIR hujjatiga birlashtirilgan bir nechta FHIR resurslari bilan moslashtiriladi. Imkoni bo'lgan joyda resurslar [UZ Core](https://dhp.uz/fhir/core/en/artifacts.html) profillariga mos keladi.
 
-Qog'oz shaklda qiymat sana maydoni va vaqt maydoniga ajratilgan joylarda ular bitta FHIR `dateTime` ga birlashtiriladi. Imzolar [Provenance](https://hl7.org/fhir/R5/provenance.html) resurslari bilan ifodalanadi; imzolovchi mas'ul shaxslar «Mas'ul shaxslar» bo'limida PractitionerRole havolalari sifatida keltiriladi.
+Qog'oz shaklda qiymat sana maydoni va vaqt maydoniga ajratilgan joylarda ular bitta FHIR [`dateTime`](https://hl7.org/fhir/R5/datatypes.html#dateTime) ga birlashtiriladi. Imzolar [Provenance](https://hl7.org/fhir/R5/provenance.html) resurslari bilan ifodalanadi; imzolovchi mas'ul shaxslar «Mas'ul shaxslar» bo'limida PractitionerRole havolalari sifatida keltiriladi.
 
 To'liq namunaviy nusxa uchun [003-shakl statsionar bemorning tibbiy kartasi misoli](Bundle-example-form-003-inpatient-medical-record.html)ga qarang.
 
@@ -30,6 +30,24 @@ To'liq namunaviy nusxa uchun [003-shakl statsionar bemorning tibbiy kartasi miso
 ### Maydonlarni moslashtirish
 
 # UZ-003 Statsionar bemorning tibbiy kartasi - FHIR bilan moslashtirish
+
+---
+
+### Hujjat ma'lumotlari
+
+| UZ | RU | FHIR yo'li | Kod | Misol |
+|----|----|------------|------|---------|
+| Hujjat instansiyasi UUID | Идентификатор документа | Composition.identifier | `urn:ietf:rfc:3986` | urn:uuid:861f9511-f30c-52e5-b827-557766550003 |
+| Shakl raqami | Номер формы | Composition.identifier | `https://dhp.uz/fhir/core/sid/doc/uz/form-number` | 003 |
+| Statsionar bemorning tibbiy karta raqami | Номер медицинской карты стационарного больного | Composition.identifier | `https://dhp.uz/fhir/core/sid/doc/uz/medical-record-number` | MRN-003-2026-0042 |
+| Hujjat versiyasi UUID | Идентификатор версии документа | Bundle.identifier | `urn:ietf:rfc:3986` | urn:uuid:760e8400-e29b-41d4-a716-446655440003 |
+| Hujjat holati | Статус документа | Composition.status | [Hujjat holatlari](document-statuses.html) `final` | final |
+| Hujjat turi | Тип документа | Composition.type | [Composition Type](https://terminology.dhp.uz/fhir/core/ValueSet/composition-type-vs) `emdoc-0010-0003` "Patient Medical Record №" | - |
+| Hujjat kategoriyasi | Категория документа | Composition.category | [Document Category](CodeSystem-document-category-cs.html) `form-003` "Statsionar bemorning tibbiy kartasi" | - |
+| Bemor | Пациент | Composition.subject | [Patient](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-patient.html) | Tursunov Alisher Valiyevich |
+| Statsionarda yotish | Пребывание в стационаре | Composition.encounter | [Encounter](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-encounter.html) | Statsionarda yotish |
+| Davolovchi shifokor | Лечащий врач | Composition.author | [PractitionerRole](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-practitioner-role.html) | Rasulov B.B. |
+| Hujjat sarlavhasi | Заголовок документа | Composition.title | - | Form 003 - Inpatient Medical Record Card |
 
 ---
 

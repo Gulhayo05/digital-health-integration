@@ -19,7 +19,7 @@ This page documents the mapping between [Form 003](forms-volume-01-inpatient.htm
 
 Form 003 is the full inpatient medical record kept for the whole hospital stay - admission, primary examination, diagnoses, treatment and procedure sheets, temperature chart, diary and discharge outcome. The form data maps to multiple FHIR resources bundled together as a FHIR Document, conforming to the [Form 003 Inpatient Medical Record Card Composition](StructureDefinition-form-003-inpatient-medical-record-composition.html) profile. Where available, resources conform to [UZ Core](https://dhp.uz/fhir/core/en/artifacts.html) profiles.
 
-Where the paper form splits a value into a date field and a time field, the two are merged into one FHIR `dateTime`. Signatures are represented as [Provenance](https://hl7.org/fhir/R5/provenance.html) resources; the signing officers are listed in the Responsible Persons section as PractitionerRole references.
+Where the paper form splits a value into a date field and a time field, the two are merged into one FHIR [`dateTime`](https://hl7.org/fhir/R5/datatypes.html#dateTime). Signatures are represented as [Provenance](https://hl7.org/fhir/R5/provenance.html) resources; the signing officers are listed in the Responsible Persons section as PractitionerRole references.
 
 For a complete reference instance, see the [Form 003 inpatient medical record example](Bundle-example-form-003-inpatient-medical-record.html).
 
@@ -28,6 +28,24 @@ For a complete reference instance, see the [Form 003 inpatient medical record ex
 ### Field Mapping
 
 # UZ-003 Inpatient Medical Record Card - FHIR Mapping
+
+---
+
+### Document Information
+
+| UZ | RU | FHIR Path | Code | Example |
+|----|----|------------|------|---------|
+| Hujjat instansiyasi UUID | Идентификатор документа | Composition.identifier | `urn:ietf:rfc:3986` | urn:uuid:861f9511-f30c-52e5-b827-557766550003 |
+| Shakl raqami | Номер формы | Composition.identifier | `https://dhp.uz/fhir/core/sid/doc/uz/form-number` | 003 |
+| Statsionar bemorning tibbiy karta raqami | Номер медицинской карты стационарного больного | Composition.identifier | `https://dhp.uz/fhir/core/sid/doc/uz/medical-record-number` | MRN-003-2026-0042 |
+| Hujjat versiyasi UUID | Идентификатор версии документа | Bundle.identifier | `urn:ietf:rfc:3986` | urn:uuid:760e8400-e29b-41d4-a716-446655440003 |
+| Hujjat holati | Статус документа | Composition.status | [Document statuses](document-statuses.html) `final` | final |
+| Hujjat turi | Тип документа | Composition.type | [Composition Type](https://terminology.dhp.uz/fhir/core/ValueSet/composition-type-vs) `emdoc-0010-0003` "Patient Medical Record №" | - |
+| Hujjat kategoriyasi | Категория документа | Composition.category | [Document Category](CodeSystem-document-category-cs.html) `form-003` "Patient medical record" | - |
+| Bemor | Пациент | Composition.subject | [Patient](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-patient.html) | Tursunov Alisher Valiyevich |
+| Statsionarda yotish | Пребывание в стационаре | Composition.encounter | [Encounter](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-encounter.html) | Inpatient stay |
+| Davolovchi shifokor | Лечащий врач | Composition.author | [PractitionerRole](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-practitioner-role.html) | Rasulov B.B. |
+| Hujjat sarlavhasi | Заголовок документа | Composition.title | - | Form 003 - Inpatient Medical Record Card |
 
 ---
 
