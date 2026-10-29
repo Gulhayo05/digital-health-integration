@@ -94,8 +94,8 @@
 
 | UZ | RU | Путь FHIR | Код | Пример |
 |----|----|------------|------|---------|
-| Ish joyi | Место работы | [UZCoreSocioeconomicObservation](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-socioeconomic-observation.html).valueString (code = SNOMED CT `14679004` "Occupation") | - | - |
-| Kasbi yoki lavozimi | Профессия или должность | UZCoreSocioeconomicObservation.valueCodeableConcept | Position and Profession VS | Car mechanic |
+| Ish joyi | Место работы | Observation.valueString | LOINC `80427-8` "Employer name [Identifier]", as in Form 111 | - |
+| Kasbi yoki lavozimi | Профессия или должность | [UZCoreSocioeconomicObservation](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-socioeconomic-observation.html).valueCodeableConcept | Position and Profession VS | Car mechanic |
 | O'qish joyi | Место учёбы | UZCoreSocioeconomicObservation.valueString | - | - |
 | Bolalar muassasasi | Детское учреждение | UZCoreSocioeconomicObservation.valueString | - | - |
 | Nogironlik turi | Вид инвалидности | UZCoreSocioeconomicObservation.valueCodeableConcept | Benefits VS | - |
