@@ -92,13 +92,13 @@ Rows 27-32 of the paper form are a single choice field. Each recorded variant is
 
 | UZ | RU | FHIR Path | Code | Example |
 |----|----|------------|------|---------|
-| Ish joyi | Место работы | SocioeconomicObservation.valueString (code = SNOMED CT `14679004` "Occupation") | - | - |
-| Kasbi yoki lavozimi | Профессия или должность | SocioeconomicObservation.valueCodeableConcept | Position and Profession VS | Car mechanic |
-| O'qish joyi | Место учёбы | SocioeconomicObservation.valueString | - | - |
-| Bolalar muassasasi | Детское учреждение | SocioeconomicObservation.valueString | - | - |
-| Nogironlik turi | Вид инвалидности | SocioeconomicObservation.valueCodeableConcept | Benefits VS | - |
-| Nogironlik guruhi | Группа инвалидности | SocioeconomicObservation.valueCodeableConcept | Disability Levels VS | - |
-| Urush nogironi | Инвалид войны | SocioeconomicObservation.valueCodeableConcept | [Benefits](https://dhp.uz/fhir/core/en/CodeSystem-benefits-cs.html) `regis0004.00004` | Disabled persons and war participants of 1941-1945 |
+| Ish joyi | Место работы | [UZCoreSocioeconomicObservation](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-socioeconomic-observation.html).valueString (code = SNOMED CT `14679004` "Occupation") | - | - |
+| Kasbi yoki lavozimi | Профессия или должность | UZCoreSocioeconomicObservation.valueCodeableConcept | Position and Profession VS | Car mechanic |
+| O'qish joyi | Место учёбы | UZCoreSocioeconomicObservation.valueString | - | - |
+| Bolalar muassasasi | Детское учреждение | UZCoreSocioeconomicObservation.valueString | - | - |
+| Nogironlik turi | Вид инвалидности | UZCoreSocioeconomicObservation.valueCodeableConcept | Benefits VS | - |
+| Nogironlik guruhi | Группа инвалидности | UZCoreSocioeconomicObservation.valueCodeableConcept | Disability Levels VS | - |
+| Urush nogironi | Инвалид войны | UZCoreSocioeconomicObservation.valueCodeableConcept | [Benefits](https://dhp.uz/fhir/core/en/CodeSystem-benefits-cs.html) `regis0004.00004` | Disabled persons and war participants of 1941-1945 |
 
 ---
 
