@@ -183,7 +183,7 @@ The combined "осмотр при поступлении" block expands to one r
 
 ### Final Diagnosis
 
-Each diagnosis is one Condition. Its role goes in `Condition.category` as a [Diagnosis Role](CodeSystem-diagnosis-role-integration.html) code, and the Condition goes in the Composition sub-section for that role: Main disease → `main`, Complication of the main disease → `complication`, Comorbidity → `concomitant`, Competing disease → `competing`, Background disease → `background`.
+Each diagnosis is one Condition. Its role goes in `Condition.category` as a [Diagnosis Role](CodeSystem-diagnosis-role-integration.html) code, and the Condition goes in the [Composition sub-section](StructureDefinition-form-003-inpatient-medical-record-composition.html#k-Composition.section:finalDiagnosis) for that role: Main disease → `main`, Complication of the main disease → `complication`, Comorbidity → `concomitant`, Competing disease → `competing`, Background disease → `background`.
 
 | UZ | RU | FHIR Path | Code | Example |
 |----|----|------------|------|---------|

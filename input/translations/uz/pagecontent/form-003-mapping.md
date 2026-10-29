@@ -185,7 +185,7 @@ Birlashtirilgan «qabulda tekshiruv» bloki har bir tekshiruv uchun alohida resu
 
 ### Yakuniy tashxis
 
-Har bir tashxis - bitta Condition. Uning roli `Condition.category`da [Diagnosis Role](CodeSystem-diagnosis-role-integration.html) kodi bilan ko'rsatiladi, Condition esa Composition'ning shu rolga mos quyi bo'limiga qo'yiladi: Asosiy → `main`, Asosiy kasallikning asorati → `complication`, Aniqlangan yo'ldosh kasalliklar → `concomitant`, Raqobat → `competing`, Fon → `background`.
+Har bir tashxis - bitta Condition. Uning roli `Condition.category`da [Diagnosis Role](CodeSystem-diagnosis-role-integration.html) kodi bilan ko'rsatiladi, Condition esa [Composition'ning shu rolga mos quyi bo'limiga](StructureDefinition-form-003-inpatient-medical-record-composition.html#k-Composition.section:finalDiagnosis) qo'yiladi: Asosiy → `main`, Asosiy kasallikning asorati → `complication`, Aniqlangan yo'ldosh kasalliklar → `concomitant`, Raqobat → `competing`, Fon → `background`.
 
 | UZ | RU | FHIR yo'li | Kod | Misol |
 |----|----|------------|------|---------|

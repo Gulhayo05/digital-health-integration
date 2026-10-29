@@ -185,7 +185,7 @@
 
 ### Заключительный диагноз
 
-Каждый диагноз - это один Condition. Его роль указывается в `Condition.category` кодом из [Diagnosis Role](CodeSystem-diagnosis-role-integration.html), а сам Condition кладётся в подраздел Composition для этой роли: Основное заболевание → `main`, Осложнение основного заболевания → `complication`, Выявленные сопутствующие заболевания → `concomitant`, Конкурирующее → `competing`, Фоновое → `background`.
+Каждый диагноз - это один Condition. Его роль указывается в `Condition.category` кодом из [Diagnosis Role](CodeSystem-diagnosis-role-integration.html), а сам Condition кладётся в [подраздел Composition](StructureDefinition-form-003-inpatient-medical-record-composition.html#k-Composition.section:finalDiagnosis) для этой роли: Основное заболевание → `main`, Осложнение основного заболевания → `complication`, Выявленные сопутствующие заболевания → `concomitant`, Конкурирующее → `competing`, Фоновое → `background`.
 
 | UZ | RU | Путь FHIR | Код | Пример |
 |----|----|------------|------|---------|
