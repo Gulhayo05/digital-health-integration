@@ -74,7 +74,7 @@
 |----|----|------------|------|---------|
 | Bemorning F.I.Sh. | ФИО пациента | Patient.name:official | - | Tursunov Alisher Valiyevich |
 | Bemorning tug'ilgan sanasi | Дата рождения пациента | Patient.birthDate | - | 1990-04-12 |
-| Bemorning jinsi | Пол пациента | Patient.gender | [Administrative Gender](https://dhp.uz/fhir/core/en/ValueSet-administrative-gender-vs.html) | male |
+| Bemorning jinsi | Пол пациента | Patient.gender; Patient.gender.extension[gender-other] | [Administrative Gender](https://dhp.uz/fhir/core/en/ValueSet-administrative-gender-vs.html); `other` requires the [Gender Other](https://dhp.uz/fhir/core/en/StructureDefinition-gender-other.html) extension | male |
 | Bemorning tibbiy karta raqami | Номер медицинской карты | Patient.identifier[healthCardId].value | - | HC-2026-00042 |
 | Bemorning yashash joyi | Место жительства пациента | Patient.address:uzAddress (use = home) | - | Toshkent, Yunusobod, 12-mavze, 15-uy |
 | Qon guruhi | Группа крови | [Observation](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-observation.html).valueCodeableConcept | `code` LOINC `883-9` "ABO group [Type] in Blood"<br>`value` [Blood Group](https://terminology.dhp.uz/fhir/core/ValueSet/blood-group-vs) | A (II) (`112144000`) |
