@@ -11,35 +11,36 @@ Add a concept here when a second form maps it, and record any form that deviates
 | Concept | Labels (uz / ru) | FHIR path | Code / value set | Reference | Also in | Notes |
 |---|---|---|---|---|---|---|
 | Document profile | - | `Parent: UZCoreComposition` | - | 096 | 097 | Category slices `dhpCategory` + `formCategory`, custodian `only Reference(UZCoreOrganization)`, `^short` on every header element and section. Drift: 066, 066-1, 011 and 111 derive from base Composition; 066-1 and 111 allow any Organization as custodian. |
-| Document version UUID | Hujjat versiyasi UUID / Идентификатор версии документа | Bundle.identifier | `urn:ietf:rfc:3986` | 096 | 111 | |
-| Document instance UUID | Hujjat UUID, Hujjat instansiyasi UUID / Идентификатор документа | Composition.identifier | `urn:ietf:rfc:3986` | 096 | 097, 111 | |
-| Form number | Shakl raqami / Номер формы | Composition.identifier | `https://dhp.uz/fhir/core/sid/doc/uz/form-number` | 096 | 097, 111 | |
-| Document status | Hujjat holati / Статус документа | Composition.status | `preliminary` while the record is open, `final` once closed | 096 | 097, 111 | A record kept during the stay leaves status open; 066, 066-1 and 011 fix `final` because they are written once, at discharge or per session. |
-| Document type | Hujjat turi / Тип документа | Composition.type | [Composition Type](https://terminology.dhp.uz/fhir/core/ValueSet/composition-type-vs) `emdoc-*` plus a LOINC coding | 096 | 097 | Drift: 111 sends LOINC `34133-9` only. |
-| Document category | Hujjat kategoriyasi / Категория документа | Composition.category | [Composition Category](https://terminology.dhp.uz/fhir/core/ValueSet/composition-category-vs) `Comp-001-0001` "Medical record" and [Document Category](https://dhp.uz/fhir/integrations/en/CodeSystem-document-category-cs.html) `form-0XX` | 096 | 097 | Drift: 111 sends only the Document Category code. |
-| Patient | Bemor / Пациент(ка) | Composition.subject | [Patient](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-patient.html) | 096 | 097, 111 | |
-| Stay or episode | Kasallik tarixi / История болезни | Composition.encounter | [Encounter](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-encounter.html) | 096 | 097 | 111 is an outpatient card: `Composition.event.period` plus EpisodeOfCare. |
-| Document date | Hujjat sanasi, Hujjat shakllantirilgan sana / Дата документа | Composition.date | - | 096 | 097, 111 | Time of the last edit, not the admission or examination time. |
-| Author | Shifokor, Hujjatni saqlagan foydalanuvchi / Врач, Пользователь, сохранивший документ | Composition.author | [PractitionerRole](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-practitioner-role.html), or [Practitioner](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-practitioner.html) when the role is not known | 096 | 097, 111 | |
-| Custodian | Hujjat egasi, Kartani saqlovchi muassasa / Организация-хранитель | Composition.custodian | [Organization](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-organization.html) | 096 | 111 | |
-| Title | Hujjat sarlavhasi / Заголовок документа | Composition.title | - | 096 | 097, 111 | |
-| Institution name | Muassasa nomi / Наименование учреждения | Organization.name | - | 066 | 066-1, 111 | |
-| Institution tax ID | Muassasa kodi, Muassasa STIR / Код учреждения, ИНН учреждения | Organization.identifier[taxId] | `https://dhp.uz/fhir/core/sid/org/uz/soliq`, type `TAX` | 096 | 066, 066-1 | |
+| Document version UUID | Hujjat versiyasi UUID / Идентификатор версии документа | Bundle.identifier | `urn:ietf:rfc:3986` | 096 | 027, 111 | |
+| Document instance UUID | Hujjat UUID, Hujjat instansiyasi UUID / Идентификатор документа | Composition.identifier | `urn:ietf:rfc:3986` | 096 | 027, 097, 111 | |
+| Form number | Shakl raqami / Номер формы | Composition.identifier | `https://dhp.uz/fhir/core/sid/doc/uz/form-number` | 096 | 027, 097, 111 | |
+| Document status | Hujjat holati / Статус документа | Composition.status | `preliminary` while the record is open, `final` once closed | 096 | 027, 097, 111 | A record kept during the stay leaves status open; 066, 066-1, 011 and 027 fix `final` because they are written once, at discharge, per session or when issued. |
+| Document type | Hujjat turi / Тип документа | Composition.type | [Composition Type](https://terminology.dhp.uz/fhir/core/ValueSet/composition-type-vs) `emdoc-*` plus a LOINC coding | 096 | 027, 097 | Drift: 111 sends LOINC `34133-9` only. |
+| Document category | Hujjat kategoriyasi / Категория документа | Composition.category | [Composition Category](https://terminology.dhp.uz/fhir/core/ValueSet/composition-category-vs) `Comp-001-0001` "Medical record" and [Document Category](https://dhp.uz/fhir/integrations/en/CodeSystem-document-category-cs.html) `form-0XX` | 096 | 027, 097 | Drift: 111 sends only the Document Category code. |
+| Patient | Bemor / Пациент(ка) | Composition.subject | [Patient](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-patient.html) | 096 | 027, 097, 111 | |
+| Stay or episode | Kasallik tarixi / История болезни | Composition.encounter | [Encounter](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-encounter.html) | 096 | 027, 097 | 111 is an outpatient card: `Composition.event.period` plus EpisodeOfCare. |
+| Document date | Hujjat sanasi, Hujjat shakllantirilgan sana / Дата документа | Composition.date | - | 096 | 027, 097, 111 | Time of the last edit, not the admission or examination time. |
+| Author | Shifokor, Hujjatni saqlagan foydalanuvchi / Врач, Пользователь, сохранивший документ | Composition.author | [PractitionerRole](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-practitioner-role.html), or [Practitioner](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-practitioner.html) when the role is not known | 096 | 027, 097, 111 | |
+| Custodian | Hujjat egasi, Kartani saqlovchi muassasa / Организация-хранитель | Composition.custodian | [Organization](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-organization.html) | 096 | 027, 111 | |
+| Title | Hujjat sarlavhasi / Заголовок документа | Composition.title | - | 096 | 027, 097, 111 | |
+| Institution name | Muassasa nomi / Наименование учреждения | Organization.name | - | 066 | 027, 066-1, 111 | |
+| Institution tax ID | Muassasa kodi, Muassasa STIR / Код учреждения, ИНН учреждения | Organization.identifier[taxId] | `https://dhp.uz/fhir/core/sid/org/uz/soliq`, type `TAX` | 096 | 027, 066, 066-1 | |
 
 ## Patient
 
 | Concept | Labels (uz / ru) | FHIR path | Code / value set | Reference | Also in | Notes |
 |---|---|---|---|---|---|---|
-| Full name | Bemor F.I.Sh., Familiyasi / Ismi / Otasining ismi / ФИО | Patient.name | - | 066 | 066-1, 096, 111, 130, 011 | Separate fields go to `family` and `given` (patronymic is the second `given`); a single field goes to `name.text`. |
-| PINFL | JShShIR / ПИНФЛ | Patient.identifier[nationalId] | `https://dhp.uz/fhir/core/sid/pid/uz/ni`, type `NI` | 096 | 066, 066-1, 130 | |
-| Med ID | Med ID raqami / Идентификатор медкарты | Patient.identifier[healthCardId] | `https://dhp.uz/fhir/core/sid/pid/uz/hc`, type `HC` | 111 | 096 | The patient-level health card, not the inpatient record number (see Encounter). |
-| ID card or passport | ID yoki Pasport / ID или паспорт | Patient.identifier[passportLocal] | `https://dhp.uz/fhir/core/sid/pid/uz/ppn/local`, type `PPN` | 066-1 | 066 | |
-| Birth date | Tug'ilgan sana(si) / Дата рождения | Patient.birthDate | - | 066 | 066-1, 096, 097, 111, 130 | Age on the paper form is derived, not sent. |
-| Sex | Jinsi, Bemorning jinsi / Пол, Пол пациента | Patient.gender; gender.extension[gender-other] | [Administrative Gender](https://dhp.uz/fhir/core/en/ValueSet-administrative-gender-vs.html); `other` requires the [Gender Other](https://dhp.uz/fhir/core/en/StructureDefinition-gender-other.html) extension | 066 | 003 (#96), 066-1, 096, 130 | Core invariant `uzcore-gender-other-2`. Only the 003 page states the extension. |
-| Address | Yashash manzili, Manzil / Адрес проживания | Patient.address | - | 066 | 066-1, 096, 097, 111 | Region `state`, district `district`, mahalla `city`, street/house/flat `line`, `postalCode`. |
-| Phone, e-mail | Telefon, E-mail / Телефон, E-mail | Patient.telecom | - | 066 | 066-1, 096, 111 | |
+| Full name | Bemor F.I.Sh., Familiyasi / Ismi / Otasining ismi / ФИО | Patient.name | - | 066 | 027, 066-1, 096, 111, 130, 011 | Separate fields go to `family` and `given` (patronymic is the second `given`); a single field goes to `name.text`. |
+| PINFL | JShShIR / ПИНФЛ | Patient.identifier[nationalId] | `https://dhp.uz/fhir/core/sid/pid/uz/ni`, type `NI` | 096 | 027, 066, 066-1, 130 | |
+| Med ID | Med ID raqami / Идентификатор медкарты | Patient.identifier[healthCardId] | `https://dhp.uz/fhir/core/sid/pid/uz/hc`, type `HC` | 111 | 027, 096 | The patient-level health card, not the inpatient record number (see Encounter). |
+| ID card or passport | ID yoki Pasport / ID или паспорт | Patient.identifier[passportLocal] | `https://dhp.uz/fhir/core/sid/pid/uz/ppn/local`, type `PPN` | 066-1 | 027, 066 | |
+| Birth date | Tug'ilgan sana(si) / Дата рождения | Patient.birthDate | - | 066 | 027, 066-1, 096, 097, 111, 130 | Age on the paper form is derived, not sent. |
+| Sex | Jinsi, Bemorning jinsi / Пол, Пол пациента | Patient.gender; gender.extension[gender-other] | [Administrative Gender](https://dhp.uz/fhir/core/en/ValueSet-administrative-gender-vs.html); `other` requires the [Gender Other](https://dhp.uz/fhir/core/en/StructureDefinition-gender-other.html) extension | 066 | 003 (#96), 027, 066-1, 096, 130 | Core invariant `uzcore-gender-other-2`. Only the 003 page states the extension. |
+| Address | Yashash manzili, Manzil / Адрес проживания | Patient.address | - | 066 | 027, 066-1, 096, 097, 111 | Region `state`, district `district`, mahalla `city`, street/house/flat `line`, `postalCode`. |
+| Phone, e-mail | Telefon, E-mail / Телефон, E-mail | Patient.telecom | - | 066 | 027, 066-1, 096, 111 | |
 | Marital status | Oilaviy holati / Семейное положение | Patient.maritalStatus | [UZ Core Marital Status](https://dhp.uz/fhir/core/en/ValueSet-marital-status-vs.html) | 096 | 097, 111 | |
 | Nationality | Millati / Национальность | Patient.extension[nationality] | [UZ Core Nationality](https://dhp.uz/fhir/core/en/ValueSet-nationality-vs.html) | 096 | 097 | Drift: 066 and 066-1 map "Fuqaroligi" (citizenship, a different concept) to this extension as "Local code". |
+| Citizenship | Fuqaroligi / Гражданство | Patient.extension[citizenship].extension[code] | [ISO 3166](https://dhp.uz/fhir/core/en/ValueSet-iso-3166-2-vs.html) | 027 | - | Not nationality. Drift: 066 and 066-1 send it in `extension[nationality]` as a local code. The 027 example omits it until the validator accepts the core ISO 3166 binding. |
 | Attached clinic | Bemor biriktirilgan muassasa / Прикреплённое учреждение | Patient.managingOrganization | [Organization](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-organization.html) | 066 | 066-1 | |
 | Allergy | Allergiya / Аллергия | AllergyIntolerance.code | SNOMED CT; `716186003` "No known allergy" only when the form says so | 096 | - | Bound to recur. |
 | Spouse | Turmush o'rtog'i / Супруг | RelatedPerson.name; identifier[nationalId]; telecom | - | 096 | 111 | |
@@ -48,17 +49,19 @@ Add a concept here when a second form maps it, and record any form that deviates
 
 | Concept | Labels (uz / ru) | FHIR path | Code / value set | Reference | Also in | Notes |
 |---|---|---|---|---|---|---|
-| Inpatient record number | Kasallik tarixi raqami, Tibbiy karta raqami, Bemor ro'yxat raqami / Номер истории болезни | Encounter.identifier | `https://dhp.uz/fhir/core/sid/doc/uz/medical-record-number` | 066 | 066-1, 096, 097 | Drift: 066-1 also maps "Tibbiy bayonnoma №" and 096 maps "Tibbiy karta raqami" to Patient healthCardId; check whether they mean the record number. |
-| Admission date and time | Yotqizilgan sanasi va vaqti, Qabul qilingan sana / Дата и время госпитализации | Encounter.actualPeriod.start | - | 066 | 066-1, 096, 111 | |
-| Discharge date and time | Chiqarilgan sanasi va vaqti / Дата и время выписки | Encounter.actualPeriod.end | - | 066 | 066-1, 096 | |
+| Inpatient record number | Kasallik tarixi raqami, Tibbiy karta raqami, Bemor ro'yxat raqami / Номер истории болезни | Encounter.identifier | `https://dhp.uz/fhir/core/sid/doc/uz/medical-record-number` | 066 | 027, 066-1, 096, 097 | Drift: 066-1 also maps "Tibbiy bayonnoma №" and 096 maps "Tibbiy karta raqami" to Patient healthCardId; check whether they mean the record number. |
+| Admission date and time | Yotqizilgan sanasi va vaqti, Qabul qilingan sana / Дата и время госпитализации | Encounter.actualPeriod.start | - | 066 | 027, 066-1, 096, 111 | |
+| Discharge date and time | Chiqarilgan sanasi va vaqti / Дата и время выписки | Encounter.actualPeriod.end | - | 066 | 027, 066-1, 096 | |
+| Visit type | Bemor turi / Тип пациента | Encounter.class | v3-ActCode `IMP` "inpatient encounter", `AMB` "ambulatory" | 027 | - | Bound to recur. |
 | Bed-days | O'rin kunlari, Jami o'rin kunlar, O'tkazilgan kunlar / Койко-дни | Encounter.length | UCUM `d` | 096 | 066, 066-1 | Drift: 066 offers "Observation.valueQuantity / Encounter.length" with LOINC `78033-8`. |
 | Days in intensive care | Shundan, reanimatsiyada / Дни в реанимации | Observation.valueQuantity | LOINC `LP76050-1` "Intensive care unit" | 066 | 066-1 | |
 | Admission type / source | Yotqizish turi, Bemorni kelish usuli / Тип госпитализации | Encounter.admission.admitSource | [Admit Source Local](https://dhp.uz/fhir/core/en/CodeSystem-admit-source-local-cs.html) | 066 | 066-1 | 066 pages say "Local code"; the codes are the core `mserv-0006-*`. |
-| Referring institution | Yo'llagan muassasa / Направившее учреждение | Encounter.admission.origin → Organization | [Organization](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-organization.html) | 096 | 066, 066-1 | Drift: 066 and 066-1 map it as `Organization.name`; 066-1 "Qaerdan keldi" puts a local code in `admission.origin`. |
+| Referring institution | Yo'llagan muassasa / Направившее учреждение | Encounter.admission.origin → Organization | [Organization](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-organization.html) | 096 | 027, 066, 066-1 | Drift: 066 and 066-1 map it as `Organization.name`; 066-1 "Qaerdan keldi" puts a local code in `admission.origin`. |
 | Brought by ambulance | Tez tibbiy yordam mashinasida keldi / Доставлен скорой помощью | Observation.valueBoolean | LOINC `LP97912-7` "Ambulance transport" | 066 | 066-1 | |
 | Referral present | Yo'llanma mavjud / Наличие направления | Observation.valueBoolean | LOINC `57133-1` "Referral note" | 066 | 066-1 | |
 | Emergency care given | Tezkor yordam ko'rsatildi / Экстренная помощь оказана | Observation.valueBoolean | LOINC `57276-8` | 066 | 066-1 | |
 | Hospitalized | Shifoxonaga yotqizildi / Госпитализирован(а) | Observation.valueBoolean | SNOMED `32485007` "Hospital admission" | 066-1 | 111 | Drift: 111 uses local `chr-0035-00019`. |
+| Referral for hospitalization | Shifoxonaga yotqazish / Госпитализация | [ServiceRequest](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-servicerequest.html).code; reason | SNOMED `32485007` "Hospital admission" | 027 | - | The order; "Hospitalized" above is the outcome. |
 | Previous hospitalizations | Avval necha marta shifoxonada davolangan / Количество предыдущих госпитализаций | Observation.valueInteger | local `num-previous-hospitalizations` | 066-1 | - | Bound to recur. |
 | Bed type | O'rin joy turi / Тип койки | Encounter.location.form | local code | 066 | 066-1 | |
 | Ward | Palata / Палата | Encounter.location.location → [Location](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-location.html).identifier[unit] | [UZ Core Location Kinds](https://dhp.uz/fhir/core/en/CodeSystem-location-kinds-cs.html) `Ward` | 096 | - | Bound to recur. |
@@ -66,7 +69,7 @@ Add a concept here when a second form maps it, and record any form that deviates
 | Discharge disposition | Shifoxonadan chiqarish holati, Gospitalizatsiya natijasi / Исход госпитализации | Encounter.admission.dischargeDisposition | core [encounter-discharge-disposition-vs](https://dhp.uz/fhir/core/en/ValueSet-encounter-discharge-disposition-vs.html): discharged `mserv-0004-00004`, transferred `other-hcf`, died `exp` | 096 | 066, 066-1, 111 | 096 lists the three codes in its own value set. Drift: 066 and 066-1 say "Local code"; 111 links only the home code system. |
 | Transfer destination | O'tkazilgan muassasa / Учреждение перевода | Encounter.admission.destination → Organization | [Organization](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-organization.html) | 096 | - | Goes with `other-hcf`. |
 | Condition at discharge (treatment outcome) | Bemor holati, Davolash natijasi / Состояние пациента, Результат лечения | Encounter.subjectStatus | core [encounter-local-subject-status-cs](https://dhp.uz/fhir/core/en/CodeSystem-encounter-local-subject-status-cs.html) `loc-cs-001`..`004` | 066 | 066-1 | Not a separate Observation. |
-| Attending physician | Davolovchi shifokor / Лечащий врач | PractitionerRole (section of responsible persons, or Encounter.participant.actor) | [UZ Core Position and Profession](https://dhp.uz/fhir/core/en/ValueSet-position-and-profession-vs.html) | 096 | 066, 066-1, 097, 011 | Drift: 066 and 066-1 say "Local code" for the role. |
+| Attending physician | Davolovchi shifokor / Лечащий врач | PractitionerRole (section of responsible persons, or Encounter.participant.actor) | [UZ Core Position and Profession](https://dhp.uz/fhir/core/en/ValueSet-position-and-profession-vs.html) | 096 | 027, 066, 066-1, 097, 011 | Drift: 066 and 066-1 say "Local code" for the role. |
 
 ## Diagnoses
 
@@ -78,9 +81,9 @@ Every diagnosis is one [Condition](https://dhp.uz/fhir/core/en/StructureDefiniti
 | Admission diagnosis | Qabul bo'limi tashxisi, Qabul tashxisi / Диагноз при поступлении | Condition.code; category | ICD-10; `admission` | 066 | 066-1, 096 | |
 | Provisional diagnosis | Taxminiy tashxis / Предварительный диагноз | Condition.code; category; verificationStatus | ICD-10; `main`; `provisional` | 097 | - | Drift: the 097 page row shows only `Condition.code`; the example sets category and status. |
 | Clinical diagnosis | Klinik tashxis / Клинический диагноз | Condition.code; category; verificationStatus | ICD-10; `main`; `confirmed` | - | 096 | Drift: 096 sends it with no category, so only its section identifies it. |
-| Final main diagnosis | Asosiy tashxis, Yakuniy tashxis, Chiqarish tashxisi / Основной, Заключительный диагноз | Condition.code; category; verificationStatus | ICD-10; `main`; `confirmed` | 066 | 066-1, 096, 097 | |
-| Complication | Asorat, Tug'ruqdagi asoratlar / Осложнение | Condition.code; category | ICD-10; `complication` | 066 | 066-1, 096, 097 | |
-| Concomitant disease | Yondosh tashxis / Сопутствующий диагноз | Condition.code; category | ICD-10; `concomitant` | 066 | 066-1 | |
+| Final main diagnosis | Asosiy tashxis, Yakuniy tashxis, Chiqarish tashxisi / Основной, Заключительный диагноз | Condition.code; category; verificationStatus | ICD-10; `main`; `confirmed` | 066 | 027, 066-1, 096, 097 | Drift: the 027 page row shows only `Condition.code`, and its example sets no verificationStatus. |
+| Complication | Asorat, Tug'ruqdagi asoratlar / Осложнение | Condition.code; category | ICD-10; `complication` | 066 | 027, 066-1, 096, 097 | |
+| Concomitant disease | Yondosh tashxis / Сопутствующий диагноз | Condition.code; category | ICD-10; `concomitant` | 066 | 027, 066-1 | Drift: the 027 page row shows only `Condition.code`. |
 | Competing disease | Raqobat tashxis / Конкурирующий диагноз | Condition.code; category | ICD-10; `competing` | 066 | 066-1 | |
 | Background disease | Fon tashxis / Фоновый диагноз | Condition.code; category | ICD-10; `background` | 066 | 066-1 | |
 | Past diseases | Boshdan o'tkazgan kasalliklari / Перенесённые заболевания | Condition.code | ICD-10 | 111 | 096 | History, no Diagnosis Role. |
@@ -92,7 +95,9 @@ Vitals, anthropometry, exam findings and history
 
 | Concept | Labels (uz / ru) | FHIR path | Code / value set | Reference | Also in | Notes |
 |---|---|---|---|---|---|---|
-| Complaints | Shikoyatlari / Жалобы | Observation.valueString | LOINC `8661-1` "Chief complaint - Reported" | 111 | - | Bound to recur. |
+| Complaints | Shikoyatlari / Жалобы | Observation.valueString | LOINC `8661-1` "Chief complaint - Reported" | 111 | 027 | |
+| History of present illness | Anamnez / Анамнез | Observation.valueString | LOINC `10164-2` "History of present illness Narrative" | 027 | - | Bound to recur. |
+| General examination, free text | Klinik ko'rik / Клинический осмотр | Observation.valueString | LOINC `10210-3` "Physical findings of General status Narrative" | 027 | - | Coded general condition is a separate row. |
 | Body temperature | Tana harorati, t(°C) / Температура тела | Observation.valueQuantity | LOINC `8310-5` | 096 | 097, 011 | |
 | Pulse / heart rate | Puls, PS, Yurak urish sur'ati / Пульс, ЧСС | Observation.valueQuantity | LOINC `8867-4` "Heart rate" | 096 | 097, 111, 011 | |
 | Blood pressure | Arterial qon bosimi / Артериальное давление | Observation.component.valueQuantity; bodySite | LOINC `85354-9` panel, components `8480-6` / `8462-4`; arm in `bodySite` | 096 | 111, 011 | |
@@ -157,7 +162,9 @@ Obstetric
 | HBsAg | Gepatit B, Hbs Ag / Гепатит B, HBsAg | Observation.valueCodeableConcept | LOINC `5196-1` (serum or plasma) | 066 | 066-1, 111 | Drift: 111 uses `5195-3` (serum). |
 | Hepatitis C | Gepatit C / Гепатит C | Observation.valueCodeableConcept | LOINC `13955-0` | 066 | 066-1 | |
 | TB drug susceptibility | O'pka silida doriga sezgirlik / Чувствительность туберкулёза к препаратам | Observation.valueCodeableConcept | LOINC `18769-0` | 066 | 066-1 | |
-| Hemoglobin | Gemoglobin / Гемоглобин | Observation.valueQuantity | LOINC `718-7` | 096 | 111 | Drift: 130 sends a local laboratory code. |
+| Hemoglobin | Gemoglobin / Гемоглобин | Observation.valueQuantity | LOINC `718-7` | 096 | 027, 111 | Drift: 130 sends a local laboratory code. |
+| Leukocytes | Leykotsitlar / Лейкоциты | Observation.valueQuantity | LOINC `6690-2`, UCUM `10*9/L` | 027 | - | Bound to recur. |
+| Diagnostic study | Diagnostik tekshiruv / Диагностическое обследование | [DiagnosticReport](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-diagnostic-report.html).code; result | LOINC panel, results as Observations | 027 | - | |
 | Gonococcus smear | Gonokokk / Гонококк | Observation.valueCodeableConcept | `chr-0001-00001` "Gonococcus test" | 111 | 096 | |
 | Other analysis | Siydik tsentrifugati, Boshqa tekshiruv / Другое обследование | Observation.valueString | `chr-0001-00006` "Other analysis" | 111 | 096 | Only when no specific code exists. |
 | Ordered test | Tekshiruv buyurilishi, Laboratoriya tekshiruvi / Назначение исследования | ServiceRequest.code; authoredOn | LOINC | 096 | 130 | Results point back with `basedOn`. |
@@ -167,10 +174,12 @@ Obstetric
 | Concept | Labels (uz / ru) | FHIR path | Code / value set | Reference | Also in | Notes |
 |---|---|---|---|---|---|---|
 | Surgical operation | Operatsiya, Kod (ICHI) / Операция | [Procedure](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-procedure.html).code; occurrenceDateTime; performer.actor | [ICHI Codes Accepted by DMED](https://terminology.dhp.uz/fhir/integrations/ValueSet/dmed-ichi-vs) | 066 | 096 | Drift: 096 codes operations in SNOMED. |
-| Medication order | Dori buyurilishi / Назначение лекарственного средства | [MedicationRequest](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-medicationrequest.html).medication; dosageInstruction | SNOMED CT or [UZ Core Medication Classification](https://dhp.uz/fhir/core/en/ValueSet-medication-classification-vs.html) | 096 | - | Bound to recur. |
+| Medication order | Dori buyurilishi / Назначение лекарственного средства | [MedicationRequest](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-medicationrequest.html).medication; dosageInstruction | SNOMED CT or [UZ Core Medication Classification](https://dhp.uz/fhir/core/en/ValueSet-medication-classification-vs.html) | 096 | 027 | |
 | Medication given | Dori yuborilishi / Введение лекарственного средства | MedicationAdministration.medication; occurence[x]; dosage | SNOMED CT or UZ Core Medication Classification | 096 | 097, 011 | Base resource (no UZ Core profile). |
 | Neonatal eye prophylaxis | Gonoblenoreya profilaktikasi / Профилактика гонобленнореи | Procedure.code; occurrenceDateTime | `chr-0085-0001` | 096 | 097 | |
-| Recommendations | Tavsiyalar, Maslahat / Рекомендации | CarePlan.description | - | 111 | 096, 097 | Drift: 096 uses Observation with `code.text` only, 097 uses Observation `discharge-recommendations`. |
+| Recommendations | Tavsiyalar, Maslahat / Рекомендации | CarePlan.description | - | 111 | 027, 096, 097 | Drift: 096 uses Observation with `code.text` only, 097 uses Observation `discharge-recommendations`. 027 sends the follow-up plan as a second CarePlan. |
+| Treatment given | Davolash / Лечение | CarePlan.activity.performedActivity.concept.text | - | 027 | - | |
+| Dispensary observation | Dispanserizatsiya / Диспансеризация | [EpisodeOfCare](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-episodeofcare.html).type[serviceType] | [Episode of Care Type](https://terminology.dhp.uz/fhir/core/ValueSet/episode-of-care-type-vs) `mserv-0001-00001` "Preventive services" | 027 | - | |
 | Diet table | Parhez stoli, Parhez stoli raqami / Диетический стол | Observation.valueCodeableConcept | `code` LOINC `81663-7` "Diet [Type]"; value Hospital Diet Type (`chr-0042`, from #96) | 003 (#96) | 096 | Not NutritionOrder: the platform does not support it yet. Drift: 096 sends the table number as `valueInteger` with `code.text` only. |
 
 ## Sick leave and work capacity
@@ -191,5 +200,5 @@ Obstetric
 
 | Concept | Labels (uz / ru) | FHIR path | Code / value set | Reference | Also in | Notes |
 |---|---|---|---|---|---|---|
-| Signature | Imzo, Shifokor imzosi, Bo'lim boshlig'i imzosi / Подпись | [Provenance](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-provenance.html).signature | `signature.type[nationalType]` [UZ Core Signature Type](https://dhp.uz/fhir/core/en/CodeSystem-signature-type-cs.html) `soliqAuth` | 096 | 097, 111 | |
-| Responsible persons | Davolovchi shifokor, Bo'lim boshlig'i, Katta hamshira / Лечащий врач, Заведующий отделением, Старшая медсестра | PractitionerRole.practitioner; code | [UZ Core Position and Profession](https://dhp.uz/fhir/core/en/ValueSet-position-and-profession-vs.html) | 096 | 066, 066-1, 097, 130 | Drift: 066 and 066-1 say "Local code" for the role. |
+| Signature | Imzo, Shifokor imzosi, Bo'lim boshlig'i imzosi / Подпись | [Provenance](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-provenance.html).signature | `signature.type[nationalType]` [UZ Core Signature Type](https://dhp.uz/fhir/core/en/CodeSystem-signature-type-cs.html) `soliqAuth` | 096 | 027, 097, 111 | |
+| Responsible persons | Davolovchi shifokor, Bo'lim boshlig'i, Katta hamshira / Лечащий врач, Заведующий отделением, Старшая медсестра | PractitionerRole.practitioner; code | [UZ Core Position and Profession](https://dhp.uz/fhir/core/en/ValueSet-position-and-profession-vs.html) | 096 | 027, 066, 066-1, 097, 130 | Drift: 066 and 066-1 say "Local code" for the role. |
