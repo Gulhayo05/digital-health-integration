@@ -40,3 +40,9 @@ Description: "Local Observation.code identifiers for observations that have no s
   * ^designation[=].value = "Диетический стол"
   * ^designation[+].language = #en
   * ^designation[=].value = "Hospital diet table"
+
+* #children-institution "Bolalar muassasasi"
+  * ^designation[0].language = #ru
+  * ^designation[=].value = "Детское учреждение"
+  * ^designation[+].language = #en
+  * ^designation[=].value = "Children's institution"

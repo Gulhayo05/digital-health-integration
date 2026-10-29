@@ -50,6 +50,8 @@ Title: "Form 003 - Inpatient medical record card"
 * entry[=].resource = allergy-003-001
 * entry[+].fullUrl  = "urn:uuid:00300021-0000-0000-0000-000000000000"
 * entry[=].resource = relatedperson-003-001
+* entry[+].fullUrl  = "urn:uuid:00300061-0000-0000-0000-000000000000"
+* entry[=].resource = obs-003-workplace
 * entry[+].fullUrl  = "urn:uuid:00300022-0000-0000-0000-000000000000"
 * entry[=].resource = obs-003-socioeconomic-occupation
 * entry[+].fullUrl  = "urn:uuid:00300023-0000-0000-0000-000000000000"
@@ -167,7 +169,8 @@ Usage: #inline
 
 * section[socioeconomicInformation].title = "Socioeconomic Information"
 * section[=].code = $loinc#29762-2 "Social history note"
-* section[=].entry[0] = Reference(urn:uuid:00300022-0000-0000-0000-000000000000)
+* section[=].entry[0] = Reference(urn:uuid:00300061-0000-0000-0000-000000000000)
+* section[=].entry[+] = Reference(urn:uuid:00300022-0000-0000-0000-000000000000)
 * section[=].entry[+] = Reference(urn:uuid:00300023-0000-0000-0000-000000000000)
 
 * section[admissionInformation].title = "Admission Information"
@@ -498,6 +501,16 @@ Usage: #inline
 * telecom.value = "+998901112233"        // row 26
 * address.use = #home
 * address.text = "Toshkent, Yunusobod, 12-mavze, 15-uy"   // row 25
+
+Instance: obs-003-workplace
+InstanceOf: UZCoreObservation
+Usage: #inline
+* status = #final
+* code = $loinc#80427-8 "Employer name [Identifier]"
+* subject = Reference(urn:uuid:00300002-0000-0000-0000-000000000000)
+* encounter = Reference(urn:uuid:00300003-0000-0000-0000-000000000000)
+* effectiveDateTime = "2026-02-08T10:10:00+05:00"
+* valueString = "Yunusobod avtoservis"
 
 Instance: obs-003-socioeconomic-occupation
 InstanceOf: UZCoreSocioeconomicObservation

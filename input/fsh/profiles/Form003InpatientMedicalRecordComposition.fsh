@@ -84,7 +84,7 @@ Description: "Composition profile for Form 003 (Statsionar bemorning tibbiy kart
 * section[socioeconomicInformation].code 1..1
 * section[socioeconomicInformation].code = $loinc#29762-2 "Social history note"
 * section[socioeconomicInformation].entry 1..*
-* section[socioeconomicInformation].entry only Reference(UZCoreSocioeconomicObservation)
+* section[socioeconomicInformation].entry only Reference(UZCoreSocioeconomicObservation or UZCoreObservation)
 
 // ---------------------------------------------------------------------
 // Admission information - source rows 33-41, 36a, 71

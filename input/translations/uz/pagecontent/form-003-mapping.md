@@ -83,7 +83,6 @@ To'liq namunaviy nusxa uchun [003-shakl statsionar bemorning tibbiy kartasi miso
 | Nojo'ya ta'sirining ko'rinishi | Проявление побочного действия | AllergyIntolerance.reaction.manifestation.concept.text | free text | Generalised urticaria |
 | Yaqin qarindoshning yashash joyi | Место жительства близких родственников | [RelatedPerson](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-relatedperson.html).address | - | Toshkent, Yunusobod |
 | Yaqin qarindoshning telefon raqami | Номер телефона близких родственников | RelatedPerson.telecom[phone].value | - | +998901112233 |
-| Ish joyi | Место работы | Observation.valueString | LOINC `80427-8` "Employer name [Identifier]" | - |
 
 > Rasmiy qog'oz shaklda ro'yxatga olingan manzil (Ro'yxatga olingan manzil / Адрес по прописке) uchun alohida maydon yo'q, shuning uchun u profildan chiqarilgan.
 
@@ -91,13 +90,14 @@ To'liq namunaviy nusxa uchun [003-shakl statsionar bemorning tibbiy kartasi miso
 
 ### Ijtimoiy-iqtisodiy ma'lumotlar
 
-Qog'oz shaklning 27-32-qatorlari bitta tanlov maydonidir. Har bir to'ldirilgan variant bitta [UZCoreSocioeconomicObservation](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-socioeconomic-observation.html) bo'lib, SNOMED CT kuzatiladigan obyekti va tegishli milliy ValueSet'dan olingan qiymat bilan kodlanadi.
+Qog'oz shaklning 27-32-qatorlari bitta tanlov maydonidir. Har bir to'ldirilgan variant bitta Observation. Kodlanadigan variantlar (kasb, nogironlik) - SNOMED CT kuzatiladigan obyekti va tegishli milliy ValueSet'dan olingan qiymatli [UZCoreSocioeconomicObservation](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-socioeconomic-observation.html). Ish joyi, o'qish joyi va bolalar muassasasi erkin matn, shuning uchun ular `valueString` bilan oddiy Observation.
 
 | UZ | RU | FHIR yo'li | Kod | Misol |
 |----|----|------------|------|---------|
+| Ish joyi | Место работы | Observation.valueString | LOINC `80427-8` "Employer name [Identifier]" | Yunusobod avtoservis |
 | Kasbi yoki lavozimi | Профессия или должность | [UZCoreSocioeconomicObservation](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-socioeconomic-observation.html).valueCodeableConcept | [Position and Profession](https://dhp.uz/fhir/core/en/ValueSet-position-and-profession-vs.html) | Car mechanic |
-| O'qish joyi | Место учёбы | UZCoreSocioeconomicObservation.valueString | - | - |
-| Bolalar muassasasi | Детское учреждение | UZCoreSocioeconomicObservation.valueString | - | - |
+| O'qish joyi | Место учёбы | Observation.valueString | LOINC `66280-9` "School Name" | - |
+| Bolalar muassasasi | Детское учреждение | Observation.valueString | [CHR-003 Observation Code](CodeSystem-form-003-observation-code-cs.html) `children-institution` "Children's institution" | - |
 | Nogironlik turi | Вид инвалидности | UZCoreSocioeconomicObservation.valueCodeableConcept | [Benefits](https://dhp.uz/fhir/core/en/ValueSet-benefits-vs.html) | - |
 | Nogironlik guruhi | Группа инвалидности | UZCoreSocioeconomicObservation.valueCodeableConcept | [Disability Levels](https://dhp.uz/fhir/core/en/ValueSet-disability-vs.html) | - |
 | Urush nogironi | Инвалид войны | UZCoreSocioeconomicObservation.valueCodeableConcept | [Benefits](https://dhp.uz/fhir/core/en/CodeSystem-benefits-cs.html) `regis0004.00004` "Disabled persons and war participants of 1941-1945, as well as persons treated as such" | Disabled persons and war participants of 1941-1945 |
