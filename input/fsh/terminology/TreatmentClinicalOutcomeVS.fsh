@@ -1,7 +1,7 @@
 ValueSet: TreatmentClinicalOutcomeVS
 Id: treatment-clinical-outcome-vs
-Title: "Form003 Treatment Clinical Outcome ValueSet"
-Description: "ValueSet for the clinical-outcome axis of the treatment result, Form003 inpatient medical record. Active SNOMED CT patient's-condition concepts; no local CodeSystem."
+Title: "Treatment Clinical Outcome ValueSet"
+Description: "ValueSet for the clinical-outcome axis of the treatment result, Form 003 inpatient medical record. Active SNOMED CT patient's-condition concepts; no local CodeSystem."
 * insert IntegrationsValueSet(treatment-clinical-outcome-vs)
 * ^experimental = true
 

@@ -1,7 +1,7 @@
 ValueSet: AnesthesiaMethodVS
 Id: anesthesia-method-vs
-Title: "Form003 Anesthesia Method ValueSet"
-Description: "ValueSet for anesthesia methods, Form003 inpatient medical record: SNOMED CT anesthesia procedures plus the local code SNOMED CT does not cover."
+Title: "Anesthesia Method ValueSet"
+Description: "ValueSet for anesthesia methods, Form 003 inpatient medical record: SNOMED CT anesthesia procedures plus the local code SNOMED CT does not cover."
 * insert IntegrationsValueSet(anesthesia-method-vs)
 * ^experimental = true
 

@@ -1,7 +1,7 @@
 CodeSystem: AnesthesiaMethodCS
 Id: anesthesia-method-cs
-Title: "Form003 Anesthesia Method"
-Description: "Local codes for anesthesia methods with no exact SNOMED CT concept, Form003 inpatient medical record."
+Title: "Anesthesia Method"
+Description: "Local codes for anesthesia methods with no exact SNOMED CT concept, Form 003 inpatient medical record."
 
 * insert OriginalCodeSystemDraft(anesthesia-method-cs)
 

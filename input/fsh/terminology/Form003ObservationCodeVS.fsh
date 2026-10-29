@@ -1,7 +1,7 @@
-ValueSet: Form003ObservationCodeVS
+ValueSet: Form 003ObservationCodeVS
 Id: form-003-observation-code-vs
-Title: "Form003 Observation Code ValueSet"
-Description: "ValueSet for local Form003 Observation.code identifiers."
+Title: "Form 003 Observation Code ValueSet"
+Description: "ValueSet for local Form 003 Observation.code identifiers."
 * insert IntegrationsValueSet(form-003-observation-code-vs)
 * ^experimental = true
 

@@ -1,7 +1,7 @@
-CodeSystem: Form003ObservationCodeCS
+CodeSystem: Form 003ObservationCodeCS
 Id: form-003-observation-code-cs
-Title: "Form003 Observation Code"
-Description: "Local Observation.code identifiers for observations that have no suitable LOINC or SNOMED CT code, Form003 inpatient medical record."
+Title: "Form 003 Observation Code"
+Description: "Local Observation.code identifiers for observations that have no suitable LOINC or SNOMED CT code, Form 003 inpatient medical record."
 
 * insert OriginalCodeSystemDraft(form-003-observation-code-cs)
 
@@ -17,11 +17,6 @@ Description: "Local Observation.code identifiers for observations that have no s
   * ^designation[+].language = #en
   * ^designation[=].value = "Work capacity status"
 
-* #clinical-course "Dinamikadagi ahvoli"
-  * ^designation[0].language = #ru
-  * ^designation[=].value = "Состояние в динамике"
-  * ^designation[+].language = #en
-  * ^designation[=].value = "Clinical course"
 
 * #day-of-illness "Kasallik kuni"
   * ^designation[0].language = #ru
@@ -29,20 +24,20 @@ Description: "Local Observation.code identifiers for observations that have no s
   * ^designation[+].language = #en
   * ^designation[=].value = "Day of illness"
 
-* #fluid-intake-part-of-day "Kun qismida qabul qilingan suyuqlik miqdori"
-  * ^designation[0].language = #ru
-  * ^designation[=].value = "Количество жидкости, выпитой за часть суток"
-  * ^designation[+].language = #en
-  * ^designation[=].value = "Fluid intake for part of the day"
 
-* #hospital-diet-table "Parhez stoli"
-  * ^designation[0].language = #ru
-  * ^designation[=].value = "Диетический стол"
-  * ^designation[+].language = #en
-  * ^designation[=].value = "Hospital diet table"
 
 * #children-institution "Bolalar muassasasi"
   * ^designation[0].language = #ru
   * ^designation[=].value = "Детское учреждение"
   * ^designation[+].language = #en
   * ^designation[=].value = "Children's institution"
+* #other-diseases "Mavhum kasalliklar"
+  * ^designation[0].language = #ru
+  * ^designation[=].value = "Прочие заболевания"
+  * ^designation[+].language = #en
+  * ^designation[=].value = "Other diseases"
+* #death-context "Vafot etish holati"
+  * ^designation[0].language = #ru
+  * ^designation[=].value = "Контекст смерти"
+  * ^designation[+].language = #en
+  * ^designation[=].value = "Death context"

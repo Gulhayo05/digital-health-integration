@@ -1,7 +1,7 @@
 CodeSystem: WorkCapacityStatusCS
 Id: work-capacity-status-cs
-Title: "Form003 Work Capacity Status"
-Description: "Local codes for work-capacity status at discharge, Form003 inpatient medical record."
+Title: "Work Capacity Status"
+Description: "Local codes for work-capacity status at discharge, Form 003 inpatient medical record."
 
 * insert OriginalCodeSystemDraft(work-capacity-status-cs)
 

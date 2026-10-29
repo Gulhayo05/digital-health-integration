@@ -1,6 +1,6 @@
 Instance: example-form-003-inpatient-medical-record
 InstanceOf: Bundle
-Description: "Example of a completed Form 003 inpatient medical record card - community-acquired pneumonia, thoracentesis, discharged recovered."
+Description: "Example of a completed Form 003 inpatient medical record card - community-acquired pneumonia, thoracentesis, discharged improved."
 Usage: #example
 Title: "Form 003 - Inpatient medical record card"
 * language = #en
@@ -54,8 +54,6 @@ Title: "Form 003 - Inpatient medical record card"
 * entry[=].resource = obs-003-workplace
 * entry[+].fullUrl  = "urn:uuid:00300022-0000-0000-0000-000000000000"
 * entry[=].resource = obs-003-socioeconomic-occupation
-* entry[+].fullUrl  = "urn:uuid:00300023-0000-0000-0000-000000000000"
-* entry[=].resource = obs-003-war-disability
 * entry[+].fullUrl  = "urn:uuid:00300024-0000-0000-0000-000000000000"
 * entry[=].resource = obs-003-arrived-by-ambulance
 * entry[+].fullUrl  = "urn:uuid:00300025-0000-0000-0000-000000000000"
@@ -142,11 +140,13 @@ Usage: #inline
 * identifier[=].value = "003"
 * status = #final
 * type = $composition-type-cs#emdoc-0010-0003 "Patient Medical Record №"
-* category = $document-category-cs#form-003 "Patient medical record"
+* category[dhpCategory] = $composition-category-cs#Comp-001-0001 "Medical record"
+* category[formCategory] = $document-category-cs#form-003 "Patient medical record"
 * subject = Reference(urn:uuid:00300002-0000-0000-0000-000000000000)
 * encounter = Reference(urn:uuid:00300003-0000-0000-0000-000000000000)
-* date = "2026-02-08T10:15:00+05:00"
+* date = "2026-02-18T09:00:00+05:00"
 * author[0] = Reference(urn:uuid:00300011-0000-0000-0000-000000000000)
+* custodian = Reference(urn:uuid:00300004-0000-0000-0000-000000000000)
 * title = "Form 003 - Inpatient Medical Record Card"
 
 * section[administrativeInformation].title = "Administrative Information"
@@ -171,7 +171,6 @@ Usage: #inline
 * section[=].code = $loinc#29762-2 "Social history note"
 * section[=].entry[0] = Reference(urn:uuid:00300061-0000-0000-0000-000000000000)
 * section[=].entry[+] = Reference(urn:uuid:00300022-0000-0000-0000-000000000000)
-* section[=].entry[+] = Reference(urn:uuid:00300023-0000-0000-0000-000000000000)
 
 * section[admissionInformation].title = "Admission Information"
 * section[=].code = $loinc#LP74442-2 "Admission Information"
@@ -261,7 +260,7 @@ Usage: #inline
 * section[=].entry[0] = Reference(urn:uuid:00300053-0000-0000-0000-000000000000)
 * section[=].entry[+] = Reference(urn:uuid:00300054-0000-0000-0000-000000000000)
 * section[clinicalCourse].section[diary].title = "Diary"
-* section[clinicalCourse].section[diary].code = form-003-section-cs#diary
+* section[clinicalCourse].section[diary].code = $loinc#11506-3 "Progress note"
 * section[clinicalCourse].section[diary].text.status = #generated
 * section[clinicalCourse].section[diary].text.div = "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Day 3: afebrile, cough improving. Day 7: well, discharge planned.</p></div>"
 
@@ -271,7 +270,7 @@ Usage: #inline
 * section[=].entry[+] = Reference(urn:uuid:00300056-0000-0000-0000-000000000000)
 
 * section[treatmentOutcome].title = "Treatment Outcome"
-* section[=].code = form-003-section-cs#treatment-outcome
+* section[=].code = $loinc#8650-4 "Hospital discharge disposition note"
 * section[=].entry[0] = Reference(urn:uuid:00300003-0000-0000-0000-000000000000)
 * section[=].entry[+] = Reference(urn:uuid:00300057-0000-0000-0000-000000000000)
 * section[=].entry[+] = Reference(urn:uuid:00300058-0000-0000-0000-000000000000)
@@ -317,33 +316,38 @@ Usage: #inline
 * address[uzAddress].line[+] = "15-uy"
 
 Instance: organization-003-hospital
-InstanceOf: Organization
+InstanceOf: UZCoreOrganization
 Usage: #inline
-* identifier.system = "https://dhp.uz/fhir/core/sid/uz/organization-code"
-* identifier.value = "200001"
+* identifier[taxId].type = $identifier-type#TAX "Tax ID number"
+* identifier[taxId].system = $organization-tax-id-system-dhp
+* identifier[taxId].value = "202345678"
 * name = "Toshkent shahar klinik shifoxonasi"
 
 Instance: organization-003-referring
-InstanceOf: Organization
+InstanceOf: UZCoreOrganization
 Usage: #inline
-* identifier.system = "https://dhp.uz/fhir/core/sid/uz/organization-code"
-* identifier.value = "200935"
+* identifier[taxId].type = $identifier-type#TAX "Tax ID number"
+* identifier[taxId].system = $organization-tax-id-system-dhp
+* identifier[taxId].value = "203456789"
 * name = "Yunusobod tuman oilaviy poliklinikasi"
 
 Instance: location-003-ward
-InstanceOf: Location
+InstanceOf: UZCoreLocation
 Usage: #inline
 * status = #active
 * name = "Therapeutic department"
 * mode = #instance
+* managingOrganization = Reference(urn:uuid:00300004-0000-0000-0000-000000000000)
 
 Instance: location-003-room
-InstanceOf: Location
+InstanceOf: UZCoreLocation
 Usage: #inline
 * status = #active
-* identifier.value = "R-214"
+* identifier[unit].type = $location-kinds-cs#Ward
+* identifier[unit].value = "214"
 * name = "Room 214"
 * mode = #instance
+* managingOrganization = Reference(urn:uuid:00300004-0000-0000-0000-000000000000)
 * partOf = Reference(urn:uuid:00300006-0000-0000-0000-000000000000)
 
 Instance: encounter-003-001
@@ -436,7 +440,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:00300002-0000-0000-0000-000000000000)
 * encounter = Reference(urn:uuid:00300003-0000-0000-0000-000000000000)
 * effectiveDateTime = "2026-02-08T12:00:00+05:00"
-* valueCodeableConcept = $loinc#LA19710-5 "Group A"   // row 13
+* valueCodeableConcept = $sct#112144000 "Blood group A"   // row 13
 
 Instance: obs-003-rh
 InstanceOf: UZCoreObservation
@@ -446,7 +450,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:00300002-0000-0000-0000-000000000000)
 * encounter = Reference(urn:uuid:00300003-0000-0000-0000-000000000000)
 * effectiveDateTime = "2026-02-08T12:00:00+05:00"
-* valueCodeableConcept = $loinc#LA6576-8 "Positive"   // row 14
+* valueCodeableConcept = $sct#165747007 "RhD positive"   // row 14
 
 Instance: obs-003-admission-height
 InstanceOf: UZCoreObservation
@@ -525,16 +529,6 @@ Usage: #inline
 * performer = Reference(urn:uuid:00300011-0000-0000-0000-000000000000)
 * valueCodeableConcept = https://terminology.dhp.uz/fhir/core/CodeSystem/position-and-profession-cs#7231.1 "Car mechanic"
 
-Instance: obs-003-war-disability
-InstanceOf: UZCoreSocioeconomicObservation
-Usage: #inline
-* status = #final
-* code = $sct#1303306008 "Eligible for benefit"             // row 32a
-* subject = Reference(urn:uuid:00300002-0000-0000-0000-000000000000)
-* encounter = Reference(urn:uuid:00300003-0000-0000-0000-000000000000)
-* effectiveDateTime = "2026-02-08T10:10:00+05:00"
-* valueCodeableConcept = https://terminology.dhp.uz/fhir/core/CodeSystem/benefits-cs#regis0004.00004 "Disabled persons and war participants of 1941-1945, as well as persons treated as such"
-
 Instance: obs-003-arrived-by-ambulance
 InstanceOf: UZCoreObservation
 Usage: #inline
@@ -583,6 +577,7 @@ Usage: #inline
 * code.coding = $icd10#J18.9 "Pneumonia, unspecified"
 * subject = Reference(urn:uuid:00300002-0000-0000-0000-000000000000)
 * encounter = Reference(urn:uuid:00300003-0000-0000-0000-000000000000)
+* recordedDate = "2026-02-08T10:15:00+05:00"                // primary examination date and time
 
 Instance: obs-003-complaints
 InstanceOf: UZCoreObservation
@@ -717,17 +712,17 @@ Usage: #inline
 * requester = Reference(urn:uuid:00300011-0000-0000-0000-000000000000)
 
 Instance: procedure-003-surgery
-InstanceOf: Procedure
+InstanceOf: UZCoreProcedure
 Usage: #inline
 * status = #completed
-* code = $sct#91602002 "Thoracentesis"                    
+* code = $sct#91602002 "Thoracentesis"
 * subject = Reference(urn:uuid:00300002-0000-0000-0000-000000000000)
 * encounter = Reference(urn:uuid:00300003-0000-0000-0000-000000000000)
 * occurrenceDateTime = "2026-02-10T11:30:00+05:00"           // rows 46-47 merged
 * performer.actor = Reference(urn:uuid:00300011-0000-0000-0000-000000000000)   // row 50
 
 Instance: procedure-003-anesthesia
-InstanceOf: Procedure
+InstanceOf: UZCoreProcedure
 Usage: #inline
 * status = #completed
 * code = $sct#386761002 "Local anesthesia"                   // row 48 - anesthesia-method-vs
@@ -738,7 +733,7 @@ Usage: #inline
 * performer.actor = Reference(urn:uuid:00300011-0000-0000-0000-000000000000)
 
 Instance: medicationrequest-003-001
-InstanceOf: MedicationRequest
+InstanceOf: UZCoreMedicationRequest
 Usage: #inline
 * status = #completed
 * intent = #order
@@ -770,7 +765,7 @@ Usage: #inline
 Instance: nutritionorder-003-diet
 InstanceOf: NutritionOrder
 Usage: #inline
-// row 116 - diet table No. (NutritionOrder.oralDiet.type, per CHR-003 mapping)
+// row 116 - diet table No.
 * status = #active
 * intent = #order
 * subject = Reference(urn:uuid:00300002-0000-0000-0000-000000000000)
@@ -794,8 +789,8 @@ Usage: #inline
 * code = https://terminology.dhp.uz/fhir/integrations/CodeSystem/form-003-observation-code-cs#day-of-illness "Day of illness"   // row 134
 * subject = Reference(urn:uuid:00300002-0000-0000-0000-000000000000)
 * encounter = Reference(urn:uuid:00300003-0000-0000-0000-000000000000)
-* effectiveDateTime = "2026-02-08T07:00:00+05:00"
-* valueInteger = 4
+* effectiveDateTime = "2026-02-09T07:00:00+05:00"
+* valueInteger = 6
 
 Instance: obs-003-morning-pulse
 InstanceOf: UZCoreObservation
@@ -856,13 +851,13 @@ Usage: #inline
 * valueQuantity = 1650 'mL/(24.h)' "mL/24h"
 
 // part-of-day fluid intake (rows 146-147) - one per morning/evening:
-// code = chr-003-observation-code-cs#fluid-intake-part-of-day, valueQuantity in mL, effectivePeriod = the half-day
+// code = LOINC 9107-4 "Fluid intake total 12 hour", valueQuantity in mL, effectivePeriod = the half-day
 
 Instance: obs-003-clinical-course
 InstanceOf: UZCoreObservation
 Usage: #inline
 * status = #final
-* code = https://terminology.dhp.uz/fhir/integrations/CodeSystem/form-003-observation-code-cs#clinical-course "Clinical course"   // row 99
+* code = $loinc#8648-8 "Hospital course note"               // row 99
 * subject = Reference(urn:uuid:00300002-0000-0000-0000-000000000000)
 * encounter = Reference(urn:uuid:00300003-0000-0000-0000-000000000000)
 * effectiveDateTime = "2026-02-11T08:00:00+05:00"
@@ -875,9 +870,9 @@ Usage: #inline
 * intent = #plan
 * subject = Reference(urn:uuid:00300002-0000-0000-0000-000000000000)
 * encounter = Reference(urn:uuid:00300003-0000-0000-0000-000000000000)
-* note.text = "Oral amoxicillin-clavulanate 875/125 mg BID x5 days. Chest X-ray in 6 weeks. GP review in 3 days."   // row 100
+* note.text = "Oral levofloxacin 500 mg once daily x5 days (penicillin allergy). Chest X-ray in 6 weeks. GP review in 3 days."   // row 100
 
-// Rows 52-54: CHR-003 references an existing sick-leave record, it does not
+// Rows 52-54: Form 003 references an existing sick-leave record, it does not
 // author one. This is a minimal stand-in the Composition points at; in
 // production it is a Reference to the real SickLeaveCarePlan instance.
 Instance: careplan-003-sick-leave
@@ -899,7 +894,7 @@ Usage: #inline
 * subject = Reference(urn:uuid:00300002-0000-0000-0000-000000000000)
 * effectivePeriod.start = "2026-01-01"
 * effectivePeriod.end = "2026-12-31"
-* valueInteger = 1
+* valueInteger = 0
 
 Instance: obs-003-work-capacity
 InstanceOf: UZCoreObservation
@@ -922,13 +917,13 @@ Usage: #inline
 * valueCodeableConcept = $sct#268910001 "Patient's condition improved"   // row 58 clinical-outcome axis
 
 Instance: provenance-003-signature
-InstanceOf: Provenance
+InstanceOf: UZCoreProvenance
 Usage: #inline
 * target = Reference(Bundle/example-form-003-inpatient-medical-record)
 * recorded = "2026-02-18T09:05:00+05:00"
-* agent.type = http://terminology.hl7.org/CodeSystem/provenance-participant-type#attester "Attester"
+* agent.type = $provenance-participant-type#attester "Attester"
 * agent.who = Reference(urn:uuid:00300011-0000-0000-0000-000000000000) "Rasulov B.B."
-* signature.type = urn:iso-astm:E1762-95:2013#1.2.840.10065.1.12.1.1 "Author's Signature"
+* signature.type[nationalType] = $signature-type-cs#soliqAuth
 * signature.when = "2026-02-18T09:05:00+05:00"
 * signature.who = Reference(urn:uuid:00300011-0000-0000-0000-000000000000) "Rasulov B.B."
 * signature.sigFormat = #application/pdf

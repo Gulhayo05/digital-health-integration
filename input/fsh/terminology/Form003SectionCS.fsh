@@ -1,7 +1,7 @@
-CodeSystem: Form003SectionCS
+CodeSystem: Form 003SectionCS
 Id: form-003-section-cs
-Title: "Form003 Composition Section Codes"
-Description: "Local codes for the top-level sections of the Form003 inpatient medical record Composition that have no suitable LOINC concept."
+Title: "Form 003 Composition Section Codes"
+Description: "Local codes for the top-level sections of the Form 003 inpatient medical record Composition that have no suitable LOINC concept."
 
 * insert OriginalCodeSystemDraft(form-003-section-cs)
 
@@ -35,11 +35,6 @@ Description: "Local codes for the top-level sections of the Form003 inpatient me
   * ^designation[+].language = #en
   * ^designation[=].value = "Hospitalization summary"
 
-* #treatment-outcome "Davolash natijasi"
-  * ^designation[0].language = #ru
-  * ^designation[=].value = "Результат лечения"
-  * ^designation[+].language = #en
-  * ^designation[=].value = "Treatment outcome"
 
 * #expertise-referral-conclusion "Ekspertizaga yo'naltirish uchun xulosa"
   * ^designation[0].language = #ru
@@ -52,9 +47,3 @@ Description: "Local codes for the top-level sections of the Form003 inpatient me
   * ^designation[=].value = "Особые отметки"
   * ^designation[+].language = #en
   * ^designation[=].value = "Special marks"
-
-* #diary "Kundalik"
-  * ^designation[0].language = #ru
-  * ^designation[=].value = "Дневник"
-  * ^designation[+].language = #en
-  * ^designation[=].value = "Diary"

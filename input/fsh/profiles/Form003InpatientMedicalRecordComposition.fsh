@@ -1,23 +1,45 @@
 Profile: Form003InpatientMedicalRecordComposition
-Parent: Composition
+Parent: UZCoreComposition
 Id: form-003-inpatient-medical-record-composition
 Title: "Form 003 - Inpatient Medical Record Card Composition"
-Description: "Composition profile for Form 003 (Statsionar bemorning tibbiy kartasi / Медицинская карта стационарного больного). Section order follows the paper form; entries reference UZ Core profiles per the CHR-003 FHIR mapping."
+Description: "Composition profile for Form 003 (Statsionar bemorning tibbiy kartasi / Медицинская карта стационарного больного): the record of a hospital stay, from admission through examination, diagnoses, treatment and the temperature chart, to discharge. Section order follows the paper form."
+* ^experimental = true
 
 * identifier 1..*
-* status = #final
+* identifier ^short = "Document instance UUID and form number (003)"
+
+* status ^short = "Document status: preliminary while the patient is in hospital, final once the record is closed at discharge"
+
 * type = $composition-type-cs#emdoc-0010-0003 "Patient Medical Record №"
-* category 1..1
-* category = $document-category-cs#form-003 "Patient medical record"
+* type ^short = "Form 003 document type (inpatient medical record)"
+
+* category 1..*
+* category ^short = "Document category: medical record, and the Form 003 category"
+* category[dhpCategory] 1..1
+* category[dhpCategory] = $composition-category-cs#Comp-001-0001 "Medical record"
+* category contains formCategory 1..1
+* category[formCategory] = $document-category-cs#form-003
+* category[formCategory] ^short = "Form 003 document category"
 
 * subject 1..1
 * subject only Reference(UZCorePatient)
+* subject ^short = "Patient admitted to hospital"
 
 * encounter 1..1
 * encounter only Reference(UZCoreEncounter)
+* encounter ^short = "Hospital stay, from admission to discharge"
+
+* date ^short = "Date the document was generated"
 
 * author 1..*
 * author only Reference(UZCorePractitionerRole)
+* author ^short = "Attending doctor"
+
+* title 1..1
+* title ^short = "Document title"
+
+* custodian only Reference(UZCoreOrganization)
+* custodian ^short = "Hospital keeping the record"
 
 // Rows 41, 62, 64, 118-121, 124, 127, 130-135, 153-155 (signatures / attesting
 // officers): the persons are listed in the responsiblePersons section as
@@ -56,11 +78,12 @@ Description: "Composition profile for Form 003 (Statsionar bemorning tibbiy kart
 // Organization (institution), Encounter (admission/discharge, bed-days),
 // Location (ward, room, transferred ward)
 // ---------------------------------------------------------------------
+* section[administrativeInformation] ^short = "Institution, admission and discharge, ward and room, bed-days"
 * section[administrativeInformation].title 1..1
 * section[administrativeInformation].code 1..1
 * section[administrativeInformation].code = form-003-section-cs#administrative-information
 * section[administrativeInformation].entry 1..*
-* section[administrativeInformation].entry only Reference(Organization or UZCoreEncounter or UZCoreLocation)
+* section[administrativeInformation].entry only Reference(UZCoreOrganization or UZCoreEncounter or UZCoreLocation)
 
 // ---------------------------------------------------------------------
 // Personal information - source rows 12-23, 25-26
@@ -68,6 +91,7 @@ Description: "Composition profile for Form 003 (Statsionar bemorning tibbiy kart
 // Rh, transport mobility, admission height/weight/temperature),
 // AllergyIntolerance (drug reaction), RelatedPerson (next of kin)
 // ---------------------------------------------------------------------
+* section[personalInformation] ^short = "Patient, blood group, Rh, height, weight, temperature, drug reactions, next of kin"
 * section[personalInformation].title 1..1
 * section[personalInformation].code 1..1
 * section[personalInformation].code = $loinc#LP36348-8 "Patient Information"
@@ -76,10 +100,11 @@ Description: "Composition profile for Form 003 (Statsionar bemorning tibbiy kart
 
 // ---------------------------------------------------------------------
 // Socioeconomic information - source rows 27-32a
-// One UZCoreSocioeconomicObservation per recorded variant (workplace,
-// occupation, education, child institution, disability type/level,
-// war-disability status)
+// One Observation per recorded variant: UZCoreSocioeconomicObservation
+// for coded ones (occupation, disability), UZCoreObservation for free
+// text (workplace, place of study, children's institution)
 // ---------------------------------------------------------------------
+* section[socioeconomicInformation] ^short = "Workplace, occupation, place of study, children's institution, disability"
 * section[socioeconomicInformation].title 1..1
 * section[socioeconomicInformation].code 1..1
 * section[socioeconomicInformation].code = $loinc#29762-2 "Social history note"
@@ -92,17 +117,19 @@ Description: "Composition profile for Form 003 (Statsionar bemorning tibbiy kart
 // Observation (arrived by ambulance, onset-to-admission delay),
 // Condition (referral / admission-department / preliminary diagnosis)
 // ---------------------------------------------------------------------
+* section[admissionInformation] ^short = "Referring facility, emergency admission, transport, referral and admission diagnoses"
 * section[admissionInformation].title 1..1
 * section[admissionInformation].code 1..1
 * section[admissionInformation].code = $loinc#LP74442-2 "Admission Information"
 * section[admissionInformation].entry 1..*
-* section[admissionInformation].entry only Reference(Organization or UZCoreEncounter or UZCoreObservation or UZCoreCondition)
+* section[admissionInformation].entry only Reference(UZCoreOrganization or UZCoreEncounter or UZCoreObservation or UZCoreCondition)
 
 // ---------------------------------------------------------------------
 // Admission screening - source row 60
 // DiagnosticReport (RW/VDRL, HIV, stool culture), Observation
 // (pediculosis, other diseases)
 // ---------------------------------------------------------------------
+* section[admissionScreening] ^short = "Admission screening: RW, HIV, stool culture, pediculosis, other diseases"
 * section[admissionScreening].title 1..1
 * section[admissionScreening].code 1..1
 * section[admissionScreening].code = form-003-section-cs#admission-screening
@@ -115,6 +142,7 @@ Description: "Composition profile for Form 003 (Statsionar bemorning tibbiy kart
 // onset, preliminary diagnosis), Encounter (reason for encounter);
 // free-text sub-sections for anamnesis / status praesens / status localis
 // ---------------------------------------------------------------------
+* section[primaryExamination] ^short = "Primary examination: complaints, anamnesis, status praesens, status localis, provisional diagnosis"
 * section[primaryExamination].title 1..1
 * section[primaryExamination].code 1..1
 * section[primaryExamination].code = $loinc#34117-2 "History and physical note"
@@ -138,6 +166,7 @@ Description: "Composition profile for Form 003 (Statsionar bemorning tibbiy kart
 // Examination plan - source row 81
 // DiagnosticReport / ServiceRequest per planned investigation
 // ---------------------------------------------------------------------
+* section[examinationPlan] ^short = "Planned investigations"
 * section[examinationPlan].title 1..1
 * section[examinationPlan].code 1..1
 * section[examinationPlan].code = $loinc#18776-5 "Plan of care note"
@@ -150,6 +179,7 @@ Description: "Composition profile for Form 003 (Statsionar bemorning tibbiy kart
 // coagulogram, ECG, X-ray, ultrasound, EGDS, CT/MRI); ServiceRequest
 // for a specialist consultation
 // ---------------------------------------------------------------------
+* section[diagnosticResults] ^short = "Laboratory and instrumental results, specialist consultations"
 * section[diagnosticResults].title 1..1
 * section[diagnosticResults].code 1..1
 * section[diagnosticResults].code = $loinc#30954-2 "Relevant diagnostic tests/laboratory data note"
@@ -161,6 +191,7 @@ Description: "Composition profile for Form 003 (Statsionar bemorning tibbiy kart
 // Free-text examination and treatment plan, with optional structured
 // diagnoses / orders / reports
 // ---------------------------------------------------------------------
+* section[departmentExamination] ^short = "Department doctor examination with the examination and treatment plan"
 * section[departmentExamination].title 1..1
 * section[departmentExamination].code 1..1
 * section[departmentExamination].code = form-003-section-cs#department-examination
@@ -173,6 +204,7 @@ Description: "Composition profile for Form 003 (Statsionar bemorning tibbiy kart
 // Per-role sub-sections (coded with diagnosis-role) so the form can be
 // reconstructed without relying on entry order. No diagnoses sit here.
 // ---------------------------------------------------------------------
+* section[finalDiagnosis] ^short = "Final diagnosis, one sub-section per diagnosis role"
 * section[finalDiagnosis].title 1..1
 * section[finalDiagnosis].code 1..1
 * section[finalDiagnosis].code = $loinc#LA32800-7 "Final diagnosis (discharge)"
@@ -207,11 +239,12 @@ Description: "Composition profile for Form 003 (Statsionar bemorning tibbiy kart
 // Procedure (operation, anaesthesia, other treatment types),
 // Condition (post-operative complication)
 // ---------------------------------------------------------------------
+* section[surgicalProcedures] ^short = "Operations, anaesthesia methods and post-operative complications"
 * section[surgicalProcedures].title 1..1
 * section[surgicalProcedures].code 1..1
 * section[surgicalProcedures].code = $loinc#29554-3 "Procedure Narrative"
 * section[surgicalProcedures].entry 1..*
-* section[surgicalProcedures].entry only Reference(Procedure or UZCoreCondition)
+* section[surgicalProcedures].entry only Reference(UZCoreProcedure or UZCoreCondition)
 
 // ---------------------------------------------------------------------
 // Medication sheet - source rows 92-100, 104-121
@@ -219,11 +252,12 @@ Description: "Composition profile for Form 003 (Statsionar bemorning tibbiy kart
 // MedicationAdministration (execution), NutritionOrder (diet table),
 // Coverage (source of medicines / devices), Provenance (signatures)
 // ---------------------------------------------------------------------
+* section[medicationSheet] ^short = "Prescriptions, administrations, diet table and source of medicines"
 * section[medicationSheet].title 1..1
 * section[medicationSheet].code 1..1
 * section[medicationSheet].code = $loinc#29549-3 "Medication administered Narrative"
 * section[medicationSheet].entry 1..*
-* section[medicationSheet].entry only Reference(MedicationRequest or MedicationAdministration or NutritionOrder or UZCoreObservation or Coverage or Provenance)
+* section[medicationSheet].entry only Reference(UZCoreMedicationRequest or MedicationAdministration or NutritionOrder or UZCoreObservation or Coverage or UZCoreProvenance)
 
 // ---------------------------------------------------------------------
 // Procedure sheet - source rows 122-132
@@ -231,11 +265,12 @@ Description: "Composition profile for Form 003 (Statsionar bemorning tibbiy kart
 // (performed procedure, materials used), DiagnosticReport (investigation
 // result), Provenance (signatures)
 // ---------------------------------------------------------------------
+* section[procedureSheet] ^short = "Ordered and performed investigations and procedures"
 * section[procedureSheet].title 1..1
 * section[procedureSheet].code 1..1
 * section[procedureSheet].code = $loinc#47519-4 "History of Procedures Document"
 * section[procedureSheet].entry 1..*
-* section[procedureSheet].entry only Reference(UZCoreServiceRequest or Procedure or UZCoreDiagnosticReport or Provenance)
+* section[procedureSheet].entry only Reference(UZCoreServiceRequest or UZCoreProcedure or UZCoreDiagnosticReport or UZCoreProvenance)
 
 // ---------------------------------------------------------------------
 // Temperature chart - source rows 133-148
@@ -243,6 +278,7 @@ Description: "Composition profile for Form 003 (Statsionar bemorning tibbiy kart
 // respiratory rate, weight), fluid balance (intake, diuresis),
 // day-of-illness counter
 // ---------------------------------------------------------------------
+* section[temperatureChart] ^short = "Pulse, blood pressure, temperature, respiratory rate, weight, fluid balance, day of illness"
 * section[temperatureChart].title 1..1
 * section[temperatureChart].code 1..1
 * section[temperatureChart].code = $loinc#8716-3 "Vital signs note"
@@ -254,6 +290,7 @@ Description: "Composition profile for Form 003 (Statsionar bemorning tibbiy kart
 // Observation (status in dynamics), CarePlan (doctor recommendations);
 // free-text diary sub-section
 // ---------------------------------------------------------------------
+* section[clinicalCourse] ^short = "Course in hospital, doctor's recommendations and diary"
 * section[clinicalCourse].title 1..1
 * section[clinicalCourse].code 1..1
 * section[clinicalCourse].code = $loinc#8648-8 "Hospital course note"
@@ -264,7 +301,7 @@ Description: "Composition profile for Form 003 (Statsionar bemorning tibbiy kart
 * section[clinicalCourse].section ^slicing.discriminator.path = "code"
 * section[clinicalCourse].section ^slicing.rules = #open
 * section[clinicalCourse].section contains diary 0..1
-* section[clinicalCourse].section[diary].code = form-003-section-cs#diary
+* section[clinicalCourse].section[diary].code = $loinc#11506-3 "Progress note"
 * section[clinicalCourse].section[diary].text 1..1
 
 // ---------------------------------------------------------------------
@@ -272,6 +309,7 @@ Description: "Composition profile for Form 003 (Statsionar bemorning tibbiy kart
 // Encounter (length of stay, re-admission), Observation (number of
 // hospitalizations this year)
 // ---------------------------------------------------------------------
+* section[hospitalizationSummary] ^short = "Length of stay and hospitalizations this year"
 * section[hospitalizationSummary].title 1..1
 * section[hospitalizationSummary].code 1..1
 * section[hospitalizationSummary].code = form-003-section-cs#hospitalization-summary
@@ -285,11 +323,12 @@ Description: "Composition profile for Form 003 (Statsionar bemorning tibbiy kart
 // facility); free-text sub-sections for the expertise-referral
 // conclusion and special marks
 // ---------------------------------------------------------------------
+* section[treatmentOutcome] ^short = "Discharge outcome, clinical outcome, work capacity, death context"
 * section[treatmentOutcome].title 1..1
 * section[treatmentOutcome].code 1..1
-* section[treatmentOutcome].code = form-003-section-cs#treatment-outcome
+* section[treatmentOutcome].code = $loinc#8650-4 "Hospital discharge disposition note"
 * section[treatmentOutcome].entry 0..*
-* section[treatmentOutcome].entry only Reference(UZCoreEncounter or UZCoreObservation or Organization)
+* section[treatmentOutcome].entry only Reference(UZCoreEncounter or UZCoreObservation or UZCoreOrganization)
 * section[treatmentOutcome].section ^slicing.discriminator.type = #value
 * section[treatmentOutcome].section ^slicing.discriminator.path = "code"
 * section[treatmentOutcome].section ^slicing.rules = #open
@@ -305,6 +344,7 @@ Description: "Composition profile for Form 003 (Statsionar bemorning tibbiy kart
 // Temporary disability - source rows 52-54
 // Reference to the existing SickLeaveCarePlan (identifier and period)
 // ---------------------------------------------------------------------
+* section[temporaryDisability] ^short = "Sick-leave certificate"
 * section[temporaryDisability].title 1..1
 * section[temporaryDisability].code 1..1
 * section[temporaryDisability].code = $loinc#34109-9 "Note"
@@ -316,6 +356,7 @@ Description: "Composition profile for Form 003 (Statsionar bemorning tibbiy kart
 // Per-role cause-of-death sub-sections (coded with diagnosis-role).
 // No diagnoses sit directly here.
 // ---------------------------------------------------------------------
+* section[postmortemConclusion] ^short = "Causes of death, one sub-section per role; only when the patient died"
 * section[postmortemConclusion].title 1..1
 * section[postmortemConclusion].code 1..1
 * section[postmortemConclusion].code = $loinc#18743-5 "Autopsy report"
@@ -347,6 +388,7 @@ Description: "Composition profile for Form 003 (Statsionar bemorning tibbiy kart
 // Attending doctor, department head, deputy chief physician, person
 // responsible for the treatment complex (PractitionerRole references)
 // ---------------------------------------------------------------------
+* section[responsiblePersons] ^short = "Attending doctor, head of department, deputy chief physician"
 * section[responsiblePersons].title 1..1
 * section[responsiblePersons].code 1..1
 * section[responsiblePersons].code = $loinc#LP35157-4 "Responsible party"

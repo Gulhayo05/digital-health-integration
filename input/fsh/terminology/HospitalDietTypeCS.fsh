@@ -1,7 +1,7 @@
 CodeSystem: HospitalDietTypeCS
 Id: hospital-diet-type-cs
-Title: "Form003 Hospital Diet Type"
-Description: "Local codes for the therapeutic (Pevzner) diet table, Form003 inpatient medical record."
+Title: "Hospital Diet Type"
+Description: "Local codes for the therapeutic (Pevzner) diet table, Form 003 inpatient medical record."
 
 * insert OriginalCodeSystemDraft(hospital-diet-type-cs)
 

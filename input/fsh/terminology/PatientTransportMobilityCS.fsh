@@ -1,7 +1,7 @@
 CodeSystem: PatientTransportMobilityCS
 Id: patient-transport-mobility-cs
-Title: "Form003 Patient Transport Mobility"
-Description: "Local codes for how the patient was moved on admission or transfer, Form003 inpatient medical record."
+Title: "Patient Transport Mobility"
+Description: "Local codes for how the patient was moved on admission or transfer, Form 003 inpatient medical record."
 
 * insert OriginalCodeSystemDraft(patient-transport-mobility-cs)
 
