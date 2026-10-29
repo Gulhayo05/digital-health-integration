@@ -573,7 +573,8 @@ Instance: condition-003-preliminary-dx
 InstanceOf: UZCoreCondition
 Usage: #inline
 * clinicalStatus = http://terminology.hl7.org/CodeSystem/condition-clinical#active
-* category = $diagnosis-type-cs#gencl-0001-00003             // row 80 (no "preliminary" role in either CS - "main" used, or Encounter.diagnosis.use)
+* verificationStatus = $condition-ver-status#provisional "Provisional"
+* category = $diagnosis-role#main
 * code.coding = $icd10#J18.9 "Pneumonia, unspecified"
 * subject = Reference(urn:uuid:00300002-0000-0000-0000-000000000000)
 * encounter = Reference(urn:uuid:00300003-0000-0000-0000-000000000000)
@@ -596,6 +597,7 @@ Instance: condition-003-final-main
 InstanceOf: UZCoreCondition
 Usage: #inline
 * clinicalStatus = http://terminology.hl7.org/CodeSystem/condition-clinical#active
+* verificationStatus = $condition-ver-status#confirmed "Confirmed"
 * category = $diagnosis-role#main
 * code.coding = $icd10#J15.9 "Bacterial pneumonia, unspecified"
 * subject = Reference(urn:uuid:00300002-0000-0000-0000-000000000000)

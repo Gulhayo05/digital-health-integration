@@ -115,8 +115,8 @@ Qog'oz shaklning 27-32-qatorlari bitta tanlov maydonidir. Har bir to'ldirilgan v
 | Tez tibbiy yordam transportida keldi | Доставлен транспортом скорой помощи | Observation.valueBoolean | LOINC `LP97912-7` "Ambulance transport" | true |
 | Kasallik/jarohatdan keyin yotqizishgacha o'tgan vaqt | Время от начала заболевания/травмы до госпитализации | Observation.valueCodeableConcept | [Disease/Injury Delay](CodeSystem-disease-injury-delay-cs.html) | `delay0001_00003` "After 24 hours" |
 | Bemorni kelish usuli | Метод прибытия пациента | Encounter.admission.admitSource | [Admit Source Local](https://dhp.uz/fhir/core/en/CodeSystem-admit-source-local-cs.html) | `mserv-0006-00004` "Emergency medical service" |
-| Bemor yo'llanmasidagi tashxis | Диагноз в направлении | [Condition](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-condition.html).code + Encounter.diagnosis.use | ICD-10; use = [Diagnosis Type](https://dhp.uz/fhir/core/en/CodeSystem-diagnosis-type-cs.html) `gencl-0001-00001` "Diagnosis of the referring institution" | `J18.9` "Pneumonia, unspecified" |
-| Qabulxonada qo'yilgan tashxis | Диагноз в приёмном отделении | Condition.code + Encounter.diagnosis.use | ICD-10; use `gencl-0001-00002` "Diagnosis of the admission department" | `J18.9` "Pneumonia, unspecified" |
+| Bemor yo'llanmasidagi tashxis | Диагноз в направлении | [Condition](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-condition.html).code; Condition.category | `code` ICD-10<br>`category` [Diagnosis Role](CodeSystem-diagnosis-role-integration.html) `referral` "Referring institution diagnosis" | `J18.9` "Pneumonia, unspecified" |
+| Qabulxonada qo'yilgan tashxis | Диагноз в приёмном отделении | Condition.code; Condition.category | `code` ICD-10<br>`category` [Diagnosis Role](CodeSystem-diagnosis-role-integration.html) `admission` "Admission diagnosis" | `J18.9` "Pneumonia, unspecified" |
 | Tashxis qo'yilgan sana | Дата установления диагноза | Condition.recordedDate | - | 2026-02-08 |
 
 ---
@@ -148,7 +148,7 @@ Birlashtirilgan «qabulda tekshiruv» bloki har bir tekshiruv uchun alohida resu
 | Anamnez | Анамнез | section[anamnesis].text | LOINC `11329-0` "History general Narrative - Reported" | narrative |
 | Umumiy hozirgi holat | Общее текущее состояние | section[statusPraesens].text | LOINC `10210-3` "Physical findings of General status Narrative" | narrative |
 | Mahalliy holat | Местное состояние | section[statusLocalis].text | [Form 003 Composition Section Codes](CodeSystem-form-003-section-cs.html) `status-localis` "Status localis" | narrative |
-| Tahminiy tashxis | Предварительный диагноз | Condition.code + Encounter.diagnosis.use | ICD-10; use `gencl-0001-00003` "Main diagnosis" | `J18.9` "Pneumonia, unspecified" |
+| Tahminiy tashxis | Предварительный диагноз | Condition.code; Condition.category; Condition.verificationStatus | `code` ICD-10<br>`category` [Diagnosis Role](CodeSystem-diagnosis-role-integration.html) `main` "Main diagnosis"<br>`verificationStatus` `provisional` "Provisional" | `J18.9` "Pneumonia, unspecified" |
 
 ---
 
@@ -191,7 +191,7 @@ Har bir tashxis - bitta Condition. Uning roli `Condition.category`da [Diagnosis 
 
 | UZ | RU | FHIR yo'li | Kod | Misol |
 |----|----|------------|------|---------|
-| Asosiy | Основное заболевание | Condition.code | ICD-10 | `J15.9` "Bacterial pneumonia, unspecified" |
+| Asosiy | Основное заболевание | Condition.code; Condition.verificationStatus | `code` ICD-10<br>`verificationStatus` `confirmed` "Confirmed" | `J15.9` "Bacterial pneumonia, unspecified" |
 | Asosiy kasallikning asorati | Осложнение основного заболевания | Condition.code | ICD-10 | `J90` "Pleural effusion, not elsewhere classified" |
 | Aniqlangan yo'ldosh kasalliklar | Выявленные сопутствующие заболевания | Condition.code | ICD-10 | `I10` "Essential (primary) hypertension" |
 
