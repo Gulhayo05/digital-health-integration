@@ -2,7 +2,9 @@
 
 #### Added
 
-[Form 044 medical certificate for travelers abroad](StructureDefinition-form-044-travel-clearance-composition.html) is profiled as a FHIR Document, covering personal information, past infectious diseases, the commission's travel clearance with destination country and business trip period, place of residence and the commission chair across 5 Composition sections. It ships an example document Bundle and a [field-by-field mapping page](form-044-mapping.html).
+[Form 003 inpatient medical record](StructureDefinition-form-003-inpatient-medical-record-composition.html) is profiled as a FHIR Document, covering administrative and personal information, admission, admission screening, the primary examination, the examination plan and results, diagnoses, operations, the medication and procedure sheets, the temperature chart, the clinical course, the treatment outcome, temporary disability, the post-mortem conclusion and responsible persons across 20 Composition sections. It ships an example document Bundle and a [field-by-field mapping page](form-003-mapping.html).
+
+[Form 044 medical certificate for travelers abroad](StructureDefinition-form-044-travel-clearance-composition.html) is profiled as a FHIR Document, covering personal information, past infectious diseases, the commission's travel clearance with destination country and business trip period, place of residence and the commission chair and members across 5 Composition sections. It ships an example document Bundle and a [field-by-field mapping page](form-044-mapping.html).
 
 ### Version 0.12.1
 
