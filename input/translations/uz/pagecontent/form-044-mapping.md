@@ -13,13 +13,13 @@
 
 ### 044-shakl - Xorijga ketayotganlar uchun tibbiy ma'lumotnoma
 
-Ushbu sahifada 044-shakl (Xorijga ketayotganlar uchun tibbiy ma'lumotnoma) maydonlarining FHIR resurslari bilan moslashtirilishi tavsiflanadi.
+Ushbu sahifada [044-shakl](forms-volume-02-ambulatory.html) (Xorijga ketayotganlar uchun tibbiy ma'lumotnoma) maydonlarining FHIR resurslari bilan moslashtirilishi tavsiflanadi.
 
 ---
 
 ### Umumiy ma'lumot
 
-[044-shakl](forms-volume-02-ambulatory.html) - poliklinika tibbiy komissiyasi beradigan, shaxsda xizmat safari bilan chet elga chiqishga tibbiy qarshiliklar yo'qligini tasdiqlovchi mustaqil ma'lumotnoma. U statsionar yoki ambulator tashrifga bog'lanmagan, shuning uchun `Composition.encounter` ishlatilmaydi. Shakl ma'lumotlari [Form 044 Travel Clearance Certificate Composition](StructureDefinition-form-044-travel-clearance-composition.html) profiliga mos keluvchi FHIR hujjatiga birlashtirilgan bir nechta FHIR resurslari bilan moslashtiriladi. Imkoni bo'lgan joyda resurslar [UZ Core](https://dhp.uz/fhir/core/en/artifacts.html) profillariga mos keladi.
+044-shakl - poliklinika tibbiy komissiyasi beradigan, shaxsda xizmat safari bilan chet elga chiqishga tibbiy qarshiliklar yo'qligini tasdiqlovchi mustaqil ma'lumotnoma. U statsionar yoki ambulator tashrifga bog'lanmagan, shuning uchun `Composition.encounter` ishlatilmaydi. Shakl ma'lumotlari [Form 044 Travel Clearance Certificate Composition](StructureDefinition-form-044-travel-clearance-composition.html) profiliga mos keluvchi FHIR hujjatiga birlashtirilgan bir nechta FHIR resurslari bilan moslashtiriladi. Imkoni bo'lgan joyda resurslar [UZ Core](https://dhp.uz/fhir/core/en/artifacts.html) profillariga mos keladi.
 
 To'liq namunaviy nusxa uchun [044-shakl ma'lumotnoma misoli](Bundle-example-form-044-travel-clearance.html)ga qarang.
 
@@ -27,11 +27,11 @@ To'liq namunaviy nusxa uchun [044-shakl ma'lumotnoma misoli](Bundle-example-form
 
 ### Maydonlarni moslashtirish
 
-### 044-shakl - Xorijga ketayotganlar uchun tibbiy ma'lumotnoma - FHIR bilan moslashtirish
+### 044-shakl Xorijga ketayotganlar uchun tibbiy ma'lumotnoma - FHIR bilan moslashtirish
 
 ---
 
-### Hujjat haqida ma'lumot
+### Hujjat ma'lumotlari
 
 | UZ | RU | FHIR yo'li | Kod | Qiymat misoli |
 |----|----|------------|------|---------------|
@@ -118,7 +118,7 @@ FHIR bu elementlarni talab qiladi, lekin qog'oz shaklda ular uchun maydon yo'q. 
 
 ---
 
-### Bundle tuzilmasi
+### Bundle strukturasi
 
 044-shakl hujjati [Form044TravelClearanceCertificateComposition](StructureDefinition-form-044-travel-clearance-composition.html) Composition'ini o'z ichiga olgan FHIR Bundle:
 

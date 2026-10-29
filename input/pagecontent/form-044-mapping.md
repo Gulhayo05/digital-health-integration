@@ -11,13 +11,13 @@
 
 ### Form 044 - Certificate of Absence of Medical Contraindications for Travel Abroad
 
-This page documents the mapping between Form 044 (Xorijga ketayotganlar uchun tibbiy ma'lumotnoma) fields and FHIR resources.
+This page documents the mapping between [Form 044](forms-volume-02-ambulatory.html) (Xorijga ketayotganlar uchun tibbiy ma'lumotnoma) fields and FHIR resources.
 
 ---
 
 ### Overview
 
-[Form 044](forms-volume-02-ambulatory.html) is a standalone certificate issued by a polyclinic medical commission confirming that a person has no medical contraindications to travel abroad on a business trip. It is not tied to an inpatient or outpatient encounter, so `Composition.encounter` is not used. The form data maps to multiple FHIR resources bundled together as a FHIR Document, conforming to the [Form 044 Travel Clearance Certificate Composition](StructureDefinition-form-044-travel-clearance-composition.html) profile. Where available, resources conform to [UZ Core](https://dhp.uz/fhir/core/en/artifacts.html) profiles.
+Form 044 is a standalone certificate issued by a polyclinic medical commission confirming that a person has no medical contraindications to travel abroad on a business trip. It is not tied to an inpatient or outpatient encounter, so `Composition.encounter` is not used. The form data maps to multiple FHIR resources bundled together as a FHIR Document, conforming to the [Form 044 Travel Clearance Certificate Composition](StructureDefinition-form-044-travel-clearance-composition.html) profile. Where available, resources conform to [UZ Core](https://dhp.uz/fhir/core/en/artifacts.html) profiles.
 
 For a complete reference instance, see the [Form 044 travel clearance example](Bundle-example-form-044-travel-clearance.html).
 
@@ -25,7 +25,7 @@ For a complete reference instance, see the [Form 044 travel clearance example](B
 
 ### Field Mapping
 
-### Form 044 Medical Certificate for Travelers Abroad - FHIR Mapping
+### Form 044 Certificate of Absence of Medical Contraindications for Travel Abroad - FHIR Mapping
 
 ---
 
