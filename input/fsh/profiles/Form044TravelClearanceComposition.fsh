@@ -1,12 +1,19 @@
 Profile: Form044TravelClearanceCertificateComposition
 Parent: UZCoreComposition
 Id: form-044-travel-clearance-composition
-Title: "Form 044 - Certificate of Absence of Medical Contraindications for Travel Abroad Composition"
+Title: "Form 044 - Medical Certificate for Travelers Abroad Composition"
 Description: "Composition profile for Form 044 (Xorijga ketayotganlar uchun tibbiy ma'lumotnoma): the certificate a polyclinic commission issues to a person travelling abroad on a business trip, confirming that there are no medical contraindications to the trip."
 * ^experimental = true
 
 * identifier 1..*
-* identifier ^short = "Document instance UUID and form number (044)"
+* identifier ^short = "Document instance UUID, form number (044) and certificate number"
+* identifier ^slicing.discriminator.type = #value
+* identifier ^slicing.discriminator.path = "system"
+* identifier ^slicing.rules = #open
+* identifier contains certificateNumber 1..1
+* identifier[certificateNumber].system = "https://dhp.uz/fhir/core/sid/doc/uz/medical-certificate-number"
+* identifier[certificateNumber].value 1..1
+* identifier[certificateNumber] ^short = "Certificate number (MA'LUMOTNOMA №), prefixed with the form number"
 
 * status ^short = "Document status: final once the commission issues the certificate"
 
@@ -25,8 +32,9 @@ Description: "Composition profile for Form 044 (Xorijga ketayotganlar uchun tibb
 * subject only Reference(UZCorePatient)
 * subject ^short = "Person travelling abroad"
 
-* encounter 0..0
-* encounter ^short = "Not used: the certificate is not tied to a visit or stay"
+* encounter 0..1
+* encounter only Reference(UZCoreEncounter)
+* encounter ^short = "Commission examination visit, when it is recorded"
 
 * date 1..1
 * date ^short = "Date the certificate was issued (Ma'lumotnoma berilgan sana)"
@@ -93,7 +101,7 @@ Description: "Composition profile for Form 044 (Xorijga ketayotganlar uchun tibb
 * section[responsiblePersons].title ^short = "5. Responsible persons"
 * section[responsiblePersons].code 1..1
 * section[responsiblePersons].code = $loinc#LP35157-4 "Responsible party"
-* section[responsiblePersons].code ^short = "Commission chair"
+* section[responsiblePersons].code ^short = "Commission chair and members"
 * section[responsiblePersons].entry 1..*
 * section[responsiblePersons].entry only Reference(UZCorePractitionerRole)
-* section[responsiblePersons].entry ^short = "Commission chair"
+* section[responsiblePersons].entry ^short = "Commission chair, and members when recorded"

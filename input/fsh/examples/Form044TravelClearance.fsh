@@ -1,7 +1,7 @@
 Instance: example-form-044-travel-clearance
 InstanceOf: Bundle
 Usage: #example
-Title: "Form 044 - Certificate of Absence of Medical Contraindications for Travel Abroad"
+Title: "Form 044 - Medical Certificate for Travelers Abroad"
 Description: "Example of Form 044 medical certificate for foreign travel"
 * language = #en
 * identifier.system = "urn:ietf:rfc:3986"
@@ -33,6 +33,10 @@ Description: "Example of Form 044 medical certificate for foreign travel"
 * entry[=].resource = observation-trip-period-044
 * entry[+].fullUrl = "urn:uuid:04400012-1111-2222-3333-444444444444"
 * entry[=].resource = provenance-signature-044
+* entry[+].fullUrl = "urn:uuid:04400013-1111-2222-3333-444444444444"
+* entry[=].resource = practitioner-044-002
+* entry[+].fullUrl = "urn:uuid:04400014-1111-2222-3333-444444444444"
+* entry[=].resource = practitionerrole-044-002
 
 
 
@@ -44,16 +48,17 @@ Usage: #inline
 * identifier[=].value = "urn:uuid:944f9511-f30c-52e5-b827-557766550044"
 * identifier[+].system = "https://dhp.uz/fhir/core/sid/doc/uz/form-number"
 * identifier[=].value = "044"
+* identifier[certificateNumber].value = "044-2026-001"
 * status = #final
 * type.coding[0] = $composition-type-cs#emdoc-0010-0042 "Medical certificate for travelers abroad"
 * type.coding[+] = $loinc#104988-1 "Medical Fitness Certificate"
 * category[dhpCategory] = $composition-category-cs#Comp-001-0001 "Medical record"
-* category[formCategory] = $document-category-cs#form-044 "Certificate on absence of medical contraindications for travel abroad"
+* category[formCategory] = $document-category-cs#form-044 "Medical certificate for travelers abroad"
 * subject = Reference(urn:uuid:04400002-1111-2222-3333-444444444444)
 * date = "2026-02-10T09:15:00+05:00"
 * author = Reference(urn:uuid:04400005-1111-2222-3333-444444444444)
 * custodian = Reference(urn:uuid:04400003-1111-2222-3333-444444444444)
-* title = "Form 044 - Certificate of Absence of Medical Contraindications for Travel Abroad"
+* title = "Form 044 - Medical Certificate for Travelers Abroad"
 
 * section[personalInformation].title = "1. Personal information"
 * section[=].code = $loinc#LP36348-8 "Patient information"
@@ -77,7 +82,8 @@ Usage: #inline
 
 * section[responsiblePersons].title = "5. Responsible persons"
 * section[=].code = $loinc#LP35157-4 "Responsible party"
-* section[=].entry = Reference(urn:uuid:04400005-1111-2222-3333-444444444444)
+* section[=].entry[0] = Reference(urn:uuid:04400005-1111-2222-3333-444444444444)
+* section[=].entry[+] = Reference(urn:uuid:04400014-1111-2222-3333-444444444444)
 
 
 
@@ -138,6 +144,29 @@ Usage: #inline
 
 
 
+Instance: practitioner-044-002
+InstanceOf: UZCorePractitioner
+Usage: #inline
+* language = #en
+* identifier[nationalId].value = "22345678900044"
+* name.use = #official
+* name.text = "Karimova D.A."
+* name.family = "Karimova"
+* name.given[0] = "D."
+* name.given[+] = "A."
+
+
+
+Instance: practitionerrole-044-002
+InstanceOf: UZCorePractitionerRole
+Usage: #inline
+* language = #en
+* practitioner = Reference(urn:uuid:04400013-1111-2222-3333-444444444444)
+* organization = Reference(urn:uuid:04400003-1111-2222-3333-444444444444)
+* code.coding[role] = $occupation-cs#2212.113 "Physician"
+
+
+
 Instance: condition-measles-044
 InstanceOf: UZCoreCondition
 Usage: #inline
@@ -185,7 +214,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
-* code = $form-sections-cs#travel-clearance "Travel clearance"
+* code = $form-044-observation-code-cs#travel-clearance "Travel clearance"
 * subject = Reference(urn:uuid:04400002-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-02-10T09:00:00+05:00"
 * performer = Reference(urn:uuid:04400004-1111-2222-3333-444444444444)
@@ -198,7 +227,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
-* code = $form-sections-cs#destination-country "Destination country"
+* code = $loinc#94651-7 "Country of travel [Location]"
 * subject = Reference(urn:uuid:04400002-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-02-10T09:00:00+05:00"
 * performer = Reference(urn:uuid:04400004-1111-2222-3333-444444444444)
@@ -213,7 +242,7 @@ InstanceOf: UZCoreObservation
 Usage: #inline
 * language = #en
 * status = #final
-* code = $form-sections-cs#trip-period "Business trip period"
+* code = $form-044-observation-code-cs#trip-period "Business trip period"
 * subject = Reference(urn:uuid:04400002-1111-2222-3333-444444444444)
 * effectiveDateTime = "2026-02-10T09:00:00+05:00"
 * performer = Reference(urn:uuid:04400004-1111-2222-3333-444444444444)
@@ -228,10 +257,17 @@ Usage: #inline
 * language = #en
 * target = Reference(Bundle/example-form-044-travel-clearance)
 * recorded = "2026-02-10T09:20:00+05:00"
-* agent.type = $provenance-participant-type#author "Author"
-* agent.who = Reference(urn:uuid:04400005-1111-2222-3333-444444444444) "Nazarov T.T."
-* signature.type[nationalType] = $signature-type-cs#soliqAuth
-* signature.when = "2026-02-10T09:20:00+05:00"
-* signature.who = Reference(urn:uuid:04400005-1111-2222-3333-444444444444) "Nazarov T.T."
-* signature.sigFormat = #application/pdf
-* signature.data = "JVBERi0xLjQKMSAwIG9iago8PAovVHlwZSAvQ2F0YWxvZwovUGFnZXMgMiAwIFIKPj4KZW5kb2Jq"
+* agent[0].type = $provenance-participant-type#author "Author"
+* agent[=].who = Reference(urn:uuid:04400005-1111-2222-3333-444444444444) "Nazarov T.T."
+* agent[+].type = $provenance-participant-type#attester "Attester"
+* agent[=].who = Reference(urn:uuid:04400014-1111-2222-3333-444444444444) "Karimova D.A."
+* signature[0].type[nationalType] = $signature-type-cs#soliqAuth
+* signature[=].when = "2026-02-10T09:20:00+05:00"
+* signature[=].who = Reference(urn:uuid:04400005-1111-2222-3333-444444444444) "Nazarov T.T."
+* signature[=].sigFormat = #application/pdf
+* signature[=].data = "JVBERi0xLjQKMSAwIG9iago8PAovVHlwZSAvQ2F0YWxvZwovUGFnZXMgMiAwIFIKPj4KZW5kb2Jq"
+* signature[+].type[nationalType] = $signature-type-cs#soliqAuth
+* signature[=].when = "2026-02-10T09:25:00+05:00"
+* signature[=].who = Reference(urn:uuid:04400014-1111-2222-3333-444444444444) "Karimova D.A."
+* signature[=].sigFormat = #application/pdf
+* signature[=].data = "JVBERi0xLjQKMSAwIG9iago8PAovVHlwZSAvQ2F0YWxvZwovUGFnZXMgMiAwIFIKPj4KZW5kb2Jq"
