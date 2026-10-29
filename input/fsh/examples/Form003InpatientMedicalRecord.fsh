@@ -365,7 +365,7 @@ Usage: #inline
 * admission.admitSource = https://terminology.dhp.uz/fhir/core/CodeSystem/admit-source-local-cs#mserv-0006-00004 "Emergency medical service"  // row 71
 * admission.reAdmission = https://terminology.dhp.uz/fhir/core/CodeSystem/re-admission-local-cs#first-time "First time"                        // row 43
 * subjectStatus = $encounter-local-subject-status-cs#loc-cs-002 "Improved"
-* admission.dischargeDisposition = https://terminology.dhp.uz/fhir/core/CodeSystem/encounter-discharge-disposition-home-cs#mserv-0004-00004 "Discharged"  // row 55
+* admission.dischargeDisposition = $discharge-disposition-home-cs#mserv-0004-00004 "Discharged"  // row 55
 * location[0].location = Reference(urn:uuid:00300006-0000-0000-0000-000000000000)   // row 8 ward
 * location[0].period.start = "2026-02-08T10:00:00+05:00"
 * location[+].location = Reference(urn:uuid:00300007-0000-0000-0000-000000000000)   // row 9 room
