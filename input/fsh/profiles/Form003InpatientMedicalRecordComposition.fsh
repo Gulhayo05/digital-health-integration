@@ -342,14 +342,14 @@ Description: "Composition profile for Form 003 (Statsionar bemorning tibbiy kart
 
 // ---------------------------------------------------------------------
 // Temporary disability - source rows 52-54
-// Reference to the existing SickLeaveCarePlan (identifier and period)
+// One SickLeaveCarePlan per sick-leave certificate
 // ---------------------------------------------------------------------
-* section[temporaryDisability] ^short = "Sick-leave certificate"
+* section[temporaryDisability] ^short = "Sick-leave certificates, one SickLeaveCarePlan each"
 * section[temporaryDisability].title 1..1
 * section[temporaryDisability].code 1..1
 * section[temporaryDisability].code = $loinc#34109-9 "Note"
 * section[temporaryDisability].entry 1..*
-* section[temporaryDisability].entry only Reference(CarePlan or UZCoreObservation)
+* section[temporaryDisability].entry only Reference(SickLeaveCarePlan)
 
 // ---------------------------------------------------------------------
 // Post-mortem conclusion - source row 152

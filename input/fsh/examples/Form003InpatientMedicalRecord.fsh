@@ -903,19 +903,22 @@ Usage: #inline
 * encounter = Reference(urn:uuid:00300003-0000-0000-0000-000000000000)
 * description = "Oral levofloxacin 500 mg once daily x5 days (penicillin allergy). Chest X-ray in 6 weeks. GP review in 3 days."
 
-// Rows 52-54: Form 003 references an existing sick-leave record, it does not
-// author one. This is a minimal stand-in the Composition points at; in
-// production it is a Reference to the real SickLeaveCarePlan instance.
 Instance: careplan-003-sick-leave
-InstanceOf: CarePlan
+InstanceOf: SickLeaveCarePlan
 Usage: #inline
-* status = #completed
-* intent = #order
-* subject = Reference(urn:uuid:00300002-0000-0000-0000-000000000000)
 * identifier.system = "https://dhp.uz/fhir/core/sid/doc/uz/sickleave"
-* identifier.value = "SL-2026-778812"                        // row 52
-* period.start = "2026-02-08"                                // row 53
-* period.end = "2026-02-20"                                  // row 54
+* identifier.value = "SL-2026-778812"
+* status = #completed
+* intent = #plan
+* category = SickLeaveCategoryCS#mserv-0005-00001 "Sick Leave Certificate"
+* subject = Reference(urn:uuid:00300002-0000-0000-0000-000000000000)
+* created = "2026-02-08"
+* period.start = "2026-02-08"
+* period.end = "2026-02-20"
+* contributor = Reference(urn:uuid:00300011-0000-0000-0000-000000000000)
+* custodian = Reference(urn:uuid:00300004-0000-0000-0000-000000000000)
+* addresses[reason].concept = CarePlanReasonCS#emdoc-0001-0001 "disease"
+* extension[workflowStatus].valueCode = #completed
 
 Instance: obs-003-prev-hospitalizations
 InstanceOf: UZCoreObservation

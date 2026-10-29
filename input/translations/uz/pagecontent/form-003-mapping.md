@@ -293,9 +293,11 @@ Ertalabki va kechqurungi o'lchovlar bir xil LOINC kuzatuvi bo'lib, `Observation.
 
 | UZ | RU | FHIR yo'li | Kod | Misol |
 |----|----|------------|------|---------|
-| Mehnatga yaroqsizlik varog'i raqami | Идентификатор больничного листа | CarePlan.identifier (referenced Sick Leave CarePlan) | - | SL-2026-778812 |
+| Mehnatga yaroqsizlik varog'i raqami | Идентификатор больничного листа | [SickLeaveCarePlan](StructureDefinition-sick-leave-careplan.html).identifier | `system` `https://dhp.uz/fhir/core/sid/doc/uz/sickleave` | SL-2026-778812 |
 | Ochilgan sana | Дата открытия | CarePlan.period.start | - | 2026-02-08 |
 | Yopilgan sana | Дата закрытия | CarePlan.period.end | - | 2026-02-20 |
+| Varaqa turi | Вид листка нетрудоспособности | CarePlan.category | [Sick Leave Category](CodeSystem-sick-leave-category-cs.html) | `mserv-0005-00001` "Sick Leave Certificate" |
+| Mehnatga layoqatsizlik sababi | Причина нетрудоспособности | CarePlan.addresses[reason].concept | [Care Plan Reason](CodeSystem-care-plan-reason-cs.html) | `emdoc-0001-0001` "disease" |
 
 ---
 
@@ -345,7 +347,7 @@ Bundle (hujjat)
 ├── Procedure[] (operatsiya, anesteziya, boshqa davolash turlari)
 ├── MedicationRequest[] / MedicationAdministration[] (buyuruvlar varaqasi)
 ├── Coverage (dori / moliyalashtirish manbai)
-├── CarePlan[] (shifokor tavsiyalari, mehnatga layoqatsizlik varog'iga havola)
+├── CarePlan[] (shifokor tavsiyalari, mehnatga layoqatsizlik varaqalari)
 └── Provenance[] (imzolar, yozuv muallifligi)
 ```
 

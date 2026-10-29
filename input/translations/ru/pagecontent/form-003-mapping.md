@@ -293,9 +293,11 @@
 
 | UZ | RU | Путь FHIR | Код | Пример |
 |----|----|------------|------|---------|
-| Mehnatga yaroqsizlik varog'i raqami | Идентификатор больничного листа | CarePlan.identifier (referenced Sick Leave CarePlan) | - | SL-2026-778812 |
+| Mehnatga yaroqsizlik varog'i raqami | Идентификатор больничного листа | [SickLeaveCarePlan](StructureDefinition-sick-leave-careplan.html).identifier | `system` `https://dhp.uz/fhir/core/sid/doc/uz/sickleave` | SL-2026-778812 |
 | Ochilgan sana | Дата открытия | CarePlan.period.start | - | 2026-02-08 |
 | Yopilgan sana | Дата закрытия | CarePlan.period.end | - | 2026-02-20 |
+| Varaqa turi | Вид листка нетрудоспособности | CarePlan.category | [Sick Leave Category](CodeSystem-sick-leave-category-cs.html) | `mserv-0005-00001` "Sick Leave Certificate" |
+| Mehnatga layoqatsizlik sababi | Причина нетрудоспособности | CarePlan.addresses[reason].concept | [Care Plan Reason](CodeSystem-care-plan-reason-cs.html) | `emdoc-0001-0001` "disease" |
 
 ---
 
@@ -345,7 +347,7 @@ Bundle (документ)
 ├── Procedure[] (операция, анестезия, другие виды лечения)
 ├── MedicationRequest[] / MedicationAdministration[] (лист назначений)
 ├── Coverage (источник лекарств / финансирования)
-├── CarePlan[] (рекомендации врача, ссылка на больничный лист)
+├── CarePlan[] (рекомендации врача, листки нетрудоспособности)
 └── Provenance[] (подписи, авторство записи)
 ```
 

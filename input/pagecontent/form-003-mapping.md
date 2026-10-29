@@ -291,9 +291,11 @@ Morning and evening measurements are the same LOINC observation distinguished by
 
 | UZ | RU | FHIR Path | Code | Example |
 |----|----|------------|------|---------|
-| Mehnatga yaroqsizlik varog'i raqami | Идентификатор больничного листа | CarePlan.identifier (referenced Sick Leave CarePlan) | - | SL-2026-778812 |
+| Mehnatga yaroqsizlik varog'i raqami | Идентификатор больничного листа | [SickLeaveCarePlan](StructureDefinition-sick-leave-careplan.html).identifier | `system` `https://dhp.uz/fhir/core/sid/doc/uz/sickleave` | SL-2026-778812 |
 | Ochilgan sana | Дата открытия | CarePlan.period.start | - | 2026-02-08 |
 | Yopilgan sana | Дата закрытия | CarePlan.period.end | - | 2026-02-20 |
+| Varaqa turi | Вид листка нетрудоспособности | CarePlan.category | [Sick Leave Category](CodeSystem-sick-leave-category-cs.html) | `mserv-0005-00001` "Sick Leave Certificate" |
+| Mehnatga layoqatsizlik sababi | Причина нетрудоспособности | CarePlan.addresses[reason].concept | [Care Plan Reason](CodeSystem-care-plan-reason-cs.html) | `emdoc-0001-0001` "disease" |
 
 ---
 
@@ -343,7 +345,7 @@ Bundle (document)
 ├── Procedure[] (surgery, anaesthesia, other treatments)
 ├── MedicationRequest[] / MedicationAdministration[] (medication sheet)
 ├── Coverage (source of medicines / funding)
-├── CarePlan[] (doctor recommendations, referenced sick leave)
+├── CarePlan[] (doctor recommendations, sick-leave certificates)
 └── Provenance[] (signatures, record authorship)
 ```
 
