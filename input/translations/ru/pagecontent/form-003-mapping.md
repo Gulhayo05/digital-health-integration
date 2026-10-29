@@ -94,13 +94,18 @@
 
 | UZ | RU | Путь FHIR | Код | Пример |
 |----|----|------------|------|---------|
-| Ish joyi | Место работы | Observation.valueString | LOINC `80427-8` "Employer name [Identifier]", as in Form 111 | - |
 | Kasbi yoki lavozimi | Профессия или должность | [UZCoreSocioeconomicObservation](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-socioeconomic-observation.html).valueCodeableConcept | Position and Profession VS | Car mechanic |
 | O'qish joyi | Место учёбы | UZCoreSocioeconomicObservation.valueString | - | - |
 | Bolalar muassasasi | Детское учреждение | UZCoreSocioeconomicObservation.valueString | - | - |
 | Nogironlik turi | Вид инвалидности | UZCoreSocioeconomicObservation.valueCodeableConcept | Benefits VS | - |
 | Nogironlik guruhi | Группа инвалидности | UZCoreSocioeconomicObservation.valueCodeableConcept | Disability Levels VS | - |
 | Urush nogironi | Инвалид войны | UZCoreSocioeconomicObservation.valueCodeableConcept | [Benefits](https://dhp.uz/fhir/core/en/CodeSystem-benefits-cs.html) `regis0004.00004` | Disabled persons and war participants of 1941-1945 |
+
+Место работы - не социально-экономическое наблюдение, поэтому это обычный Observation, как в форме 111:
+
+| UZ | RU | Путь FHIR | Код | Пример |
+|----|----|------------|------|---------|
+| Ish joyi | Место работы | Observation.valueString | LOINC `80427-8` "Employer name [Identifier]" | - |
 
 ---
 
