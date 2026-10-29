@@ -124,6 +124,8 @@ Title: "Form 003 - Inpatient medical record card"
 * entry[=].resource = obs-003-work-capacity
 * entry[+].fullUrl  = "urn:uuid:00300058-0000-0000-0000-000000000000"
 * entry[=].resource = obs-003-treatment-outcome
+* entry[+].fullUrl  = "urn:uuid:00300060-0000-0000-0000-000000000000"
+* entry[=].resource = obs-003-complaints
 * entry[+].fullUrl  = "urn:uuid:00300059-0000-0000-0000-000000000000"
 * entry[=].resource = provenance-003-signature
 
@@ -184,7 +186,8 @@ Usage: #inline
 
 * section[primaryExamination].title = "Primary Examination Sheet"
 * section[=].code = $loinc#34117-2 "History and physical note"
-* section[=].entry[0] = Reference(urn:uuid:00300028-0000-0000-0000-000000000000)
+* section[=].entry[0] = Reference(urn:uuid:00300060-0000-0000-0000-000000000000)
+* section[=].entry[+] = Reference(urn:uuid:00300028-0000-0000-0000-000000000000)
 * section[primaryExamination].section[anamnesis].title = "Anamnesis"
 * section[primaryExamination].section[anamnesis].code = $loinc#11329-0
 * section[primaryExamination].section[anamnesis].text.status = #generated
@@ -564,9 +567,19 @@ Usage: #inline
 * code.coding = $icd10#J18.9 "Pneumonia, unspecified"
 * subject = Reference(urn:uuid:00300002-0000-0000-0000-000000000000)
 * encounter = Reference(urn:uuid:00300003-0000-0000-0000-000000000000)
+
+Instance: obs-003-complaints
+InstanceOf: UZCoreObservation
+Usage: #inline
+* status = #final
+* code = $loinc#8661-1 "Chief complaint - Reported"
+* code.text = "Shikoyatlar"
+* subject = Reference(urn:uuid:00300002-0000-0000-0000-000000000000)
+* encounter = Reference(urn:uuid:00300003-0000-0000-0000-000000000000)
+* effectivePeriod.start = "2026-02-04T20:00:00+05:00"                // row 75
+* valueString = "Cough, fever, dyspnoea"
 * bodySite = $sct#266005 "Structure of lower lobe of right lung"   // row 73
 * note.text = "Acute onset, productive cough"                        // row 74
-* onsetDateTime = "2026-02-04T20:00:00+05:00"                        // row 75
 
 Instance: condition-003-final-main
 InstanceOf: UZCoreCondition

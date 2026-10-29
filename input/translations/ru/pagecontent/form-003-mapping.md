@@ -139,10 +139,10 @@
 |----|----|------------|------|---------|
 | Bemorni tekshirish sanasi va vaqti | Дата и время осмотра пациента | Composition.date | - | 2026-02-08T10:15:00+05:00 |
 | Bemorning yoshi | Возраст пациента | derived from Patient.birthDate and Composition.date | - | 35 |
-| Shikoyatlar / Boshqa shikoyatlar | Жалобы / Другие жалобы | Encounter.reason.value → Condition.code, one Condition per complaint | [Condition Code](https://dhp.uz/fhir/core/en/ValueSet-condition-code-vs.html) (SNOMED CT clinical finding) | `49727002` "Cough", `386661006` "Fever", `267036007` "Dyspnea" |
-| Joylashuvi | Локализация | Condition.bodySite | SNOMED CT `266005` "Structure of lower lobe of right lung" | Right lower lobe |
-| Xususiyati | Характер | Condition.note.text | free text | Acute onset, productive cough |
-| Og'riqli xuruj boshlanishi | Начало приступа | Condition.onsetDateTime | - | 2026-02-04T20:00:00+05:00 |
+| Shikoyatlar / Boshqa shikoyatlar | Жалобы / Другие жалобы | Observation.valueString | LOINC `8661-1` "Chief complaint - Reported" | Cough, fever, dyspnoea |
+| Joylashuvi | Локализация | Observation.bodySite | SNOMED CT `266005` "Structure of lower lobe of right lung" | Right lower lobe |
+| Xususiyati | Характер | Observation.note.text | free text | Acute onset, productive cough |
+| Og'riqli xuruj boshlanishi | Начало приступа | Observation.effectivePeriod.start | - | 2026-02-04T20:00:00+05:00 |
 | Anamnez | Анамнез | section[anamnesis].text | LOINC `11329-0` "History general Narrative - Reported" | narrative |
 | Umumiy hozirgi holat | Общее текущее состояние | section[statusPraesens].text | LOINC `10210-3` "Physical findings of General status Narrative" | narrative |
 | Mahalliy holat | Местное состояние | section[statusLocalis].text | [CHR-003 Section](CodeSystem-form-003-section-cs.html) `status-localis` "Status localis" | narrative |
