@@ -299,7 +299,7 @@ Ertalabki va kechqurungi o'lchovlar bir xil LOINC kuzatuvi bo'lib, `Observation.
 
 ### O'limdan keyingi tibbiy xulosa
 
-Faqat o'lim yuz berganda mavjud bo'ladi. O'lim sabablari ham xuddi shunday: O'limning bevosita sababi → `immediate-cause-of-death`, uni keltirib chiqargan kasallik → `underlying-cause-of-death`, Asosiy kasallik → `main-disease-death`, Boshqa muhim kasalliklar → `other-significant-death`.
+Faqat o'lim yuz berganda mavjud bo'ladi. Har bir o'lim sababi - bitta Condition, uning roli `Condition.category`da [Diagnosis Role](CodeSystem-diagnosis-role-integration.html) kodi bilan ko'rsatiladi, Condition esa [Composition'ning shu rolga mos quyi bo'limiga](StructureDefinition-form-003-inpatient-medical-record-composition.html#k-Composition.section:postmortemConclusion) qo'yiladi: O'limning bevosita sababi → `immediate-cause-of-death`, uni keltirib chiqargan kasallik → `underlying-cause-of-death`, Asosiy kasallik → `main-disease-death`, Boshqa muhim kasalliklar → `other-significant-death`.
 
 | UZ | RU | FHIR yo'li | Kod | Misol |
 |----|----|------------|------|---------|

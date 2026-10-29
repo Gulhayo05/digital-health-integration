@@ -299,7 +299,7 @@
 
 ### Посмертное медицинское заключение
 
-Присутствует только при летальном исходе. Причины смерти - так же: Непосредственная причина смерти → `immediate-cause-of-death`, вызвавшее её заболевание → `underlying-cause-of-death`, Основное заболевание → `main-disease-death`, Другие значимые заболевания → `other-significant-death`.
+Присутствует только при летальном исходе. Каждая причина смерти - это один Condition, его роль указывается в `Condition.category` кодом из [Diagnosis Role](CodeSystem-diagnosis-role-integration.html), а сам Condition кладётся в [подраздел Composition](StructureDefinition-form-003-inpatient-medical-record-composition.html#k-Composition.section:postmortemConclusion) для этой роли: Непосредственная причина смерти → `immediate-cause-of-death`, вызвавшее её заболевание → `underlying-cause-of-death`, Основное заболевание → `main-disease-death`, Другие значимые заболевания → `other-significant-death`.
 
 | UZ | RU | Путь FHIR | Код | Пример |
 |----|----|------------|------|---------|

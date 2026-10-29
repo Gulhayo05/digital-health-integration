@@ -297,7 +297,7 @@ Morning and evening measurements are the same LOINC observation distinguished by
 
 ### Post-mortem Conclusion
 
-Present only when the patient died. Causes of death work the same way: Immediate cause of death → `immediate-cause-of-death`, the disease that led to it → `underlying-cause-of-death`, Main disease → `main-disease-death`, Other significant diseases → `other-significant-death`.
+Present only when the patient died. Each cause of death is one Condition, with its role in `Condition.category` as a [Diagnosis Role](CodeSystem-diagnosis-role-integration.html) code, in the [Composition sub-section](StructureDefinition-form-003-inpatient-medical-record-composition.html#k-Composition.section:postmortemConclusion) for that role: Immediate cause of death → `immediate-cause-of-death`, the disease that led to it → `underlying-cause-of-death`, Main disease → `main-disease-death`, Other significant diseases → `other-significant-death`.
 
 | UZ | RU | FHIR Path | Code | Example |
 |----|----|------------|------|---------|
