@@ -81,6 +81,7 @@ For a complete reference instance, see the [Form 003 inpatient medical record ex
 | Nojo'ya ta'sirining ko'rinishi | Проявление побочного действия | AllergyIntolerance.reaction.manifestation.concept.text | free text | Generalised urticaria |
 | Yaqin qarindoshning yashash joyi | Место жительства близких родственников | [RelatedPerson](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-relatedperson.html).address | - | Toshkent, Yunusobod |
 | Yaqin qarindoshning telefon raqami | Номер телефона близких родственников | RelatedPerson.telecom[phone].value | - | +998901112233 |
+| Ish joyi | Место работы | Observation.valueString | LOINC `80427-8` "Employer name [Identifier]" | - |
 
 > Row 24 (Ro'yxatga olingan manzil / Адрес по прописке) is not present on the official paper form and is omitted from the profile.
 
@@ -98,12 +99,6 @@ Rows 27-32 of the paper form are a single choice field. Each recorded variant is
 | Nogironlik turi | Вид инвалидности | UZCoreSocioeconomicObservation.valueCodeableConcept | Benefits VS | - |
 | Nogironlik guruhi | Группа инвалидности | UZCoreSocioeconomicObservation.valueCodeableConcept | Disability Levels VS | - |
 | Urush nogironi | Инвалид войны | UZCoreSocioeconomicObservation.valueCodeableConcept | [Benefits](https://dhp.uz/fhir/core/en/CodeSystem-benefits-cs.html) `regis0004.00004` | Disabled persons and war participants of 1941-1945 |
-
-Workplace is not a socioeconomic observation, so it is a plain Observation, as in Form 111:
-
-| UZ | RU | FHIR Path | Code | Example |
-|----|----|------------|------|---------|
-| Ish joyi | Место работы | Observation.valueString | LOINC `80427-8` "Employer name [Identifier]" | - |
 
 ---
 

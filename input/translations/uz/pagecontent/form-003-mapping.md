@@ -83,6 +83,7 @@ To'liq namunaviy nusxa uchun [003-shakl statsionar bemorning tibbiy kartasi miso
 | Nojo'ya ta'sirining ko'rinishi | Проявление побочного действия | AllergyIntolerance.reaction.manifestation.concept.text | free text | Generalised urticaria |
 | Yaqin qarindoshning yashash joyi | Место жительства близких родственников | [RelatedPerson](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-relatedperson.html).address | - | Toshkent, Yunusobod |
 | Yaqin qarindoshning telefon raqami | Номер телефона близких родственников | RelatedPerson.telecom[phone].value | - | +998901112233 |
+| Ish joyi | Место работы | Observation.valueString | LOINC `80427-8` "Employer name [Identifier]" | - |
 
 > Rasmiy qog'oz shaklda ro'yxatga olingan manzil (Ro'yxatga olingan manzil / Адрес по прописке) uchun alohida maydon yo'q, shuning uchun u profildan chiqarilgan.
 
@@ -100,12 +101,6 @@ Qog'oz shaklning 27-32-qatorlari bitta tanlov maydonidir. Har bir to'ldirilgan v
 | Nogironlik turi | Вид инвалидности | UZCoreSocioeconomicObservation.valueCodeableConcept | Benefits VS | - |
 | Nogironlik guruhi | Группа инвалидности | UZCoreSocioeconomicObservation.valueCodeableConcept | Disability Levels VS | - |
 | Urush nogironi | Инвалид войны | UZCoreSocioeconomicObservation.valueCodeableConcept | [Benefits](https://dhp.uz/fhir/core/en/CodeSystem-benefits-cs.html) `regis0004.00004` | Disabled persons and war participants of 1941-1945 |
-
-Ish joyi ijtimoiy-iqtisodiy kuzatuv emas, shuning uchun u 111-shakldagi kabi oddiy Observation:
-
-| UZ | RU | FHIR yo'li | Kod | Misol |
-|----|----|------------|------|---------|
-| Ish joyi | Место работы | Observation.valueString | LOINC `80427-8` "Employer name [Identifier]" | - |
 
 ---
 
