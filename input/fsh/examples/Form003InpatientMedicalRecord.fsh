@@ -730,7 +730,7 @@ Instance: procedure-003-anesthesia
 InstanceOf: Procedure
 Usage: #inline
 * status = #completed
-* code = $sct#386761002 "Local anaesthesia"                  // row 48 - SNOMED via procedure-code-vs; "combined" would use chr-003-anesthesia-method-cs#combined
+* code = $sct#386761002 "Local anesthesia"                   // row 48 - anesthesia-method-vs
 * subject = Reference(urn:uuid:00300002-0000-0000-0000-000000000000)
 * encounter = Reference(urn:uuid:00300003-0000-0000-0000-000000000000)
 * occurrencePeriod.start = "2026-02-10T11:15:00+05:00"

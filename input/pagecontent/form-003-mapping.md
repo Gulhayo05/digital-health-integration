@@ -199,7 +199,7 @@ Each diagnosis is one Condition. Its role goes in `Condition.category` as a [Dia
 |----|----|------------|------|---------|
 | Jarrohlik operatsiyasi nomi | Наименование хирургической операции | [Procedure](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-procedure.html).code | [Procedure Code](https://dhp.uz/fhir/core/en/ValueSet-procedure-code-vs.html) | `91602002` "Thoracentesis" |
 | Jarrohlik operatsiyasi sanasi va vaqti | Дата и время хирургической операции | Procedure.occurrenceDateTime | - | 2026-02-10T11:30:00+05:00 |
-| Og'riqsizlantirish usullari | Метод анестезии | separate Procedure.code (coding XOR text) | SNOMED CT `27372005` "Regional anesthesia"<br>`386761002` "Local anesthesia"<br>`18946005` "Epidural anesthesia"<br>`231249005` "Spinal anesthesia"<br>`78432000` "Intravenous anesthesia"<br>`50697003` "Administration of general anesthetic"<br>`266802007` "Endotracheal anesthesia"<br>`288185006` "Inhalation general anesthesia"<br> local [Anesthesia Method](CodeSystem-anesthesia-method-cs.html) `chr-0041-0001` "Combined anesthesia" | Local anaesthesia |
+| Og'riqsizlantirish usullari | Метод анестезии | separate Procedure.code (coding XOR text) | [Anesthesia Method](ValueSet-anesthesia-method-vs.html) | `386761002` "Local anesthesia" |
 | Operatsiyadan keyingi asoratlar | Послеоперационные осложнения | Procedure.complication / Condition | SNOMED CT / ICD-10 | - |
 | Shifokor F.I.Sh. | ФИО врача-хирурга | Procedure.performer.actor → PractitionerRole | - | Rasulov B.B. |
 | Boshqa davolash turlari nomi | Наименование других видов лечения | Procedure.code | [Procedure Code](https://dhp.uz/fhir/core/en/ValueSet-procedure-code-vs.html) | - |
