@@ -1,4 +1,4 @@
-CodeSystem: Form 003ObservationCodeCS
+CodeSystem: Form003ObservationCodeCS
 Id: form-003-observation-code-cs
 Title: "Form 003 Observation Code"
 Description: "Local Observation.code identifiers for observations that have no suitable LOINC or SNOMED CT code, Form 003 inpatient medical record."

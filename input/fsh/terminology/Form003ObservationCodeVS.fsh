@@ -1,4 +1,4 @@
-ValueSet: Form 003ObservationCodeVS
+ValueSet: Form003ObservationCodeVS
 Id: form-003-observation-code-vs
 Title: "Form 003 Observation Code ValueSet"
 Description: "ValueSet for local Form 003 Observation.code identifiers."

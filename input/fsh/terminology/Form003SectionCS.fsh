@@ -1,4 +1,4 @@
-CodeSystem: Form 003SectionCS
+CodeSystem: Form003SectionCS
 Id: form-003-section-cs
 Title: "Form 003 Composition Section Codes"
 Description: "Local codes for the top-level sections of the Form 003 inpatient medical record Composition that have no suitable LOINC concept."

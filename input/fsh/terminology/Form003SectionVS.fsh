@@ -1,4 +1,4 @@
-ValueSet: Form 003SectionVS
+ValueSet: Form003SectionVS
 Id: form-003-section-vs
 Title: "Form 003 Composition Section Codes ValueSet"
 Description: "ValueSet for the local Form 003 inpatient medical record Composition section codes."
