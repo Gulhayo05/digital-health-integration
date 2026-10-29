@@ -11,7 +11,7 @@
 
 ### Form 003 - Inpatient Medical Record Card
 
-This page documents the mapping between Form 003 (Statsionar bemorning tibbiy kartasi / Медицинская карта стационарного больного) fields and FHIR resources.
+This page documents the mapping between [Form 003](forms-volume-01-inpatient.html) (Statsionar bemorning tibbiy kartasi / Медицинская карта стационарного больного) fields and FHIR resources.
 
 ---
 

@@ -13,7 +13,7 @@
 
 ### 003-shakl - Statsionar bemorning tibbiy kartasi
 
-Ushbu sahifada 003-shakl (Statsionar bemorning tibbiy kartasi / Медицинская карта стационарного больного) maydonlarining FHIR resurslari bilan moslashtirilishi tavsiflanadi.
+Ushbu sahifada [003-shakl](forms-volume-01-inpatient.html) (Statsionar bemorning tibbiy kartasi / Медицинская карта стационарного больного) maydonlarining FHIR resurslari bilan moslashtirilishi tavsiflanadi.
 
 ---
 
