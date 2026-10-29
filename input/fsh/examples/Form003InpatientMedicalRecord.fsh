@@ -122,8 +122,6 @@ Title: "Form 003 - Inpatient medical record card"
 * entry[=].resource = obs-003-prev-hospitalizations
 * entry[+].fullUrl  = "urn:uuid:00300057-0000-0000-0000-000000000000"
 * entry[=].resource = obs-003-work-capacity
-* entry[+].fullUrl  = "urn:uuid:00300058-0000-0000-0000-000000000000"
-* entry[=].resource = obs-003-treatment-outcome
 * entry[+].fullUrl  = "urn:uuid:00300060-0000-0000-0000-000000000000"
 * entry[=].resource = obs-003-complaints
 * entry[+].fullUrl  = "urn:uuid:00300059-0000-0000-0000-000000000000"
@@ -273,7 +271,6 @@ Usage: #inline
 * section[=].code = $loinc#8650-4 "Hospital discharge disposition note"
 * section[=].entry[0] = Reference(urn:uuid:00300003-0000-0000-0000-000000000000)
 * section[=].entry[+] = Reference(urn:uuid:00300057-0000-0000-0000-000000000000)
-* section[=].entry[+] = Reference(urn:uuid:00300058-0000-0000-0000-000000000000)
 * section[treatmentOutcome].section[expertiseReferralConclusion].title = "Conclusion for referral to expertise"
 * section[treatmentOutcome].section[expertiseReferralConclusion].code = form-003-section-cs#expertise-referral-conclusion
 * section[treatmentOutcome].section[expertiseReferralConclusion].text.status = #generated
@@ -367,6 +364,7 @@ Usage: #inline
 * admission.origin = Reference(urn:uuid:00300005-0000-0000-0000-000000000000)       // row 33
 * admission.admitSource = https://terminology.dhp.uz/fhir/core/CodeSystem/admit-source-local-cs#mserv-0006-00004 "Emergency medical service"  // row 71
 * admission.reAdmission = https://terminology.dhp.uz/fhir/core/CodeSystem/re-admission-local-cs#first-time "First time"                        // row 43
+* subjectStatus = $encounter-local-subject-status-cs#loc-cs-002 "Improved"
 * admission.dischargeDisposition = https://terminology.dhp.uz/fhir/core/CodeSystem/encounter-discharge-disposition-home-cs#mserv-0004-00004 "Discharged"  // row 55
 * location[0].location = Reference(urn:uuid:00300006-0000-0000-0000-000000000000)   // row 8 ward
 * location[0].period.start = "2026-02-08T10:00:00+05:00"
@@ -907,16 +905,6 @@ Usage: #inline
 * encounter = Reference(urn:uuid:00300003-0000-0000-0000-000000000000)
 * effectiveDateTime = "2026-02-18T08:30:00+05:00"
 * valueCodeableConcept = https://terminology.dhp.uz/fhir/integrations/CodeSystem/work-capacity-status-cs#chr-0036-0001 "Work capacity fully restored"
-
-Instance: obs-003-treatment-outcome
-InstanceOf: UZCoreObservation
-Usage: #inline
-* status = #final
-* code = $sct#12386002 "Patient status determination"       // row 58 - clinical-outcome question
-* subject = Reference(urn:uuid:00300002-0000-0000-0000-000000000000)
-* encounter = Reference(urn:uuid:00300003-0000-0000-0000-000000000000)
-* effectiveDateTime = "2026-02-18T08:30:00+05:00"
-* valueCodeableConcept = $sct#268910001 "Patient's condition improved"   // row 58 clinical-outcome axis
 
 Instance: provenance-003-signature
 InstanceOf: UZCoreProvenance

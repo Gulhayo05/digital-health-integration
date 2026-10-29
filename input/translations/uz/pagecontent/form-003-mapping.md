@@ -280,7 +280,7 @@ Ertalabki va kechqurungi o'lchovlar bir xil LOINC kuzatuvi bo'lib, `Observation.
 | UZ | RU | FHIR yo'li | Kod | Misol |
 |----|----|------------|------|---------|
 | Davolash natijasi (chiqarish) | Результат лечения (выписка) | Encounter.admission.dischargeDisposition | [Discharge Disposition Home](https://dhp.uz/fhir/core/en/CodeSystem-encounter-discharge-disposition-home-cs.html) | `mserv-0004-00004` "Discharged" |
-| Davolash natijasi (klinik holat) | Результат лечения (клинический исход) | Observation.valueCodeableConcept | SNOMED CT `370996005` "Patient condition resolved" / `268910001` "Patient's condition improved" / `359748005` "Patient condition unchanged" / `275723000` "Patient's condition deteriorating" | Patient's condition improved |
+| Davolash natijasi (klinik holat) | Результат лечения (клинический исход) | Encounter.subjectStatus | [Patient status when receiving care inpatient](https://dhp.uz/fhir/core/en/CodeSystem-encounter-local-subject-status-cs.html) | `loc-cs-002` "Improved" |
 | Vafot etish holati | Контекст смерти | Observation.valueCodeableConcept | `code` [Form 003 Observation Code](CodeSystem-form-003-observation-code-cs.html) `death-context` "Death context"<br>`value` [Death Context](ValueSet-death-context-vs.html) | - |
 | Boshqa muassasaga o'tkazilgan | Переведён в другое учреждение | Encounter.admission.destination → Organization | - | - |
 | Ish qobiliyatining holati | Состояние трудоспособности | Observation.valueCodeableConcept | [Work Capacity Status](CodeSystem-work-capacity-status-cs.html) | `chr-0036-0001` "Work capacity fully restored" |
@@ -337,7 +337,7 @@ Bundle (hujjat)
 ├── Practitioner[] (davolovchi shifokor, bo'lim boshlig'i, bosh shifokor muovini)
 ├── PractitionerRole[] (mas'ul shaxslar)
 ├── Condition[] (yo'llanma, qabul, tahminiy va yakuniy tashxislar)
-├── Observation[] (hayotiy ko'rsatkichlar, qon guruhi, ijtimoiy-iqtisodiy, qabulda tekshiruv, harorat jadvali, natija)
+├── Observation[] (hayotiy ko'rsatkichlar, qon guruhi, ijtimoiy-iqtisodiy, qabulda tekshiruv, harorat jadvali, mehnat qobiliyati)
 ├── AllergyIntolerance (dori reaksiyasi)
 ├── RelatedPerson (yaqin qarindosh)
 ├── DiagnosticReport[] (laboratoriya va instrumental tekshiruvlar)
