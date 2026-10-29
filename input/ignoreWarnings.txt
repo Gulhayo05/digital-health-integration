@@ -61,28 +61,3 @@ Unable to expand included value set 'http://hl7.org/fhir/ValueSet/body-site': Th
 Unable to check if https://terminology.dhp.uz/fhir/integrations/ValueSet/cancer-body-location-vs is a proper subset of https://terminology.dhp.uz/fhir/core/ValueSet/body-site-vs|%
 
 The Target Code System http://snomed.info/sct is not fully defined and populated, and no targetScope is specified, so the target code checking will not be performed
-
-# procedure-code-vs cannot be expanded because the external terminology server
-# does not have the required procedure-code-cs supplement, and the underlying
-# value set is too large (>10000 codes) for tx.fhir.org to expand.
-Unable to expand included value set 'https://terminology.dhp.uz/fhir/core/ValueSet/procedure-code-vs': Required supplement not found: https://terminology.dhp.uz/fhir/core/CodeSystem/procedure-code-cs|2026.1.0%
-
-# IG Publisher 3.0.0 generates the narrative of a canonical resource example once per IG language
-# (en, ru, uz) and gives each copy the same "metadata" anchor, then flags its own output.
-The XHTML  the resource contains more than one node for each of the following node ids and anchor names: metadata (3x)
-
-# form111-general-observation-code-vs excludes the deprecated perinatal risk duplicates on purpose:
-# they keep their meanings for existing senders, new data uses chr-0027-00005/00006.
-The concept 'chr-0035-00022' is deprecated and its use should be reviewed
-The concept 'chr-0035-00023' is deprecated and its use should be reviewed
-
-# UZ Core 0.11.1 explicitly depends on extensions.r5 5.3.0 (pinned in sushi-config.yaml).
-# Keep the same version so translation extensions do not resolve against two releases.
-# Review this exact advisory when upgrading UZ Core; do not suppress other dependency warnings.
-The ImplementationGuide uses package hl7.fhir.uv.extensions.r5#5.3.0 released on 2026-05-16, but the most recent appropriate version is 5.4.0. This reference is getting old and the more recent version should be considered
-
-# The cancer-registry ICD-10 ConceptMap targets the whole ICD-10 code system, which this build
-# cannot load. Declaring targetScope = ValueSet/icd-10 does not help: the Publisher then reports
-# every target code (12,000+ lines) as "cannot be checked due to special rules". Only this
-# coverage advisory is suppressed; it does not mean the mapped codes passed validation.
-The Target Code System http://hl7.org/fhir/sid/icd-10 is not fully defined and populated, and no targetScope is specified, so the target code checking will not be performed
