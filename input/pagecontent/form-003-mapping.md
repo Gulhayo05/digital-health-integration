@@ -72,7 +72,7 @@ For a complete reference instance, see the [Form 003 inpatient medical record ex
 | Bemorning jinsi | Пол пациента | Patient.gender | AdministrativeGender | male |
 | Bemorning tibbiy karta raqami | Номер медицинской карты | Patient.identifier[healthCardId].value | - | HC-2026-00042 |
 | Bemorning yashash joyi | Место жительства пациента | Patient.address:uzAddress (use = home) | - | Toshkent, Yunusobod, 12-mavze, 15-uy |
-| Qon guruhi | Группа крови | Observation.valueCodeableConcept where code = LOINC `883-9` | LOINC answers, e.g. `LA19710-5` "Group A" | Group A |
+| Qon guruhi | Группа крови | [Observation](https://dhp.uz/fhir/core/en/StructureDefinition-uz-core-observation.html).valueCodeableConcept where code = LOINC `883-9` | LOINC answers, e.g. `LA19710-5` "Group A" | Group A |
 | Rezus mansubligi | Резус-фактор | Observation.valueCodeableConcept where code = LOINC `10331-7` | LOINC answers `LA6576-8` / `LA6577-6` | Positive |
 | Bemorning bo'yi | Рост пациента | Observation.valueQuantity | LOINC `8302-2` "Body height" | 178 cm |
 | Bemorning vazni | Вес пациента | Observation.valueQuantity | LOINC `29463-7` "Body weight" | 82 kg |
