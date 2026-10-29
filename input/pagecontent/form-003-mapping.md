@@ -137,7 +137,7 @@ The combined "осмотр при поступлении" block expands to one r
 |----|----|------------|------|---------|
 | Bemorni tekshirish sanasi va vaqti | Дата и время осмотра пациента | Composition.date | - | 2026-02-08T10:15:00+05:00 |
 | Bemorning yoshi | Возраст пациента | derived from Patient.birthDate and Composition.date | - | 35 |
-| Shikoyatlar / Boshqa shikoyatlar | Жалобы / Другие жалобы | Encounter.reason.value → Condition | SNOMED CT clinical finding | Cough, fever, dyspnoea |
+| Shikoyatlar / Boshqa shikoyatlar | Жалобы / Другие жалобы | Encounter.reason.value → Condition.code, one Condition per complaint | [Condition Code](https://dhp.uz/fhir/core/en/ValueSet-condition-code-vs.html), SNOMED CT clinical finding, e.g. `49727002` "Cough", `386661006` "Fever", `267036007` "Dyspnea" | Cough, fever, dyspnoea |
 | Joylashuvi | Локализация | Condition.bodySite | SNOMED CT `266005` "Structure of lower lobe of right lung" | Right lower lobe |
 | Xususiyati | Характер | Condition.note.text | free text | Acute onset, productive cough |
 | Og'riqli xuruj boshlanishi | Начало приступа | Condition.onsetDateTime | - | 2026-02-04T20:00:00+05:00 |
