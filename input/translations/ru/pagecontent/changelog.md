@@ -6,6 +6,8 @@
 
 [Форма 003 - медицинская карта стационарного больного](StructureDefinition-form-003-inpatient-medical-record-composition.html) профилирована как FHIR-документ, охватывающий административные и личные сведения, поступление, осмотр при поступлении, первичный осмотр, план и результаты обследования, диагнозы, операции, листы назначений и процедур, температурный лист, течение болезни, исход лечения, временную нетрудоспособность, патологоанатомическое заключение и ответственных лиц в 20 разделах Composition. Для неё есть пример документа-Bundle и [страница пополевого сопоставления](form-003-mapping.html).
 
+[Форма 044, медицинская справка для выезжающих за границу](StructureDefinition-form-044-travel-clearance-composition.html), описана как FHIR-документ: личные данные, перенесённые инфекционные заболевания, заключение комиссии о допуске к выезду со страной назначения и сроком командировки, место жительства и председатель и члены комиссии в 5 разделах Composition. В комплекте пример документа (Bundle) и [страница пополевого сопоставления](form-044-mapping.html).
+
 #### Изменено
 
 Composition для [Форма 011](StructureDefinition-form-011-hemodialysis-composition.html), [Форма 066](StructureDefinition-form-066-hospital-discharge-composition.html), [Форма 066-1](StructureDefinition-form-066-1-psychiatric-discharge-composition.html) и [Форма 130](StructureDefinition-form-130-laboratory-test-results-composition.html) больше не фиксируют `status` как `final`, поэтому документ может проходить [жизненный цикл](document-statuses.html) через `preliminary`, `amended` и `entered-in-error`.

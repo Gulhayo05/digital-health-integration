@@ -107,6 +107,12 @@ Description: "Categories for clinical documents and other knowledge resources in
   * ^designation[+].language = #ru
   * ^designation[=].value = "Выписка из медицинской карты больного"
 
+* #form-044 "Xorijga ketayotganlar uchun tibbiy ma'lumotnoma"
+  * ^designation[0].language = #en
+  * ^designation[=].value = "Medical certificate for travelers abroad"
+  * ^designation[+].language = #ru
+  * ^designation[=].value = "Медицинская справка для выезжающих за границу"
+
 * #form-096 "Tug'ruq tibbiy kartasi"
   * ^designation[0].language = #en
   * ^designation[=].value = "Birth medical record"

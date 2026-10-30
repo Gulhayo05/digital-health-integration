@@ -171,6 +171,24 @@ Usage: #definition
 * uniqueId[=].value = "https://dhp.uz/fhir/core/sid/doc/uz/antenatal-card-number"
 * uniqueId[=].preferred = true
 
+Instance: medical-certificate-number-system
+InstanceOf: NamingSystem
+Description: "Identifier system for medical certificate (tibbiy ma'lumotnoma) numbers in Uzbekistan"
+Usage: #definition
+* url = "https://terminology.dhp.uz/fhir/integrations/NamingSystem/medical-certificate-number-system"
+* name = "UzbekistanMedicalCertificateNumber"
+* status = #active
+* kind = #identifier
+* publisher = "Uzinfocom"
+* responsible = "Ministry of Health of the Republic of Uzbekistan"
+* date = "2026-10-29"
+* description = "Number printed on a medical certificate (tibbiy ma'lumotnoma, MA'LUMOTNOMA №), assigned by the issuing organization. The value starts with the form number (e.g., 044-2026-001), so certificates of different forms share this system without colliding."
+* jurisdiction = urn:iso:std:iso:3166#UZ "Uzbekistan"
+* usage = "Used in Composition.identifier[certificateNumber] for medical certificates such as Form 044"
+* uniqueId[0].type = #uri
+* uniqueId[=].value = "https://dhp.uz/fhir/core/sid/doc/uz/medical-certificate-number"
+* uniqueId[=].preferred = true
+
 Instance: sick-leave-number-system
 InstanceOf: NamingSystem
 Description: "Identifier system for sick leave certificate numbers (листок нетрудоспособности, ЛН) in Uzbekistan"

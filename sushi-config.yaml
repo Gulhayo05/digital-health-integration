@@ -110,6 +110,8 @@ pages:
     title: Form 011 Mapping
   form-027-mapping.md:
     title: Form 027 Mapping
+  form-044-mapping.md:
+    title: Form 044 Mapping
   form-066-mapping.md:
     title: Form 066 Mapping
   form-066-1-mapping.md:
@@ -176,6 +178,7 @@ menu:
     Form 003 Mapping: form-003-mapping.html
     Form 011 Mapping: form-011-mapping.html
     Form 027 Mapping: form-027-mapping.html
+    Form 044 Mapping: form-044-mapping.html
     Form 066 Mapping: form-066-mapping.html
     Form 066-1 Mapping: form-066-1-mapping.html
     Form 096 Mapping: form-096-mapping.html
