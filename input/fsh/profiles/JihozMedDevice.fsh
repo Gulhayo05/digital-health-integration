@@ -98,7 +98,7 @@ Usage: #example
 * name.value = "Видеоколоноскоп"
 * name.type = #user-friendly-name
 
-* type = $device-classification-cs#meq-0003-00006 "Колонофиброскопы"
+* type = $device-classification-cs#meq-0003-00006 "Kolonofibroskoplar"
 * type.text = "Приборы для эндоскопии — Колонофиброскопы"
 
 * owner = Reference(Organization/example-organization)
