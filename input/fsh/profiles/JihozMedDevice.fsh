@@ -80,12 +80,10 @@ Title: "Example JihozMed Device - Video Colonoscope"
 Description: "Example device card from JihozMed: a video colonoscope in operating condition, with its inventory numbers, classification, contract, invoice, price and funding source."
 Usage: #example
 
-* language = #ru
-
 * identifier[jihozmed].value = "10001922"
 * identifier[uzasbo].value = "22122230006286"
 
-* displayName = "Видеоколоноскоп"
+* displayName = "Video colonoscope"
 * status = #active
 * availabilityStatus = $device-availability-status#available
 
@@ -95,11 +93,11 @@ Usage: #example
 * serialNumber = "AOP188527"
 * modelNumber = "VC-100"
 
-* name.value = "Видеоколоноскоп"
+* name.value = "Video colonoscope"
 * name.type = #user-friendly-name
 
-* type = $device-classification-cs#meq-0003-00006 "Kolonofibroskoplar"
-* type.text = "Приборы для эндоскопии — Колонофиброскопы"
+* type = $device-classification-cs#meq-0003-00006 "Colonofiberscopes"
+* type.text = "Endoscopy Instruments — Colonofiberscopes"
 
 * owner = Reference(Organization/example-organization)
 * location = Reference(Location/example-location-1)
@@ -117,5 +115,5 @@ Usage: #example
 * extension[invoiceInfo].extension[document].valueAttachment.contentType = #application/pdf
 * extension[invoiceInfo].extension[document].valueAttachment.url = "https://example.org/jihozmed/invoices/INV-OLY-2024-001.pdf"
 * extension[price].valueMoney.value = 7431127
-* extension[fundingSource].valueCodeableConcept = FundingSourceCS#fund-0001-00012 "Грант"
+* extension[fundingSource].valueCodeableConcept = https://terminology.dhp.uz/fhir/core/CodeSystem/financing-source-cs#fnncl-0001-00012 "Grant"
 * extension[creationDate].valueDateTime = "2024-03-01T10:15:00+05:00"

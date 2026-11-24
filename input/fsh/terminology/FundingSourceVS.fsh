@@ -5,6 +5,7 @@ Description: "Sources of funds used to finance the acquisition of medical suppli
 * insert IntegrationsValueSet(funding-source-vs)
 
 * include codes from system funding-source-cs
+* include codes from system https://terminology.dhp.uz/fhir/core/CodeSystem/financing-source-cs
 
 * ^experimental = true
 * ^status = #draft
