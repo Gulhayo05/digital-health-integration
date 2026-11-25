@@ -1,5 +1,9 @@
 ### В разработке
 
+#### Добавлено
+
+[Ambulance Encounter](StructureDefinition-ambulance-encounter.html) на основе [UZ Core Encounter](https://dhp.uz/fhir/core/ru/StructureDefinition-uz-core-encounter.html) фиксирует вызов скорой медицинской помощи: номер карты вызова, пациента, ответственную организацию СМП, участников, повод вызова, фактический период, диагнозы, исход и место направления пациента, а также место вызова, с [примером](Encounter-example-ambulance-call-encounter.html). Страница [Ambulance](ambulance.html) сопоставляет с ним поля карты вызова. Номер карты вызова использует новую систему идентификаторов [номеров карт вызова СМП](NamingSystem-ambulance-call-card-number-system.html) `https://dhp.uz/fhir/core/sid/doc/uz/ambulance-call-card`.
+
 #### Изменено
 
 Страницы руководства оформлены в стиле [документации DHP для разработчиков](https://docs.dhp.uz/ru/): шрифты Onest и JetBrains Mono, зелёные цвета и логотип DHP, обновлённые шапка, меню, таблицы, примечания и блоки кода с кнопкой копирования. Меню темы в шапке переключает светлую, тёмную тему или тему как в системе.
