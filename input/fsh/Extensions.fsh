@@ -9,7 +9,7 @@ Context: Device
 * ^experimental = true
 * value[x] 1..1
 * value[x] only CodeableConcept
-* valueCodeableConcept from $iso-3166-2-vs (required)
+* valueCodeableConcept from $iso-3166-2-vs (extensible)
 
 Extension: DeviceManufacturerCountry
 Id: device-manufacturer-country
@@ -20,7 +20,7 @@ Context: Device
 * ^experimental = true
 * value[x] 1..1
 * value[x] only CodeableConcept
-* valueCodeableConcept from $iso-3166-2-vs (required)
+* valueCodeableConcept from $iso-3166-2-vs (extensible)
 
 Extension: DeviceInstallationDate
 Id: device-installation-date
